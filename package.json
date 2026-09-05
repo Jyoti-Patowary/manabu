@@ -6,15 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed:collections": "node scripts/seedCollections.cjs",
+    "scrape:jlpt-n3": "node scripts/jlptN3Scraper.js",
+    "seed:jlpt-sensei": "node scripts/seedJlptSensei.js",
+    "seed:jlpt-matome": "node scripts/seedJlptMatome.js"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "mongodb": "^7.6.0",
+    "mongoose": "^9.9.4",
     "next": "16.3.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/cheerio": "^0.22.35",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

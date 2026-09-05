@@ -1,0 +1,602 @@
+[
+  {
+    "kanji": "明かり",
+    "reading": "あかり",
+    "meaning": "light; illumination; glow; gleam",
+    "type": "Noun"
+  },
+  {
+    "kanji": "明ける",
+    "reading": "あける",
+    "meaning": "to dawn,to become daylight",
+    "type": "Verb, Ichidan verb, Transitive verb"
+  },
+  {
+    "kanji": "明らか",
+    "reading": "あきらか",
+    "meaning": "clear; obvious",
+    "type": "Adjective, な-adjective"
+  },
+  {
+    "kanji": "悪魔",
+    "reading": "あくま",
+    "meaning": "devil; demon; fiend; Satan",
+    "type": "Noun"
+  },
+  {
+    "kanji": "暗記",
+    "reading": "あんき",
+    "meaning": "memorization; learning by heart",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "新た",
+    "reading": "あらた",
+    "meaning": "new; fresh; novel",
+    "type": "Noun, Adjective, な-adjective"
+  },
+  {
+    "kanji": "有らゆる",
+    "reading": "あらゆる",
+    "meaning": "all; every​",
+    "type": "Pre-noun adjectival"
+  },
+  {
+    "kanji": "集まり",
+    "reading": "あつまり",
+    "meaning": "gathering; meeting; assembly; collection; attendance",
+    "type": "Noun"
+  },
+  {
+    "kanji": "部分",
+    "reading": "ぶぶん",
+    "meaning": "portion; section; part",
+    "type": "Noun"
+  },
+  {
+    "kanji": "分",
+    "reading": "ぶん",
+    "meaning": "part; segment; share; ration",
+    "type": "Noun, Suffix"
+  },
+  {
+    "kanji": "文明",
+    "reading": "ぶんめい",
+    "meaning": "civilization; culture",
+    "type": "Noun"
+  },
+  {
+    "kanji": "分析",
+    "reading": "ぶんせき",
+    "meaning": "analysis",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "分野",
+    "reading": "ぶんや",
+    "meaning": "field; sphere; realm; division; branch",
+    "type": "Noun"
+  },
+  {
+    "kanji": "父親",
+    "reading": "ちちおや",
+    "meaning": "father",
+    "type": "Noun"
+  },
+  {
+    "kanji": "地平線",
+    "reading": "ちへいせん",
+    "meaning": "horizon (related to land)​",
+    "type": "Noun"
+  },
+  {
+    "kanji": "地位",
+    "reading": "ちい",
+    "meaning": "(social) position; status",
+    "type": "Noun"
+  },
+  {
+    "kanji": "長期",
+    "reading": "ちょうき",
+    "meaning": "long-term",
+    "type": "Noun"
+  },
+  {
+    "kanji": "中",
+    "reading": "ちゅう",
+    "meaning": "during; while; medium; middle",
+    "type": "Noun, Prefix, Suffix"
+  },
+  {
+    "kanji": "中学",
+    "reading": "ちゅうがく",
+    "meaning": "junior high school; middle school",
+    "type": "Noun"
+  },
+  {
+    "kanji": "昼食",
+    "reading": "ちゅうしょく",
+    "meaning": "lunch; midday meal",
+    "type": "Noun"
+  },
+  {
+    "kanji": "大部分",
+    "reading": "だいぶぶん",
+    "meaning": "most part; greater part; majority",
+    "type": "Noun"
+  },
+  {
+    "kanji": "駄目",
+    "reading": "だめ",
+    "meaning": "no good; cannot",
+    "type": "Noun, Adjective, な-adjective"
+  },
+  {
+    "kanji": "男子",
+    "reading": "だんし",
+    "meaning": "youth; young man",
+    "type": "Noun"
+  },
+  {
+    "kanji": "出会い",
+    "reading": "であい",
+    "meaning": "meeting; rendezvous; encounter",
+    "type": "Noun"
+  },
+  {
+    "kanji": "出会う",
+    "reading": "であう",
+    "meaning": "to meet (by chance); to come across; to run across; to encounter",
+    "type": "Verb"
+  },
+  {
+    "kanji": "読書",
+    "reading": "どくしょ",
+    "meaning": "reading",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "努力",
+    "reading": "どりょく",
+    "meaning": "effort; exertion; endeavor; hard work; striving",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "同一",
+    "reading": "どういつ",
+    "meaning": "identical; same; one and the same; equal",
+    "type": "Adjective, な-adjective"
+  },
+  {
+    "kanji": "円",
+    "reading": "えん",
+    "meaning": "yen; Japanese monetary unit; circle",
+    "type": "Noun"
+  },
+  {
+    "kanji": "不利",
+    "reading": "ふり",
+    "meaning": "disadvantage; handicap; unfavorable position",
+    "type": "Noun, Adjective, な-adjective"
+  },
+  {
+    "kanji": "不足",
+    "reading": "ふそく",
+    "meaning": "insufficiency; shortage; deficiency; lack; dearth",
+    "type": "Noun, Adjective, な-adjective, Verb, Suru verb"
+  },
+  {
+    "kanji": "再び",
+    "reading": "ふたたび",
+    "meaning": "again; once more; a second time",
+    "type": "Adverb"
+  },
+  {
+    "kanji": "外交",
+    "reading": "がいこう",
+    "meaning": "diplomacy",
+    "type": "Noun"
+  },
+  {
+    "kanji": "外出",
+    "reading": "がいしゅつ",
+    "meaning": "going out; outing; leaving (one's home, office, etc.)",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "学期",
+    "reading": "がっき",
+    "meaning": "school term; semester",
+    "type": "Noun"
+  },
+  {
+    "kanji": "学",
+    "reading": "がく",
+    "meaning": "learning; education; study of",
+    "type": "Noun, Suffix"
+  },
+  {
+    "kanji": "学問",
+    "reading": "がくもん",
+    "meaning": "scholarship; study; learning",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "学者",
+    "reading": "がくしゃ",
+    "meaning": "scholar",
+    "type": "Noun"
+  },
+  {
+    "kanji": "学習",
+    "reading": "がくしゅう",
+    "meaning": "study; learning; tutorial",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "議長",
+    "reading": "ぎちょう",
+    "meaning": "chairman; president; moderator",
+    "type": "Noun"
+  },
+  {
+    "kanji": "議会",
+    "reading": "ぎかい",
+    "meaning": "congress; parliament; diet; legislative assembly",
+    "type": "Noun"
+  },
+  {
+    "kanji": "語学",
+    "reading": "ごがく",
+    "meaning": "study of foreign languages; linguistics",
+    "type": "Noun"
+  },
+  {
+    "kanji": "激しい",
+    "reading": "はげしい",
+    "meaning": "violent; extreme; intense",
+    "type": "Adjective, い-adjective"
+  },
+  {
+    "kanji": "母親",
+    "reading": "ははおや",
+    "meaning": "mother",
+    "type": "Noun"
+  },
+  {
+    "kanji": "博物館",
+    "reading": "はくぶつかん",
+    "meaning": "museum",
+    "type": "Noun"
+  },
+  {
+    "kanji": "販売",
+    "reading": "はんばい",
+    "meaning": "sales; selling; marketing",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "発明",
+    "reading": "はつめい",
+    "meaning": "invention",
+    "type": "Noun, Adjective, な-adjective, Verb, Suru verb"
+  },
+  {
+    "kanji": "外す",
+    "reading": "はずす",
+    "meaning": "to remove; to undo; to drop; to miss",
+    "type": "Verb, Godan verb, Transitive verb"
+  },
+  {
+    "kanji": "品",
+    "reading": "ひん",
+    "meaning": "elegance, article",
+    "type": "Noun"
+  },
+  {
+    "kanji": "一言",
+    "reading": "ひとこと",
+    "meaning": "single word; a few words; brief comment",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "一人一人",
+    "reading": "ひとりひとり",
+    "meaning": "one by one; each; one at a time",
+    "type": "Noun, Suffix"
+  },
+  {
+    "kanji": "本物",
+    "reading": "ほんもの",
+    "meaning": "genuine article; real thing; real deal​",
+    "type": "Noun"
+  },
+  {
+    "kanji": "本人",
+    "reading": "ほんにん",
+    "meaning": "the person in question; the person themselves; said person",
+    "type": "Noun"
+  },
+  {
+    "kanji": "一致",
+    "reading": "いっち",
+    "meaning": "agreement; union; match​; coincidence",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "一時",
+    "reading": "いちじ",
+    "meaning": "one o'clock",
+    "type": "Noun"
+  },
+  {
+    "kanji": "意外",
+    "reading": "いがい",
+    "meaning": "unexpected; surprising",
+    "type": "Adjective, な-adjective, Adverb"
+  },
+  {
+    "kanji": "一家",
+    "reading": "いっか",
+    "meaning": "a family; a household; a home; one's family; whole family",
+    "type": "Noun"
+  },
+  {
+    "kanji": "今に",
+    "reading": "いまに",
+    "meaning": "before long; even now",
+    "type": "Adverb"
+  },
+  {
+    "kanji": "今にも",
+    "reading": "いまにも",
+    "meaning": "at any moment; at any minute; on the verge of",
+    "type": "Adverb"
+  },
+  {
+    "kanji": "一般",
+    "reading": "いっぱん",
+    "meaning": "general; universal; ordinary; average; common",
+    "type": "Noun, Adjective, な-adjective"
+  },
+  {
+    "kanji": "一方",
+    "reading": "いっぽう",
+    "meaning": "one (esp. of two); one way; the other direction; although",
+    "type": "Noun"
+  },
+  {
+    "kanji": "一生",
+    "reading": "いっしょう",
+    "meaning": "whole life; a lifetime; a generation",
+    "type": "Noun"
+  },
+  {
+    "kanji": "一種",
+    "reading": "いっしゅ",
+    "meaning": "species; kind; variety",
+    "type": "Noun, Adverb"
+  },
+  {
+    "kanji": "一瞬",
+    "reading": "いっしゅん",
+    "meaning": "instant; moment; for an instant",
+    "type": "Noun"
+  },
+  {
+    "kanji": "一層",
+    "reading": "いっそう",
+    "meaning": "much more; still more; all the more; single layer; sooner; preferably​",
+    "type": "Noun, Adverb"
+  },
+  {
+    "kanji": "一体",
+    "reading": "いったい",
+    "meaning": "(what) the heck; (why) in the world",
+    "type": "Noun, Adverb"
+  },
+  {
+    "kanji": "所謂",
+    "reading": "いわゆる",
+    "meaning": "what is called; as it is called; the so-called; so to speak​",
+    "type": "Pre-noun adjectival"
+  },
+  {
+    "kanji": "邪魔",
+    "reading": "じゃま",
+    "meaning": "hindrance",
+    "type": "Noun, Adjective, な-adjective, Suru verb"
+  },
+  {
+    "kanji": "化学",
+    "reading": "かがく",
+    "meaning": "chemistry",
+    "type": "Noun"
+  },
+  {
+    "kanji": "会",
+    "reading": "かい",
+    "meaning": "meeting; assembly; party; association; club",
+    "type": "Noun, Suffix"
+  },
+  {
+    "kanji": "会員",
+    "reading": "かいいん",
+    "meaning": "member",
+    "type": "Noun"
+  },
+  {
+    "kanji": "海外",
+    "reading": "かいがい",
+    "meaning": "foreign; abroad; overseas",
+    "type": "Noun, Adjective"
+  },
+  {
+    "kanji": "会合",
+    "reading": "かいごう",
+    "meaning": "meeting; assembly; gathering; association",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "会計",
+    "reading": "かいけい",
+    "meaning": "finance; account; treasurer; bill",
+    "type": "Noun"
+  },
+  {
+    "kanji": "開始",
+    "reading": "かいし",
+    "meaning": "start; commencement; beginning; initiation​",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "科目",
+    "reading": "かもく",
+    "meaning": "(school) subject; curriculum; course",
+    "type": "Noun"
+  },
+  {
+    "kanji": "権利",
+    "reading": "けんり",
+    "meaning": "right; privilege",
+    "type": "Noun"
+  },
+  {
+    "kanji": "基本",
+    "reading": "きほん",
+    "meaning": "basics; fundamentals; basis; foundation",
+    "type": "Noun"
+  },
+  {
+    "kanji": "記事",
+    "reading": "きじ",
+    "meaning": "article; news story; report; account",
+    "type": "Noun"
+  },
+  {
+    "kanji": "気味",
+    "reading": "きみ",
+    "meaning": "sensation; feeling​; tendency",
+    "type": "Noun"
+  },
+  {
+    "kanji": "記念",
+    "reading": "きねん",
+    "meaning": "commemoration; celebration; honoring the memory of something",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "気に入る",
+    "reading": "きにいる",
+    "meaning": "to like; to take a liking to",
+    "type": "Verb, Godan verb, Expression"
+  },
+  {
+    "kanji": "記入",
+    "reading": "きにゅう",
+    "meaning": "entry; filling in; filling out",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "記憶",
+    "reading": "きおく",
+    "meaning": "memory; recollection; remembrance",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "記者",
+    "reading": "きしゃ",
+    "meaning": "reporter; journalist",
+    "type": "Noun"
+  },
+  {
+    "kanji": "期待",
+    "reading": "きたい",
+    "meaning": "expectation; anticipation; hope",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "国家",
+    "reading": "こっか",
+    "meaning": "state; country; nation",
+    "type": "Noun"
+  },
+  {
+    "kanji": "国会",
+    "reading": "こっかい",
+    "meaning": "National Diet; legislative assembly of Japan; parliament; congress",
+    "type": "Noun"
+  },
+  {
+    "kanji": "国境",
+    "reading": "こっきょう",
+    "meaning": "national border",
+    "type": "Noun"
+  },
+  {
+    "kanji": "国語",
+    "reading": "こくご",
+    "meaning": "national language",
+    "type": "Noun"
+  },
+  {
+    "kanji": "国民",
+    "reading": "こくみん",
+    "meaning": "people (of a country); nation; citizen; national",
+    "type": "Noun"
+  },
+  {
+    "kanji": "今後",
+    "reading": "こんご",
+    "meaning": "from now on; hereafter",
+    "type": "Noun, Adverbial Noun"
+  },
+  {
+    "kanji": "今回",
+    "reading": "こんかい",
+    "meaning": "now; this time; lately",
+    "type": "Noun, Adverbial Noun"
+  },
+  {
+    "kanji": "今日",
+    "reading": "こんにち",
+    "meaning": "today; this day",
+    "type": "Expression"
+  },
+  {
+    "kanji": "転ぶ",
+    "reading": "ころぶ",
+    "meaning": "to fall down; to fall over",
+    "type": "Verb, Godan verb, Intransitive verb"
+  },
+  {
+    "kanji": "高速",
+    "reading": "こうそく",
+    "meaning": "high-speed; rapid; express",
+    "type": "Noun, Adjective, な-adjective"
+  },
+  {
+    "kanji": "訓練",
+    "reading": "くんれん",
+    "meaning": "training; drill; practice; discipline",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "教科書",
+    "reading": "きょうかしょ",
+    "meaning": "textbook; coursebook; schoolbook",
+    "type": "Noun"
+  },
+  {
+    "kanji": "協力",
+    "reading": "きょうりょく",
+    "meaning": "cooperation; collaboration",
+    "type": "Noun, Verb, Suru verb"
+  },
+  {
+    "kanji": "強力",
+    "reading": "きょうりょく",
+    "meaning": "powerful; strong",
+    "type": "Noun, Adjective, な-adjective"
+  }
+]

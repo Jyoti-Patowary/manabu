@@ -1,0 +1,750 @@
+[
+  {
+    "type": "grammar",
+    "category": "Obligation",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "obligation"],
+    "kanji": "",
+    "reading": "",
+    "romaji": "",
+    "meaning": "ないといけない — must do / have to do",
+    "partOfSpeech": "",
+    "example": "毎日勉強しないといけません。",
+    "exampleReading": "まいにち べんきょうしないと いけません。",
+    "exampleMeaning": "I have to study every day.",
+    "grammar": "ないといけない",
+    "formation": "Verb ない-form + といけない",
+    "usage": "Expresses obligation or necessity. Literally, if the action is not done, it will not be okay.",
+    "grammarExamples": [
+      {
+        "japanese": "薬を飲まないといけません。",
+        "reading": "Kusuri o nomanai to ikemasen.",
+        "english": "I have to take medicine."
+      },
+      {
+        "japanese": "早く寝ないといけません。",
+        "reading": "Hayaku nenai to ikemasen.",
+        "english": "I have to go to bed early."
+      }
+    ],
+    "negative": "ないといけない",
+    "past": "なかったらいけなかった",
+    "pastNegative": "",
+    "commonMistake": "The verb before と must be in the ない-form: 行かないといけない.",
+    "formalAlternative": "なくてはいけません"
+  },
+  {
+    "type": "grammar",
+    "category": "Permission / Necessity",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "permission", "necessity"],
+    "kanji": "",
+    "reading": "",
+    "romaji": "",
+    "meaning": "なくてもいい — do not have to / it is okay not to",
+    "partOfSpeech": "",
+    "example": "明日は学校へ行かなくてもいいです。",
+    "exampleReading": "あしたは がっこうへ いかなくても いいです。",
+    "exampleMeaning": "You don't have to go to school tomorrow.",
+    "grammar": "なくてもいい",
+    "formation": "Verb ない-form + くてもいい",
+    "usage": "Expresses that an action is unnecessary or optional.",
+    "grammarExamples": [
+      {
+        "japanese": "全部食べなくてもいいです。",
+        "reading": "Zenbu tabenakutemo ii desu.",
+        "english": "You don't have to eat everything."
+      },
+      {
+        "japanese": "急がなくてもいいです。",
+        "reading": "Isoganakutemo ii desu.",
+        "english": "You don't have to hurry."
+      }
+    ],
+    "negative": "なくてもいい",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "なくてもいい means 'don't have to', not 'must not'. 'Must not' is てはいけない.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Obligation",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "obligation", "nakucha"],
+    "kanji": "",
+    "reading": "",
+    "romaji": "",
+    "meaning": "なくちゃ — must do / have to do",
+    "partOfSpeech": "",
+    "example": "もう行かなくちゃ。",
+    "exampleReading": "もう いかなくちゃ。",
+    "exampleMeaning": "I have to go now.",
+    "grammar": "なくちゃ",
+    "formation": "Verb ない-form + くちゃ",
+    "usage": "A casual shortened form expressing obligation. It comes from なくてはいけない or なくてはならない.",
+    "grammarExamples": [
+      {
+        "japanese": "勉強しなくちゃ。",
+        "reading": "Benkyou shinakucha.",
+        "english": "I have to study."
+      },
+      {
+        "japanese": "早く寝なくちゃ。",
+        "reading": "Hayaku nenakucha.",
+        "english": "I have to sleep early."
+      }
+    ],
+    "negative": "なくちゃ",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "なくちゃ is casual. Do not use it as a formal expression in business or polite situations.",
+    "formalAlternative": "なくてはいけません"
+  },
+  {
+    "type": "grammar",
+    "category": "Obligation",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "obligation", "nakute-wa-ikenai"],
+    "kanji": "",
+    "reading": "",
+    "romaji": "",
+    "meaning": "なくてはいけない — must do / have to do",
+    "partOfSpeech": "",
+    "example": "宿題をしなくてはいけません。",
+    "exampleReading": "しゅくだいを しなくては いけません。",
+    "exampleMeaning": "I have to do my homework.",
+    "grammar": "なくてはいけない",
+    "formation": "Verb ない-form + くてはいけない",
+    "usage": "Expresses strong necessity or obligation to perform an action.",
+    "grammarExamples": [
+      {
+        "japanese": "明日早く起きなくてはいけません。",
+        "reading": "Ashita hayaku okinakute wa ikemasen.",
+        "english": "I have to wake up early tomorrow."
+      },
+      {
+        "japanese": "薬を飲まなくてはいけません。",
+        "reading": "Kusuri o nomanakute wa ikemasen.",
+        "english": "I have to take medicine."
+      }
+    ],
+    "negative": "なくてはいけない",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "This structure contains the negative ない-form, but the overall meaning is positive obligation: 'must do'.",
+    "formalAlternative": "なくてはいけません"
+  },
+  {
+    "type": "grammar",
+    "category": "Obligation",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "obligation", "nakute-wa-naranai"],
+    "kanji": "",
+    "reading": "",
+    "romaji": "",
+    "meaning": "なくてはならない — must do / have to do",
+    "partOfSpeech": "",
+    "example": "ルールを守らなくてはなりません。",
+    "exampleReading": "ルールを まもらなくては なりません。",
+    "exampleMeaning": "We must follow the rules.",
+    "grammar": "なくてはならない",
+    "formation": "Verb ない-form + くてはならない",
+    "usage": "Expresses necessity or obligation. It is more formal than casual forms such as なくちゃ.",
+    "grammarExamples": [
+      {
+        "japanese": "毎日薬を飲まなくてはなりません。",
+        "reading": "Mainichi kusuri o nomanakute wa narimasen.",
+        "english": "I must take medicine every day."
+      },
+      {
+        "japanese": "時間を守らなくてはなりません。",
+        "reading": "Jikan o mamoranakute wa narimasen.",
+        "english": "We must be punctual."
+      }
+    ],
+    "negative": "なくてはならない",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Do not interpret ならない here as ordinary 'does not become'. The whole construction means 'must'.",
+    "formalAlternative": "なくてはなりません"
+  },
+  {
+    "type": "grammar",
+    "category": "Change",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "naru", "become"],
+    "kanji": "なる",
+    "reading": "なる",
+    "romaji": "naru",
+    "meaning": "なる — become / come to be",
+    "partOfSpeech": "",
+    "example": "先生になりました。",
+    "exampleReading": "せんせいに なりました。",
+    "exampleMeaning": "I became a teacher.",
+    "grammar": "なる",
+    "formation": "Noun + に + なる / な-adjective + に + なる / い-adjective → くなる",
+    "usage": "Expresses a change of state or condition.",
+    "grammarExamples": [
+      {
+        "japanese": "寒くなりました。",
+        "reading": "Samuku narimashita.",
+        "english": "It became cold."
+      },
+      {
+        "japanese": "元気になりました。",
+        "reading": "Genki ni narimashita.",
+        "english": "I became well."
+      }
+    ],
+    "negative": "ならない",
+    "past": "なった / なりました",
+    "pastNegative": "ならなかった / なりませんでした",
+    "commonMistake": "With い-adjectives, remove い and add くなる: 暑い → 暑くなる.",
+    "formalAlternative": "なります"
+  },
+  {
+    "type": "grammar",
+    "category": "Explanation",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "ndesu", "explanation"],
+    "kanji": "",
+    "reading": "んです",
+    "romaji": "n desu",
+    "meaning": "んです — explanatory / emphasis / giving background",
+    "partOfSpeech": "",
+    "example": "どうしたんですか。",
+    "exampleReading": "どうしたんですか。",
+    "exampleMeaning": "What happened? / What's wrong?",
+    "grammar": "んです",
+    "formation": "Plain form + んです. Noun / な-adjective + なんです.",
+    "usage": "Adds an explanatory or background nuance. It is commonly used when asking for or giving an explanation.",
+    "grammarExamples": [
+      {
+        "japanese": "今日は休みなんです。",
+        "reading": "Kyou wa yasumi nan desu.",
+        "english": "You see, today is a holiday."
+      },
+      {
+        "japanese": "どうして遅れたんですか。",
+        "reading": "Doushite okureta n desu ka.",
+        "english": "Why were you late?"
+      }
+    ],
+    "negative": "んじゃないです / ないんです",
+    "past": "だったんです / たんです",
+    "pastNegative": "じゃなかったんです / なかったんです",
+    "commonMistake": "Use なんです after nouns and な-adjectives, but んです after verbs and い-adjectives.",
+    "formalAlternative": "のです"
+  },
+  {
+    "type": "grammar",
+    "category": "Sentence Ending",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "ne"],
+    "kanji": "",
+    "reading": "ね",
+    "romaji": "ne",
+    "meaning": "ね — isn't it? / right? / seeking agreement",
+    "partOfSpeech": "",
+    "example": "今日は暑いですね。",
+    "exampleReading": "きょうは あついですね。",
+    "exampleMeaning": "It's hot today, isn't it?",
+    "grammar": "ね",
+    "formation": "Sentence + ね",
+    "usage": "Used to seek agreement, show shared understanding, or soften a statement.",
+    "grammarExamples": [
+      {
+        "japanese": "日本語は面白いですね。",
+        "reading": "Nihongo wa omoshiroi desu ne.",
+        "english": "Japanese is interesting, isn't it?"
+      },
+      {
+        "japanese": "きれいですね。",
+        "reading": "Kirei desu ne.",
+        "english": "It's beautiful, isn't it?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "ね usually assumes or invites the listener's agreement; it is different from よ, which emphasizes information given to the listener.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Particle",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "particle", "ni"],
+    "kanji": "に",
+    "reading": "に",
+    "romaji": "ni",
+    "meaning": "に — to / in / at / on / destination / specific time",
+    "partOfSpeech": "",
+    "example": "七時に起きます。",
+    "exampleReading": "しちじに おきます。",
+    "exampleMeaning": "I wake up at seven o'clock.",
+    "grammar": "に",
+    "formation": "Noun + に",
+    "usage": "Marks a destination, specific time, location of existence, or recipient depending on context.",
+    "grammarExamples": [
+      {
+        "japanese": "学校に行きます。",
+        "reading": "Gakkou ni ikimasu.",
+        "english": "I go to school."
+      },
+      {
+        "japanese": "机の上に本があります。",
+        "reading": "Tsukue no ue ni hon ga arimasu.",
+        "english": "There is a book on the desk."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Do not automatically translate に as one English word. Its meaning depends on its grammatical function.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Purpose",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "ni-iku", "purpose"],
+    "kanji": "に行く",
+    "reading": "にいく",
+    "romaji": "ni iku",
+    "meaning": "に行く — go to do something",
+    "partOfSpeech": "",
+    "example": "日本へ日本語を勉強しに行きます。",
+    "exampleReading": "にほんへ にほんごを べんきょうしに いきます。",
+    "exampleMeaning": "I am going to Japan to study Japanese.",
+    "grammar": "に行く",
+    "formation": "Verb stem + に + 行く",
+    "usage": "Expresses going somewhere for the purpose of doing an action.",
+    "grammarExamples": [
+      {
+        "japanese": "映画を見に行きます。",
+        "reading": "Eiga o mi ni ikimasu.",
+        "english": "I am going to see a movie."
+      },
+      {
+        "japanese": "買い物に行きます。",
+        "reading": "Kaimono ni ikimasu.",
+        "english": "I am going shopping."
+      }
+    ],
+    "negative": "に行かない",
+    "past": "に行った",
+    "pastNegative": "に行かなかった",
+    "commonMistake": "Use the verb stem before に: 見る → 見に行く, not 見るに行く.",
+    "formalAlternative": "に行きます"
+  },
+  {
+    "type": "grammar",
+    "category": "Choice / Decision",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "ni-suru", "decision"],
+    "kanji": "にする",
+    "reading": "にする",
+    "romaji": "ni suru",
+    "meaning": "にする — decide on / choose / make",
+    "partOfSpeech": "",
+    "example": "昼ご飯はラーメンにします。",
+    "exampleReading": "ひるごはんは ラーメンに します。",
+    "exampleMeaning": "I'll have ramen for lunch.",
+    "grammar": "にする",
+    "formation": "Noun + にする",
+    "usage": "Used when choosing or deciding on something. It can also express making something into a particular state.",
+    "grammarExamples": [
+      {
+        "japanese": "コーヒーにします。",
+        "reading": "Koohii ni shimasu.",
+        "english": "I'll have coffee."
+      },
+      {
+        "japanese": "部屋をきれいにします。",
+        "reading": "Heya o kirei ni shimasu.",
+        "english": "I will make the room clean."
+      }
+    ],
+    "negative": "にしない",
+    "past": "にした",
+    "pastNegative": "にしなかった",
+    "commonMistake": "When choosing something, にする means 'choose/decide on'. Do not confuse it with になる, which means 'become'.",
+    "formalAlternative": "にします"
+  },
+  {
+    "type": "grammar",
+    "category": "Direction / Destination",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "ni", "e", "direction"],
+    "kanji": "に / へ",
+    "reading": "に / へ",
+    "romaji": "ni / e",
+    "meaning": "に / へ — to / toward a destination",
+    "partOfSpeech": "",
+    "example": "学校へ行きます。",
+    "exampleReading": "がっこうへ いきます。",
+    "exampleMeaning": "I go to school.",
+    "grammar": "に / へ",
+    "formation": "Place + に / へ + movement verb",
+    "usage": "Both に and へ can mark the destination or direction of movement. へ emphasizes direction, while に more directly marks the destination.",
+    "grammarExamples": [
+      {
+        "japanese": "日本に行きます。",
+        "reading": "Nihon ni ikimasu.",
+        "english": "I am going to Japan."
+      },
+      {
+        "japanese": "駅へ歩きます。",
+        "reading": "Eki e arukimasu.",
+        "english": "I walk toward the station."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "へ is pronounced 'e', not 'he', when used as a particle.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Possession",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "particle", "no"],
+    "kanji": "の",
+    "reading": "の",
+    "romaji": "no",
+    "meaning": "の — possession / belonging / noun connection",
+    "partOfSpeech": "",
+    "example": "これは私の本です。",
+    "exampleReading": "これは わたしの ほんです。",
+    "exampleMeaning": "This is my book.",
+    "grammar": "の",
+    "formation": "Noun 1 + の + Noun 2",
+    "usage": "Connects nouns to show possession, relationship, category, or description.",
+    "grammarExamples": [
+      {
+        "japanese": "日本の車です。",
+        "reading": "Nihon no kuruma desu.",
+        "english": "It is a Japanese car."
+      },
+      {
+        "japanese": "友達の先生です。",
+        "reading": "Tomodachi no sensei desu.",
+        "english": "He/She is my friend's teacher."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "The noun before の modifies the noun after it. 私の本 means 'my book', not 'book's me'.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Explanation",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "no-desu", "explanation"],
+    "kanji": "のです",
+    "reading": "のです",
+    "romaji": "no desu",
+    "meaning": "のです — explanatory / giving background",
+    "partOfSpeech": "",
+    "example": "今日は休みなのです。",
+    "exampleReading": "きょうは やすみなのです。",
+    "exampleMeaning": "You see, today is a holiday.",
+    "grammar": "のです",
+    "formation": "Plain form + のです. Noun / な-adjective + なのです.",
+    "usage": "A more formal version of んです, used to provide explanation, background, or emphasis.",
+    "grammarExamples": [
+      {
+        "japanese": "どうして来ないのですか。",
+        "reading": "Doushite konai no desu ka.",
+        "english": "Why aren't you coming?"
+      },
+      {
+        "japanese": "明日は試験なのです。",
+        "reading": "Ashita wa shiken na no desu.",
+        "english": "You see, tomorrow is the exam."
+      }
+    ],
+    "negative": "のではありません",
+    "past": "のだった / のでした",
+    "pastNegative": "のではありませんでした",
+    "commonMistake": "Use なのです after nouns and な-adjectives, but のです after verbs and い-adjectives.",
+    "formalAlternative": "のです"
+  },
+  {
+    "type": "grammar",
+    "category": "Ability / Skill",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "jouzu", "skill"],
+    "kanji": "のが上手",
+    "reading": "のがじょうず",
+    "romaji": "no ga jouzu",
+    "meaning": "のが上手 — be good at doing something",
+    "partOfSpeech": "",
+    "example": "私は料理をするのが上手です。",
+    "exampleReading": "わたしは りょうりを するのが じょうずです。",
+    "exampleMeaning": "I am good at cooking.",
+    "grammar": "のが上手",
+    "formation": "Verb plain form + のが上手です",
+    "usage": "Turns an action into a noun-like phrase and states that someone is skilled at that action.",
+    "grammarExamples": [
+      {
+        "japanese": "彼は歌うのが上手です。",
+        "reading": "Kare wa utau no ga jouzu desu.",
+        "english": "He is good at singing."
+      },
+      {
+        "japanese": "日本語を話すのが上手です。",
+        "reading": "Nihongo o hanasu no ga jouzu desu.",
+        "english": "I am good at speaking Japanese."
+      }
+    ],
+    "negative": "のが上手ではありません",
+    "past": "のが上手でした",
+    "pastNegative": "のが上手ではありませんでした",
+    "commonMistake": "上手 describes ability or skill. The の nominalizes the verb phrase before が.",
+    "formalAlternative": "のが得意です"
+  },
+  {
+    "type": "grammar",
+    "category": "Ability / Skill",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "heta", "skill"],
+    "kanji": "のが下手",
+    "reading": "のがへた",
+    "romaji": "no ga heta",
+    "meaning": "のが下手 — be bad at doing something",
+    "partOfSpeech": "",
+    "example": "私は歌うのが下手です。",
+    "exampleReading": "わたしは うたうのが へたです。",
+    "exampleMeaning": "I am bad at singing.",
+    "grammar": "のが下手",
+    "formation": "Verb plain form + のが下手です",
+    "usage": "States that someone lacks skill or is not good at performing an action.",
+    "grammarExamples": [
+      {
+        "japanese": "私は絵を描くのが下手です。",
+        "reading": "Watashi wa e o kaku no ga heta desu.",
+        "english": "I am bad at drawing."
+      },
+      {
+        "japanese": "彼は料理するのが下手です。",
+        "reading": "Kare wa ryouri suru no ga heta desu.",
+        "english": "He is bad at cooking."
+      }
+    ],
+    "negative": "のが下手ではありません",
+    "past": "のが下手でした",
+    "pastNegative": "のが下手ではありませんでした",
+    "commonMistake": "下手 means lacking skill. Use のが to nominalize the action being evaluated.",
+    "formalAlternative": "のが苦手です"
+  },
+  {
+    "type": "grammar",
+    "category": "Preference",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "suki", "preference"],
+    "kanji": "のが好き",
+    "reading": "のがすき",
+    "romaji": "no ga suki",
+    "meaning": "のが好き — like doing something",
+    "partOfSpeech": "",
+    "example": "私は本を読むのが好きです。",
+    "exampleReading": "わたしは ほんを よむのが すきです。",
+    "exampleMeaning": "I like reading books.",
+    "grammar": "のが好き",
+    "formation": "Verb plain form + のが好きです",
+    "usage": "Nominalizes an action and expresses liking that activity.",
+    "grammarExamples": [
+      {
+        "japanese": "音楽を聞くのが好きです。",
+        "reading": "Ongaku o kiku no ga suki desu.",
+        "english": "I like listening to music."
+      },
+      {
+        "japanese": "日本語を勉強するのが好きです。",
+        "reading": "Nihongo o benkyou suru no ga suki desu.",
+        "english": "I like studying Japanese."
+      }
+    ],
+    "negative": "のが好きではありません",
+    "past": "のが好きでした",
+    "pastNegative": "のが好きではありませんでした",
+    "commonMistake": "Use のが to turn the verb phrase into the thing you like: 読むのが好きです.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Comparison",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "comparison", "ichiban"],
+    "kanji": "の中で～が一番",
+    "reading": "のなかで～がいちばん",
+    "romaji": "no naka de ~ ga ichiban",
+    "meaning": "の中で～が一番 — among / of a group, [X] is the most",
+    "partOfSpeech": "",
+    "example": "果物の中でりんごが一番好きです。",
+    "exampleReading": "くだものの なかで りんごが いちばん すきです。",
+    "exampleMeaning": "Among fruits, I like apples the most.",
+    "grammar": "の中で～が一番",
+    "formation": "Group + の中で + Choice + が + 一番 + adjective",
+    "usage": "Compares members of a group and identifies the one with the highest degree of a quality.",
+    "grammarExamples": [
+      {
+        "japanese": "スポーツの中でサッカーが一番好きです。",
+        "reading": "Supootsu no naka de sakkaa ga ichiban suki desu.",
+        "english": "Of all sports, I like soccer the most."
+      },
+      {
+        "japanese": "日本の季節の中で春が一番好きです。",
+        "reading": "Nihon no kisetsu no naka de haru ga ichiban suki desu.",
+        "english": "Of Japan's seasons, I like spring the most."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "The group is marked by の中で and the item being ranked is marked by が.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Reason",
+    "jlpt": "N4",
+    "tags": ["N4", "grammar", "node", "reason"],
+    "kanji": "ので",
+    "reading": "ので",
+    "romaji": "node",
+    "meaning": "ので — because / since",
+    "partOfSpeech": "",
+    "example": "雨が降っているので、家にいます。",
+    "exampleReading": "あめが ふっているので、いえに います。",
+    "exampleMeaning": "Because it is raining, I am staying home.",
+    "grammar": "ので",
+    "formation": "Plain form + ので. Noun / な-adjective + なので.",
+    "usage": "Gives a reason or cause. It is generally softer and less direct than から.",
+    "grammarExamples": [
+      {
+        "japanese": "忙しいので、行けません。",
+        "reading": "Isogashii node, ikemasen.",
+        "english": "Because I am busy, I cannot go."
+      },
+      {
+        "japanese": "静かなので、ここが好きです。",
+        "reading": "Shizuka na node, koko ga suki desu.",
+        "english": "Because it is quiet, I like this place."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Use なので after nouns and な-adjectives: 学生なので, 静かなので.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Politeness",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "polite-prefix", "o-go"],
+    "kanji": "お / ご",
+    "reading": "お / ご",
+    "romaji": "o / go",
+    "meaning": "お / ご — polite or honorific prefix",
+    "partOfSpeech": "",
+    "example": "お名前は何ですか。",
+    "exampleReading": "おなまえは なんですか。",
+    "exampleMeaning": "What is your name?",
+    "grammar": "お / ご",
+    "formation": "お + Japanese-origin word / ご + many Sino-Japanese words",
+    "usage": "Prefixes added to certain nouns and expressions to make speech more polite or respectful.",
+    "grammarExamples": [
+      {
+        "japanese": "お名前を教えてください。",
+        "reading": "Onamae o oshiete kudasai.",
+        "english": "Please tell me your name."
+      },
+      {
+        "japanese": "ご家族はお元気ですか。",
+        "reading": "Gokazoku wa ogenki desu ka.",
+        "english": "Is your family well?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "The choice between お and ご depends on the word; it is not freely interchangeable.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Particle",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "particle", "wo"],
+    "kanji": "を",
+    "reading": "を",
+    "romaji": "o",
+    "meaning": "を — object marker",
+    "partOfSpeech": "",
+    "example": "毎日日本語を勉強します。",
+    "exampleReading": "まいにち にほんごを べんきょうします。",
+    "exampleMeaning": "I study Japanese every day.",
+    "grammar": "を",
+    "formation": "Noun + を + transitive verb",
+    "usage": "Marks the direct object of a transitive verb.",
+    "grammarExamples": [
+      {
+        "japanese": "ご飯を食べます。",
+        "reading": "Gohan o tabemasu.",
+        "english": "I eat rice/a meal."
+      },
+      {
+        "japanese": "本を読みます。",
+        "reading": "Hon o yomimasu.",
+        "english": "I read a book."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "The particle を is pronounced 'o', not 'wo' in modern Japanese pronunciation.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Request",
+    "jlpt": "N5",
+    "tags": ["N5", "grammar", "request", "kudasai"],
+    "kanji": "をください",
+    "reading": "をください",
+    "romaji": "o kudasai",
+    "meaning": "をください — please give me",
+    "partOfSpeech": "",
+    "example": "水をください。",
+    "exampleReading": "みずを ください。",
+    "exampleMeaning": "Please give me some water.",
+    "grammar": "をください",
+    "formation": "Noun + をください",
+    "usage": "A polite way to request an item from someone.",
+    "grammarExamples": [
+      {
+        "japanese": "メニューをください。",
+        "reading": "Menyuu o kudasai.",
+        "english": "Please give me the menu."
+      },
+      {
+        "japanese": "これを二つください。",
+        "reading": "Kore o futatsu kudasai.",
+        "english": "Please give me two of these."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "をください is used for requesting things. For requesting an action, use Verb てください.",
+    "formalAlternative": ""
+  }
+]
