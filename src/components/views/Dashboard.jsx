@@ -2,10 +2,27 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import { groupGrammarByJlpt } from '@/lib/groupDeckCollections';
 
 const capitalize = (str) => {
   if (!str) return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+const normalizeJlpt = (value) => {
+  if (value == null) return '';
+
+  const text = String(value).trim();
+  if (!text) return '';
+
+  const compact = text.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const directMatch = compact.match(/N[1-5]/);
+  if (directMatch) return directMatch[0];
+
+  const jlptMatch = compact.match(/JLPTN([1-5])/);
+  if (jlptMatch) return `N${jlptMatch[1]}`;
+
+  return '';
 };
 
 export default function Dashboard({ decks, onManage, onStudy }) {
@@ -34,34 +51,34 @@ export default function Dashboard({ decks, onManage, onStudy }) {
     });
   }, [decks, search]);
 
-  const allCategories = useMemo(() => {
-    const set = new Set();
+  const grammarGroups = useMemo(() => {
+    const query = search.trim().toLowerCase();
 
-    decks.forEach((deck) => {
-      if (deck.category) set.add(capitalize(deck.category));
+    return groupGrammarByJlpt(decks)
+      .map((group) => ({
+        ...group,
+        decks: group.decks.filter((deck) => {
+          if (!query) return true;
 
-      (deck.cards || []).forEach((card) => {
-        if (card.category) set.add(capitalize(card.category));
-      });
-    });
+          const text = [
+            deck.name,
+            ...(deck.cards || []).map((card) => [card.grammar, card.meaning, card.example].join(' ')),
+          ]
+            .join(' ')
+            .toLowerCase();
 
-    return Array.from(set);
-  }, [decks]);
+          return text.includes(query);
+        }),
+      }))
+      .filter((group) => group.decks.length > 0);
+  }, [decks, search]);
 
-  const filteredDecksByCategory = useMemo(() => {
-    if (selectedCategory === 'all') return filteredDecks;
-
-    return filteredDecks.filter((deck) => {
-      const categories = new Set();
-
-      if (deck.category) categories.add(capitalize(deck.category));
-      (deck.cards || []).forEach((card) => {
-        if (card.category) categories.add(capitalize(card.category));
-      });
-
-      return categories.has(selectedCategory);
-    });
-  }, [filteredDecks, selectedCategory]);
+  // Separate non-grammar decks (like Vocabs) to render them in standard DeckCards
+  const regularDecks = useMemo(() => {
+    return filteredDecks.filter(
+      (deck) => !deck.name.toLowerCase().includes('grammar') && !deck.category?.toLowerCase().includes('grammar')
+    );
+  }, [filteredDecks]);
 
   const totalCards = decks.reduce((sum, deck) => sum + deck.cards.length, 0);
   const totalDue = decks.reduce(
@@ -90,15 +107,15 @@ export default function Dashboard({ decks, onManage, onStudy }) {
         </div>
       </section>
 
-      {/* Search & Chips Filter Section */}
-      <section className="pt-5 pb-2 space-y-3">
+      {/* Search Section */}
+      <section className="pt-5 pb-2">
         <div className="relative">
           <SearchIcon className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search decks or cards..."
+            placeholder="Search decks and cards..."
             className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-9 text-sm font-medium text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-slate-800"
           />
           {search && (
@@ -112,57 +129,81 @@ export default function Dashboard({ decks, onManage, onStudy }) {
             </button>
           )}
         </div>
-
-        {/* Chips */}
-        {allCategories.length > 0 && (
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-            <button
-              type="button"
-              onClick={() => setSelectedCategory('all')}
-              className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
-                selectedCategory === 'all'
-                  ? 'bg-slate-900 text-white shadow-sm'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              All
-            </button>
-            {allCategories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setSelectedCategory(cat)}
-                className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
-                  selectedCategory === cat
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        )}
       </section>
 
-      {/* Real Decks List */}
-      {filteredDecksByCategory.length > 0 ? (
-        <div className="grid grid-cols-1 gap-3 pt-4 md:grid-cols-2">
-          {filteredDecksByCategory.map((deck) => (
-            <DeckCard
-              key={deck.id}
-              deck={deck}
-              now={now}
-              onManage={onManage}
-              onStudy={onStudy}
-            />
-          ))}
+      {/* Grammar Groups Section */}
+      {grammarGroups.length > 0 && (
+        <div className="space-y-3 pt-4">
+          <h2 className="mb-2 text-sm font-bold text-slate-700">Grammar Focus</h2>
+          {grammarGroups.map(({ level, decks: groupDecks }) => {
+            const totalGrammarPoints = groupDecks.reduce((sum, deck) => sum + (deck.cards || []).length, 0);
+            const studyDeck = {
+              id: `${level.toLowerCase()}-grammar-group`,
+              name: `${level} Grammar`,
+              cards: groupDecks.flatMap((deck) => deck.cards || []),
+            };
+
+            return (
+              <div key={level} className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+                <div className="mb-2 flex items-center justify-between gap-2">
+                  <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-100 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-blue-700">
+                    {level}
+                  </span>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-semibold text-slate-500">{totalGrammarPoints} grammar points</span>
+                    <button
+                      type="button"
+                      onClick={() => onStudy(studyDeck)}
+                      className="rounded-lg bg-slate-900 px-2.5 py-1 text-[10px] font-bold text-white transition-colors hover:bg-slate-700"
+                    >
+                      Study
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {groupDecks.map((deck) => (
+                    <button
+                      key={deck.id}
+                      type="button"
+                      onClick={() => onStudy(deck)}
+                      className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
+                    >
+                      {deck.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
-      ) : (
+      )}
+
+      {/* Standard Decks Grid (Vocabs, Kanji, Kana, etc.) */}
+      {regularDecks.length > 0 && (
+        <div className="mt-8">
+          <h2 className="mb-3 text-sm font-bold text-slate-700">Study Decks</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {regularDecks.map((deck) => (
+              <DeckCard
+                key={deck.id}
+                deck={deck}
+                now={now}
+                onManage={onManage}
+                onStudy={onStudy}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Empty State */}
+      {grammarGroups.length === 0 && regularDecks.length === 0 && (
         <section className="pt-6">
           <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50/50 px-6 py-12 text-center">
-            <p className="text-sm font-semibold text-slate-700">No matching items found</p>
-            <p className="mt-1 text-xs text-slate-400">Try adjusting your search or filter.</p>
+            <p className="text-sm font-semibold text-slate-700">No decks found</p>
+            <p className="mt-1 text-xs text-slate-400">Try adjusting your search or add a new deck.</p>
           </div>
         </section>
       )}
@@ -177,6 +218,9 @@ function DeckCard({ deck, now, onManage, onStudy }) {
   const totalCards = deck.cards.length;
   const learnedCards = totalCards - newCards;
   const progressPercent = totalCards > 0 ? Math.round((learnedCards / totalCards) * 100) : 0;
+  const deckJlptLevels = Array.from(
+    new Set([normalizeJlpt(deck.name), ...(deck.cards || []).map((card) => normalizeJlpt(card.jlpt))].filter(Boolean))
+  );
 
   const baseDeckId = deck.id.includes('-') ? deck.id.split('-')[0] : deck.id;
 
@@ -214,6 +258,19 @@ function DeckCard({ deck, now, onManage, onStudy }) {
           <MiniMetric label="Due" value={due} tone="rose" />
           <MiniMetric label="New" value={newCards} tone="sky" />
         </div>
+
+        {deckJlptLevels.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {deckJlptLevels.map((level) => (
+              <span
+                key={`${deck.id}-${level}`}
+                className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-700"
+              >
+                {level}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="mt-4 space-y-3">

@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { buildDeckCollections } = require('./groupDeckCollections');
+const { buildDeckCollections, normalizeJlpt, groupGrammarByJlpt } = require('./groupDeckCollections');
 
 test('buildDeckCollections groups decks into Hiragana, Katakana, Vocabs, Grammar, and Kanji folders', () => {
   const rawDecks = [
@@ -43,4 +43,24 @@ test('buildDeckCollections groups decks into Hiragana, Katakana, Vocabs, Grammar
     collections[4].decks.map((deck) => deck.name),
     ['N4 Kanji']
   );
+});
+
+test('normalizeJlpt resolves both N5 and JLPT_N5 values for grammar grouping', () => {
+  assert.equal(normalizeJlpt('N5'), 'N5');
+  assert.equal(normalizeJlpt('JLPT_N5'), 'N5');
+  assert.equal(normalizeJlpt('jlpt_n4'), 'N4');
+  assert.equal(normalizeJlpt(''), '');
+});
+
+test('groupGrammarByJlpt groups grammar decks by level', () => {
+  const decks = [
+    { id: 'deck-1', name: 'N5 Grammar', cards: [{ type: 'grammar', jlpt: 'JLPT_N5' }] },
+    { id: 'deck-2', name: 'N4 Grammar', cards: [{ type: 'grammar', jlpt: 'N4' }] },
+    { id: 'deck-3', name: 'Random Deck', cards: [{ type: 'vocab', jlpt: 'N2' }] },
+  ];
+
+  assert.deepEqual(groupGrammarByJlpt(decks), [
+    { level: 'N5', decks: [decks[0]] },
+    { level: 'N4', decks: [decks[1]] },
+  ]);
 });

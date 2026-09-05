@@ -3,7 +3,11 @@
     "type": "grammar",
     "category": "Obligation",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "obligation"],
+    "tags": [
+      "N4",
+      "grammar",
+      "obligation"
+    ],
     "kanji": "",
     "reading": "",
     "romaji": "",
@@ -37,7 +41,12 @@
     "type": "grammar",
     "category": "Permission / Necessity",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "permission", "necessity"],
+    "tags": [
+      "N4",
+      "grammar",
+      "permission",
+      "necessity"
+    ],
     "kanji": "",
     "reading": "",
     "romaji": "",
@@ -71,7 +80,12 @@
     "type": "grammar",
     "category": "Obligation",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "obligation", "nakucha"],
+    "tags": [
+      "N4",
+      "grammar",
+      "obligation",
+      "nakucha"
+    ],
     "kanji": "",
     "reading": "",
     "romaji": "",
@@ -105,7 +119,12 @@
     "type": "grammar",
     "category": "Obligation",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "obligation", "nakute-wa-ikenai"],
+    "tags": [
+      "N4",
+      "grammar",
+      "obligation",
+      "nakute-wa-ikenai"
+    ],
     "kanji": "",
     "reading": "",
     "romaji": "",
@@ -139,7 +158,12 @@
     "type": "grammar",
     "category": "Obligation",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "obligation", "nakute-wa-naranai"],
+    "tags": [
+      "N4",
+      "grammar",
+      "obligation",
+      "nakute-wa-naranai"
+    ],
     "kanji": "",
     "reading": "",
     "romaji": "",
@@ -173,7 +197,12 @@
     "type": "grammar",
     "category": "Change",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "naru", "become"],
+    "tags": [
+      "N5",
+      "grammar",
+      "naru",
+      "become"
+    ],
     "kanji": "なる",
     "reading": "なる",
     "romaji": "naru",
@@ -207,7 +236,12 @@
     "type": "grammar",
     "category": "Explanation",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "ndesu", "explanation"],
+    "tags": [
+      "N4",
+      "grammar",
+      "ndesu",
+      "explanation"
+    ],
     "kanji": "",
     "reading": "んです",
     "romaji": "n desu",
@@ -241,7 +275,11 @@
     "type": "grammar",
     "category": "Sentence Ending",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "ne"],
+    "tags": [
+      "N5",
+      "grammar",
+      "ne"
+    ],
     "kanji": "",
     "reading": "ね",
     "romaji": "ne",
@@ -275,7 +313,12 @@
     "type": "grammar",
     "category": "Particle",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "particle", "ni"],
+    "tags": [
+      "N5",
+      "grammar",
+      "particle",
+      "ni"
+    ],
     "kanji": "に",
     "reading": "に",
     "romaji": "ni",
@@ -309,7 +352,12 @@
     "type": "grammar",
     "category": "Purpose",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "ni-iku", "purpose"],
+    "tags": [
+      "N5",
+      "grammar",
+      "ni-iku",
+      "purpose"
+    ],
     "kanji": "に行く",
     "reading": "にいく",
     "romaji": "ni iku",
@@ -343,7 +391,12 @@
     "type": "grammar",
     "category": "Choice / Decision",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "ni-suru", "decision"],
+    "tags": [
+      "N4",
+      "grammar",
+      "ni-suru",
+      "decision"
+    ],
     "kanji": "にする",
     "reading": "にする",
     "romaji": "ni suru",
@@ -377,7 +430,13 @@
     "type": "grammar",
     "category": "Direction / Destination",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "ni", "e", "direction"],
+    "tags": [
+      "N5",
+      "grammar",
+      "ni",
+      "e",
+      "direction"
+    ],
     "kanji": "に / へ",
     "reading": "に / へ",
     "romaji": "ni / e",
@@ -411,7 +470,12 @@
     "type": "grammar",
     "category": "Possession",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "particle", "no"],
+    "tags": [
+      "N5",
+      "grammar",
+      "particle",
+      "no"
+    ],
     "kanji": "の",
     "reading": "の",
     "romaji": "no",
@@ -445,7 +509,12 @@
     "type": "grammar",
     "category": "Explanation",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "no-desu", "explanation"],
+    "tags": [
+      "N4",
+      "grammar",
+      "no-desu",
+      "explanation"
+    ],
     "kanji": "のです",
     "reading": "のです",
     "romaji": "no desu",
@@ -479,7 +548,12 @@
     "type": "grammar",
     "category": "Ability / Skill",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "jouzu", "skill"],
+    "tags": [
+      "N4",
+      "grammar",
+      "jouzu",
+      "skill"
+    ],
     "kanji": "のが上手",
     "reading": "のがじょうず",
     "romaji": "no ga jouzu",
@@ -513,7 +587,12 @@
     "type": "grammar",
     "category": "Ability / Skill",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "heta", "skill"],
+    "tags": [
+      "N4",
+      "grammar",
+      "heta",
+      "skill"
+    ],
     "kanji": "のが下手",
     "reading": "のがへた",
     "romaji": "no ga heta",
@@ -547,7 +626,12 @@
     "type": "grammar",
     "category": "Preference",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "suki", "preference"],
+    "tags": [
+      "N4",
+      "grammar",
+      "suki",
+      "preference"
+    ],
     "kanji": "のが好き",
     "reading": "のがすき",
     "romaji": "no ga suki",
@@ -581,7 +665,12 @@
     "type": "grammar",
     "category": "Comparison",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "comparison", "ichiban"],
+    "tags": [
+      "N5",
+      "grammar",
+      "comparison",
+      "ichiban"
+    ],
     "kanji": "の中で～が一番",
     "reading": "のなかで～がいちばん",
     "romaji": "no naka de ~ ga ichiban",
@@ -615,7 +704,12 @@
     "type": "grammar",
     "category": "Reason",
     "jlpt": "N4",
-    "tags": ["N4", "grammar", "node", "reason"],
+    "tags": [
+      "N4",
+      "grammar",
+      "node",
+      "reason"
+    ],
     "kanji": "ので",
     "reading": "ので",
     "romaji": "node",
@@ -649,7 +743,12 @@
     "type": "grammar",
     "category": "Politeness",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "polite-prefix", "o-go"],
+    "tags": [
+      "N5",
+      "grammar",
+      "polite-prefix",
+      "o-go"
+    ],
     "kanji": "お / ご",
     "reading": "お / ご",
     "romaji": "o / go",
@@ -683,7 +782,12 @@
     "type": "grammar",
     "category": "Particle",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "particle", "wo"],
+    "tags": [
+      "N5",
+      "grammar",
+      "particle",
+      "wo"
+    ],
     "kanji": "を",
     "reading": "を",
     "romaji": "o",
@@ -717,7 +821,12 @@
     "type": "grammar",
     "category": "Request",
     "jlpt": "N5",
-    "tags": ["N5", "grammar", "request", "kudasai"],
+    "tags": [
+      "N5",
+      "grammar",
+      "request",
+      "kudasai"
+    ],
     "kanji": "をください",
     "reading": "をください",
     "romaji": "o kudasai",
@@ -746,5 +855,5835 @@
     "pastNegative": "",
     "commonMistake": "をください is used for requesting things. For requesting an action, use Verb てください.",
     "formalAlternative": ""
-  }
+  },
+  {
+    "type": "grammar",
+    "category": "Destination",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "ni",
+      "e"
+    ],
+    "kanji": "",
+    "reading": "いきます・きます・かえります",
+    "romaji": "ikimasu・kimasu・kaerimasu",
+    "meaning": "行きます・来ます・帰ります — go / come / return",
+    "partOfSpeech": "verb",
+    "example": "がっこうへ いきます。",
+    "exampleReading": "がっこうへ いきます。",
+    "exampleMeaning": "I go to school.",
+    "grammar": "Place へ 行きます／来ます／帰ります",
+    "formation": "Place へ + 行きます／来ます／帰ります",
+    "usage": "へ marks the destination or direction of movement with 行きます, 来ます, and 帰ります.",
+    "grammarExamples": [
+      {
+        "japanese": "にほんへ いきます。",
+        "reading": "にほんへ いきます。",
+        "english": "I go to Japan."
+      },
+      {
+        "japanese": "うちへ かえります。",
+        "reading": "うちへ かえります。",
+        "english": "I return home."
+      }
+    ],
+    "negative": "行きません／来ません／帰りません",
+    "past": "行きました／来ました／帰りました",
+    "pastNegative": "行きませんでした／来ませんでした／帰りませんでした",
+    "commonMistake": "The particle へ is pronounced 'e' when used as a particle.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Destination",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "ni",
+      "destination"
+    ],
+    "kanji": "",
+    "reading": "Place に いきます",
+    "romaji": "Place ni ikimasu",
+    "meaning": "Place に 行きます — go to a place",
+    "partOfSpeech": "particle",
+    "example": "きょうとに いきます。",
+    "exampleReading": "きょうとに いきます。",
+    "exampleMeaning": "I go to Kyoto.",
+    "grammar": "Place に 行きます／来ます／帰ります",
+    "formation": "Place に + 行きます／来ます／帰ります",
+    "usage": "に can mark the destination of movement with 行きます, 来ます, and 帰ります.",
+    "grammarExamples": [
+      {
+        "japanese": "がっこうに いきます。",
+        "reading": "がっこうに いきます。",
+        "english": "I go to school."
+      },
+      {
+        "japanese": "うちに かえります。",
+        "reading": "うちに かえります。",
+        "english": "I return home."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "With movement verbs, に and へ can both mark the destination. へ emphasizes direction, while に commonly emphasizes the destination.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Time",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "time"
+    ],
+    "kanji": "",
+    "reading": "Time に いきます",
+    "romaji": "Time ni ikimasu",
+    "meaning": "Time に V — do an action or movement at a specific time",
+    "partOfSpeech": "particle",
+    "example": "らいしゅう にほんへ いきます。",
+    "exampleReading": "らいしゅう にほんへ いきます。",
+    "exampleMeaning": "I will go to Japan next week.",
+    "grammar": "Time に + Verb",
+    "formation": "Specific time + に + Verb",
+    "usage": "に marks a specific point in time when an action or movement takes place.",
+    "grammarExamples": [
+      {
+        "japanese": "らいげつ とうきょうへ いきます。",
+        "reading": "らいげつ とうきょうへ いきます。",
+        "english": "I will go to Tokyo next month."
+      },
+      {
+        "japanese": "にちようびに きょうとへ いきます。",
+        "reading": "にちようびに きょうとへ いきます。",
+        "english": "I will go to Kyoto on Sunday."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Do not automatically use に with every time expression. Relative expressions such as きょう and あした generally do not take に.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Companion",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "to"
+    ],
+    "kanji": "",
+    "reading": "Person と いきます",
+    "romaji": "Person to ikimasu",
+    "meaning": "Person と V — do an action together with someone",
+    "partOfSpeech": "particle",
+    "example": "ともだちと きょうとへ いきます。",
+    "exampleReading": "ともだちと きょうとへ いきます。",
+    "exampleMeaning": "I go to Kyoto with a friend.",
+    "grammar": "Person と + Movement Verb",
+    "formation": "Person と + 行きます／来ます／帰ります",
+    "usage": "と marks the person who accompanies the speaker in an action or movement.",
+    "grammarExamples": [
+      {
+        "japanese": "かぞくと にほんへ いきます。",
+        "reading": "かぞくと にほんへ いきます。",
+        "english": "I go to Japan with my family."
+      },
+      {
+        "japanese": "ともだちと うちへ かえります。",
+        "reading": "ともだちと うちへ かえります。",
+        "english": "I return home with my friend."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "と means 'with' when it connects a person who accompanies you. It is different from と meaning 'and' in noun lists.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Transportation",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "de",
+      "transportation"
+    ],
+    "kanji": "",
+    "reading": "Vehicle で いきます",
+    "romaji": "Vehicle de ikimasu",
+    "meaning": "Vehicle で V — go by / travel using a vehicle",
+    "partOfSpeech": "particle",
+    "example": "でんしゃで かいしゃへ いきます。",
+    "exampleReading": "でんしゃで かいしゃへ いきます。",
+    "exampleMeaning": "I go to the company by train.",
+    "grammar": "Vehicle で + Movement Verb",
+    "formation": "Transportation + で + 行きます／来ます／帰ります",
+    "usage": "で indicates the means of transportation used for movement.",
+    "grammarExamples": [
+      {
+        "japanese": "バスで がっこうへ いきます。",
+        "reading": "バスで がっこうへ いきます。",
+        "english": "I go to school by bus."
+      },
+      {
+        "japanese": "ひこうきで にほんへ いきます。",
+        "reading": "ひこうきで にほんへ いきます。",
+        "english": "I go to Japan by airplane."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "で here marks the means of transportation. It is not the same as に or へ, which mark the destination.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Transportation",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "arukimasu"
+    ],
+    "kanji": "",
+    "reading": "あるいて いきます",
+    "romaji": "aruite ikimasu",
+    "meaning": "歩いて行きます — go on foot",
+    "partOfSpeech": "verb expression",
+    "example": "えきまで あるいて いきます。",
+    "exampleReading": "えきまで あるいて いきます。",
+    "exampleMeaning": "I walk to the station.",
+    "grammar": "歩いて + 行きます",
+    "formation": "歩いて + 行きます／来ます／帰ります",
+    "usage": "歩いて is used when traveling on foot. Unlike other means of transportation, it does not normally use で.",
+    "grammarExamples": [
+      {
+        "japanese": "がっこうまで あるいて いきます。",
+        "reading": "がっこうまで あるいて いきます。",
+        "english": "I walk to school."
+      },
+      {
+        "japanese": "うちまで あるいて かえります。",
+        "reading": "うちまで あるいて かえります。",
+        "english": "I walk home."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Say あるいて いきます rather than あるいてで いきます. Walking is not expressed with the transportation particle で.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Question Words",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "itsu"
+    ],
+    "kanji": "いつ",
+    "reading": "いつ",
+    "romaji": "itsu",
+    "meaning": "いつ — when",
+    "partOfSpeech": "question word",
+    "example": "いつ にほんへ いきますか。",
+    "exampleReading": "いつ にほんへ いきますか。",
+    "exampleMeaning": "When will you go to Japan?",
+    "grammar": "いつ + Verb",
+    "formation": "いつ + Sentence + か",
+    "usage": "Used to ask when an action or event takes place. Unlike specific clock or calendar expressions, いつ does not normally take に.",
+    "grammarExamples": [
+      {
+        "japanese": "いつ とうきょうへ いきますか。",
+        "reading": "いつ とうきょうへ いきますか。",
+        "english": "When will you go to Tokyo?"
+      },
+      {
+        "japanese": "いつ かえりますか。",
+        "reading": "いつ かえりますか。",
+        "english": "When will you return?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Do not normally say いつに. いつ itself already asks for the time.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Question Words",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "nanji"
+    ],
+    "kanji": "何時",
+    "reading": "なんじ",
+    "romaji": "nanji",
+    "meaning": "何時 — what time",
+    "partOfSpeech": "question word",
+    "example": "なんじに かえりますか。",
+    "exampleReading": "なんじに かえりますか。",
+    "exampleMeaning": "What time will you return?",
+    "grammar": "何時に + Verb",
+    "formation": "何時に + Verb + か",
+    "usage": "Used to ask the specific clock time at which an action takes place.",
+    "grammarExamples": [
+      {
+        "japanese": "なんじに がっこうへ いきますか。",
+        "reading": "なんじに がっこうへ いきますか。",
+        "english": "What time do you go to school?"
+      },
+      {
+        "japanese": "なんじに ねますか。",
+        "reading": "なんじに ねますか。",
+        "english": "What time do you go to bed?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "When asking for a specific clock time, use なんじに. Do not confuse なんじ with いつ, which asks more generally when.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Question Words",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-05",
+      "nan-nichi"
+    ],
+    "kanji": "何日",
+    "reading": "なんにち",
+    "romaji": "nan-nichi",
+    "meaning": "何日 — what day of the month / how many days",
+    "partOfSpeech": "question word",
+    "example": "なんにちに にほんへ いきますか。",
+    "exampleReading": "なんにちに にほんへ いきますか。",
+    "exampleMeaning": "What date will you go to Japan?",
+    "grammar": "何日に + Verb",
+    "formation": "何日に + Verb + か",
+    "usage": "Used to ask the date on which an event or action occurs.",
+    "grammarExamples": [
+      {
+        "japanese": "なんにちに きょうとへ いきますか。",
+        "reading": "なんにちに きょうとへ いきますか。",
+        "english": "What date will you go to Kyoto?"
+      },
+      {
+        "japanese": "なんにちに かえりますか。",
+        "reading": "なんにちに かえりますか。",
+        "english": "What date will you return?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "何日 can mean either 'what date' or 'how many days' depending on context.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Object Particle",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-06",
+      "wo"
+    ],
+    "kanji": "",
+    "reading": "N を Vます",
+    "romaji": "N o Vmasu",
+    "meaning": "N を Vます — do an action to/with N; marks the direct object",
+    "partOfSpeech": "particle",
+    "example": "ほんを よみます。",
+    "exampleReading": "ほんを よみます。",
+    "exampleMeaning": "I read a book.",
+    "grammar": "N を Vます",
+    "formation": "N + を + transitive verb",
+    "usage": "を marks the direct object of a transitive verb—the person or thing directly affected by the action.",
+    "grammarExamples": [
+      {
+        "japanese": "ごはんを たべます。",
+        "reading": "ごはんを たべます。",
+        "english": "I eat rice."
+      },
+      {
+        "japanese": "にほんごを べんきょうします。",
+        "reading": "にほんごを べんきょうします。",
+        "english": "I study Japanese."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "を is pronounced 'o' when used as a particle. Do not confuse it with は, which marks the topic.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Place of Action",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-06",
+      "de",
+      "place"
+    ],
+    "kanji": "",
+    "reading": "Place で Vます",
+    "romaji": "Place de Vmasu",
+    "meaning": "Place で Vます — do an action at/in a place",
+    "partOfSpeech": "particle",
+    "example": "としょかんで ほんを よみます。",
+    "exampleReading": "としょかんで ほんを よみます。",
+    "exampleMeaning": "I read a book at the library.",
+    "grammar": "Place で Vます",
+    "formation": "Place + で + Verb",
+    "usage": "で marks the place where an action takes place.",
+    "grammarExamples": [
+      {
+        "japanese": "がっこうで にほんごを べんきょうします。",
+        "reading": "がっこうで にほんごを べんきょうします。",
+        "english": "I study Japanese at school."
+      },
+      {
+        "japanese": "レストランで ごはんを たべます。",
+        "reading": "レストランで ごはんを たべます。",
+        "english": "I eat at a restaurant."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "で marks the location of an action. に marks a destination or, with certain verbs, a location of existence.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Together",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-06",
+      "to"
+    ],
+    "kanji": "",
+    "reading": "Person と Vます",
+    "romaji": "Person to Vmasu",
+    "meaning": "Person と Vます — do an action together with someone",
+    "partOfSpeech": "particle",
+    "example": "ともだちと えいがを みます。",
+    "exampleReading": "ともだちと えいがを みます。",
+    "exampleMeaning": "I watch a movie with my friend.",
+    "grammar": "Person と Vます",
+    "formation": "Person + と + Verb",
+    "usage": "と marks the person who performs an action together with the speaker.",
+    "grammarExamples": [
+      {
+        "japanese": "かぞくと ごはんを たべます。",
+        "reading": "かぞくと ごはんを たべます。",
+        "english": "I eat a meal with my family."
+      },
+      {
+        "japanese": "せんせいと はなします。",
+        "reading": "せんせいと はなします。",
+        "english": "I talk with the teacher."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "と means 'with' when it connects a companion. It is different from と used to connect nouns in a list.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Invitation",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-06",
+      "masenka"
+    ],
+    "kanji": "",
+    "reading": "～ませんか",
+    "romaji": "~masen ka",
+    "meaning": "～ませんか — Would you like to...? / Shall we...?",
+    "partOfSpeech": "expression",
+    "example": "いっしょに ひるごはんを たべませんか。",
+    "exampleReading": "いっしょに ひるごはんを たべませんか。",
+    "exampleMeaning": "Would you like to have lunch together?",
+    "grammar": "Vませんか",
+    "formation": "Verb stem + ませんか",
+    "usage": "Used to politely invite or suggest doing something together. Although ません is negative in form, ませんか functions as an invitation.",
+    "grammarExamples": [
+      {
+        "japanese": "いっしょに コーヒーを のみませんか。",
+        "reading": "いっしょに コーヒーを のみませんか。",
+        "english": "Would you like to have coffee together?"
+      },
+      {
+        "japanese": "えいがを みませんか。",
+        "reading": "えいがを みませんか。",
+        "english": "Would you like to watch a movie?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Do not interpret ませんか as a simple negative question. In this pattern it is normally a polite invitation.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Suggestion",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-06",
+      "mashou"
+    ],
+    "kanji": "",
+    "reading": "～ましょう",
+    "romaji": "~mashou",
+    "meaning": "～ましょう — let's... / shall we...?",
+    "partOfSpeech": "verb ending",
+    "example": "いっしょに べんきょうしましょう。",
+    "exampleReading": "いっしょに べんきょうしましょう。",
+    "exampleMeaning": "Let's study together.",
+    "grammar": "Vましょう",
+    "formation": "Verb stem + ましょう",
+    "usage": "Used to make a suggestion or proposal to do something together. It can also be used when agreeing to an invitation.",
+    "grammarExamples": [
+      {
+        "japanese": "いっしょに ひるごはんを たべましょう。",
+        "reading": "いっしょに ひるごはんを たべましょう。",
+        "english": "Let's have lunch together."
+      },
+      {
+        "japanese": "しちじに あいましょう。",
+        "reading": "しちじに あいましょう。",
+        "english": "Let's meet at seven."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "ましょう expresses a proposal or willingness to do something together; it is not simply the future tense.",
+    "formalAlternative": ""
+  },
+  {
+    "type": "grammar",
+    "category": "Suggestion Response",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-06",
+      "invitation-response"
+    ],
+    "kanji": "",
+    "reading": "はい、～ましょう",
+    "romaji": "hai, ~mashou",
+    "meaning": "はい、～ましょう — Yes, let's...",
+    "partOfSpeech": "expression",
+    "example": "いっしょに べんきょうしませんか。はい、べんきょうしましょう。",
+    "exampleReading": "いっしょに べんきょうしませんか。はい、べんきょうしましょう。",
+    "exampleMeaning": "Would you like to study together? Yes, let's study.",
+    "grammar": "はい、Vましょう",
+    "formation": "はい、+ Verb stem + ましょう",
+    "usage": "Used to accept an invitation or suggestion and agree to do the action together.",
+    "grammarExamples": [
+      {
+        "japanese": "いっしょに えいがを みませんか。はい、みましょう。",
+        "reading": "いっしょに えいがを みませんか。はい、みましょう。",
+        "english": "Would you like to watch a movie together? Yes, let's watch one."
+      },
+      {
+        "japanese": "コーヒーを のみませんか。はい、のみましょう。",
+        "reading": "コーヒーを のみませんか。はい、のみましょう。",
+        "english": "Would you like some coffee? Yes, let's have some."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "When accepting an invitation, ましょう shows agreement to carry out the proposed action.",
+    "formalAlternative": ""
+  },
+  {
+"type": "grammar",
+"category": "Object Particle",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "ni", "object"],
+"kanji": "",
+"reading": "N に Vます",
+"romaji": "N ni Vmasu",
+"meaning": "N に Vます — do something to or for a person",
+"partOfSpeech": "particle",
+"example": "せんせいに ききます。",
+"exampleReading": "せんせいに ききます。",
+"exampleMeaning": "I ask the teacher.",
+"grammar": "N に Vます",
+"formation": "Person + に + Verb",
+"usage": "に marks the person who receives an action or toward whom an action is directed with certain verbs.",
+"grammarExamples": [
+{
+"japanese": "せんせいに ききます。",
+"reading": "せんせいに ききます。",
+"english": "I ask the teacher."
+},
+{
+"japanese": "ともだちに でんわします。",
+"reading": "ともだちに でんわします。",
+"english": "I call my friend."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "This に is different from に used for time or destination. Its meaning depends on the verb.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Means and Method",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "de", "means"],
+"kanji": "",
+"reading": "N で Vます",
+"romaji": "N de Vmasu",
+"meaning": "N で Vます — do something using N",
+"partOfSpeech": "particle",
+"example": "はしで ごはんを たべます。",
+"exampleReading": "はしで ごはんを たべます。",
+"exampleMeaning": "I eat rice with chopsticks.",
+"grammar": "N で Vます",
+"formation": "Tool / means + で + Verb",
+"usage": "で indicates the tool, instrument, language, or means used to perform an action.",
+"grammarExamples": [
+{
+"japanese": "ペンで なまえを かきます。",
+"reading": "ペンで なまえを かきます。",
+"english": "I write my name with a pen."
+},
+{
+"japanese": "にほんごで はなします。",
+"reading": "にほんごで はなします。",
+"english": "I speak in Japanese."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Here で means 'by/with/using'. It is different from で marking the location where an action occurs.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "agemasu"],
+"kanji": "",
+"reading": "あげます",
+"romaji": "agemasu",
+"meaning": "あげます — give",
+"partOfSpeech": "verb",
+"example": "ともだちに プレゼントを あげます。",
+"exampleReading": "ともだちに プレゼントを あげます。",
+"exampleMeaning": "I give a present to my friend.",
+"grammar": "Person に Object を あげます",
+"formation": "Person + に + Object + を + あげます",
+"usage": "Used when the speaker or someone on the speaker's side gives something to another person.",
+"grammarExamples": [
+{
+"japanese": "ともだちに ほんを あげます。",
+"reading": "ともだちに ほんを あげます。",
+"english": "I give a book to my friend."
+},
+{
+"japanese": "ははに はなを あげました。",
+"reading": "ははに はなを あげました。",
+"english": "I gave flowers to my mother."
+}
+],
+"negative": "あげません",
+"past": "あげました",
+"pastNegative": "あげませんでした",
+"commonMistake": "Do not use あげます when the speaker receives something. It describes giving outward from the giver.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Receiving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "moraimasu"],
+"kanji": "",
+"reading": "もらいます",
+"romaji": "moraimasu",
+"meaning": "もらいます — receive; get",
+"partOfSpeech": "verb",
+"example": "ともだちに プレゼントを もらいます。",
+"exampleReading": "ともだちに プレゼントを もらいます。",
+"exampleMeaning": "I receive a present from my friend.",
+"grammar": "Person に Object を もらいます",
+"formation": "Person + に + Object + を + もらいます",
+"usage": "Used when the subject receives or gets something from another person.",
+"grammarExamples": [
+{
+"japanese": "せんせいに ほんを もらいました。",
+"reading": "せんせいに ほんを もらいました。",
+"english": "I received a book from the teacher."
+},
+{
+"japanese": "ともだちに えを もらいました。",
+"reading": "ともだちに えを もらいました。",
+"english": "I received a picture from my friend."
+}
+],
+"negative": "もらいません",
+"past": "もらいました",
+"pastNegative": "もらいませんでした",
+"commonMistake": "The subject is the receiver. Think of もらいます from the receiver's point of view.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "kuremasu"],
+"kanji": "",
+"reading": "くれます",
+"romaji": "kuremasu",
+"meaning": "くれます — give to me / give to someone on my side",
+"partOfSpeech": "verb",
+"example": "ともだちは わたしに ほんを くれます。",
+"exampleReading": "ともだちは わたしに ほんを くれます。",
+"exampleMeaning": "My friend gives me a book.",
+"grammar": "Person は わたしに Object を くれます",
+"formation": "Person + は + わたしに + Object + を + くれます",
+"usage": "Used when another person gives something to the speaker or to someone regarded as part of the speaker's group.",
+"grammarExamples": [
+{
+"japanese": "ともだちは わたしに おかしを くれました。",
+"reading": "ともだちは わたしに おかしを くれました。",
+"english": "My friend gave me some sweets."
+},
+{
+"japanese": "せんせいは わたしに ほんを くれました。",
+"reading": "せんせいは わたしに ほんを くれました。",
+"english": "The teacher gave me a book."
+}
+],
+"negative": "くれません",
+"past": "くれました",
+"pastNegative": "くれませんでした",
+"commonMistake": "The important point is the direction of giving: something comes toward the speaker or the speaker's side.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Purpose",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "ni", "purpose"],
+"kanji": "",
+"reading": "Vます-stem に いきます",
+"romaji": "Vmasu-stem ni ikimasu",
+"meaning": "Vます-stem に 行きます — go in order to do something",
+"partOfSpeech": "particle",
+"example": "えいがを みに いきます。",
+"exampleReading": "えいがを みに いきます。",
+"exampleMeaning": "I go to see a movie.",
+"grammar": "Vます-stem に 行きます／来ます",
+"formation": "Verb ます-stem + に + 行きます／来ます",
+"usage": "に marks the purpose of movement. The verb before に is changed to its ます-stem.",
+"grammarExamples": [
+{
+"japanese": "ほんを かいに いきます。",
+"reading": "ほんを かいに いきます。",
+"english": "I go to buy a book."
+},
+{
+"japanese": "ともだちに あいに きました。",
+"reading": "ともだちに あいに きました。",
+"english": "I came to meet my friend."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the verb stem before に, not the dictionary form. For example, たべます → たべに, not たべますに.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Purpose",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "purpose", "kimasu"],
+"kanji": "",
+"reading": "Vます-stem に きます",
+"romaji": "Vmasu-stem ni kimasu",
+"meaning": "Vます-stem に 来ます — come in order to do something",
+"partOfSpeech": "particle",
+"example": "ともだちに あいに きました。",
+"exampleReading": "ともだちに あいに きました。",
+"exampleMeaning": "I came to meet my friend.",
+"grammar": "Vます-stem に 来ます",
+"formation": "Verb ます-stem + に + 来ます",
+"usage": "Expresses the purpose for coming somewhere.",
+"grammarExamples": [
+{
+"japanese": "にほんごを べんきょうしに きました。",
+"reading": "にほんごを べんきょうしに きました。",
+"english": "I came to study Japanese."
+},
+{
+"japanese": "せんせいに ききに きました。",
+"reading": "せんせいに ききに きました。",
+"english": "I came to ask the teacher."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The purpose phrase comes before 来ます. The verb must be changed to its ます-stem.",
+"formalAlternative": ""
+},
+{
+    "type": "grammar",
+    "category": "Noun Sentences",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "desu"
+    ],
+    "kanji": "",
+    "reading": "です",
+    "romaji": "desu",
+    "meaning": "です — is / am / are",
+    "partOfSpeech": "auxiliary",
+    "example": "わたしは がくせいです。",
+    "exampleReading": "わたしは がくせいです。",
+    "exampleMeaning": "I am a student.",
+    "grammar": "です",
+    "formation": "N1 は N2 です。",
+    "usage": "Used at the end of a polite noun sentence to state that N1 is N2.",
+    "grammarExamples": [
+      {
+        "japanese": "わたしは かいしゃいんです。",
+        "reading": "わたしは かいしゃいんです。",
+        "english": "I am a company employee."
+      },
+      {
+        "japanese": "ミラーさんは せんせいです。",
+        "reading": "ミラーさんは せんせいです。",
+        "english": "Mr. Miller is a teacher."
+      }
+    ],
+    "negative": "ではありません / じゃありません",
+    "past": "でした",
+    "pastNegative": "ではありませんでした",
+    "commonMistake": "です is a polite sentence ending. It does not directly mean 'to be' in every Japanese sentence.",
+    "formalAlternative": "",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+    "type": "grammar",
+    "category": "Particles",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "wa"
+    ],
+    "kanji": "",
+    "reading": "は",
+    "romaji": "wa",
+    "meaning": "は — marks the topic of the sentence",
+    "partOfSpeech": "particle",
+    "example": "わたしは がくせいです。",
+    "exampleReading": "わたしは がくせいです。",
+    "exampleMeaning": "I am a student.",
+    "grammar": "は",
+    "formation": "N + は + ...",
+    "usage": "Marks the topic of the sentence. The information that follows は describes or identifies the topic.",
+    "grammarExamples": [
+      {
+        "japanese": "わたしは インドじんです。",
+        "reading": "わたしは インドじんです。",
+        "english": "I am Indian."
+      },
+      {
+        "japanese": "これは ほんです。",
+        "reading": "これは ほんです。",
+        "english": "This is a book."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "When は is used as a particle, it is pronounced 'wa', not 'ha'.",
+    "formalAlternative": "",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+    "type": "grammar",
+    "category": "Noun Sentences",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "ja-arimasen"
+    ],
+    "kanji": "",
+    "reading": "じゃありません",
+    "romaji": "ja arimasen",
+    "meaning": "じゃありません — is not / am not / are not",
+    "partOfSpeech": "expression",
+    "example": "わたしは せんせいじゃありません。",
+    "exampleReading": "わたしは せんせいじゃありません。",
+    "exampleMeaning": "I am not a teacher.",
+    "grammar": "じゃありません",
+    "formation": "N1 は N2 じゃありません。",
+    "usage": "The polite negative form of a noun sentence. It states that the topic is not the noun that follows it.",
+    "grammarExamples": [
+      {
+        "japanese": "わたしは がくせいじゃありません。",
+        "reading": "わたしは がくせいじゃありません。",
+        "english": "I am not a student."
+      },
+      {
+        "japanese": "ミラーさんは せんせいじゃありません。",
+        "reading": "ミラーさんは せんせいじゃありません。",
+        "english": "Mr. Miller is not a teacher."
+      }
+    ],
+    "negative": "じゃありません",
+    "past": "",
+    "pastNegative": "じゃありませんでした",
+    "commonMistake": "Use じゃありません with nouns and な-adjectives. Do not use it as the negative form of a verb.",
+    "formalAlternative": "ではありません",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+    "type": "grammar",
+    "category": "Questions",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "ka"
+    ],
+    "kanji": "",
+    "reading": "か",
+    "romaji": "ka",
+    "meaning": "か — question marker",
+    "partOfSpeech": "particle",
+    "example": "あなたは せんせいですか。",
+    "exampleReading": "あなたは せんせいですか。",
+    "exampleMeaning": "Are you a teacher?",
+    "grammar": "か",
+    "formation": "Sentence + か",
+    "usage": "Placed at the end of a polite sentence to turn it into a question.",
+    "grammarExamples": [
+      {
+        "japanese": "これは ほんですか。",
+        "reading": "これは ほんですか。",
+        "english": "Is this a book?"
+      },
+      {
+        "japanese": "ミラーさんは かいしゃいんですか。",
+        "reading": "ミラーさんは かいしゃいんですか。",
+        "english": "Is Mr. Miller a company employee?"
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "か is placed at the end of the sentence. Japanese does not normally change word order to form a basic yes/no question.",
+    "formalAlternative": "",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+    "type": "grammar",
+    "category": "Particles",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "mo"
+    ],
+    "kanji": "",
+    "reading": "も",
+    "romaji": "mo",
+    "meaning": "も — also / too",
+    "partOfSpeech": "particle",
+    "example": "わたしも がくせいです。",
+    "exampleReading": "わたしも がくせいです。",
+    "exampleMeaning": "I am also a student.",
+    "grammar": "も",
+    "formation": "N + も + ...",
+    "usage": "Indicates that the same information applies to another person or thing. It often replaces は.",
+    "grammarExamples": [
+      {
+        "japanese": "マリアさんは がくせいです。ジョンさんも がくせいです。",
+        "reading": "マリアさんは がくせいです。ジョンさんも がくせいです。",
+        "english": "Maria is a student. John is also a student."
+      },
+      {
+        "japanese": "わたしは インドじんです。ラジさんも インドじんです。",
+        "reading": "わたしは インドじんです。ラジさんも インドじんです。",
+        "english": "I am Indian. Raji is also Indian."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "も normally replaces は when expressing 'also'. Do not use は and も together in this basic pattern.",
+    "formalAlternative": "",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+    "type": "grammar",
+    "category": "Noun Modification",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "no"
+    ],
+    "kanji": "",
+    "reading": "の",
+    "romaji": "no",
+    "meaning": "の — connects two nouns and shows their relationship",
+    "partOfSpeech": "particle",
+    "example": "わたしは IMCの しゃいんです。",
+    "exampleReading": "わたしは IMCの しゃいんです。",
+    "exampleMeaning": "I am an employee of IMC.",
+    "grammar": "の",
+    "formation": "N1 の N2",
+    "usage": "Connects two nouns. N1 modifies N2 and can show possession, affiliation, origin, category, or another relationship.",
+    "grammarExamples": [
+      {
+        "japanese": "これは わたしの ほんです。",
+        "reading": "これは わたしの ほんです。",
+        "english": "This is my book."
+      },
+      {
+        "japanese": "あれは にほんの くるまです。",
+        "reading": "あれは にほんの くるまです。",
+        "english": "That is a Japanese car."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "The noun before の modifies the noun after it. Do not assume の always means possession.",
+    "formalAlternative": "",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+    "type": "grammar",
+    "category": "Names and Titles",
+    "jlpt": "N5",
+    "tags": [
+      "N5",
+      "grammar",
+      "minna-no-nihongo",
+      "lesson-01",
+      "san"
+    ],
+    "kanji": "",
+    "reading": "さん",
+    "romaji": "san",
+    "meaning": "～さん — polite title used after another person's name",
+    "partOfSpeech": "suffix",
+    "example": "たなかさんは せんせいです。",
+    "exampleReading": "たなかさんは せんせいです。",
+    "exampleMeaning": "Mr. / Ms. Tanaka is a teacher.",
+    "grammar": "～さん",
+    "formation": "Person's name + さん",
+    "usage": "A polite title placed after another person's name when addressing or referring to them.",
+    "grammarExamples": [
+      {
+        "japanese": "やまださんは かいしゃいんです。",
+        "reading": "やまださんは かいしゃいんです。",
+        "english": "Mr. / Ms. Yamada is a company employee."
+      },
+      {
+        "japanese": "キムさんは せんせいです。",
+        "reading": "キムさんは せんせいです。",
+        "english": "Mr. / Ms. Kim is a teacher."
+      }
+    ],
+    "negative": "",
+    "past": "",
+    "pastNegative": "",
+    "commonMistake": "Do not normally use さん after your own name. It is used when referring to another person politely.",
+    "formalAlternative": "",
+    "interval": 0,
+    "repetitions": 0,
+    "easeFactor": 2.5,
+    "dueDate": 1788514512000
+  },
+  {
+"type": "grammar",
+"category": "Means of Communication",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "de"],
+"kanji": "",
+"reading": "N で Vます",
+"romaji": "N de Vmasu",
+"meaning": "N で Vます — do something using N; by means of N",
+"partOfSpeech": "particle",
+"example": "にほんごで てがみを かきます。",
+"exampleReading": "にほんごで てがみを かきます。",
+"exampleMeaning": "I write a letter in Japanese.",
+"grammar": "N で Vます",
+"formation": "Language / means + で + Verb",
+"usage": "で indicates the language, tool, or means used to perform an action.",
+"grammarExamples": [
+{
+"japanese": "えんぴつで かきます。",
+"reading": "えんぴつで かきます。",
+"english": "I write with a pencil."
+},
+{
+"japanese": "えいごで はなします。",
+"reading": "えいごで はなします。",
+"english": "I speak in English."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "で can have several meanings. Here it indicates the means or language used for an action.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Communication",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "de", "communication"],
+"kanji": "",
+"reading": "N で はなします",
+"romaji": "N de hanashimasu",
+"meaning": "N で 話します — speak in N / communicate in N",
+"partOfSpeech": "particle",
+"example": "にほんごで はなします。",
+"exampleReading": "にほんごで はなします。",
+"exampleMeaning": "I speak in Japanese.",
+"grammar": "Language で 話します",
+"formation": "Language + で + 話します",
+"usage": "Used to specify the language in which communication takes place.",
+"grammarExamples": [
+{
+"japanese": "せんせいは にほんごで はなします。",
+"reading": "せんせいは にほんごで はなします。",
+"english": "The teacher speaks in Japanese."
+},
+{
+"japanese": "ともだちと えいごで はなします。",
+"reading": "ともだちと えいごで はなします。",
+"english": "I speak English with my friend."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use で for the language used in communication, not に.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving and Receiving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "agemasu"],
+"kanji": "",
+"reading": "あげます",
+"romaji": "agemasu",
+"meaning": "あげます — give",
+"partOfSpeech": "verb",
+"example": "わたしは ともだちに プレゼントを あげます。",
+"exampleReading": "わたしは ともだちに プレゼントを あげます。",
+"exampleMeaning": "I give a present to my friend.",
+"grammar": "Person に Object を あげます",
+"formation": "Person に + Object を + あげます",
+"usage": "Used when the subject gives something to another person.",
+"grammarExamples": [
+{
+"japanese": "わたしは ははに はなを あげました。",
+"reading": "わたしは ははに はなを あげました。",
+"english": "I gave flowers to my mother."
+},
+{
+"japanese": "たなかさんは やまださんに ほんを あげました。",
+"reading": "たなかさんは やまださんに ほんを あげました。",
+"english": "Mr. Tanaka gave a book to Mr. Yamada."
+}
+],
+"negative": "あげません",
+"past": "あげました",
+"pastNegative": "あげませんでした",
+"commonMistake": "あげます describes giving from the giver's point of view. Do not use it when describing yourself receiving something.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving and Receiving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "moraimasu"],
+"kanji": "",
+"reading": "もらいます",
+"romaji": "moraimasu",
+"meaning": "もらいます — receive; get",
+"partOfSpeech": "verb",
+"example": "わたしは ともだちに プレゼントを もらいました。",
+"exampleReading": "わたしは ともだちに プレゼントを もらいました。",
+"exampleMeaning": "I received a present from my friend.",
+"grammar": "Person に Object を もらいます",
+"formation": "Person に + Object を + もらいます",
+"usage": "Used when the subject receives something from another person.",
+"grammarExamples": [
+{
+"japanese": "わたしは せんせいに ほんを もらいました。",
+"reading": "わたしは せんせいに ほんを もらいました。",
+"english": "I received a book from the teacher."
+},
+{
+"japanese": "わたしは ちちに とけいを もらいました。",
+"reading": "わたしは ちちに とけいを もらいました。",
+"english": "I received a watch from my father."
+}
+],
+"negative": "もらいません",
+"past": "もらいました",
+"pastNegative": "もらいませんでした",
+"commonMistake": "The subject is the receiver. Think of もらいます from the receiver's point of view.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving and Receiving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-07", "kuremasu"],
+"kanji": "",
+"reading": "くれます",
+"romaji": "kuremasu",
+"meaning": "くれます — give to me; give to someone in my group",
+"partOfSpeech": "verb",
+"example": "ともだちは わたしに プレゼントを くれました。",
+"exampleReading": "ともだちは わたしに プレゼントを くれました。",
+"exampleMeaning": "My friend gave me a present.",
+"grammar": "Person は わたしに Object を くれます",
+"formation": "Person は + わたしに + Object を + くれます",
+"usage": "Used when another person gives something to the speaker or someone belonging to the speaker's side.",
+"grammarExamples": [
+{
+"japanese": "せんせいは わたしに ほんを くれました。",
+"reading": "せんせいは わたしに ほんを くれました。",
+"english": "The teacher gave me a book."
+},
+{
+"japanese": "ともだちは わたしに おかしを くれました。",
+"reading": "ともだちは わたしに おかしを くれました。",
+"english": "My friend gave me some sweets."
+}
+],
+"negative": "くれません",
+"past": "くれました",
+"pastNegative": "くれませんでした",
+"commonMistake": "くれます is used when something is given toward the speaker or the speaker's group. It is not interchangeable with あげます.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjectives",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "i-adjective"],
+"kanji": "",
+"reading": "いけいようし",
+"romaji": "i-keiyoushi",
+"meaning": "い-adjective — adjective that normally ends in い",
+"partOfSpeech": "i-adjective",
+"example": "この ほんは おもしろいです。",
+"exampleReading": "この ほんは おもしろいです。",
+"exampleMeaning": "This book is interesting.",
+"grammar": "い-adjective + です",
+"formation": "い-adjective + です",
+"usage": "Used to describe the quality, condition, or characteristic of a person or thing in a polite sentence.",
+"grammarExamples": [
+{
+"japanese": "この くるまは あたらしいです。",
+"reading": "この くるまは あたらしいです。",
+"english": "This car is new."
+},
+{
+"japanese": "きょうは あついです。",
+"reading": "きょうは あついです。",
+"english": "Today is hot."
+}
+],
+"negative": "～くないです",
+"past": "～かったです",
+"pastNegative": "～くなかったです",
+"commonMistake": "Do not add な before a noun after a normal い-adjective. For example, おもしろい ほん, not おもしろいな ほん.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjectives",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "na-adjective"],
+"kanji": "",
+"reading": "なけいようし",
+"romaji": "na-keiyoushi",
+"meaning": "な-adjective — adjective that uses な before a noun",
+"partOfSpeech": "na-adjective",
+"example": "この まちは しずかです。",
+"exampleReading": "この まちは しずかです。",
+"exampleMeaning": "This town is quiet.",
+"grammar": "な-adjective + です",
+"formation": "な-adjective + です",
+"usage": "Used to describe the quality, condition, or characteristic of a person or thing in a polite sentence.",
+"grammarExamples": [
+{
+"japanese": "この へやは きれいです。",
+"reading": "この へやは きれいです。",
+"english": "This room is clean."
+},
+{
+"japanese": "この まちは しずかです。",
+"reading": "この まちは しずかです。",
+"english": "This town is quiet."
+}
+],
+"negative": "～じゃありません",
+"past": "～でした",
+"pastNegative": "～じゃありませんでした",
+"commonMistake": "な is needed when a な-adjective directly modifies a noun: しずかな まち. It is not used before です.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Noun Modification",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "i-adjective", "noun"],
+"kanji": "",
+"reading": "いけいようし + めいし",
+"romaji": "i-keiyoushi + meishi",
+"meaning": "い-adjective + noun — adjective directly describes a noun",
+"partOfSpeech": "adjective pattern",
+"example": "おおきい いえです。",
+"exampleReading": "おおきい いえです。",
+"exampleMeaning": "It is a big house.",
+"grammar": "い-adjective + Noun",
+"formation": "い-adjective + Noun",
+"usage": "An い-adjective directly modifies the noun that follows it.",
+"grammarExamples": [
+{
+"japanese": "あたらしい くるまです。",
+"reading": "あたらしい くるまです。",
+"english": "It is a new car."
+},
+{
+"japanese": "おもしろい えいがを みました。",
+"reading": "おもしろい えいがを みました。",
+"english": "I watched an interesting movie."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Do not insert の or な between a normal い-adjective and the noun.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Noun Modification",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "na-adjective", "noun"],
+"kanji": "",
+"reading": "なけいようし + な + めいし",
+"romaji": "na-keiyoushi + na + meishi",
+"meaning": "な-adjective + な + noun — adjective directly describes a noun",
+"partOfSpeech": "adjective pattern",
+"example": "しずかな まちです。",
+"exampleReading": "しずかな まちです。",
+"exampleMeaning": "It is a quiet town.",
+"grammar": "な-adjective + な + Noun",
+"formation": "な-adjective + な + Noun",
+"usage": "A な-adjective takes な when it directly modifies a noun.",
+"grammarExamples": [
+{
+"japanese": "きれいな へやです。",
+"reading": "きれいな へやです。",
+"english": "It is a clean room."
+},
+{
+"japanese": "しずかな こうえんです。",
+"reading": "しずかな こうえんです。",
+"english": "It is a quiet park."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The な appears only when the adjective directly modifies a noun. Do not say しずかなです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Questions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "donna"],
+"kanji": "どんな",
+"reading": "どんな",
+"romaji": "donna",
+"meaning": "どんな — what kind of; what sort of",
+"partOfSpeech": "question word",
+"example": "どんな ほんですか。",
+"exampleReading": "どんな ほんですか。",
+"exampleMeaning": "What kind of book is it?",
+"grammar": "どんな + Noun",
+"formation": "どんな + Noun + ですか",
+"usage": "Used to ask about the type, character, or qualities of a person or thing.",
+"grammarExamples": [
+{
+"japanese": "どんな ひとですか。",
+"reading": "どんな ひとですか。",
+"english": "What kind of person is he/she?"
+},
+{
+"japanese": "どんな まちですか。",
+"reading": "どんな まちですか。",
+"english": "What kind of town is it?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "どんな must be followed by a noun. Do not use it alone like どうですか.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Questions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "dou"],
+"kanji": "どう",
+"reading": "どう",
+"romaji": "dou",
+"meaning": "どう — how; how is it?",
+"partOfSpeech": "question word",
+"example": "にほんの せいかつは どうですか。",
+"exampleReading": "にほんの せいかつは どうですか。",
+"exampleMeaning": "How is life in Japan?",
+"grammar": "N は どうですか",
+"formation": "N は どうですか",
+"usage": "Used to ask someone's opinion, impression, or evaluation of something.",
+"grammarExamples": [
+{
+"japanese": "にほんごの べんきょうは どうですか。",
+"reading": "にほんごの べんきょうは どうですか。",
+"english": "How is studying Japanese?"
+},
+{
+"japanese": "あたらしい しごとは どうですか。",
+"reading": "あたらしい しごとは どうですか。",
+"english": "How is your new job?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "どうですか asks for an evaluation or condition. どんな asks what type or kind of thing something is.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Coordination",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-08", "soshite"],
+"kanji": "そして",
+"reading": "そして",
+"romaji": "soshite",
+"meaning": "そして — and; and then",
+"partOfSpeech": "conjunction",
+"example": "この まちは しずかです。そして、きれいです。",
+"exampleReading": "この まちは しずかです。そして、きれいです。",
+"exampleMeaning": "This town is quiet. And it is beautiful.",
+"grammar": "Sentence。そして、Sentence。",
+"formation": "Sentence + そして + Sentence",
+"usage": "Connects related statements and adds another piece of information.",
+"grammarExamples": [
+{
+"japanese": "この へやは きれいです。そして、ひろいです。",
+"reading": "この へやは きれいです。そして、ひろいです。",
+"english": "This room is clean. And it is spacious."
+},
+{
+"japanese": "にほんごは おもしろいです。そして、むずかしいです。",
+"reading": "にほんごは おもしろいです。そして、むずかしいです。",
+"english": "Japanese is interesting. And it is difficult."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "そして connects statements. It is not the same as と, which connects nouns.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Conjugation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-09", "i-adjective", "negative"],
+"kanji": "",
+"reading": "～くないです",
+"romaji": "~kunai desu",
+"meaning": "～くないです — is not; is not [i-adjective]",
+"partOfSpeech": "i-adjective conjugation",
+"example": "この ほんは おもしろくないです。",
+"exampleReading": "この ほんは おもしろくないです。",
+"exampleMeaning": "This book is not interesting.",
+"grammar": "い-adjective → ～くないです",
+"formation": "い-adjective: remove い + くないです",
+"usage": "Changes an い-adjective into its polite negative form.",
+"grammarExamples": [
+{
+"japanese": "きょうは あつくないです。",
+"reading": "きょうは あつくないです。",
+"english": "Today is not hot."
+},
+{
+"japanese": "この くるまは あたらしくないです。",
+"reading": "この くるまは あたらしくないです。",
+"english": "This car is not new."
+}
+],
+"negative": "～くないです",
+"past": "",
+"pastNegative": "～くなかったです",
+"commonMistake": "Remove the final い before adding くないです. For example, おもしろい → おもしろくないです.",
+"formalAlternative": "～くありません"
+},
+{
+"type": "grammar",
+"category": "Adjective Conjugation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-09", "na-adjective", "negative"],
+"kanji": "",
+"reading": "～じゃありません",
+"romaji": "~ja arimasen",
+"meaning": "～じゃありません — is not; negative form of a な-adjective",
+"partOfSpeech": "na-adjective conjugation",
+"example": "この へやは しずかじゃありません。",
+"exampleReading": "この へやは しずかじゃありません。",
+"exampleMeaning": "This room is not quiet.",
+"grammar": "な-adjective + じゃありません",
+"formation": "な-adjective + じゃありません",
+"usage": "Makes a な-adjective into its polite negative form.",
+"grammarExamples": [
+{
+"japanese": "この まちは きれいじゃありません。",
+"reading": "この まちは きれいじゃありません。",
+"english": "This town is not clean/beautiful."
+},
+{
+"japanese": "この しごとは かんたんじゃありません。",
+"reading": "この しごとは かんたんじゃありません。",
+"english": "This job is not easy."
+}
+],
+"negative": "～じゃありません",
+"past": "",
+"pastNegative": "～じゃありませんでした",
+"commonMistake": "Do not use くない with a な-adjective. For example, しずかじゃありません is correct, not しずかくないです.",
+"formalAlternative": "～ではありません"
+},
+{
+"type": "grammar",
+"category": "Adjective Past",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-09", "i-adjective", "past"],
+"kanji": "",
+"reading": "～かったです",
+"romaji": "~katta desu",
+"meaning": "～かったです — was; was [i-adjective]",
+"partOfSpeech": "i-adjective conjugation",
+"example": "きのうは あつかったです。",
+"exampleReading": "きのうは あつかったです。",
+"exampleMeaning": "Yesterday was hot.",
+"grammar": "い-adjective → ～かったです",
+"formation": "い-adjective: remove い + かったです",
+"usage": "Changes an い-adjective into its polite past form.",
+"grammarExamples": [
+{
+"japanese": "きのうは さむかったです。",
+"reading": "きのうは さむかったです。",
+"english": "Yesterday was cold."
+},
+{
+"japanese": "その えいがは おもしろかったです。",
+"reading": "その えいがは おもしろかったです。",
+"english": "That movie was interesting."
+}
+],
+"negative": "",
+"past": "～かったです",
+"pastNegative": "～くなかったです",
+"commonMistake": "Remove the final い before adding かったです: おもしろい → おもしろかったです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Past",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-09", "i-adjective", "past-negative"],
+"kanji": "",
+"reading": "～くなかったです",
+"romaji": "~kunakatta desu",
+"meaning": "～くなかったです — was not; was not [i-adjective]",
+"partOfSpeech": "i-adjective conjugation",
+"example": "きのうは あつくなかったです。",
+"exampleReading": "きのうは あつくなかったです。",
+"exampleMeaning": "Yesterday was not hot.",
+"grammar": "い-adjective → ～くなかったです",
+"formation": "い-adjective: remove い + くなかったです",
+"usage": "Changes an い-adjective into its polite past negative form.",
+"grammarExamples": [
+{
+"japanese": "きのうは さむくなかったです。",
+"reading": "きのうは さむくなかったです。",
+"english": "Yesterday was not cold."
+},
+{
+"japanese": "その ほんは おもしろくなかったです。",
+"reading": "その ほんは おもしろくなかったです。",
+"english": "That book was not interesting."
+}
+],
+"negative": "～くないです",
+"past": "",
+"pastNegative": "～くなかったです",
+"commonMistake": "The past negative is formed from the negative base: くない → くなかった.",
+"formalAlternative": "～くありませんでした"
+},
+{
+"type": "grammar",
+"category": "Adjective Past",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-09", "na-adjective", "past"],
+"kanji": "",
+"reading": "～でした",
+"romaji": "~deshita",
+"meaning": "～でした — was; was [na-adjective/noun]",
+"partOfSpeech": "sentence ending",
+"example": "きのうは しずかでした。",
+"exampleReading": "きのうは しずかでした。",
+"exampleMeaning": "Yesterday was quiet.",
+"grammar": "な-adjective + でした",
+"formation": "な-adjective + でした",
+"usage": "Used to make a な-adjective into its polite past form.",
+"grammarExamples": [
+{
+"japanese": "きのうは ひまでした。",
+"reading": "きのうは ひまでした。",
+"english": "Yesterday was free."
+},
+{
+"japanese": "せんしゅうは たいへんでした。",
+"reading": "せんしゅうは たいへんでした。",
+"english": "Last week was difficult."
+}
+],
+"negative": "～じゃありません",
+"past": "～でした",
+"pastNegative": "～じゃありませんでした",
+"commonMistake": "Do not add な before でした. Say しずかでした, not しずかなでした.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Past",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-09", "na-adjective", "past-negative"],
+"kanji": "",
+"reading": "～じゃありませんでした",
+"romaji": "~ja arimasen deshita",
+"meaning": "～じゃありませんでした — was not; was not [na-adjective]",
+"partOfSpeech": "na-adjective conjugation",
+"example": "きのうは しずかじゃありませんでした。",
+"exampleReading": "きのうは しずかじゃありませんでした。",
+"exampleMeaning": "Yesterday was not quiet.",
+"grammar": "な-adjective + じゃありませんでした",
+"formation": "な-adjective + じゃありませんでした",
+"usage": "Used to make a な-adjective into its polite past negative form.",
+"grammarExamples": [
+{
+"japanese": "せんしゅうは ひまじゃありませんでした。",
+"reading": "せんしゅうは ひまじゃありませんでした。",
+"english": "Last week was not free."
+},
+{
+"japanese": "きのうの しごとは かんたんじゃありませんでした。",
+"reading": "きのうの しごとは かんたんじゃありませんでした。",
+"english": "Yesterday's work was not easy."
+}
+],
+"negative": "～じゃありません",
+"past": "",
+"pastNegative": "～じゃありませんでした",
+"commonMistake": "Do not use くなかった with な-adjectives. Use じゃありませんでした.",
+"formalAlternative": "～ではありませんでした"
+},
+{
+"type": "grammar",
+"category": "Likes and Dislikes",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "suki"],
+"kanji": "好き",
+"reading": "すき",
+"romaji": "suki",
+"meaning": "好きです — like; be fond of",
+"partOfSpeech": "な-adjective",
+"example": "わたしは りんごが すきです。",
+"exampleReading": "わたしは りんごが すきです。",
+"exampleMeaning": "I like apples.",
+"grammar": "N が 好きです",
+"formation": "Person は + N が + 好きです",
+"usage": "Used to express that someone likes or is fond of a person, thing, activity, or category.",
+"grammarExamples": [
+{
+"japanese": "わたしは おんがくが すきです。",
+"reading": "わたしは おんがくが すきです。",
+"english": "I like music."
+},
+{
+"japanese": "たなかさんは スポーツが すきです。",
+"reading": "たなかさんは スポーツが すきです。",
+"english": "Mr. Tanaka likes sports."
+}
+],
+"negative": "好きじゃありません",
+"past": "好きでした",
+"pastNegative": "好きじゃありませんでした",
+"commonMistake": "好き is a な-adjective, not a verb. The thing liked is normally marked with が, not を.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Dislikes",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "kirai"],
+"kanji": "嫌い",
+"reading": "きらい",
+"romaji": "kirai",
+"meaning": "嫌いです — dislike; not like",
+"partOfSpeech": "な-adjective",
+"example": "わたしは さかなが きらいです。",
+"exampleReading": "わたしは さかなが きらいです。",
+"exampleMeaning": "I dislike fish.",
+"grammar": "N が 嫌いです",
+"formation": "Person は + N が + 嫌いです",
+"usage": "Used to express dislike or a strong lack of preference for a person, thing, activity, or category.",
+"grammarExamples": [
+{
+"japanese": "わたしは たまねぎが きらいです。",
+"reading": "わたしは たまねぎが きらいです。",
+"english": "I dislike onions."
+},
+{
+"japanese": "かれは さむい てんきが きらいです。",
+"reading": "かれは さむい てんきが きらいです。",
+"english": "He dislikes cold weather."
+}
+],
+"negative": "嫌いじゃありません",
+"past": "嫌いでした",
+"pastNegative": "嫌いじゃありませんでした",
+"commonMistake": "嫌い is a な-adjective. The disliked thing is normally marked with が, not を.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Ability",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "jouzu"],
+"kanji": "上手",
+"reading": "じょうず",
+"romaji": "jouzu",
+"meaning": "上手です — be good at; skillful",
+"partOfSpeech": "な-adjective",
+"example": "マリアさんは りょうりが じょうずです。",
+"exampleReading": "マリアさんは りょうりが じょうずです。",
+"exampleMeaning": "Maria is good at cooking.",
+"grammar": "N が 上手です",
+"formation": "Person は + N が + 上手です",
+"usage": "Used to say that someone is skilled or good at something.",
+"grammarExamples": [
+{
+"japanese": "たなかさんは えが じょうずです。",
+"reading": "たなかさんは えが じょうずです。",
+"english": "Mr. Tanaka is good at drawing."
+},
+{
+"japanese": "わたしは にほんごが じょうずです。",
+"reading": "わたしは にほんごが じょうずです。",
+"english": "I am good at Japanese."
+}
+],
+"negative": "上手じゃありません",
+"past": "上手でした",
+"pastNegative": "上手じゃありませんでした",
+"commonMistake": "Use が with 上手 in this pattern. Also, avoid using 上手 about yourself in situations where it may sound boastful.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Ability",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "heta"],
+"kanji": "下手",
+"reading": "へた",
+"romaji": "heta",
+"meaning": "下手です — be poor at; not skillful",
+"partOfSpeech": "な-adjective",
+"example": "わたしは うたが へたです。",
+"exampleReading": "わたしは うたが へたです。",
+"exampleMeaning": "I am bad at singing.",
+"grammar": "N が 下手です",
+"formation": "Person は + N が + 下手です",
+"usage": "Used to say that someone is not skilled or is poor at doing something.",
+"grammarExamples": [
+{
+"japanese": "わたしは りょうりが へたです。",
+"reading": "わたしは りょうりが へたです。",
+"english": "I am bad at cooking."
+},
+{
+"japanese": "かれは えが へたです。",
+"reading": "かれは えが へたです。",
+"english": "He is poor at drawing."
+}
+],
+"negative": "下手じゃありません",
+"past": "下手でした",
+"pastNegative": "下手じゃありませんでした",
+"commonMistake": "下手 is a な-adjective and normally takes が for the thing someone is poor at.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Degree",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "yoku"],
+"kanji": "よく",
+"reading": "よく",
+"romaji": "yoku",
+"meaning": "よく — well; often",
+"partOfSpeech": "adverb",
+"example": "わたしは にほんごが よく わかります。",
+"exampleReading": "わたしは にほんごが よく わかります。",
+"exampleMeaning": "I understand Japanese well.",
+"grammar": "よく + Verb",
+"formation": "よく + Verb",
+"usage": "よく can indicate a high degree ('well') or frequent occurrence ('often'), depending on context.",
+"grammarExamples": [
+{
+"japanese": "にほんごが よく わかります。",
+"reading": "にほんごが よく わかります。",
+"english": "I understand Japanese well."
+},
+{
+"japanese": "よく えいがを みます。",
+"reading": "よく えいがを みます。",
+"english": "I often watch movies."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "よく has more than one meaning. With ability or understanding, it often means 'well'; with habitual actions, it often means 'often'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Degree",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "amari"],
+"kanji": "あまり",
+"reading": "あまり",
+"romaji": "amari",
+"meaning": "あまり — not very; not much",
+"partOfSpeech": "adverb",
+"example": "わたしは コーヒーが あまり すきじゃありません。",
+"exampleReading": "わたしは コーヒーが あまり すきじゃありません。",
+"exampleMeaning": "I don't like coffee very much.",
+"grammar": "あまり + Negative",
+"formation": "あまり + negative expression",
+"usage": "Used to mean 'not very' or 'not much'. It is normally used with a negative expression.",
+"grammarExamples": [
+{
+"japanese": "わたしは さかなが あまり すきじゃありません。",
+"reading": "わたしは さかなが あまり すきじゃありません。",
+"english": "I don't like fish very much."
+},
+{
+"japanese": "にほんごが あまり わかりません。",
+"reading": "にほんごが あまり わかりません。",
+"english": "I don't understand Japanese very well."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "At N5 level, remember the basic pattern あまり + negative. Saying あまり with a positive statement changes the meaning.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Degree",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-10", "zenzen"],
+"kanji": "全然",
+"reading": "ぜんぜん",
+"romaji": "zenzen",
+"meaning": "全然 — not at all",
+"partOfSpeech": "adverb",
+"example": "にほんごが ぜんぜん わかりません。",
+"exampleReading": "にほんごが ぜんぜん わかりません。",
+"exampleMeaning": "I don't understand Japanese at all.",
+"grammar": "全然 + Negative",
+"formation": "全然 + negative expression",
+"usage": "Used to strongly deny or say that something is not true at all. At N5 level it is normally used with a negative expression.",
+"grammarExamples": [
+{
+"japanese": "えいごが ぜんぜん わかりません。",
+"reading": "えいごが ぜんぜん わかりません。",
+"english": "I don't understand English at all."
+},
+{
+"japanese": "おさけは ぜんぜん のみません。",
+"reading": "おさけは ぜんぜん のみません。",
+"english": "I don't drink alcohol at all."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "For the basic N5 pattern, use 全然 with a negative form: 全然わかりません, 全然飲みません.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Existence",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "arimasu"],
+"kanji": "あります",
+"reading": "あります",
+"romaji": "arimasu",
+"meaning": "あります — there is / have; used for inanimate things",
+"partOfSpeech": "verb",
+"example": "つくえの うえに ほんが あります。",
+"exampleReading": "つくえの うえに ほんが あります。",
+"exampleMeaning": "There is a book on the desk.",
+"grammar": "Place に N が あります",
+"formation": "Place に + inanimate N + が + あります",
+"usage": "Used to say that an inanimate object, plant, or other non-living thing exists in a particular place.",
+"grammarExamples": [
+{
+"japanese": "へやに テレビが あります。",
+"reading": "へやに テレビが あります。",
+"english": "There is a television in the room."
+},
+{
+"japanese": "こうえんに きが あります。",
+"reading": "こうえんに きが あります。",
+"english": "There is a tree in the park."
+}
+],
+"negative": "ありません",
+"past": "ありました",
+"pastNegative": "ありませんでした",
+"commonMistake": "あります is generally used for inanimate things. For people and animals, use います.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Existence",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "imasu"],
+"kanji": "います",
+"reading": "います",
+"romaji": "imasu",
+"meaning": "います — there is / are; used for people and animals",
+"partOfSpeech": "verb",
+"example": "へやに ねこが います。",
+"exampleReading": "へやに ねこが います。",
+"exampleMeaning": "There is a cat in the room.",
+"grammar": "Place に N が います",
+"formation": "Place に + living N + が + います",
+"usage": "Used to say that a person or animal exists or is present in a particular place.",
+"grammarExamples": [
+{
+"japanese": "きょうしつに せんせいが います。",
+"reading": "きょうしつに せんせいが います。",
+"english": "There is a teacher in the classroom."
+},
+{
+"japanese": "こうえんに こどもが います。",
+"reading": "こうえんに こどもが います。",
+"english": "There are children in the park."
+}
+],
+"negative": "いません",
+"past": "いました",
+"pastNegative": "いませんでした",
+"commonMistake": "Use います for people and animals. Use あります for inanimate objects.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Location",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "ni", "existence"],
+"kanji": "",
+"reading": "Place に N が あります／います",
+"romaji": "Place ni N ga arimasu / imasu",
+"meaning": "Place に N が あります／います — there is/are N in the place",
+"partOfSpeech": "sentence pattern",
+"example": "つくえの うえに かばんが あります。",
+"exampleReading": "つくえの うえに かばんが あります。",
+"exampleMeaning": "There is a bag on the desk.",
+"grammar": "Place に N が あります／います",
+"formation": "Place に + N が + あります／います",
+"usage": "Used to state that something or someone exists in a particular location. Use あります for things and います for people or animals.",
+"grammarExamples": [
+{
+"japanese": "きょうしつに がくせいが います。",
+"reading": "きょうしつに がくせいが います。",
+"english": "There are students in the classroom."
+},
+{
+"japanese": "つくえの うえに ほんが あります。",
+"reading": "つくえの うえに ほんが あります。",
+"english": "There is a book on the desk."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The location is marked by に in existence sentences. Do not use で to mark the location of existence.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Location",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "wa", "existence"],
+"kanji": "",
+"reading": "N は Place に あります／います",
+"romaji": "N wa Place ni arimasu / imasu",
+"meaning": "N は Place に あります／います — N is located at/in the place",
+"partOfSpeech": "sentence pattern",
+"example": "かばんは つくえの したに あります。",
+"exampleReading": "かばんは つくえの したに あります。",
+"exampleMeaning": "The bag is under the desk.",
+"grammar": "N は Place に あります／います",
+"formation": "N は + Place に + あります／います",
+"usage": "Used when the thing or person is already known and you want to state where it is located.",
+"grammarExamples": [
+{
+"japanese": "せんせいは きょうしつに います。",
+"reading": "せんせいは きょうしつに います。",
+"english": "The teacher is in the classroom."
+},
+{
+"japanese": "ほんは つくえの うえに あります。",
+"reading": "ほんは つくえの うえに あります。",
+"english": "The book is on the desk."
+}
+],
+"negative": "N は Place に ありません／いません",
+"past": "N は Place に ありました／いました",
+"pastNegative": "N は Place に ありませんでした／いませんでした",
+"commonMistake": "When identifying the location of a known item, the item is marked with は and the location with に.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Position",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "ue-shita-mae-ushiro"],
+"kanji": "",
+"reading": "N1 の N2",
+"romaji": "N1 no N2",
+"meaning": "N1 の N2 — N2 is in relation to N1; used for positional relationships",
+"partOfSpeech": "particle",
+"example": "つくえの うえに ほんが あります。",
+"exampleReading": "つくえの うえに ほんが あります。",
+"exampleMeaning": "There is a book on the desk.",
+"grammar": "N1 の N2",
+"formation": "N1 の positional noun",
+"usage": "の connects a reference noun with a positional noun such as うえ (above), した (under), まえ (front), or うしろ (behind).",
+"grammarExamples": [
+{
+"japanese": "つくえの したに かばんが あります。",
+"reading": "つくえの したに かばんが あります。",
+"english": "There is a bag under the desk."
+},
+{
+"japanese": "えきの まえに ぎんこうが あります。",
+"reading": "えきの まえに ぎんこうが あります。",
+"english": "There is a bank in front of the station."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The positional word comes after の: つくえのうえ means 'on top of the desk', not the reverse.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Listing",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "ya", "nado"],
+"kanji": "や～など",
+"reading": "や～など",
+"romaji": "ya ~ nado",
+"meaning": "や～など — things such as A and B; A, B, etc.",
+"partOfSpeech": "particle",
+"example": "つくえの うえに ほんや ペンなどが あります。",
+"exampleReading": "つくえの うえに ほんや ペンなどが あります。",
+"exampleMeaning": "There are things such as books and pens on the desk.",
+"grammar": "N1 や N2 など",
+"formation": "N1 や N2 など",
+"usage": "Used to give representative examples from a larger group. など indicates that the list is not exhaustive.",
+"grammarExamples": [
+{
+"japanese": "へやに テレビや ベッドなどが あります。",
+"reading": "へやに テレビや ベッドなどが あります。",
+"english": "There are things such as a TV and a bed in the room."
+},
+{
+"japanese": "かばんに ほんや ノートなどが あります。",
+"reading": "かばんに ほんや ノートなどが あります。",
+"english": "There are things such as books and notebooks in the bag."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "や lists representative examples, unlike と, which normally presents a complete list.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Question",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "dare", "nani"],
+"kanji": "誰・何",
+"reading": "だれ・なに",
+"romaji": "dare・nani",
+"meaning": "誰・何 — who / what",
+"partOfSpeech": "question words",
+"example": "へやに だれが いますか。",
+"exampleReading": "へやに だれが いますか。",
+"exampleMeaning": "Who is in the room?",
+"grammar": "Place に 誰／何 が あります／いますか",
+"formation": "Place に + 誰／何 + が + あります／いますか",
+"usage": "だれ asks who, while なに asks what. They can be used with existence expressions to ask what or who is present.",
+"grammarExamples": [
+{
+"japanese": "きょうしつに だれが いますか。",
+"reading": "きょうしつに だれが いますか。",
+"english": "Who is in the classroom?"
+},
+{
+"japanese": "つくえの うえに なにが ありますか。",
+"reading": "つくえの うえに なにが ありますか。",
+"english": "What is on the desk?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use だれ for people and なに for things. Choose います or あります according to whether the subject is living or inanimate.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Counting",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "counters", "tsu"],
+"kanji": "一つ・二つ・三つ",
+"reading": "ひとつ・ふたつ・みっつ",
+"romaji": "hitotsu・futatsu・mittsu",
+"meaning": "一つ・二つ・三つ — general counters for counting things",
+"partOfSpeech": "counter",
+"example": "りんごを みっつ かいました。",
+"exampleReading": "りんごを みっつ かいました。",
+"exampleMeaning": "I bought three apples.",
+"grammar": "N を Counter かいます",
+"formation": "N + を + general counter + Verb",
+"usage": "The ～つ counter is used to count general objects when a more specific counter is not needed.",
+"grammarExamples": [
+{
+"japanese": "りんごを ふたつ ください。",
+"reading": "りんごを ふたつ ください。",
+"english": "Please give me two apples."
+},
+{
+"japanese": "ケーキを みっつ たべました。",
+"reading": "ケーキを みっつ たべました。",
+"english": "I ate three cakes."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The ～つ counter has special readings such as ひとつ, ふたつ, and みっつ. Do not use regular number readings with ～つ.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Counting",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "counters", "people"],
+"kanji": "一人・二人",
+"reading": "ひとり・ふたり",
+"romaji": "hitori・futari",
+"meaning": "一人・二人 — one person / two people",
+"partOfSpeech": "counter",
+"example": "きょうしつに がくせいが ふたり います。",
+"exampleReading": "きょうしつに がくせいが ふたり います。",
+"exampleMeaning": "There are two students in the classroom.",
+"grammar": "Person が Counter います",
+"formation": "Person + が + number of people + います",
+"usage": "Used to count people. 一人 and 二人 have special readings; from 三人 onward, the counter generally uses ～にん.",
+"grammarExamples": [
+{
+"japanese": "かぞくが よにん います。",
+"reading": "かぞくが よにん います。",
+"english": "There are four people in my family."
+},
+{
+"japanese": "きょうしつに がくせいが さんにん います。",
+"reading": "きょうしつに がくせいが さんにん います。",
+"english": "There are three students in the classroom."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Remember the irregular forms ひとり and ふたり. Do not say いちにん or ににん for one or two people.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Frequency",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "frequency", "period"],
+"kanji": "",
+"reading": "Period に Counter",
+"romaji": "Period ni Counter",
+"meaning": "Period に Counter — number of times/amount within a period",
+"partOfSpeech": "sentence pattern",
+"example": "いっしゅうかんに みっか にほんごを べんきょうします。",
+"exampleReading": "いっしゅうかんに みっか にほんごを べんきょうします。",
+"exampleMeaning": "I study Japanese three days a week.",
+"grammar": "Period に Frequency",
+"formation": "Period + に + number/frequency + Verb",
+"usage": "Used to express how often an action occurs within a specified period.",
+"grammarExamples": [
+{
+"japanese": "いっしゅうかんに いつか はたらきます。",
+"reading": "いっしゅうかんに いつか はたらきます。",
+"english": "I work five days a week."
+},
+{
+"japanese": "いっかげつに にかい えいがを みます。",
+"reading": "いっかげつに にかい えいがを みます。",
+"english": "I watch movies twice a month."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The first expression gives the period, while the counter gives the frequency. に connects the period to the frequency.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration"],
+"kanji": "",
+"reading": "Duration ぐらい",
+"romaji": "Duration gurai",
+"meaning": "Duration ぐらい — about; approximately that amount of time",
+"partOfSpeech": "particle",
+"example": "にほんごを さんじかんぐらい べんきょうします。",
+"exampleReading": "にほんごを さんじかんぐらい べんきょうします。",
+"exampleMeaning": "I study Japanese for about three hours.",
+"grammar": "Duration ぐらい",
+"formation": "Time duration + ぐらい",
+"usage": "ぐらい indicates an approximate amount or duration.",
+"grammarExamples": [
+{
+"japanese": "まいにち にじかんぐらい べんきょうします。",
+"reading": "まいにち にじかんぐらい べんきょうします。",
+"english": "I study for about two hours every day."
+},
+{
+"japanese": "いちじかんぐらい まちました。",
+"reading": "いちじかんぐらい まちました。",
+"english": "I waited for about an hour."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "ぐらい expresses approximation. It does not mean exactly the stated amount.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Approximation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "gurai", "quantity"],
+"kanji": "ぐらい",
+"reading": "ぐらい",
+"romaji": "gurai",
+"meaning": "ぐらい — about; approximately; around",
+"partOfSpeech": "particle",
+"example": "りんごを みっつぐらい かいました。",
+"exampleReading": "りんごを みっつぐらい かいました。",
+"exampleMeaning": "I bought about three apples.",
+"grammar": "Quantity + ぐらい",
+"formation": "Quantity + ぐらい",
+"usage": "Used after a number or quantity to indicate an approximate amount.",
+"grammarExamples": [
+{
+"japanese": "ほんを ごさつぐらい よみました。",
+"reading": "ほんを ごさつぐらい よみました。",
+"english": "I read about five books."
+},
+{
+"japanese": "さんにんぐらい きました。",
+"reading": "さんにんぐらい きました。",
+"english": "About three people came."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "ぐらい normally follows the quantity it qualifies: さんにんぐらい, ごさつぐらい, さんじかんぐらい.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "quantity", "dake"],
+"kanji": "だけ",
+"reading": "だけ",
+"romaji": "dake",
+"meaning": "だけ — only; just",
+"partOfSpeech": "particle",
+"example": "りんごを ふたつだけ かいました。",
+"exampleReading": "りんごを ふたつだけ かいました。",
+"exampleMeaning": "I bought only two apples.",
+"grammar": "Quantity + だけ",
+"formation": "Quantity + だけ",
+"usage": "Used to indicate that the amount or number is limited to the stated quantity.",
+"grammarExamples": [
+{
+"japanese": "みずを いっぱいだけ のみました。",
+"reading": "みずを いっぱいだけ のみました。",
+"english": "I drank only one glass of water."
+},
+{
+"japanese": "ほんを さんさつだけ かいました。",
+"reading": "ほんを さんさつだけ かいました。",
+"english": "I bought only three books."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "だけ means 'only' and limits the quantity. Do not confuse it with ぐらい, which means 'about/approximately'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity Questions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "dono-kurai", "duration"],
+"kanji": "どのくらい",
+"reading": "どのくらい",
+"romaji": "dono kurai",
+"meaning": "どのくらい — how long; how much; approximately how much",
+"partOfSpeech": "question expression",
+"example": "どのくらい にほんごを べんきょうしますか。",
+"exampleReading": "どのくらい にほんごを べんきょうしますか。",
+"exampleMeaning": "How long do you study Japanese?",
+"grammar": "どのくらい + Quantity / Duration",
+"formation": "どのくらい + Verb / quantity expression + ですか",
+"usage": "Used to ask about an approximate amount, quantity, frequency, or duration.",
+"grammarExamples": [
+{
+"japanese": "どのくらい べんきょうしますか。",
+"reading": "どのくらい べんきょうしますか。",
+"english": "How long do you study?"
+},
+{
+"japanese": "どのくらい にほんに いますか。",
+"reading": "どのくらい にほんに いますか。",
+"english": "How long will you stay in Japan?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "どのくらい asks about amount or duration. When asking for a specific clock time, use なんじ.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity Questions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "nan-ko", "counter"],
+"kanji": "何個",
+"reading": "なんこ",
+"romaji": "nanko",
+"meaning": "何個 — how many pieces/items",
+"partOfSpeech": "question counter",
+"example": "りんごを なんこ かいましたか。",
+"exampleReading": "りんごを なんこ かいましたか。",
+"exampleMeaning": "How many apples did you buy?",
+"grammar": "何個 + Verb",
+"formation": "N を + 何個 + Verb + か",
+"usage": "Used to ask how many individual items there are or how many were bought, made, or otherwise counted with 個.",
+"grammarExamples": [
+{
+"japanese": "りんごが なんこ ありますか。",
+"reading": "りんごが なんこ ありますか。",
+"english": "How many apples are there?"
+},
+{
+"japanese": "たまごを なんこ かいましたか。",
+"reading": "たまごを なんこ かいましたか。",
+"english": "How many eggs did you buy?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use 何個 when the item is counted with 個. Other objects may require different counters.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity Questions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "nan-nin", "people"],
+"kanji": "何人",
+"reading": "なんにん",
+"romaji": "nannin",
+"meaning": "何人 — how many people",
+"partOfSpeech": "question counter",
+"example": "かぞくは なんにんですか。",
+"exampleReading": "かぞくは なんにんですか。",
+"exampleMeaning": "How many people are in your family?",
+"grammar": "何人ですか",
+"formation": "Group / family は + 何人ですか",
+"usage": "Used to ask the number of people in a group or family.",
+"grammarExamples": [
+{
+"japanese": "かぞくは なんにんですか。",
+"reading": "かぞくは なんにんですか。",
+"english": "How many people are in your family?"
+},
+{
+"japanese": "きょうしつに がくせいは なんにん いますか。",
+"reading": "きょうしつに がくせいは なんにん いますか。",
+"english": "How many students are in the classroom?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "何人 is pronounced なんにん. Remember that 一人 and 二人 have the special readings ひとり and ふたり.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Frequency",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "frequency", "counter"],
+"kanji": "",
+"reading": "いっかげつに にかい",
+"romaji": "ikkagetsu ni nikai",
+"meaning": "いっかげつに にかい — twice a month",
+"partOfSpeech": "frequency expression",
+"example": "いっかげつに にかい えいがを みます。",
+"exampleReading": "いっかげつに にかい えいがを みます。",
+"exampleMeaning": "I watch movies twice a month.",
+"grammar": "Period に Frequency",
+"formation": "Period + に + Frequency + Verb",
+"usage": "Expresses how many times an action occurs during a particular period.",
+"grammarExamples": [
+{
+"japanese": "いっしゅうかんに さんかい にほんごを べんきょうします。",
+"reading": "いっしゅうかんに さんかい にほんごを べんきょうします。",
+"english": "I study Japanese three times a week."
+},
+{
+"japanese": "いちねんに いっかい にほんへ いきます。",
+"reading": "いちねんに いっかい にほんへ いきます。",
+"english": "I go to Japan once a year."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The period comes before に and the frequency comes after it: いっしゅうかんに さんかい.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration", "nan-jikan"],
+"kanji": "何時間",
+"reading": "なんじかん",
+"romaji": "nanjikan",
+"meaning": "何時間 — how many hours; how long in hours",
+"partOfSpeech": "question counter",
+"example": "なんじかん にほんごを べんきょうしますか。",
+"exampleReading": "なんじかん にほんごを べんきょうしますか。",
+"exampleMeaning": "How many hours do you study Japanese?",
+"grammar": "何時間 + Verb",
+"formation": "何時間 + Verb + か",
+"usage": "Used to ask about the duration of an activity in hours.",
+"grammarExamples": [
+{
+"japanese": "まいにち なんじかん べんきょうしますか。",
+"reading": "まいにち なんじかん べんきょうしますか。",
+"english": "How many hours do you study every day?"
+},
+{
+"japanese": "なんじかん ねましたか。",
+"reading": "なんじかん ねましたか。",
+"english": "How many hours did you sleep?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "何時 asks 'what time', while 何時間 asks 'how many hours'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration", "counter"],
+"kanji": "",
+"reading": "Number + じかん",
+"romaji": "Number + jikan",
+"meaning": "Number + 時間 — for a number of hours",
+"partOfSpeech": "duration expression",
+"example": "まいにち さんじかん べんきょうします。",
+"exampleReading": "まいにち さんじかん べんきょうします。",
+"exampleMeaning": "I study for three hours every day.",
+"grammar": "Number + 時間 + Verb",
+"formation": "Number + 時間 + Verb",
+"usage": "Used to express how long an activity continues in hours.",
+"grammarExamples": [
+{
+"japanese": "にじかん テレビを みました。",
+"reading": "にじかん テレビを みました。",
+"english": "I watched TV for two hours."
+},
+{
+"japanese": "ごじかん はたらきました。",
+"reading": "ごじかん はたらきました。",
+"english": "I worked for five hours."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "時間 after a number expresses duration. Compare さんじ (3 o'clock) with さんじかん (three hours).",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Frequency",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "frequency", "kai"],
+"kanji": "～回",
+"reading": "～かい",
+"romaji": "~kai",
+"meaning": "～回 — times; number of occurrences",
+"partOfSpeech": "counter",
+"example": "いっしゅうかんに さんかい うんどうします。",
+"exampleReading": "いっしゅうかんに さんかい うんどうします。",
+"exampleMeaning": "I exercise three times a week.",
+"grammar": "Period に Number 回",
+"formation": "Period + に + Number + 回 + Verb",
+"usage": "Used to count how many times an action occurs during a particular period.",
+"grammarExamples": [
+{
+"japanese": "いっかげつに にかい えいがを みます。",
+"reading": "いっかげつに にかい えいがを みます。",
+"english": "I watch movies twice a month."
+},
+{
+"japanese": "いちねんに いっかい りょこうします。",
+"reading": "いちねんに いっかい りょこうします。",
+"english": "I travel once a year."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "回 counts occurrences, not objects. Use かい after the number: にかい, さんかい, よんかい.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration", "days"],
+"kanji": "～日",
+"reading": "～にち",
+"romaji": "~nichi",
+"meaning": "～日 — number of days; for ... days",
+"partOfSpeech": "counter",
+"example": "にほんに いつか います。",
+"exampleReading": "にほんに いつか います。",
+"exampleMeaning": "I stay in Japan for five days.",
+"grammar": "Place に Number 日 います",
+"formation": "Place に + Number + 日 + います",
+"usage": "Used to express a duration of days, especially with verbs such as います when talking about staying somewhere.",
+"grammarExamples": [
+{
+"japanese": "とうきょうに みっか います。",
+"reading": "とうきょうに みっか います。",
+"english": "I stay in Tokyo for three days."
+},
+{
+"japanese": "にほんに なのか いました。",
+"reading": "にほんに なのか いました。",
+"english": "I stayed in Japan for seven days."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Some day counters have special readings, such as ふつか, みっか, よっか, いつか, むいか, なのか, and ようか.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration", "weeks"],
+"kanji": "～週間",
+"reading": "～しゅうかん",
+"romaji": "~shuukan",
+"meaning": "～週間 — number of weeks; for ... weeks",
+"partOfSpeech": "counter",
+"example": "にほんに にしゅうかん いました。",
+"exampleReading": "にほんに にしゅうかん いました。",
+"exampleMeaning": "I stayed in Japan for two weeks.",
+"grammar": "Number 週間",
+"formation": "Number + 週間",
+"usage": "Used to express a duration of weeks.",
+"grammarExamples": [
+{
+"japanese": "さんしゅうかん にほんごを べんきょうしました。",
+"reading": "さんしゅうかん にほんごを べんきょうしました。",
+"english": "I studied Japanese for three weeks."
+},
+{
+"japanese": "いっしゅうかん やすみました。",
+"reading": "いっしゅうかん やすみました。",
+"english": "I took a one-week break."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "週間 expresses duration in weeks. Do not confuse it with 週間に, which can be used when expressing frequency within a week.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration", "months"],
+"kanji": "～か月",
+"reading": "～かげつ",
+"romaji": "~kagetsu",
+"meaning": "～か月 — number of months; for ... months",
+"partOfSpeech": "counter",
+"example": "にほんに さんかげつ いました。",
+"exampleReading": "にほんに さんかげつ いました。",
+"exampleMeaning": "I stayed in Japan for three months.",
+"grammar": "Number か月",
+"formation": "Number + か月",
+"usage": "Used to express a duration of months.",
+"grammarExamples": [
+{
+"japanese": "にかげつ にほんごを べんきょうしました。",
+"reading": "にかげつ にほんごを べんきょうしました。",
+"english": "I studied Japanese for two months."
+},
+{
+"japanese": "ろっかげつ とうきょうに いました。",
+"reading": "ろっかげつ とうきょうに いました。",
+"english": "I stayed in Tokyo for six months."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "か月 is a duration counter. It is different from 月 (つき / がつ), which can refer to a month on the calendar.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Duration",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "duration", "years"],
+"kanji": "～年",
+"reading": "～ねん",
+"romaji": "~nen",
+"meaning": "～年 — number of years; for ... years",
+"partOfSpeech": "counter",
+"example": "にほんごを さんねん べんきょうしました。",
+"exampleReading": "にほんごを さんねん べんきょうしました。",
+"exampleMeaning": "I studied Japanese for three years.",
+"grammar": "Number 年",
+"formation": "Number + 年",
+"usage": "Used to express a duration of years.",
+"grammarExamples": [
+{
+"japanese": "にほんに いちねん いました。",
+"reading": "にほんに いちねん いました。",
+"english": "I stayed in Japan for one year."
+},
+{
+"japanese": "ごねん にほんごを べんきょうしています。",
+"reading": "ごねん にほんごを べんきょうしています。",
+"english": "I have been studying Japanese for five years."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "年 can mean a calendar year or a duration depending on context. Here it expresses duration.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Approximation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "approximation", "gurai"],
+"kanji": "ぐらい",
+"reading": "ぐらい",
+"romaji": "gurai",
+"meaning": "ぐらい — about; approximately",
+"partOfSpeech": "particle",
+"example": "さんじかんぐらい べんきょうします。",
+"exampleReading": "さんじかんぐらい べんきょうします。",
+"exampleMeaning": "I study for about three hours.",
+"grammar": "Number + Counter + ぐらい",
+"formation": "Quantity + ぐらい",
+"usage": "Used after a quantity, amount, or duration to indicate an approximate number.",
+"grammarExamples": [
+{
+"japanese": "ごふんぐらい まってください。",
+"reading": "ごふんぐらい まってください。",
+"english": "Please wait for about five minutes."
+},
+{
+"japanese": "にじかんぐらい かかります。",
+"reading": "にじかんぐらい かかります。",
+"english": "It takes about two hours."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "ぐらい makes the quantity approximate. さんじかん means exactly three hours, while さんじかんぐらい means about three hours.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "quantity", "gurai"],
+"kanji": "どのくらい",
+"reading": "どのくらい",
+"romaji": "dono kurai",
+"meaning": "どのくらい — how much; how many; how long",
+"partOfSpeech": "question expression",
+"example": "どのくらい にほんごを べんきょうしましたか。",
+"exampleReading": "どのくらい にほんごを べんきょうしましたか。",
+"exampleMeaning": "How long have you studied Japanese?",
+"grammar": "どのくらい + Verb",
+"formation": "どのくらい + Verb + か",
+"usage": "Used to ask about an approximate quantity, amount, or duration.",
+"grammarExamples": [
+{
+"japanese": "どのくらい かかりますか。",
+"reading": "どのくらい かかりますか。",
+"english": "How long does it take?"
+},
+{
+"japanese": "どのくらい おかねが ありますか。",
+"reading": "どのくらい おかねが ありますか。",
+"english": "How much money do you have?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "どのくらい asks for an approximate amount or duration. 何時間 asks specifically for the number of hours.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "quantity", "counting"],
+"kanji": "いくつ",
+"reading": "いくつ",
+"romaji": "ikutsu",
+"meaning": "いくつ — how many; how old",
+"partOfSpeech": "question word",
+"example": "りんごは いくつ ありますか。",
+"exampleReading": "りんごは いくつ ありますか。",
+"exampleMeaning": "How many apples are there?",
+"grammar": "N は いくつ ありますか",
+"formation": "N は + いくつ + ありますか",
+"usage": "Used to ask the number of objects when using the general counting system. It can also ask someone's age in certain contexts.",
+"grammarExamples": [
+{
+"japanese": "たまごは いくつ ありますか。",
+"reading": "たまごは いくつ ありますか。",
+"english": "How many eggs are there?"
+},
+{
+"japanese": "りんごを いくつ かいましたか。",
+"reading": "りんごを いくつ かいましたか。",
+"english": "How many apples did you buy?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "いくつ is used with the general counter system. For specific counters, use forms such as 何個, 何人, or 何枚.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Quantity",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-11", "quantity", "dake"],
+"kanji": "だけ",
+"reading": "だけ",
+"romaji": "dake",
+"meaning": "だけ — only; just",
+"partOfSpeech": "particle",
+"example": "りんごを ふたつだけ かいました。",
+"exampleReading": "りんごを ふたつだけ かいました。",
+"exampleMeaning": "I bought only two apples.",
+"grammar": "Quantity + だけ",
+"formation": "Noun / Quantity + だけ",
+"usage": "Indicates that the stated amount or thing is the limit and nothing more.",
+"grammarExamples": [
+{
+"japanese": "みずを いっぱいだけ のみました。",
+"reading": "みずを いっぱいだけ のみました。",
+"english": "I drank only one glass of water."
+},
+{
+"japanese": "さんにんだけ きました。",
+"reading": "さんにんだけ きました。",
+"english": "Only three people came."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "だけ means 'only', so it limits the quantity or item being discussed.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Past Tense",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-12", "past", "adjective"],
+"kanji": "でした",
+"reading": "でした",
+"romaji": "deshita",
+"meaning": "でした — was; were",
+"partOfSpeech": "grammar",
+"example": "きのうは あめでした。",
+"exampleReading": "きのうは あめでした。",
+"exampleMeaning": "Yesterday was rainy.",
+"grammar": "Noun + でした",
+"formation": "Noun + でした",
+"usage": "Used to express the past tense of a noun or な-adjective sentence.",
+"grammarExamples": [
+{
+"japanese": "きのうは やすみでした。",
+"reading": "きのうは やすみでした。",
+"english": "Yesterday was a day off."
+},
+{
+"japanese": "せんしゅうは しずかでした。",
+"reading": "せんしゅうは しずかでした。",
+"english": "Last week was quiet."
+}
+],
+"negative": "ではありませんでした",
+"past": "でした",
+"pastNegative": "ではありませんでした",
+"commonMistake": "For a noun or な-adjective, use でした for the past. Do not use ました.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Past Tense",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-12", "i-adjective", "past"],
+"kanji": "～かったです",
+"reading": "～かったです",
+"romaji": "~katta desu",
+"meaning": "～かったです — was; were (i-adjective past)",
+"partOfSpeech": "grammar",
+"example": "きのうは あつかったです。",
+"exampleReading": "きのうは あつかったです。",
+"exampleMeaning": "Yesterday was hot.",
+"grammar": "い-adjective past",
+"formation": "い-adjective → remove い + かったです",
+"usage": "Changes an い-adjective into its polite past form.",
+"grammarExamples": [
+{
+"japanese": "きのうは さむかったです。",
+"reading": "きのうは さむかったです。",
+"english": "Yesterday was cold."
+},
+{
+"japanese": "この えいがは おもしろかったです。",
+"reading": "この えいがは おもしろかったです。",
+"english": "This movie was interesting."
+}
+],
+"negative": "",
+"past": "～かったです",
+"pastNegative": "～くなかったです",
+"commonMistake": "Do not keep the final い: おいしい → おいしかったです, not おいしいかったです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Comparison",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-12", "comparison", "yori"],
+"kanji": "より",
+"reading": "より",
+"romaji": "yori",
+"meaning": "より — than; compared with",
+"partOfSpeech": "particle",
+"example": "でんしゃは バスより はやいです。",
+"exampleReading": "でんしゃは バスより はやいです。",
+"exampleMeaning": "Trains are faster than buses.",
+"grammar": "N1 は N2 より Adjective",
+"formation": "N1 は N2 より + Adjective です",
+"usage": "Used to compare two things and say that N1 has a greater degree of the stated quality than N2.",
+"grammarExamples": [
+{
+"japanese": "にほんごは えいごより むずかしいです。",
+"reading": "にほんごは えいごより むずかしいです。",
+"english": "Japanese is more difficult than English."
+},
+{
+"japanese": "とうきょうは おおさかより おおきいです。",
+"reading": "とうきょうは おおさかより おおきいです。",
+"english": "Tokyo is bigger than Osaka."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The thing after より is the standard of comparison, not the thing being described as greater.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Comparison",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-12", "comparison", "dochira"],
+"kanji": "どちら",
+"reading": "どちら",
+"romaji": "dochira",
+"meaning": "どちら — which of the two",
+"partOfSpeech": "question word",
+"example": "コーヒーと おちゃと どちらが すきですか。",
+"exampleReading": "コーヒーと おちゃと どちらが すきですか。",
+"exampleMeaning": "Which do you prefer, coffee or tea?",
+"grammar": "N1 と N2 と どちらが Adjective ですか",
+"formation": "N1 と N2 と どちらが + Adjective ですか",
+"usage": "Used when asking which of two things has a particular quality or is preferred.",
+"grammarExamples": [
+{
+"japanese": "りんごと みかんと どちらが おいしいですか。",
+"reading": "りんごと みかんと どちらが おいしいですか。",
+"english": "Which is tastier, apples or oranges?"
+},
+{
+"japanese": "でんしゃと バスと どちらが はやいですか。",
+"reading": "でんしゃと バスと どちらが はやいですか。",
+"english": "Which is faster, the train or the bus?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "どちら is normally used when choosing between two options. For more than two, use どれ or another appropriate question form.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Comparison",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-12", "comparison", "hou-ga"],
+"kanji": "ほうが",
+"reading": "ほうが",
+"romaji": "hou ga",
+"meaning": "ほうが — the one that is more; rather",
+"partOfSpeech": "grammar",
+"example": "でんしゃと バスと どちらが はやいですか。でんしゃの ほうが はやいです。",
+"exampleReading": "でんしゃと バスと どちらが はやいですか。でんしゃの ほうが はやいです。",
+"exampleMeaning": "Which is faster, the train or the bus? The train is faster.",
+"grammar": "N1 のほうが Adjective です",
+"formation": "N1 のほうが + Adjective です",
+"usage": "Used to state which of two things has more of a particular quality.",
+"grammarExamples": [
+{
+"japanese": "コーヒーより おちゃの ほうが すきです。",
+"reading": "コーヒーより おちゃの ほうが すきです。",
+"english": "I prefer tea to coffee."
+},
+{
+"japanese": "バスより でんしゃの ほうが はやいです。",
+"reading": "バスより でんしゃの ほうが はやいです。",
+"english": "The train is faster than the bus."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The noun before のほうが is the option judged to have more of the stated quality.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Superlative",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-12", "superlative", "ichiban"],
+"kanji": "いちばん",
+"reading": "いちばん",
+"romaji": "ichiban",
+"meaning": "いちばん — the most; the best; number one",
+"partOfSpeech": "adverb",
+"example": "スポーツで なにが いちばん すきですか。",
+"exampleReading": "スポーツで なにが いちばん すきですか。",
+"exampleMeaning": "Which sport do you like the most?",
+"grammar": "N の なかで N が いちばん Adjective です",
+"formation": "Group のなかで + N が + いちばん + Adjective です",
+"usage": "Used to express the highest degree of a quality within a group.",
+"grammarExamples": [
+{
+"japanese": "くだものの なかで りんごが いちばん すきです。",
+"reading": "くだものの なかで りんごが いちばん すきです。",
+"english": "Of all fruits, I like apples the most."
+},
+{
+"japanese": "この クラスで だれが いちばん せが たかいですか。",
+"reading": "この クラスで だれが いちばん せが たかいですか。",
+"english": "Who is the tallest in this class?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "いちばん means 'the most' within a group. より is used for comparing two things.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Desire",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-13", "desire", "hoshii"],
+"kanji": "ほしい",
+"reading": "ほしい",
+"romaji": "hoshii",
+"meaning": "ほしい — want; desire to have",
+"partOfSpeech": "い-adjective",
+"example": "あたらしい くるまが ほしいです。",
+"exampleReading": "あたらしい くるまが ほしいです。",
+"exampleMeaning": "I want a new car.",
+"grammar": "N が ほしいです",
+"formation": "N が + ほしいです",
+"usage": "Used to say that you want to have or obtain something. The desired thing is marked with が.",
+"grammarExamples": [
+{
+"japanese": "おおきい いえが ほしいです。",
+"reading": "おおきい いえが ほしいです。",
+"english": "I want a big house."
+},
+{
+"japanese": "じかんが ほしいです。",
+"reading": "じかんが ほしいです。",
+"english": "I want some time."
+}
+],
+"negative": "ほしくないです",
+"past": "ほしかったです",
+"pastNegative": "ほしくなかったです",
+"commonMistake": "ほしい describes the speaker's desire to have something. Use が, not を, for the desired object.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Desire",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-13", "desire", "tai"],
+"kanji": "～たいです",
+"reading": "～たいです",
+"romaji": "~tai desu",
+"meaning": "～たいです — want to do",
+"partOfSpeech": "grammar",
+"example": "にほんへ いきたいです。",
+"exampleReading": "にほんへ いきたいです。",
+"exampleMeaning": "I want to go to Japan.",
+"grammar": "Vます-stem + たいです",
+"formation": "Vます-stem + たいです",
+"usage": "Used to express the speaker's desire to perform an action.",
+"grammarExamples": [
+{
+"japanese": "すしを たべたいです。",
+"reading": "すしを たべたいです。",
+"english": "I want to eat sushi."
+},
+{
+"japanese": "にほんごを べんきょうしたいです。",
+"reading": "にほんごを べんきょうしたいです。",
+"english": "I want to study Japanese."
+}
+],
+"negative": "～たくないです",
+"past": "～たかったです",
+"pastNegative": "～たくなかったです",
+"commonMistake": "Remove ます from the polite verb form before adding たい: たべます → たべたいです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Purpose",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-13", "purpose", "movement"],
+"kanji": "に行きます",
+"reading": "にいきます",
+"romaji": "ni ikimasu",
+"meaning": "go to do something; go for the purpose of",
+"partOfSpeech": "grammar",
+"example": "えいがを みに いきます。",
+"exampleReading": "えいがを みに いきます。",
+"exampleMeaning": "I am going to watch a movie.",
+"grammar": "Vます-stem + に 行きます",
+"formation": "Vます-stem + に + 行きます",
+"usage": "Expresses going somewhere for the purpose of doing an activity.",
+"grammarExamples": [
+{
+"japanese": "デパートへ かいものに いきます。",
+"reading": "デパートへ かいものに いきます。",
+"english": "I am going to the department store to shop."
+},
+{
+"japanese": "きょうとへ しゃしんを とりに いきます。",
+"reading": "きょうとへ しゃしんを とりに いきます。",
+"english": "I am going to Kyoto to take pictures."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the verb stem before に: たべます → たべにいきます. Do not use the dictionary form directly.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Purpose",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-13", "purpose", "movement"],
+"kanji": "に来ます",
+"reading": "にきます",
+"romaji": "ni kimasu",
+"meaning": "come to do something; come for the purpose of",
+"partOfSpeech": "grammar",
+"example": "ともだちが あそびに きます。",
+"exampleReading": "ともだちが あそびに きます。",
+"exampleMeaning": "My friend is coming to hang out.",
+"grammar": "Vます-stem + に 来ます",
+"formation": "Vます-stem + に + 来ます",
+"usage": "Expresses coming somewhere for the purpose of doing an activity.",
+"grammarExamples": [
+{
+"japanese": "ともだちが うちへ あそびに きます。",
+"reading": "ともだちが うちへ あそびに きます。",
+"english": "My friend is coming to my house to hang out."
+},
+{
+"japanese": "にほんへ にほんごを べんきょうしに きました。",
+"reading": "にほんへ にほんごを べんきょうしに きました。",
+"english": "I came to Japan to study Japanese."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The purpose verb must be in its ます-stem form: あそびます → あそびにきます.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Request",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-14", "te-form", "request"],
+"kanji": "～てください",
+"reading": "～てください",
+"romaji": "~te kudasai",
+"meaning": "～てください — please do",
+"partOfSpeech": "grammar",
+"example": "ちょっと まってください。",
+"exampleReading": "chotto matte kudasai.",
+"exampleMeaning": "Please wait a moment.",
+"grammar": "Vて + ください",
+"formation": "Vて-form + ください",
+"usage": "Used to make a polite request or tell someone to do something.",
+"grammarExamples": [
+{
+"japanese": "ここに なまえを かいてください。",
+"reading": "koko ni namae o kaite kudasai.",
+"english": "Please write your name here."
+},
+{
+"japanese": "この ほんを よんでください。",
+"reading": "kono hon o yonde kudasai.",
+"english": "Please read this book."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the て-form before ください, not the ます-form: かきます → かいてください.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Progressive / Ongoing Action",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-14", "te-form", "ongoing-action"],
+"kanji": "～ています",
+"reading": "～ています",
+"romaji": "~te imasu",
+"meaning": "～ています — am/is/are doing",
+"partOfSpeech": "grammar",
+"example": "いま べんきょうしています。",
+"exampleReading": "ima benkyou shite imasu.",
+"exampleMeaning": "I am studying now.",
+"grammar": "Vて + います",
+"formation": "Vて-form + います",
+"usage": "Used to describe an action that is currently in progress.",
+"grammarExamples": [
+{
+"japanese": "いま テレビを みています。",
+"reading": "ima terebi o mite imasu.",
+"english": "I am watching TV now."
+},
+{
+"japanese": "たなかさんは でんわで はなしています。",
+"reading": "Tanaka-san wa denwa de hanashite imasu.",
+"english": "Mr. Tanaka is talking on the phone."
+}
+],
+"negative": "～ていません",
+"past": "～ていました",
+"pastNegative": "～ていませんでした",
+"commonMistake": "Do not confuse ～ています with simple present ～ます. ～ています emphasizes that the action is currently ongoing.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Permission",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-14", "te-form", "permission"],
+"kanji": "～てもいいですか",
+"reading": "～てもいいですか",
+"romaji": "~te mo ii desu ka",
+"meaning": "～てもいいですか — may I; is it okay if I",
+"partOfSpeech": "grammar",
+"example": "ここで しゃしんを とってもいいですか。",
+"exampleReading": "koko de shashin o totte mo ii desu ka.",
+"exampleMeaning": "May I take a picture here?",
+"grammar": "Vて + もいいですか",
+"formation": "Vて-form + もいいですか",
+"usage": "Used to ask for permission to do something.",
+"grammarExamples": [
+{
+"japanese": "この いすに すわってもいいですか。",
+"reading": "kono isu ni suwatte mo ii desu ka.",
+"english": "May I sit on this chair?"
+},
+{
+"japanese": "ここで たべてもいいですか。",
+"reading": "koko de tabete mo ii desu ka.",
+"english": "May I eat here?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The verb must be in て-form before もいいですか: すわります → すわってもいいですか.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Prohibition",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-14", "te-form", "prohibition"],
+"kanji": "～てはいけません",
+"reading": "～てはいけません",
+"romaji": "~te wa ikemasen",
+"meaning": "～てはいけません — must not; cannot",
+"partOfSpeech": "grammar",
+"example": "ここで たばこを すってはいけません。",
+"exampleReading": "koko de tabako o sutte wa ikemasen.",
+"exampleMeaning": "You must not smoke here.",
+"grammar": "Vて + はいけません",
+"formation": "Vて-form + はいけません",
+"usage": "Used to prohibit an action or say that something is not allowed.",
+"grammarExamples": [
+{
+"japanese": "この へやに はいってはいけません。",
+"reading": "kono heya ni haitte wa ikemasen.",
+"english": "You must not enter this room."
+},
+{
+"japanese": "ここで しゃしんを とってはいけません。",
+"reading": "koko de shashin o totte wa ikemasen.",
+"english": "You must not take pictures here."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Do not use the dictionary form: たべてはいけません is correct, not たべるはいけません.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "State / Ongoing Condition",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-15", "te-form", "state"],
+"kanji": "～ています",
+"reading": "～ています",
+"romaji": "~te imasu",
+"meaning": "～ています — be in a state; be doing; have a continuing condition",
+"partOfSpeech": "grammar",
+"example": "けっこんしています。",
+"exampleReading": "kekkon shite imasu.",
+"exampleMeaning": "I am married.",
+"grammar": "Vて + います",
+"formation": "Vて-form + います",
+"usage": "In addition to an action in progress, ～ています can describe a continuing state or condition resulting from an action.",
+"grammarExamples": [
+{
+"japanese": "けっこんしています。",
+"reading": "kekkon shite imasu.",
+"english": "I am married."
+},
+{
+"japanese": "とうきょうに すんでいます。",
+"reading": "Toukyou ni sunde imasu.",
+"english": "I live in Tokyo."
+}
+],
+"negative": "～ていません",
+"past": "～ていました",
+"pastNegative": "～ていませんでした",
+"commonMistake": "～ています does not always mean 'am doing'. With verbs such as すんでいます or けっこんしています, it describes a continuing state.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Knowledge",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-15", "knowledge", "shitteimasu"],
+"kanji": "知っています",
+"reading": "しっています",
+"romaji": "shitte imasu",
+"meaning": "知っています — know; be aware of",
+"partOfSpeech": "verb",
+"example": "たなかさんを しっています。",
+"exampleReading": "Tanaka-san o shitte imasu.",
+"exampleMeaning": "I know Mr. Tanaka.",
+"grammar": "N を 知っています",
+"formation": "N を + 知っています",
+"usage": "Used to say that you know or are familiar with a person, place, fact, or information.",
+"grammarExamples": [
+{
+"japanese": "この ひとを しっています。",
+"reading": "Kono hito o shitte imasu.",
+"english": "I know this person."
+},
+{
+"japanese": "とうきょうタワーを しっています。",
+"reading": "Toukyou Tawaa o shitte imasu.",
+"english": "I know about Tokyo Tower."
+}
+],
+"negative": "知りません",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The negative of 知っています is 知りません, not 知っていません in basic JLPT N5 usage.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Knowledge",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-15", "knowledge", "shirimasen"],
+"kanji": "知りません",
+"reading": "しりません",
+"romaji": "shirimasen",
+"meaning": "知りません — do not know; am not aware of",
+"partOfSpeech": "verb",
+"example": "その ひとは しりません。",
+"exampleReading": "Sono hito wa shirimasen.",
+"exampleMeaning": "I don't know that person.",
+"grammar": "N は 知りません",
+"formation": "N は + 知りません",
+"usage": "Used to say that you do not know or are not familiar with something or someone.",
+"grammarExamples": [
+{
+"japanese": "その ばしょは しりません。",
+"reading": "Sono basho wa shirimasen.",
+"english": "I don't know that place."
+},
+{
+"japanese": "その ニュースは しりません。",
+"reading": "Sono nyuusu wa shirimasen.",
+"english": "I don't know about that news."
+}
+],
+"negative": "知りません",
+"past": "",
+"pastNegative": "",
+"commonMistake": "知っています means 'know', while 知りません means 'don't know'. Do not translate 知っています literally as 'am knowing'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Residence",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-15", "residence", "sundeimasu"],
+"kanji": "住んでいます",
+"reading": "すんでいます",
+"romaji": "sunde imasu",
+"meaning": "住んでいます — live; reside",
+"partOfSpeech": "verb",
+"example": "インドに すんでいます。",
+"exampleReading": "Indo ni sunde imasu.",
+"exampleMeaning": "I live in India.",
+"grammar": "Place に 住んでいます",
+"formation": "Place に + 住んでいます",
+"usage": "Used to state where someone currently lives or resides.",
+"grammarExamples": [
+{
+"japanese": "おおさかに すんでいます。",
+"reading": "Oosaka ni sunde imasu.",
+"english": "I live in Osaka."
+},
+{
+"japanese": "かぞくは インドに すんでいます。",
+"reading": "Kazoku wa Indo ni sunde imasu.",
+"english": "My family lives in India."
+}
+],
+"negative": "住んでいません",
+"past": "住んでいました",
+"pastNegative": "住んでいませんでした",
+"commonMistake": "Use に for the place of residence: 東京に住んでいます, not 東京で住んでいます.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Possession / State",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-15", "possession", "motteimasu"],
+"kanji": "持っています",
+"reading": "もっています",
+"romaji": "motte imasu",
+"meaning": "持っています — have; own; possess",
+"partOfSpeech": "verb",
+"example": "くるまを もっています。",
+"exampleReading": "kuruma o motte imasu.",
+"exampleMeaning": "I have a car.",
+"grammar": "N を 持っています",
+"formation": "N を + 持っています",
+"usage": "Used to express possession or having something in one's possession.",
+"grammarExamples": [
+{
+"japanese": "パスポートを もっています。",
+"reading": "Pasupooto o motte imasu.",
+"english": "I have a passport."
+},
+{
+"japanese": "じてんしゃを もっています。",
+"reading": "Jitensha o motte imasu.",
+"english": "I have a bicycle."
+}
+],
+"negative": "持っていません",
+"past": "持っていました",
+"pastNegative": "持っていませんでした",
+"commonMistake": "持っています can mean 'have/own', not only 'am holding'. Context determines whether it refers to possession or the physical act of holding.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Sequential Actions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-16", "te-form"],
+"kanji": "～て、～て",
+"reading": "～て、～て",
+"romaji": "~te, ~te",
+"meaning": "～て、～て — do A, then B; and then",
+"partOfSpeech": "grammar",
+"example": "あさごはんを たべて、がっこうへ いきます。",
+"exampleReading": "asagohan o tabete, gakkou e ikimasu.",
+"exampleMeaning": "I eat breakfast and then go to school.",
+"grammar": "Vて、Vて、V",
+"formation": "Vて-form + Vて-form + main verb",
+"usage": "Connects two or more actions performed in sequence. The final verb shows the tense and politeness.",
+"grammarExamples": [
+{
+"japanese": "あさ おきて、シャワーを あびて、がっこうへ いきます。",
+"reading": "asa okite, shawaa o abite, gakkou e ikimasu.",
+"english": "I wake up in the morning, take a shower, and go to school."
+},
+{
+"japanese": "ごはんを たべて、テレビを みて、ねます。",
+"reading": "gohan o tabete, terebi o mite, nemasu.",
+"english": "I eat, watch TV, and go to sleep."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Only the final verb carries the tense. The preceding verbs stay in て-form.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Connection",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-16", "adjective", "te-form"],
+"kanji": "い-adjective + くて",
+"reading": "い-adjective + くて",
+"romaji": "i-adjective + kute",
+"meaning": "い-adjective + くて — and; because; being",
+"partOfSpeech": "grammar",
+"example": "この へやは ひろくて、あかるいです。",
+"exampleReading": "kono heya wa hirokute, akarui desu.",
+"exampleMeaning": "This room is spacious and bright.",
+"grammar": "い-adjective → くて",
+"formation": "い-adjective: remove い + くて",
+"usage": "Connects two い-adjectives or adjective descriptions in the same sentence.",
+"grammarExamples": [
+{
+"japanese": "この ほんは おもしろくて、やすいです。",
+"reading": "kono hon wa omoshirokute, yasui desu.",
+"english": "This book is interesting and inexpensive."
+},
+{
+"japanese": "きょうは あつくて、たいへんです。",
+"reading": "kyou wa atsukute, taihen desu.",
+"english": "Today is hot and difficult."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Change the final い to くて: おもしろい → おもしろくて. Do not say おもしろいて.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Adjective Connection",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-16", "na-adjective", "noun", "te-form"],
+"kanji": "な-adjective + で",
+"reading": "な-adjective + で",
+"romaji": "na-adjective + de",
+"meaning": "な-adjective + で — and; being",
+"partOfSpeech": "grammar",
+"example": "この まちは しずかで、きれいです。",
+"exampleReading": "kono machi wa shizuka de, kirei desu.",
+"exampleMeaning": "This town is quiet and beautiful.",
+"grammar": "な-adjective + で",
+"formation": "な-adjective + で",
+"usage": "Connects two な-adjectives or adjective descriptions in the same sentence.",
+"grammarExamples": [
+{
+"japanese": "この へやは きれいで、ひろいです。",
+"reading": "kono heya wa kirei de, hiroi desu.",
+"english": "This room is clean and spacious."
+},
+{
+"japanese": "あの ひとは しんせつで、げんきです。",
+"reading": "ano hito wa shinsetsu de, genki desu.",
+"english": "That person is kind and energetic."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use で to connect a な-adjective: しずか → しずかで. Do not use しずかくて.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Noun Connection",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-16", "noun", "connection"],
+"kanji": "Nで、Nです",
+"reading": "Nで、Nです",
+"romaji": "N de, N desu",
+"meaning": "Nで、Nです — is A and B; A, and B",
+"partOfSpeech": "grammar",
+"example": "わたしは インドじんで、エンジニアです。",
+"exampleReading": "watashi wa Indo-jin de, enjinia desu.",
+"exampleMeaning": "I am Indian and an engineer.",
+"grammar": "N1 で、N2 です",
+"formation": "Noun 1 + で、Noun 2 + です",
+"usage": "Connects two noun predicates to describe the same person or thing.",
+"grammarExamples": [
+{
+"japanese": "たなかさんは せんせいで、にほんじんです。",
+"reading": "Tanaka-san wa sensei de, Nihonjin desu.",
+"english": "Mr. Tanaka is a teacher and Japanese."
+},
+{
+"japanese": "これは にほんの くるまで、あたらしいです。",
+"reading": "kore wa Nihon no kuruma de, atarashii desu.",
+"english": "This is a Japanese car and it is new."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "For nouns, use で to connect them: せんせいで、にほんじんです. Do not use くて.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Sequence",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-16", "te-form", "sequence"],
+"kanji": "～てから",
+"reading": "～てから",
+"romaji": "~te kara",
+"meaning": "～てから — after doing; after ... then",
+"partOfSpeech": "grammar",
+"example": "ごはんを たべてから、べんきょうします。",
+"exampleReading": "gohan o tabete kara, benkyou shimasu.",
+"exampleMeaning": "I study after eating.",
+"grammar": "Vてから、V",
+"formation": "Vて-form + から、V",
+"usage": "Shows that the second action happens after the first action is completed.",
+"grammarExamples": [
+{
+"japanese": "シャワーを あびてから、ねます。",
+"reading": "shawaa o abite kara, nemasu.",
+"english": "I go to sleep after taking a shower."
+},
+{
+"japanese": "しごとが おわってから、うちへ かえります。",
+"reading": "shigoto ga owatte kara, uchi e kaerimasu.",
+"english": "I go home after work finishes."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "てから emphasizes that the first action is completed before the second action begins.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Method",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-16", "method", "douyatte"],
+"kanji": "どうやって",
+"reading": "どうやって",
+"romaji": "dou yatte",
+"meaning": "どうやって — how; by what method",
+"partOfSpeech": "question expression",
+"example": "がっこうへ どうやって いきますか。",
+"exampleReading": "gakkou e dou yatte ikimasu ka.",
+"exampleMeaning": "How do you go to school?",
+"grammar": "どうやって + V",
+"formation": "どうやって + Verb",
+"usage": "Used to ask about the method, means, or way of doing something.",
+"grammarExamples": [
+{
+"japanese": "にほんごを どうやって べんきょうしますか。",
+"reading": "Nihongo o dou yatte benkyou shimasu ka.",
+"english": "How do you study Japanese?"
+},
+{
+"japanese": "えきまで どうやって いきますか。",
+"reading": "eki made dou yatte ikimasu ka.",
+"english": "How do you get to the station?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "どうやって asks about the method or way. It is different from どのくらい, which asks about amount or duration.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Prohibition",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-17", "nai-form", "prohibition"],
+"kanji": "～ないでください",
+"reading": "～ないでください",
+"romaji": "~nai de kudasai",
+"meaning": "～ないでください — please don't; please do not",
+"partOfSpeech": "grammar",
+"example": "ここで しゃしんを とらないでください。",
+"exampleReading": "koko de shashin o toranai de kudasai.",
+"exampleMeaning": "Please don't take pictures here.",
+"grammar": "Vない + でください",
+"formation": "Vない-form + でください",
+"usage": "Used to politely ask someone not to do something.",
+"grammarExamples": [
+{
+"japanese": "ここに はいらないでください。",
+"reading": "koko ni hairanai de kudasai.",
+"english": "Please don't enter here."
+},
+{
+"japanese": "わすれないでください。",
+"reading": "wasurenai de kudasai.",
+"english": "Please don't forget."
+}
+],
+"negative": "～ないでください",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the ない-form before でください: たべます → たべないでください.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Obligation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-17", "nai-form", "obligation"],
+"kanji": "～なければなりません",
+"reading": "～なければなりません",
+"romaji": "~nakereba narimasen",
+"meaning": "～なければなりません — must; have to",
+"partOfSpeech": "grammar",
+"example": "くすりを のまなければなりません。",
+"exampleReading": "kusuri o nomanakereba narimasen.",
+"exampleMeaning": "I must take medicine.",
+"grammar": "Vない → Vなければなりません",
+"formation": "Vない-form: remove い + ければなりません",
+"usage": "Expresses an obligation or something that must be done.",
+"grammarExamples": [
+{
+"japanese": "まいにち べんきょうしなければなりません。",
+"reading": "mainichi benkyou shinakereba narimasen.",
+"english": "I have to study every day."
+},
+{
+"japanese": "しゅくだいを しなければなりません。",
+"reading": "shukudai o shinakereba narimasen.",
+"english": "I must do my homework."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "This expression looks negative because of なりません, but the overall meaning is positive obligation: 'must do'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "No Obligation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-17", "nai-form", "permission"],
+"kanji": "～なくてもいいです",
+"reading": "～なくてもいいです",
+"romaji": "~nakute mo ii desu",
+"meaning": "～なくてもいいです — do not have to; it is okay not to",
+"partOfSpeech": "grammar",
+"example": "あした こなくてもいいです。",
+"exampleReading": "ashita konakute mo ii desu.",
+"exampleMeaning": "You don't have to come tomorrow.",
+"grammar": "Vない → Vなくてもいいです",
+"formation": "Vない-form: remove い + くてもいいです",
+"usage": "Expresses that an action is not necessary or that it is acceptable not to do it.",
+"grammarExamples": [
+{
+"japanese": "あした がっこうへ いかなくてもいいです。",
+"reading": "ashita gakkou e ikanakute mo ii desu.",
+"english": "You don't have to go to school tomorrow."
+},
+{
+"japanese": "ぜんぶ たべなくてもいいです。",
+"reading": "zenbu tabenakute mo ii desu.",
+"english": "You don't have to eat everything."
+}
+],
+"negative": "～なくてもいいです",
+"past": "",
+"pastNegative": "",
+"commonMistake": "～なくてもいいです means 'don't have to', not 'must not'. 'Must not' is ～てはいけません.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Ability",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-18", "dictionary-form", "ability"],
+"kanji": "～ことができます",
+"reading": "～ことができます",
+"romaji": "~koto ga dekimasu",
+"meaning": "～ことができます — can; be able to",
+"partOfSpeech": "grammar",
+"example": "にほんごを はなすことが できます。",
+"exampleReading": "nihongo o hanasu koto ga dekimasu.",
+"exampleMeaning": "I can speak Japanese.",
+"grammar": "V dictionary form + ことができます",
+"formation": "Dictionary-form verb + ことができます",
+"usage": "Expresses ability or possibility to perform an action.",
+"grammarExamples": [
+{
+"japanese": "ひらがなを よむことが できます。",
+"reading": "hiragana o yomu koto ga dekimasu.",
+"english": "I can read hiragana."
+},
+{
+"japanese": "ピアノを ひくことが できます。",
+"reading": "piano o hiku koto ga dekimasu.",
+"english": "I can play the piano."
+}
+],
+"negative": "～ことが できません",
+"past": "～ことが できました",
+"pastNegative": "～ことが できませんでした",
+"commonMistake": "Use the dictionary form before ことができます: はなします → はなすことができます.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Hobby",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-18", "hobby", "dictionary-form"],
+"kanji": "趣味は～ことです",
+"reading": "しゅみは～ことです",
+"romaji": "shumi wa ~ koto desu",
+"meaning": "趣味は～ことです — my hobby is doing",
+"partOfSpeech": "grammar",
+"example": "しゅみは おんがくを きくことです。",
+"exampleReading": "shumi wa ongaku o kiku koto desu.",
+"exampleMeaning": "My hobby is listening to music.",
+"grammar": "N は V dictionary form + ことです",
+"formation": "趣味は + Dictionary-form verb + ことです",
+"usage": "Used to describe a hobby by turning an action into a noun-like expression with こと.",
+"grammarExamples": [
+{
+"japanese": "しゅみは ほんを よむことです。",
+"reading": "shumi wa hon o yomu koto desu.",
+"english": "My hobby is reading books."
+},
+{
+"japanese": "しゅみは しゃしんを とることです。",
+"reading": "shumi wa shashin o toru koto desu.",
+"english": "My hobby is taking photographs."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the dictionary form before こと: よみます → よむこと. Do not use the ます-form directly.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Before an Action",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-18", "mae-ni", "dictionary-form"],
+"kanji": "～まえに",
+"reading": "～まえに",
+"romaji": "~mae ni",
+"meaning": "～まえに — before doing; before",
+"partOfSpeech": "grammar",
+"example": "ねるまえに はを みがきます。",
+"exampleReading": "neru mae ni ha o migakimasu.",
+"exampleMeaning": "I brush my teeth before going to bed.",
+"grammar": "V dictionary form + まえに",
+"formation": "Dictionary-form verb + まえに + action",
+"usage": "Indicates that one action happens before another action.",
+"grammarExamples": [
+{
+"japanese": "ごはんを たべるまえに てを あらいます。",
+"reading": "gohan o taberu mae ni te o araimasu.",
+"english": "I wash my hands before eating."
+},
+{
+"japanese": "にほんへ いくまえに にほんごを べんきょうします。",
+"reading": "Nihon e iku mae ni nihongo o benkyou shimasu.",
+"english": "I study Japanese before going to Japan."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the dictionary form before まえに: たべます → たべるまえに. The verb before まえに does not change to past tense.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Before an Action",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-18", "mae-ni", "noun"],
+"kanji": "Nのまえに",
+"reading": "Nのまえに",
+"romaji": "N no mae ni",
+"meaning": "Nのまえに — before N; in front of N",
+"partOfSpeech": "grammar",
+"example": "しごとの まえに コーヒーを のみます。",
+"exampleReading": "shigoto no mae ni koohii o nomimasu.",
+"exampleMeaning": "I drink coffee before work.",
+"grammar": "N の まえに",
+"formation": "Noun + の + まえに",
+"usage": "Used to express something that happens before a noun-related event or time.",
+"grammarExamples": [
+{
+"japanese": "しけんの まえに べんきょうします。",
+"reading": "shiken no mae ni benkyou shimasu.",
+"english": "I study before the exam."
+},
+{
+"japanese": "ねるまえに ほんを よみます。",
+"reading": "neru mae ni hon o yomimasu.",
+"english": "I read a book before going to bed."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "With a noun, use の before まえに: しけんのまえに. With a verb, use the dictionary form directly: ねるまえに.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Experience",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-19", "experience", "ta-koto-ga-arimasu"],
+"kanji": "～たことがあります",
+"reading": "～たことがあります",
+"romaji": "~ta koto ga arimasu",
+"meaning": "～たことがあります — have done; have experienced",
+"partOfSpeech": "grammar",
+"example": "にほんへ いったことが あります。",
+"exampleReading": "Nihon e itta koto ga arimasu.",
+"exampleMeaning": "I have been to Japan.",
+"grammar": "Vた + ことがあります",
+"formation": "Vた-form + ことがあります",
+"usage": "Used to say that someone has had an experience at least once in the past.",
+"grammarExamples": [
+{
+"japanese": "すしを たべたことが あります。",
+"reading": "sushi o tabeta koto ga arimasu.",
+"english": "I have eaten sushi before."
+},
+{
+"japanese": "きょうとへ いったことが あります。",
+"reading": "Kyouto e itta koto ga arimasu.",
+"english": "I have been to Kyoto before."
+}
+],
+"negative": "～たことがありません",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the た-form before ことがあります: たべます → たべたことがあります. This expresses past experience, not a single specific past event.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Listing Actions",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-19", "tari-tari", "listing"],
+"kanji": "～たり、～たりします",
+"reading": "～たり、～たりします",
+"romaji": "~tari, ~tari shimasu",
+"meaning": "～たり、～たりします — do things such as A and B",
+"partOfSpeech": "grammar",
+"example": "にちようびは ほんを よんだり、えいがを みたりします。",
+"exampleReading": "Nichiyoubi wa hon o yondari, eiga o mitari shimasu.",
+"exampleMeaning": "On Sundays, I do things like read books and watch movies.",
+"grammar": "Vた + り、Vた + りします",
+"formation": "Vた-form + り、Vた-form + りします",
+"usage": "Lists representative actions or activities without implying that these are the only things done.",
+"grammarExamples": [
+{
+"japanese": "やすみの ひは そうじしたり、せんたくしたりします。",
+"reading": "yasumi no hi wa souji shitari, sentaku shitari shimasu.",
+"english": "On days off, I do things like clean and do laundry."
+},
+{
+"japanese": "しゅうまつは ともだちと あそんだり、ゲームを したりします。",
+"reading": "shuumatsu wa tomodachi to asondari, geemu o shitari shimasu.",
+"english": "On weekends, I do things like hang out with friends and play games."
+}
+],
+"negative": "～たり、～たりしません",
+"past": "～たり、～たりしました",
+"pastNegative": "～たり、～たりしませんでした",
+"commonMistake": "Use the た-form + り: よみます → よんだり, します → したり. The final します determines the tense.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Change of State",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-19", "narimasu", "change"],
+"kanji": "～くなります",
+"reading": "～くなります",
+"romaji": "~ku narimasu",
+"meaning": "～くなります — become; become more",
+"partOfSpeech": "grammar",
+"example": "あつく なりました。",
+"exampleReading": "atsuku narimashita.",
+"exampleMeaning": "It has become hot.",
+"grammar": "い-adjective → ～くなります",
+"formation": "い-adjective: remove い + くなります",
+"usage": "Expresses a change into a state described by an い-adjective.",
+"grammarExamples": [
+{
+"japanese": "にほんごが じょうずに なりました。",
+"reading": "Nihongo ga jouzu ni narimashita.",
+"english": "My Japanese has improved."
+},
+{
+"japanese": "だんだん さむく なります。",
+"reading": "dandan samuku narimasu.",
+"english": "It gradually becomes cold."
+}
+],
+"negative": "",
+"past": "～くなりました",
+"pastNegative": "",
+"commonMistake": "For い-adjectives, change い to く before なります: あつい → あつくなります.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Change of State",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-19", "narimasu", "na-adjective", "noun"],
+"kanji": "～になります",
+"reading": "～になります",
+"romaji": "~ni narimasu",
+"meaning": "～になります — become; become a",
+"partOfSpeech": "grammar",
+"example": "げんきに なりました。",
+"exampleReading": "genki ni narimashita.",
+"exampleMeaning": "I became healthy / I am feeling better now.",
+"grammar": "な-adjective / Noun + になります",
+"formation": "な-adjective + に なります / Noun + に なります",
+"usage": "Expresses a change into a state described by a な-adjective or a change into a noun role or identity.",
+"grammarExamples": [
+{
+"japanese": "しずかに なりました。",
+"reading": "shizuka ni narimashita.",
+"english": "It became quiet."
+},
+{
+"japanese": "らいねん せんせいに なります。",
+"reading": "rainen sensei ni narimasu.",
+"english": "I will become a teacher next year."
+}
+],
+"negative": "",
+"past": "～になりました",
+"pastNegative": "",
+"commonMistake": "Use に before なります with な-adjectives and nouns: きれい → きれいになります, せんせい → せんせいになります.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Plain Form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-20", "plain-form"],
+"kanji": "普通形",
+"reading": "ふつうけい",
+"romaji": "futsuu-kei",
+"meaning": "普通形 — plain form; casual form",
+"partOfSpeech": "grammar",
+"example": "あした いく。",
+"exampleReading": "ashita iku.",
+"exampleMeaning": "I'm going tomorrow.",
+"grammar": "Plain form",
+"formation": "Verb: dictionary / ない / た / なかった. い-adjective: い / くない / かった / くなかった. な-adjective and noun: だ / じゃない / だった / じゃなかった.",
+"usage": "The plain form is used in casual conversation and is also required before many grammar patterns introduced later.",
+"grammarExamples": [
+{
+"japanese": "あした いく。",
+"reading": "ashita iku.",
+"english": "I'm going tomorrow."
+},
+{
+"japanese": "これは おもしろい。",
+"reading": "kore wa omoshiroi.",
+"english": "This is interesting."
+}
+],
+"negative": "いかない",
+"past": "いった",
+"pastNegative": "いかなかった",
+"commonMistake": "Do not treat the plain form as simply 'dropping ます'. Each verb changes according to its conjugation pattern.",
+"formalAlternative": "です／ます form"
+},
+{
+"type": "grammar",
+"category": "Casual Speech",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-20", "casual-speech", "verbs"],
+"kanji": "動詞の普通形",
+"reading": "どうしのふつうけい",
+"romaji": "doushi no futsuu-kei",
+"meaning": "Verb plain forms — casual verb forms",
+"partOfSpeech": "grammar",
+"example": "きのう えいがを みた。",
+"exampleReading": "kinou eiga o mita.",
+"exampleMeaning": "I watched a movie yesterday.",
+"grammar": "Verb plain forms",
+"formation": "ます → dictionary form / ない form / た form / なかった form",
+"usage": "Used when changing polite verb sentences into casual speech.",
+"grammarExamples": [
+{
+"japanese": "まいにち べんきょうする。",
+"reading": "mainichi benkyou suru.",
+"english": "I study every day."
+},
+{
+"japanese": "きのう べんきょうしなかった。",
+"reading": "kinou benkyou shinakatta.",
+"english": "I didn't study yesterday."
+}
+],
+"negative": "しない",
+"past": "した",
+"pastNegative": "しなかった",
+"commonMistake": "The plain form has four basic tense/polarity forms. Learn the complete set rather than memorizing only the dictionary form.",
+"formalAlternative": "します／しません／しました／しませんでした"
+},
+{
+"type": "grammar",
+"category": "Casual Speech",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-20", "casual-speech", "adjectives"],
+"kanji": "形容詞の普通形",
+"reading": "けいようしのふつうけい",
+"romaji": "keiyoushi no futsuu-kei",
+"meaning": "Adjective plain forms — casual adjective forms",
+"partOfSpeech": "grammar",
+"example": "この ほんは おもしろい。",
+"exampleReading": "kono hon wa omoshiroi.",
+"exampleMeaning": "This book is interesting.",
+"grammar": "い-adjective plain forms",
+"formation": "い / くない / かった / くなかった",
+"usage": "Used to express い-adjectives in casual speech and in plain-form grammar structures.",
+"grammarExamples": [
+{
+"japanese": "きょうは あつい。",
+"reading": "kyou wa atsui.",
+"english": "Today is hot."
+},
+{
+"japanese": "きのうは あつくなかった。",
+"reading": "kinou wa atsuku nakatta.",
+"english": "Yesterday wasn't hot."
+}
+],
+"negative": "おもしろくない",
+"past": "おもしろかった",
+"pastNegative": "おもしろくなかった",
+"commonMistake": "い-adjectives do not use だ in their basic plain form: おもしろい, not おもしろいだ.",
+"formalAlternative": "です／くないです／かったです／くなかったです"
+},
+{
+"type": "grammar",
+"category": "Casual Speech",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-20", "casual-speech", "na-adjective", "noun"],
+"kanji": "な形容詞・名詞の普通形",
+"reading": "なけいようし・めいしのふつうけい",
+"romaji": "na-keiyoushi, meishi no futsuu-kei",
+"meaning": "な-adjective and noun plain forms",
+"partOfSpeech": "grammar",
+"example": "この まちは しずかだ。",
+"exampleReading": "kono machi wa shizuka da.",
+"exampleMeaning": "This town is quiet.",
+"grammar": "な-adjective / noun plain forms",
+"formation": "な-adjective or noun: だ / じゃない / だった / じゃなかった",
+"usage": "Used to make な-adjective and noun sentences casual.",
+"grammarExamples": [
+{
+"japanese": "この まちは しずかだ。",
+"reading": "kono machi wa shizuka da.",
+"english": "This town is quiet."
+},
+{
+"japanese": "きのうは やすみじゃなかった。",
+"reading": "kinou wa yasumi janakatta.",
+"english": "Yesterday wasn't a holiday."
+}
+],
+"negative": "しずかじゃない",
+"past": "しずかだった",
+"pastNegative": "しずかじゃなかった",
+"commonMistake": "Unlike い-adjectives, な-adjectives and nouns use だ in the affirmative plain present form.",
+"formalAlternative": "です／ではありません／でした／ではありませんでした"
+},
+{
+"type": "grammar",
+"category": "Opinion",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-21", "opinion", "to-omoimasu"],
+"kanji": "～と思います",
+"reading": "～とおもいます",
+"romaji": "~to omoimasu",
+"meaning": "～と思います — I think; I believe",
+"partOfSpeech": "grammar",
+"example": "あした あめが ふると おもいます。",
+"exampleReading": "ashita ame ga furu to omoimasu.",
+"exampleMeaning": "I think it will rain tomorrow.",
+"grammar": "Plain form + と思います",
+"formation": "Plain form + と + 思います",
+"usage": "Used to express the speaker's opinion, belief, or prediction.",
+"grammarExamples": [
+{
+"japanese": "にほんごは むずかしいと おもいます。",
+"reading": "nihongo wa muzukashii to omoimasu.",
+"english": "I think Japanese is difficult."
+},
+{
+"japanese": "たなかさんは こないと おもいます。",
+"reading": "Tanaka-san wa konai to omoimasu.",
+"english": "I don't think Tanaka will come."
+}
+],
+"negative": "",
+"past": "～と おもいました",
+"pastNegative": "",
+"commonMistake": "The clause before と uses the plain form. For a noun or な-adjective in the present affirmative, use だ: せんせいだと おもいます.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Agreement / Confirmation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-21", "deshou", "confirmation"],
+"kanji": "～でしょう",
+"reading": "～でしょう",
+"romaji": "~deshou",
+"meaning": "～でしょう — probably; I suppose; right?",
+"partOfSpeech": "grammar",
+"example": "あしたは いい てんきでしょう。",
+"exampleReading": "ashita wa ii tenki deshou.",
+"exampleMeaning": "The weather will probably be good tomorrow.",
+"grammar": "Plain form + でしょう",
+"formation": "Plain form + でしょう",
+"usage": "Used to express a prediction or probability. With rising intonation, it can also seek confirmation.",
+"grammarExamples": [
+{
+"japanese": "あしたは さむいでしょう。",
+"reading": "ashita wa samui deshou.",
+"english": "It will probably be cold tomorrow."
+},
+{
+"japanese": "たなかさんも くるでしょう。",
+"reading": "Tanaka-san mo kuru deshou.",
+"english": "Tanaka will probably come too."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "For nouns and な-adjectives, do not add だ before でしょう: しずかでしょう is correct.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Reported Speech",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-21", "quotation", "to-iimasu"],
+"kanji": "～と言います",
+"reading": "～といいます",
+"romaji": "~to iimasu",
+"meaning": "～と言います — say; tell; be called",
+"partOfSpeech": "grammar",
+"example": "たなかさんは あした くると いいました。",
+"exampleReading": "Tanaka-san wa ashita kuru to iimashita.",
+"exampleMeaning": "Tanaka said that he would come tomorrow.",
+"grammar": "Plain form + と言います",
+"formation": "Statement + と + 言います",
+"usage": "Used to report what someone says or said. The quoted statement comes before と.",
+"grammarExamples": [
+{
+"japanese": "せんせいは らいしゅう しけんが あると いいました。",
+"reading": "sensei wa raishuu shiken ga aru to iimashita.",
+"english": "The teacher said there will be an exam next week."
+},
+{
+"japanese": "ともだちは にほんへ いくと いいました。",
+"reading": "tomodachi wa Nihon e iku to iimashita.",
+"english": "My friend said they would go to Japan."
+}
+],
+"negative": "",
+"past": "～と 言いました",
+"pastNegative": "",
+"commonMistake": "The quoted clause before と uses the plain form: いきます → いくと いいました.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Sentence Ending",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-21", "ne", "confirmation"],
+"kanji": "～ね",
+"reading": "～ね",
+"romaji": "~ne",
+"meaning": "～ね — right?; isn't it?; I agree",
+"partOfSpeech": "sentence-ending particle",
+"example": "にほんごは おもしろいですね。",
+"exampleReading": "nihongo wa omoshiroi desu ne.",
+"exampleMeaning": "Japanese is interesting, isn't it?",
+"grammar": "Sentence + ね",
+"formation": "Statement + ね",
+"usage": "Used to seek agreement, confirmation, or show that the speaker expects the listener to share the same understanding.",
+"grammarExamples": [
+{
+"japanese": "きょうは いい てんきですね。",
+"reading": "kyou wa ii tenki desu ne.",
+"english": "It's nice weather today, isn't it?"
+},
+{
+"japanese": "この えいがは おもしろいですね。",
+"reading": "kono eiga wa omoshiroi desu ne.",
+"english": "This movie is interesting, isn't it?"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "ね is different from か. か asks a question, while ね usually seeks agreement or confirmation.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Noun Modification",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-22", "noun-modification", "relative-clause"],
+"kanji": "Nを修飾する文",
+"reading": "Nをしゅうしょくするぶん",
+"romaji": "N o shuushoku suru bun",
+"meaning": "Noun modification — a clause before a noun describes or identifies that noun",
+"partOfSpeech": "grammar",
+"example": "これは わたしが かった ほんです。",
+"exampleReading": "kore wa watashi ga katta hon desu.",
+"exampleMeaning": "This is the book that I bought.",
+"grammar": "Plain-form clause + Noun",
+"formation": "Describing clause + Noun",
+"usage": "A plain-form clause is placed directly before a noun to describe or identify that noun. Japanese does not use a relative pronoun such as 'that' or 'which'.",
+"grammarExamples": [
+{
+"japanese": "これは きのう かった くるまです。",
+"reading": "kore wa kinou katta kuruma desu.",
+"english": "This is the car I bought yesterday."
+},
+{
+"japanese": "あれは にほんで とった しゃしんです。",
+"reading": "are wa Nihon de totta shashin desu.",
+"english": "That is a photograph I took in Japan."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The describing clause comes BEFORE the noun: わたしがかったほん. Do not put the noun before the describing clause as in English.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Noun Modification",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-22", "noun-modification", "person"],
+"kanji": "Vる人",
+"reading": "Vるひと",
+"romaji": "V-ru hito",
+"meaning": "Vる人 — person who does; person who will do",
+"partOfSpeech": "grammar",
+"example": "にほんごを はなす ひとを しっています。",
+"exampleReading": "nihongo o hanasu hito o shitte imasu.",
+"exampleMeaning": "I know a person who speaks Japanese.",
+"grammar": "V dictionary form + 人",
+"formation": "Dictionary-form verb + 人",
+"usage": "Describes a person by the action they do or will do.",
+"grammarExamples": [
+{
+"japanese": "あそこで はたらいている ひとは たなかさんです。",
+"reading": "asoko de hataraite iru hito wa Tanaka-san desu.",
+"english": "The person working over there is Tanaka."
+},
+{
+"japanese": "にほんごを べんきょうする ひとが おおいです。",
+"reading": "nihongo o benkyou suru hito ga ooi desu.",
+"english": "There are many people who study Japanese."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the plain form before 人: はなします → はなすひと. Do not use the polite ます-form.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Noun Modification",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-22", "noun-modification", "thing"],
+"kanji": "Vるもの",
+"reading": "Vるもの",
+"romaji": "V-ru mono",
+"meaning": "Vるもの — thing that; something that",
+"partOfSpeech": "grammar",
+"example": "これは たべる ものです。",
+"exampleReading": "kore wa taberu mono desu.",
+"exampleMeaning": "This is something to eat.",
+"grammar": "V dictionary form + もの",
+"formation": "Dictionary-form verb + もの",
+"usage": "Describes a thing by the action associated with it.",
+"grammarExamples": [
+{
+"japanese": "これは つかう ものです。",
+"reading": "kore wa tsukau mono desu.",
+"english": "This is something to use."
+},
+{
+"japanese": "あれは のむ ものです。",
+"reading": "are wa nomu mono desu.",
+"english": "That is something to drink."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The verb modifying もの must use the plain form: つかいます → つかうもの.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Time",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-23", "toki", "time"],
+"kanji": "～とき",
+"reading": "～とき",
+"romaji": "~toki",
+"meaning": "～とき — when; at the time when",
+"partOfSpeech": "grammar",
+"example": "にほんへ いくとき、カメラを かいました。",
+"exampleReading": "Nihon e iku toki, kamera o kaimashita.",
+"exampleMeaning": "When I went to Japan, I bought a camera.",
+"grammar": "V dictionary form + とき",
+"formation": "Verb plain form + とき",
+"usage": "Used to say when an action or situation occurs. The form before とき indicates the time relationship.",
+"grammarExamples": [
+{
+"japanese": "にほんへ いくとき、カメラを かいました。",
+"reading": "Nihon e iku toki, kamera o kaimashita.",
+"english": "When I went to Japan, I bought a camera."
+},
+{
+"japanese": "ねるとき、「おやすみなさい」と いいます。",
+"reading": "neru toki, 'oyasuminasai' to iimasu.",
+"english": "When going to bed, we say 'good night.'"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The tense before とき changes the meaning: いくとき means 'when going', while いったとき means 'when/after having gone'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Time",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-23", "toki", "past"],
+"kanji": "～たとき",
+"reading": "～たとき",
+"romaji": "~ta toki",
+"meaning": "～たとき — when; after doing",
+"partOfSpeech": "grammar",
+"example": "にほんへ いったとき、すしを たべました。",
+"exampleReading": "Nihon e itta toki, sushi o tabemashita.",
+"exampleMeaning": "When I went to Japan, I ate sushi.",
+"grammar": "Vた + とき",
+"formation": "Vた-form + とき",
+"usage": "Used when the main action occurs after or at the time the preceding action has occurred.",
+"grammarExamples": [
+{
+"japanese": "うちへ かえったとき、でんわを しました。",
+"reading": "uchi e kaetta toki, denwa o shimashita.",
+"english": "When I returned home, I made a phone call."
+},
+{
+"japanese": "にほんへ いったとき、きょうとへ いきました。",
+"reading": "Nihon e itta toki, Kyouto e ikimashita.",
+"english": "When I went to Japan, I went to Kyoto."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Vた + とき and Vる + とき are not always interchangeable. Vたとき presents the first action as completed or as having occurred.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Time",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-23", "toki", "noun"],
+"kanji": "Nのとき",
+"reading": "Nのとき",
+"romaji": "N no toki",
+"meaning": "Nのとき — when; at the time of N",
+"partOfSpeech": "grammar",
+"example": "こどものとき、よく こうえんで あそびました。",
+"exampleReading": "kodomo no toki, yoku kouen de asobimashita.",
+"exampleMeaning": "When I was a child, I often played in the park.",
+"grammar": "N + のとき",
+"formation": "Noun + の + とき",
+"usage": "Used to indicate a time or situation associated with a noun.",
+"grammarExamples": [
+{
+"japanese": "がくせいのとき、よく ほんを よみました。",
+"reading": "gakusei no toki, yoku hon o yomimashita.",
+"english": "When I was a student, I often read books."
+},
+{
+"japanese": "ひまのとき、テレビを みます。",
+"reading": "hima no toki, terebi o mimasu.",
+"english": "When I have free time, I watch TV."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "A noun normally takes の before とき: がくせいのとき.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Time",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-23", "toki", "na-adjective"],
+"kanji": "な形容詞なとき",
+"reading": "なけいようしなとき",
+"romaji": "na-keiyoushi na toki",
+"meaning": "な-adjective + なとき — when; when in a state of",
+"partOfSpeech": "grammar",
+"example": "ひまなとき、ほんを よみます。",
+"exampleReading": "hima na toki, hon o yomimasu.",
+"exampleMeaning": "When I am free, I read books.",
+"grammar": "な-adjective + な + とき",
+"formation": "な-adjective + なとき",
+"usage": "Used to describe a time when someone or something is in a state described by a な-adjective.",
+"grammarExamples": [
+{
+"japanese": "しずかなとき、べんきょうします。",
+"reading": "shizuka na toki, benkyou shimasu.",
+"english": "I study when it is quiet."
+},
+{
+"japanese": "げんきなとき、よく うんどうします。",
+"reading": "genki na toki, yoku undou shimasu.",
+"english": "When I feel well, I exercise often."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "な-adjectives require な before とき: しずかなとき, not しずかとき.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Conditional",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-23", "to", "conditional"],
+"kanji": "～と",
+"reading": "～と",
+"romaji": "~to",
+"meaning": "～と — when; if; whenever; as soon as",
+"partOfSpeech": "particle / conditional",
+"example": "この ボタンを おすと、ドアが あきます。",
+"exampleReading": "kono botan o osu to, doa ga akimasu.",
+"exampleMeaning": "When you press this button, the door opens.",
+"grammar": "V dictionary form + と",
+"formation": "Plain non-past form + と、result",
+"usage": "Expresses a natural, automatic, or predictable result that occurs whenever the first condition happens.",
+"grammarExamples": [
+{
+"japanese": "この みちを まっすぐ いくと、えきが あります。",
+"reading": "kono michi o massugu iku to, eki ga arimasu.",
+"english": "If you go straight along this road, there is a station."
+},
+{
+"japanese": "はるに なると、あたたかく なります。",
+"reading": "haru ni naru to, atatakaku narimasu.",
+"english": "When spring comes, it becomes warm."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "～と is mainly used for natural, automatic, or regularly occurring results. It is not normally used for a speaker's intentional request or command.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving and Receiving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-24", "giving", "receiving"],
+"kanji": "くれます",
+"reading": "くれます",
+"romaji": "kuremasu",
+"meaning": "くれます — give (to me / someone in my group)",
+"partOfSpeech": "verb",
+"example": "ともだちは わたしに プレゼントを くれました。",
+"exampleReading": "tomodachi wa watashi ni purezento o kuremashita.",
+"exampleMeaning": "My friend gave me a present.",
+"grammar": "Person は わたしに N を くれます",
+"formation": "Giver は + わたしに + Thing を + くれます",
+"usage": "Used when someone gives something to the speaker or to someone in the speaker's in-group.",
+"grammarExamples": [
+{
+"japanese": "せんせいは わたしに ほんを くれました。",
+"reading": "sensei wa watashi ni hon o kuremashita.",
+"english": "The teacher gave me a book."
+},
+{
+"japanese": "ちちは わたしに おかねを くれました。",
+"reading": "chichi wa watashi ni okane o kuremashita.",
+"english": "My father gave me money."
+}
+],
+"negative": "くれません",
+"past": "くれました",
+"pastNegative": "くれませんでした",
+"commonMistake": "くれます is used when the receiver is the speaker or someone in the speaker's group. Do not use it when you give something to another person.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving and Receiving",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-24", "te-form", "giving"],
+"kanji": "～てくれます",
+"reading": "～てくれます",
+"romaji": "~te kuremasu",
+"meaning": "～てくれます — do something for me; kindly do",
+"partOfSpeech": "grammar",
+"example": "ともだちは にほんごを おしえてくれました。",
+"exampleReading": "tomodachi wa nihongo o oshiete kuremashita.",
+"exampleMeaning": "My friend taught me Japanese.",
+"grammar": "Person は Vて + くれます",
+"formation": "Person は + Vて-form + くれます",
+"usage": "Expresses that someone does something as a favor for the speaker or someone in the speaker's group.",
+"grammarExamples": [
+{
+"japanese": "ともだちは えきまで おくってくれました。",
+"reading": "tomodachi wa eki made okutte kuremashita.",
+"english": "My friend took me to the station."
+},
+{
+"japanese": "せんせいは にほんごを おしえてくれました。",
+"reading": "sensei wa nihongo o oshiete kuremashita.",
+"english": "The teacher taught me Japanese."
+}
+],
+"negative": "～てくれません",
+"past": "～てくれました",
+"pastNegative": "～てくれませんでした",
+"commonMistake": "The person before は is the giver/doer, while the benefit is received by the speaker or the speaker's group.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Request",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-24", "te-form", "request"],
+"kanji": "～てくれませんか",
+"reading": "～てくれませんか",
+"romaji": "~te kuremasen ka",
+"meaning": "～てくれませんか — could you please; would you do",
+"partOfSpeech": "grammar",
+"example": "ちょっと てつだってくれませんか。",
+"exampleReading": "chotto tetsudatte kuremasen ka.",
+"exampleMeaning": "Could you please help me?",
+"grammar": "Vて + くれませんか",
+"formation": "Vて-form + くれませんか",
+"usage": "Used to make a polite request for someone to do something for the speaker.",
+"grammarExamples": [
+{
+"japanese": "この かんじを おしえてくれませんか。",
+"reading": "kono kanji o oshiete kuremasen ka.",
+"english": "Could you tell me this kanji?"
+},
+{
+"japanese": "まどを あけてくれませんか。",
+"reading": "mado o akete kuremasen ka.",
+"english": "Could you open the window?"
+}
+],
+"negative": "～てくれませんか",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Although くれません is negative in form, ～てくれませんか is a polite request meaning 'Could you please...?'",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Conditional",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-25", "conditional", "tara"],
+"kanji": "～たら",
+"reading": "～たら",
+"romaji": "~tara",
+"meaning": "～たら — if; when; after",
+"partOfSpeech": "grammar",
+"example": "じかんが あったら、えいがを みます。",
+"exampleReading": "jikan ga attara, eiga o mimasu.",
+"exampleMeaning": "If I have time, I will watch a movie.",
+"grammar": "Vた + ら",
+"formation": "Vた-form + ら、result",
+"usage": "Used to express a condition such as 'if' or 'when'. It can also mean 'after something happens'.",
+"grammarExamples": [
+{
+"japanese": "にほんへ いったら、きょうとへ いきたいです。",
+"reading": "Nihon e ittara, Kyouto e ikitai desu.",
+"english": "If I go to Japan, I want to go to Kyoto."
+},
+{
+"japanese": "しごとが おわったら、うちへ かえります。",
+"reading": "shigoto ga owattara, uchi e kaerimasu.",
+"english": "When work finishes, I will go home."
+}
+],
+"negative": "～なかったら",
+"past": "",
+"pastNegative": "",
+"commonMistake": "たら is formed from the た-form: いきます → いったら, たべます → たべたら.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Conditional",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-25", "conditional", "tara"],
+"kanji": "もし～たら",
+"reading": "もし～たら",
+"romaji": "moshi ~tara",
+"meaning": "もし～たら — if; supposing that",
+"partOfSpeech": "grammar",
+"example": "もし ひまだったら、いっしょに いきませんか。",
+"exampleReading": "moshi hima dattara, issho ni ikimasen ka.",
+"exampleMeaning": "If you're free, shall we go together?",
+"grammar": "もし + ～たら",
+"formation": "もし + condition + たら、result",
+"usage": "もし emphasizes a hypothetical condition and is often used with ～たら.",
+"grammarExamples": [
+{
+"japanese": "もし あした あめだったら、いきません。",
+"reading": "moshi ashita ame dattara, ikimasen.",
+"english": "If it rains tomorrow, I won't go."
+},
+{
+"japanese": "もし おかねが あったら、くるまを かいたいです。",
+"reading": "moshi okane ga attara, kuruma o kaitai desu.",
+"english": "If I had money, I would like to buy a car."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "もし is optional. The conditional meaning comes from ～たら; もし simply makes the hypothetical nature clearer.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Even If",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-25", "conditional", "temo"],
+"kanji": "～ても",
+"reading": "～ても",
+"romaji": "~te mo",
+"meaning": "～ても — even if; even though",
+"partOfSpeech": "grammar",
+"example": "あめが ふっても、いきます。",
+"exampleReading": "ame ga futte mo, ikimasu.",
+"exampleMeaning": "Even if it rains, I will go.",
+"grammar": "Vて + も",
+"formation": "Vて-form + も、result",
+"usage": "Expresses that the result remains unchanged even when the condition occurs.",
+"grammarExamples": [
+{
+"japanese": "いそいでも、まにあいません。",
+"reading": "isoide mo, maniaimasen.",
+"english": "Even if I hurry, I won't make it in time."
+},
+{
+"japanese": "たかくても、かいます。",
+"reading": "takakute mo, kaimasu.",
+"english": "Even if it is expensive, I will buy it."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use ても for 'even if', not simply 'if'. ～たら expresses a condition, while ～ても says the result remains the same despite that condition.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Even If",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-25", "conditional", "temo", "ikura"],
+"kanji": "いくら～ても",
+"reading": "いくら～ても",
+"romaji": "ikura ~te mo",
+"meaning": "いくら～ても — no matter how; however much",
+"partOfSpeech": "grammar",
+"example": "いくら べんきょうしても、わかりません。",
+"exampleReading": "ikura benkyou shite mo, wakarimasen.",
+"exampleMeaning": "No matter how much I study, I don't understand.",
+"grammar": "いくら + Vて + も",
+"formation": "いくら + Vて-form / adjective + も、result",
+"usage": "Emphasizes that the result does not change regardless of the degree or amount of the condition.",
+"grammarExamples": [
+{
+"japanese": "いくら たべても、まだ おなかが すいています。",
+"reading": "ikura tabete mo, mada onaka ga suite imasu.",
+"english": "No matter how much I eat, I am still hungry."
+},
+{
+"japanese": "いくら やすくても、かいません。",
+"reading": "ikura yasukute mo, kaimasen.",
+"english": "No matter how cheap it is, I won't buy it."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "いくら～ても emphasizes 'no matter how much/how'. Without いくら, ～ても simply means 'even if'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Giving Advice",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-26", "advice", "n desu"],
+"kanji": "～んです",
+"reading": "～んです",
+"romaji": "~n desu",
+"meaning": "～んです — it is that; the reason is; explanation/background",
+"partOfSpeech": "grammar",
+"example": "どうしたんですか。",
+"exampleReading": "dou shitan desu ka.",
+"exampleMeaning": "What happened? / What's wrong?",
+"grammar": "Plain form + んです",
+"formation": "Verb / い-adjective plain form + んです; な-adjective / noun + な + んです",
+"usage": "Used to give an explanation, provide background information, or ask about the reason or situation behind something.",
+"grammarExamples": [
+{
+"japanese": "どうして おくれたんですか。",
+"reading": "doushite okuretan desu ka.",
+"english": "Why were you late?"
+},
+{
+"japanese": "ちょっと きぶんが わるいんです。",
+"reading": "chotto kibun ga warui n desu.",
+"english": "I don't feel very well."
+}
+],
+"negative": "～んじゃありません",
+"past": "～んでした",
+"pastNegative": "～んじゃありませんでした",
+"commonMistake": "With nouns and な-adjectives, use な before んです: ひまなんです, せんせいなんです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Explanation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-26", "n desu", "reason"],
+"kanji": "～んですが",
+"reading": "～んですが",
+"romaji": "~n desu ga",
+"meaning": "～んですが — the thing is; actually; I'm saying/explaining that...",
+"partOfSpeech": "grammar",
+"example": "ちょっと おねがいが あるんですが。",
+"exampleReading": "chotto onegai ga arun desu ga.",
+"exampleMeaning": "I have a small favor to ask..."
+,
+"grammar": "Plain form + んですが",
+"formation": "Plain form + んですが; な-adjective / noun + な + んですが",
+"usage": "Used to introduce an explanation, situation, or request in a softer and more indirect way.",
+"grammarExamples": [
+{
+"japanese": "すみません、えきへ いきたいんですが。",
+"reading": "sumimasen, eki e ikitain desu ga.",
+"english": "Excuse me, I'd like to go to the station..."
+},
+{
+"japanese": "にほんごを べんきょうしたいんですが。",
+"reading": "nihongo o benkyou shitai n desu ga.",
+"english": "I'd like to study Japanese, but..."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "んですが often leaves the sentence open because the speaker expects the listener to respond or help. It does not always mean a strong contrast like English 'but'.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Advice",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-26", "hou-ga-ii", "advice"],
+"kanji": "～たほうがいいです",
+"reading": "～たほうがいいです",
+"romaji": "~ta hou ga ii desu",
+"meaning": "～たほうがいいです — should; it would be better to",
+"partOfSpeech": "grammar",
+"example": "はやく ねたほうが いいです。",
+"exampleReading": "hayaku neta hou ga ii desu.",
+"exampleMeaning": "You should go to bed early.",
+"grammar": "Vた + ほうがいいです",
+"formation": "Vた-form + ほうがいいです",
+"usage": "Used to give advice or recommend doing something.",
+"grammarExamples": [
+{
+"japanese": "くすりを のんだほうが いいです。",
+"reading": "kusuri o nonda hou ga ii desu.",
+"english": "You should take the medicine."
+},
+{
+"japanese": "もっと やすんだほうが いいです。",
+"reading": "motto yasunda hou ga ii desu.",
+"english": "You should rest more."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the た-form before ほうがいい: のみます → のんだほうがいいです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Advice",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-26", "nai-hou-ga-ii", "advice"],
+"kanji": "～ないほうがいいです",
+"reading": "～ないほうがいいです",
+"romaji": "~nai hou ga ii desu",
+"meaning": "～ないほうがいいです — should not; it would be better not to",
+"partOfSpeech": "grammar",
+"example": "あまり おさけを のまないほうが いいです。",
+"exampleReading": "amari osake o nomanai hou ga ii desu.",
+"exampleMeaning": "You should not drink much alcohol.",
+"grammar": "Vない + ほうがいいです",
+"formation": "Vない-form + ほうがいいです",
+"usage": "Used to advise someone against doing something.",
+"grammarExamples": [
+{
+"japanese": "ここで たばこを すわないほうが いいです。",
+"reading": "koko de tabako o suwanai hou ga ii desu.",
+"english": "You should not smoke here."
+},
+{
+"japanese": "むりを しないほうが いいです。",
+"reading": "muri o shinai hou ga ii desu.",
+"english": "You should not overdo it."
+}
+],
+"negative": "～ないほうがいいです",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the ない-form before ほうがいい: します → しないほうがいいです.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Potential Form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "potential-form", "ability"],
+"kanji": "可能形",
+"reading": "かのうけい",
+"romaji": "kanoukei",
+"meaning": "可能形 — potential form; can do",
+"partOfSpeech": "grammar",
+"example": "にほんごが はなせます。",
+"exampleReading": "nihongo ga hanasemasu.",
+"exampleMeaning": "I can speak Japanese.",
+"grammar": "Potential verb",
+"formation": "Group 1: う-row → え-row + る. Group 2: る → られる. する → できる. くる → こられる.",
+"usage": "Used to express ability or possibility. In potential sentences, the thing that can be done is commonly marked with が.",
+"grammarExamples": [
+{
+"japanese": "ひらがなが よめます。",
+"reading": "hiragana ga yomemasu.",
+"english": "I can read hiragana."
+},
+{
+"japanese": "かんじが かけます。",
+"reading": "kanji ga kakemasu.",
+"english": "I can write kanji."
+}
+],
+"negative": "～ません",
+"past": "～ました",
+"pastNegative": "～ませんでした",
+"commonMistake": "Do not confuse potential forms with ～ことができます. For example, はなします → はなせます.",
+"formalAlternative": "～ことができます"
+},
+{
+"type": "grammar",
+"category": "Potential Form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "potential-form", "dekiru"],
+"kanji": "できます",
+"reading": "できます",
+"romaji": "dekimasu",
+"meaning": "できます — can do; be able to do",
+"partOfSpeech": "verb",
+"example": "スキーが できます。",
+"exampleReading": "sukii ga dekimasu.",
+"exampleMeaning": "I can ski.",
+"grammar": "N が できます",
+"formation": "N が + できます",
+"usage": "Used to express the ability to perform an activity or skill. できます is the potential form of します.",
+"grammarExamples": [
+{
+"japanese": "りょうりが できます。",
+"reading": "ryouri ga dekimasu.",
+"english": "I can cook."
+},
+{
+"japanese": "うんてんが できます。",
+"reading": "unten ga dekimasu.",
+"english": "I can drive."
+}
+],
+"negative": "できません",
+"past": "できました",
+"pastNegative": "できませんでした",
+"commonMistake": "With できます, the activity is normally marked with が: りょうりができます.",
+"formalAlternative": "～ことができます"
+},
+{
+"type": "grammar",
+"category": "Perception",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "mieru", "kikoeru"],
+"kanji": "見えます・聞こえます",
+"reading": "みえます・きこえます",
+"romaji": "miemasu / kikoemasu",
+"meaning": "見えます・聞こえます — can be seen; can be heard",
+"partOfSpeech": "verb",
+"example": "ここから うみが みえます。",
+"exampleReading": "koko kara umi ga miemasu.",
+"exampleMeaning": "You can see the sea from here.",
+"grammar": "Place から N が 見えます／聞こえます",
+"formation": "Place から + N が + 見えます／聞こえます",
+"usage": "見えます describes something that is visible or can be seen. 聞こえます describes a sound that can be heard.",
+"grammarExamples": [
+{
+"japanese": "まどから やまが みえます。",
+"reading": "mado kara yama ga miemasu.",
+"english": "You can see the mountain from the window."
+},
+{
+"japanese": "へやから おんがくが きこえます。",
+"reading": "heya kara ongaku ga kikoemasu.",
+"english": "Music can be heard from the room."
+}
+],
+"negative": "見えません／聞こえません",
+"past": "見えました／聞こえました",
+"pastNegative": "見えませんでした／聞こえませんでした",
+"commonMistake": "見えます and 聞こえます describe natural perception. They are different from 見られます and 聞けます, which can express ability or possibility.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Limitation",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "shika", "negative"],
+"kanji": "～しか～ません",
+"reading": "～しか～ません",
+"romaji": "~shika ~masen",
+"meaning": "～しか～ません — only; nothing but",
+"partOfSpeech": "particle pattern",
+"example": "ひらがなしか よめません。",
+"exampleReading": "hiragana shika yomemasen.",
+"exampleMeaning": "I can read only hiragana.",
+"grammar": "N + しか + Negative",
+"formation": "N + しか + negative verb",
+"usage": "Expresses a limited amount or choice and literally means that nothing other than the stated thing applies.",
+"grammarExamples": [
+{
+"japanese": "にほんごしか はなせません。",
+"reading": "nihongo shika hanasemasen.",
+"english": "I can speak only Japanese."
+},
+{
+"japanese": "ひとつしか ありません。",
+"reading": "hitotsu shika arimasen.",
+"english": "There is only one."
+}
+],
+"negative": "～しか～ません",
+"past": "",
+"pastNegative": "",
+"commonMistake": "しか must be used with a negative expression. ひとつしかありません means 'there is only one', not 'there is not one'.",
+"formalAlternative": "～だけです"
+},
+{
+"type": "grammar",
+"category": "Potential Form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "potential-form"],
+"kanji": "できます",
+"reading": "できます",
+"romaji": "dekimasu",
+"meaning": "できます — can be done; can be made; is possible",
+"partOfSpeech": "verb",
+"example": "えきの ちかくに あたらしい みせが できます。",
+"exampleReading": "eki no chikaku ni atarashii mise ga dekimasu.",
+"exampleMeaning": "A new shop will open near the station.",
+"grammar": "Place に N が できます",
+"formation": "Place に + N が + できます",
+"usage": "Used when something new is created, built, established, or becomes available in a place.",
+"grammarExamples": [
+{
+"japanese": "えきの まえに コンビニが できます。",
+"reading": "eki no mae ni konbini ga dekimasu.",
+"english": "A convenience store will be built in front of the station."
+},
+{
+"japanese": "らいげつ あたらしい ホテルが できます。",
+"reading": "raigetsu atarashii hoteru ga dekimasu.",
+"english": "A new hotel will open next month."
+}
+],
+"negative": "できません",
+"past": "できました",
+"pastNegative": "できませんでした",
+"commonMistake": "Here できます means something is created or established, not simply 'can do'. The meaning depends on context.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Potential Form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "potential-form", "particle"],
+"kanji": "が",
+"reading": "が",
+"romaji": "ga",
+"meaning": "が with potential verbs — marks the thing that can be done",
+"partOfSpeech": "particle",
+"example": "かんじが よめます。",
+"exampleReading": "kanji ga yomemasu.",
+"exampleMeaning": "I can read kanji.",
+"grammar": "N が Potential Verb",
+"formation": "N + が + potential-form verb",
+"usage": "With potential verbs, が commonly marks the object or skill that is possible. を can therefore change to が.",
+"grammarExamples": [
+{
+"japanese": "にほんごが はなせます。",
+"reading": "nihongo ga hanasemasu.",
+"english": "I can speak Japanese."
+},
+{
+"japanese": "ピアノが ひけます。",
+"reading": "piano ga hikemasu.",
+"english": "I can play the piano."
+}
+],
+"negative": "N が Potential Verb + ません",
+"past": "N が Potential Verb + ました",
+"pastNegative": "N が Potential Verb + ませんでした",
+"commonMistake": "Do not automatically use を with a potential verb: 日本語を話せます is generally replaced by 日本語が話せます in this pattern.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Contrast",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "minna-no-nihongo", "lesson-27", "wa", "contrast"],
+"kanji": "は",
+"reading": "は",
+"romaji": "wa",
+"meaning": "は — contrast; as for",
+"partOfSpeech": "particle",
+"example": "ひらがなは よめますが、かんじは よめません。",
+"exampleReading": "hiragana wa yomemasu ga, kanji wa yomemasen.",
+"exampleMeaning": "I can read hiragana, but I cannot read kanji.",
+"grammar": "N1 は Potential Verb が、N2 は Potential Verb",
+"formation": "N1 は ... が、N2 は ...",
+"usage": "は can be used instead of が when contrasting two things, especially when saying what you can and cannot do.",
+"grammarExamples": [
+{
+"japanese": "えいごは はなせますが、にほんごは はなせません。",
+"reading": "eigo wa hanasemasu ga, nihongo wa hanasemasen.",
+"english": "I can speak English, but I cannot speak Japanese."
+},
+{
+"japanese": "さかなは たべられますが、にくは たべられません。",
+"reading": "sakana wa taberaremasu ga, niku wa taberaremasen.",
+"english": "I can eat fish, but I cannot eat meat."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Here は is not simply the neutral topic marker; it creates a contrast between the two items.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Simultaneous Actions",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "ながら"],
+"kanji": "～ながら",
+"reading": "～ながら",
+"romaji": "~nagara",
+"meaning": "～ながら — while doing; simultaneously",
+"partOfSpeech": "grammar",
+"example": "おんがくを ききながら べんきょうします。",
+"exampleReading": "ongaku o kikinagara benkyou shimasu.",
+"exampleMeaning": "I study while listening to music.",
+"grammar": "Vます-stem + ながら、V",
+"formation": "Verb ます-stem + ながら + main action",
+"usage": "Describes two actions happening at the same time. The action after ながら is the main action.",
+"grammarExamples": [
+{
+"japanese": "テレビを みながら ごはんを たべます。",
+"reading": "terebi o minagara gohan o tabemasu.",
+"english": "I eat while watching TV."
+},
+{
+"japanese": "あるきながら はなさないでください。",
+"reading": "arukinagara hanasanaide kudasai.",
+"english": "Please don't talk while walking."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the ます-stem before ながら: 聞きます → 聞きながら, not 聞くながら.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Habitual Action",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "ています", "habit"],
+"kanji": "～ています",
+"reading": "～ています",
+"romaji": "~te imasu",
+"meaning": "～ています — be doing; regularly do; be in the habit of",
+"partOfSpeech": "grammar",
+"example": "まいあさ ジョギングを しています。",
+"exampleReading": "maiasa jogingu o shiteimasu.",
+"exampleMeaning": "I jog every morning.",
+"grammar": "Vて + います",
+"formation": "Verb て-form + います",
+"usage": "Besides an action in progress, ～ています can describe a habitual or repeated action.",
+"grammarExamples": [
+{
+"japanese": "まいにち にほんごを べんきょうしています。",
+"reading": "mainichi nihongo o benkyou shiteimasu.",
+"english": "I study Japanese every day."
+},
+{
+"japanese": "ぎんこうで はたらいています。",
+"reading": "ginkou de hataraiteimasu.",
+"english": "I work at a bank."
+}
+],
+"negative": "～ていません",
+"past": "～ていました",
+"pastNegative": "～ていませんでした",
+"commonMistake": "～ています does not always mean 'am doing right now'; context can show that it means a habitual or regular activity.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Reasons",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "し", "reasons"],
+"kanji": "～し、～し",
+"reading": "～し、～し",
+"romaji": "~shi, ~shi",
+"meaning": "～し、～し — and; besides; because; listing multiple reasons",
+"partOfSpeech": "grammar",
+"example": "この みせは やすいし、おいしいし、よく いきます。",
+"exampleReading": "kono mise wa yasui shi, oishii shi, yoku ikimasu.",
+"exampleMeaning": "This restaurant is inexpensive and delicious, so I often go there.",
+"grammar": "Plain form + し、Plain form + し",
+"formation": "Plain form + し + reason/quality + し",
+"usage": "Used to list multiple reasons, qualities, or facts. It often implies that there are additional reasons besides those mentioned.",
+"grammarExamples": [
+{
+"japanese": "この へやは ひろいし、あかるいし、いいです。",
+"reading": "kono heya wa hiroi shi, akarui shi, ii desu.",
+"english": "This room is spacious and bright, so it is good."
+},
+{
+"japanese": "きょうは あめだし、さむいし、でかけません。",
+"reading": "kyou wa ame da shi, samui shi, dekakemasen.",
+"english": "It's raining and cold today, so I won't go out."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Use the plain form before し. For な-adjectives and nouns, use だし: しずかだし, ひまだし.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Reasons",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "し", "reasons"],
+"kanji": "～し、～し",
+"reading": "～し、～し",
+"romaji": "~shi, ~shi",
+"meaning": "～し、～し — giving multiple reasons or characteristics",
+"partOfSpeech": "grammar",
+"example": "この まちは しずかだし、きれいだし、すみやすいです。",
+"exampleReading": "kono machi wa shizuka da shi, kirei da shi, sumiyasui desu.",
+"exampleMeaning": "This town is quiet and beautiful, and it is easy to live in.",
+"grammar": "Plain form + し、Plain form + し",
+"formation": "Verb plain form + し / い-adjective + し / な-adjective + だし / Noun + だし",
+"usage": "Lists two or more reasons, characteristics, or facts. The final conclusion may be stated after the listed reasons.",
+"grammarExamples": [
+{
+"japanese": "この レストランは やすいし、おいしいし、にんきが あります。",
+"reading": "kono resutoran wa yasui shi, oishii shi, ninki ga arimasu.",
+"english": "This restaurant is inexpensive and delicious, so it is popular."
+},
+{
+"japanese": "きょうは ひまだし、てんきも いいし、こうえんへ いきます。",
+"reading": "kyou wa hima da shi, tenki mo ii shi, kouen e ikimasu.",
+"english": "I'm free today and the weather is good, so I'll go to the park."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "For な-adjectives and nouns, use だし: しずかだし, がくせいだし. Do not use なし.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Habitual Action",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "ています", "habit"],
+"kanji": "～ています",
+"reading": "～ています",
+"romaji": "~te imasu",
+"meaning": "～ています — regularly do; be engaged in an ongoing activity",
+"partOfSpeech": "grammar",
+"example": "まいしゅう にちようびに サッカーを しています。",
+"exampleReading": "maishuu nichiyoubi ni sakkaa o shiteimasu.",
+"exampleMeaning": "I play soccer every Sunday.",
+"grammar": "Vて + います",
+"formation": "Verb て-form + います",
+"usage": "Used to describe a repeated or habitual activity, especially when a time expression indicates how often it happens.",
+"grammarExamples": [
+{
+"japanese": "まいばん ほんを よんでいます。",
+"reading": "maiban hon o yondeimasu.",
+"english": "I read books every night."
+},
+{
+"japanese": "しゅうに さんかい ジムへ いっています。",
+"reading": "shuu ni sankai jimu e itteimasu.",
+"english": "I go to the gym three times a week."
+}
+],
+"negative": "～ていません",
+"past": "～ていました",
+"pastNegative": "～ていませんでした",
+"commonMistake": "When ～ています describes a habit, it does not necessarily mean the action is happening at this exact moment.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Purpose",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "purpose"],
+"kanji": "～ために",
+"reading": "～ために",
+"romaji": "~tame ni",
+"meaning": "～ために — for the purpose of; in order to",
+"partOfSpeech": "grammar",
+"example": "にほんへ いくために、にほんごを べんきょうしています。",
+"exampleReading": "nihon e iku tame ni, nihongo o benkyou shiteimasu.",
+"exampleMeaning": "I am studying Japanese in order to go to Japan.",
+"grammar": "V dictionary form + ために",
+"formation": "Verb dictionary form + ために + action",
+"usage": "Expresses the purpose of an action. The subject of both the purpose and the main action is normally the same.",
+"grammarExamples": [
+{
+"japanese": "しごとの ために、えいごを べんきょうしています。",
+"reading": "shigoto no tame ni, eigo o benkyou shiteimasu.",
+"english": "I am studying English for work."
+},
+{
+"japanese": "けんこうの ために、まいにち あるいています。",
+"reading": "kenkou no tame ni, mainichi aruiteimasu.",
+"english": "I walk every day for my health."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "For a purpose, use the dictionary form before ために: 日本へ行くために. Do not use the ます-form directly.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "Purpose",
+"jlpt": "N4",
+"tags": ["N4", "grammar", "minna-no-nihongo", "lesson-28", "purpose", "に"],
+"kanji": "Nのために",
+"reading": "Nのために",
+"romaji": "N no tame ni",
+"meaning": "Nのために — for the sake of; for the benefit of",
+"partOfSpeech": "grammar",
+"example": "かぞくの ために、はたらいています。",
+"exampleReading": "kazoku no tame ni, hataraiteimasu.",
+"exampleMeaning": "I work for my family.",
+"grammar": "N + のために",
+"formation": "N + のために + action",
+"usage": "Expresses doing something for the benefit, sake, or purpose of a person or thing.",
+"grammarExamples": [
+{
+"japanese": "かぞくの ために、おかねを ためています。",
+"reading": "kazoku no tame ni, okane o tameteimasu.",
+"english": "I am saving money for my family."
+},
+{
+"japanese": "けんこうの ために、やさいを たくさん たべます。",
+"reading": "kenkou no tame ni, yasai o takusan tabemasu.",
+"english": "I eat lots of vegetables for my health."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "Do not confuse ために meaning 'for the sake of' with ために used to express a purpose. The noun pattern requires の: 家族のために.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "て-form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "verb", "て-form", "conjugation"],
+"kanji": "て形",
+"reading": "てけい",
+"romaji": "te-kei",
+"meaning": "て形 — て-form; verb form used to connect actions and make several grammar patterns",
+"partOfSpeech": "grammar",
+"example": "ごはんを たべて、べんきょうします。",
+"exampleReading": "gohan o tabete, benkyou shimasu.",
+"exampleMeaning": "I eat and then study.",
+"grammar": "Verb て-form",
+"formation": "Group 1: う・つ・る → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Group 2: る → て. する → して. 来る → 来て. Exception: 行く → 行って.",
+"usage": "The て-form is used to connect actions and forms patterns such as ～てください, ～ています, ～てもいいです, and ～てはいけません.",
+"grammarExamples": [
+{
+"japanese": "パンを かって、うちへ かえります。",
+"reading": "pan o katte, uchi e kaerimasu.",
+"english": "I buy bread and go home."
+},
+{
+"japanese": "ほんを よんで、ねます。",
+"reading": "hon o yonde, nemasu.",
+"english": "I read a book and go to sleep."
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "行く is an exception: 行く → 行って, not 行いて.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "て-form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "verb", "te-form", "group-1"],
+"kanji": "て形の変化",
+"reading": "てけいのへんか",
+"romaji": "te-kei no henka",
+"meaning": "て-form changes for Group 1 verbs",
+"partOfSpeech": "grammar",
+"example": "かいて ください。",
+"exampleReading": "kaite kudasai.",
+"exampleMeaning": "Please write.",
+"grammar": "Group 1 verb → て-form",
+"formation": "う・つ・る → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して",
+"usage": "Used to correctly conjugate Group 1 verbs into the て-form.",
+"grammarExamples": [
+{
+"japanese": "かいます → かって",
+"reading": "kaimasu → katte",
+"english": "buy → buy (て-form)"
+},
+{
+"japanese": "のみます → のんで",
+"reading": "nomimasu → nonde",
+"english": "drink → drink (て-form)"
+},
+{
+"japanese": "かきます → かいて",
+"reading": "kakimasu → kaite",
+"english": "write → write (て-form)"
+},
+{
+"japanese": "はなします → はなして",
+"reading": "hanashimasu → hanashite",
+"english": "speak → speak (て-form)"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "The ending changes according to the verb group. Do not simply replace ます with て.",
+"formalAlternative": ""
+},
+{
+"type": "grammar",
+"category": "て-form",
+"jlpt": "N5",
+"tags": ["N5", "grammar", "verb", "te-form", "group-2", "irregular"],
+"kanji": "一段動詞・不規則動詞のて形",
+"reading": "いちだんどうし・ふきそくどうしのてけい",
+"romaji": "ichidan doushi / fukisoku doushi no te-kei",
+"meaning": "て-form of Group 2 and irregular verbs",
+"partOfSpeech": "grammar",
+"example": "たべて ください。",
+"exampleReading": "tabete kudasai.",
+"exampleMeaning": "Please eat.",
+"grammar": "Group 2 and irregular verbs → て-form",
+"formation": "Group 2: る → て. する → して. 来る → 来て. 行く → 行って.",
+"usage": "Used to conjugate Group 2 and irregular verbs into the て-form.",
+"grammarExamples": [
+{
+"japanese": "たべます → たべて",
+"reading": "tabemasu → tabete",
+"english": "eat → eat (て-form)"
+},
+{
+"japanese": "みます → みて",
+"reading": "mimasu → mite",
+"english": "see/watch → see/watch (て-form)"
+},
+{
+"japanese": "します → して",
+"reading": "shimasu → shite",
+"english": "do → do (て-form)"
+},
+{
+"japanese": "きます → きて",
+"reading": "kimasu → kite",
+"english": "come → come (て-form)"
+}
+],
+"negative": "",
+"past": "",
+"pastNegative": "",
+"commonMistake": "来ます becomes 来て, while 行きます is the special exception 行って.",
+"formalAlternative": ""
+},
+{
+  "type": "grammar",
+  "category": "Giving and Receiving",
+  "jlpt": "N5",
+  "tags": ["N5", "grammar", "minna-no-nihongo", "lesson-24", "te-form", "giving"],
+  "kanji": "～てあげます",
+  "reading": "～てあげます",
+  "romaji": "~te agemasu",
+  "meaning": "～てあげます — do something for someone",
+  "partOfSpeech": "grammar",
+  "example": "ともだちに にほんごを おしえてあげます。",
+  "exampleReading": "tomodachi ni nihongo o oshiete agemasu.",
+  "exampleMeaning": "I will teach Japanese to my friend.",
+  "grammar": "Person に Vてあげます",
+  "formation": "Person に + Vて-form + あげます",
+  "usage": "Used when the speaker or someone on the speaker's side does something as a favor for another person.",
+  "grammarExamples": [
+    {
+      "japanese": "ともだちに えいごを おしえてあげました。",
+      "reading": "tomodachi ni eigo o oshiete agemashita.",
+      "english": "I taught English to my friend."
+    },
+    {
+      "japanese": "ははに りょうりを つくってあげます。",
+      "reading": "haha ni ryouri o tsukutte agemasu.",
+      "english": "I will cook a meal for my mother."
+    }
+  ],
+  "negative": "～てあげません",
+  "past": "～てあげました",
+  "pastNegative": "～てあげませんでした",
+  "commonMistake": "The action is performed for another person. Do not use ～てあげます when someone does something for you.",
+  "formalAlternative": ""
+},
+{
+  "type": "grammar",
+  "category": "Giving and Receiving",
+  "jlpt": "N5",
+  "tags": ["N5", "grammar", "minna-no-nihongo", "lesson-24", "te-form", "receiving"],
+  "kanji": "～てもらいます",
+  "reading": "～てもらいます",
+  "romaji": "~te moraimasu",
+  "meaning": "～てもらいます — have someone do something for me; receive a favor",
+  "partOfSpeech": "grammar",
+  "example": "せんせいに にほんごを おしえてもらいました。",
+  "exampleReading": "sensei ni nihongo o oshiete moraimashita.",
+  "exampleMeaning": "I had the teacher teach me Japanese.",
+  "grammar": "Person に Vてもらいます",
+  "formation": "Person に + Vて-form + もらいます",
+  "usage": "Used when the speaker receives a favor by having someone perform an action for them.",
+  "grammarExamples": [
+    {
+      "japanese": "ともだちに てつだってもらいました。",
+      "reading": "tomodachi ni tetsudatte moraimashita.",
+      "english": "I had my friend help me."
+    },
+    {
+      "japanese": "せんせいに かんじを おしえてもらいました。",
+      "reading": "sensei ni kanji o oshiete moraimashita.",
+      "english": "I had the teacher teach me kanji."
+    }
+  ],
+  "negative": "～てもらいません",
+  "past": "～てもらいました",
+  "pastNegative": "～てもらいませんでした",
+  "commonMistake": "The speaker is the receiver of the favor. Person に identifies who performs the action.",
+  "formalAlternative": ""
+},
+{
+  "type": "grammar",
+  "category": "Polite Request",
+  "jlpt": "N5",
+  "tags": ["N5", "grammar", "minna-no-nihongo", "lesson-26", "request", "teitadakemasen"],
+  "kanji": "～ていただけませんか",
+  "reading": "～ていただけませんか",
+  "romaji": "~te itadakemasen ka",
+  "meaning": "～ていただけませんか — could you please; would you kindly",
+  "partOfSpeech": "polite request",
+  "example": "もういちど せつめいしていただけませんか。",
+  "exampleReading": "mou ichido setsumei shite itadakemasen ka.",
+  "exampleMeaning": "Could you please explain it one more time?",
+  "grammar": "Vて + いただけませんか",
+  "formation": "Vて-form + いただけませんか",
+  "usage": "Used to make a very polite request, especially when asking someone to do something for you.",
+  "grammarExamples": [
+    {
+      "japanese": "この かんじを おしえていただけませんか。",
+      "reading": "kono kanji o oshiete itadakemasen ka.",
+      "english": "Could you please teach me this kanji?"
+    },
+    {
+      "japanese": "ちょっと まっていただけませんか。",
+      "reading": "chotto matte itadakemasen ka.",
+      "english": "Could you please wait a moment?"
+    }
+  ],
+  "negative": "",
+  "past": "",
+  "pastNegative": "",
+  "commonMistake": "いただけませんか is more polite than ～てくれませんか. Do not use the dictionary form before いただけませんか.",
+  "formalAlternative": "～てくださいませんか"
+},
+{
+  "type": "grammar",
+  "category": "Advice",
+  "jlpt": "N5",
+  "tags": ["N5", "grammar", "minna-no-nihongo", "lesson-26", "advice", "tara-ii"],
+  "kanji": "～たらいいですか",
+  "reading": "～たらいいですか",
+  "romaji": "~tara ii desu ka",
+  "meaning": "～たらいいですか — what should I do?; what would be good to do?",
+  "partOfSpeech": "grammar",
+  "example": "どうしたらいいですか。",
+  "exampleReading": "dou shitara ii desu ka.",
+  "exampleMeaning": "What should I do?",
+  "grammar": "Vた + らいいですか",
+  "formation": "Vた-form + らいいですか",
+  "usage": "Used to ask for advice or guidance about what action would be best.",
+  "grammarExamples": [
+    {
+      "japanese": "どこで きっぷを かったらいいですか。",
+      "reading": "doko de kippu o kattara ii desu ka.",
+      "english": "Where should I buy a ticket?"
+    },
+    {
+      "japanese": "にほんごを どうやって べんきょうしたらいいですか。",
+      "reading": "nihongo o dou yatte benkyou shitara ii desu ka.",
+      "english": "How should I study Japanese?"
+    }
+  ],
+  "negative": "～なかったらいいですか",
+  "past": "",
+  "pastNegative": "",
+  "commonMistake": "Use the た-form before ら: いきます → いったらいいですか. This pattern asks for advice; it does not simply mean 'if'.",
+  "formalAlternative": ""
+}
+
 ]

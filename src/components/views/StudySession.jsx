@@ -50,7 +50,6 @@ export default function StudySession({ queue, deckId, setView }) {
   };
 
   return (
-    // Allow the study view to scroll when card content is large
     <div className="flex flex-col min-h-[85dvh] justify-between w-full animate-in slide-in-from-right-8 duration-300 overflow-auto">
       
       {/* Top Navigation & Progress */}
@@ -64,7 +63,7 @@ export default function StudySession({ queue, deckId, setView }) {
         </div>
       </div>
 
-      {/* The Physical Card (Edge-to-Edge on mobile) */}
+      {/* The Physical Card */}
       <div
         onClick={() => setIsFlipped(!isFlipped)}
         className={`relative flex-1 flex flex-col px-4 py-10 mx-2 sm:mx-0 sm:p-10 rounded-[2rem] cursor-pointer transition-all duration-500 ease-out shadow-2xl ${
@@ -73,7 +72,6 @@ export default function StudySession({ queue, deckId, setView }) {
             : 'bg-white border-[1.5px] border-slate-100 shadow-slate-200/50 active:scale-[0.99]'
         }`}
         style={{
-          // limit height so long content can scroll inside the card on small screens
           maxHeight: 'calc(100vh - 220px)',
           overflow: 'auto'
         }}
@@ -90,7 +88,7 @@ export default function StudySession({ queue, deckId, setView }) {
               </span>
             )}
           </div>
-          {currentCard.partOfSpeech && (
+          {isFlipped && currentCard.partOfSpeech && (
             <span className="text-[10px] font-bold text-slate-400 border border-slate-200 px-3 py-1.5 rounded-full">
               {currentCard.partOfSpeech}
             </span>
@@ -100,23 +98,12 @@ export default function StudySession({ queue, deckId, setView }) {
         {/* Card Content */}
         <div className="flex-1 flex flex-col justify-center w-full">
           {!isFlipped ? (
+            // --- FRONT OF CARD (PURE JAPANESE ONLY) ---
             <div className="text-center transform transition-transform hover:scale-105 duration-300 w-full px-1">
-              {cardType === 'grammar' ? (
-                <h2 className="text-5xl sm:text-6xl font-black text-purple-600 mb-8 tracking-tight drop-shadow-sm leading-tight break-words">
-                  {currentCard.grammar}
-                </h2>
-              ) : (
-                <div className="space-y-3">
-                  <h2 className="text-7xl sm:text-[5rem] font-black text-slate-900 mb-0 tracking-tight drop-shadow-sm leading-tight break-words">
-                    {currentCard.kanji || currentCard.reading}
-                  </h2>
-                  <div className="flex items-center justify-center gap-3 text-sm text-slate-500">
-                    {currentCard.reading && <span className="font-medium">{currentCard.reading}</span>}
-                    {currentCard.romaji && <span className="italic">{currentCard.romaji}</span>}
-                    {currentCard.partOfSpeech && <span className="px-2 py-0.5 bg-slate-100 rounded-full text-xs text-slate-600">{currentCard.partOfSpeech}</span>}
-                  </div>
-                </div>
-              )}
+              <h2 className={`font-black tracking-tight drop-shadow-sm leading-tight break-words ${cardType === 'grammar' ? 'text-5xl sm:text-6xl text-purple-600 mb-8' : 'text-7xl sm:text-[5rem] text-slate-900 mb-0'}`}>
+                {cardType === 'grammar' ? currentCard.grammar : (currentCard.kanji || currentCard.reading)}
+              </h2>
+              
               <div className="mt-10 flex justify-center">
                 <span className="bg-slate-100 text-slate-400 text-[10px] font-bold uppercase tracking-widest px-5 py-2.5 rounded-full animate-pulse border border-slate-200/50">
                   Tap anywhere to flip
@@ -124,25 +111,34 @@ export default function StudySession({ queue, deckId, setView }) {
               </div>
             </div>
             ) : (
+            // --- BACK OF CARD (REVEAL EVERYTHING) ---
             <div className="text-left w-full space-y-6 pb-10 pr-2 custom-scrollbar animate-in fade-in zoom-in-95 duration-300">
               
-                <div className="pb-5 border-b-2 border-slate-50">
-                {cardType === 'vocab' && currentCard.kanji && (
-                  <p className="text-lg font-bold text-slate-400 mb-1">{currentCard.reading}</p>
-                )}
-                <h2 className={`font-black tracking-tight leading-tight break-words ${cardType === 'grammar' ? 'text-4xl sm:text-5xl text-purple-600' : 'text-5xl sm:text-6xl text-slate-900'}`}>
-                  {currentCard.grammar || currentCard.kanji || currentCard.reading}
+              <div className="pb-5 border-b-2 border-slate-50">
+                {/* Kanji/Grammar Header */}
+                <h2 className={`font-black tracking-tight leading-tight break-words mb-2 ${cardType === 'grammar' ? 'text-4xl sm:text-5xl text-purple-600' : 'text-5xl sm:text-6xl text-slate-900'}`}>
+                  {cardType === 'grammar' ? currentCard.grammar : (currentCard.kanji || currentCard.reading)}
                 </h2>
-                <p className="text-2xl font-bold text-blue-600 mt-3 leading-snug">{currentCard.meaning}</p>
 
-                <div className="mt-3 flex items-center gap-4 text-sm text-slate-500">
-                  {currentCard.reading && <span className="font-medium">{currentCard.reading}</span>}
-                  {currentCard.romaji && <span className="italic">{currentCard.romaji}</span>}
-                  {currentCard.partOfSpeech && <span className="px-2 py-0.5 bg-slate-100 rounded-full text-xs text-slate-600">{currentCard.partOfSpeech}</span>}
+                {/* English Meaning */}
+                <p className="text-2xl font-bold text-blue-600 leading-snug">{currentCard.meaning}</p>
+
+                {/* Detailed Reading Info (Kana & Romaji) */}
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  {currentCard.kanji && currentCard.reading && (
+                    <span className="text-lg font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-lg">
+                      {currentCard.reading}
+                    </span>
+                  )}
+                  {currentCard.romaji && (
+                    <span className="text-sm font-medium tracking-widest uppercase text-slate-400">
+                      {currentCard.romaji}
+                    </span>
+                  )}
                 </div>
               </div>
 
-              {/* GRAMMAR RENDERER */}
+              {/* GRAMMAR DETAILS */}
               {cardType === 'grammar' && (
                 <div className="space-y-6">
                   {currentCard.formation && (
@@ -208,17 +204,9 @@ export default function StudySession({ queue, deckId, setView }) {
                 </div>
               )}
 
-              {/* VOCAB RENDERER */}
+              {/* VOCAB DETAILS */}
               {cardType === 'vocab' && (
                 <div className="space-y-6">
-                  <div className="flex gap-2 flex-wrap">
-                    {currentCard.romaji && (
-                      <span className="bg-slate-100 text-slate-600 text-xs font-bold px-4 py-2 rounded-full">
-                        Romaji: {currentCard.romaji}
-                      </span>
-                    )}
-                  </div>
-
                   {currentCard.example && (
                     <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2">
                       <span className="text-[10px] uppercase tracking-widest font-extrabold text-slate-400 block mb-1">Example</span>

@@ -46,6 +46,22 @@ function normalize(value) {
   return String(value || '').trim().toLowerCase();
 }
 
+function normalizeJlpt(value) {
+  if (value == null) return '';
+
+  const text = String(value).trim();
+  if (!text) return '';
+
+  const compact = text.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const directMatch = compact.match(/N[1-5]/);
+  if (directMatch) return directMatch[0];
+
+  const jlptMatch = compact.match(/JLPTN([1-5])/);
+  if (jlptMatch) return `N${jlptMatch[1]}`;
+
+  return '';
+}
+
 function idFrom(value, fallback) {
   if (!value) return fallback;
   return typeof value.toString === 'function' ? value.toString() : String(value);
@@ -90,8 +106,8 @@ function hasCardType(deck, type) {
 function hasJlptLevel(deck, level) {
   const normalizedLevel = normalize(level);
   return (deck.cards || []).some((card) => {
-    const jlpt = normalize(card.jlpt).replace('jlpt_', '');
-    return jlpt === normalizedLevel;
+    const jlpt = normalizeJlpt(card.jlpt);
+    return normalize(jlpt) === normalizedLevel;
   });
 }
 
@@ -105,6 +121,40 @@ function hasKanaScript(deck, script) {
     const value = `${card.reading || ''}${card.kana || ''}`;
     return pattern.test(value);
   });
+}
+
+function groupGrammarByJlpt(decks) {
+  const grouped = new Map();
+
+  (decks || []).forEach((deck) => {
+    const hasGrammarDeck = (deck.cards || []).some((card) => normalize(card.type) === 'grammar')
+      || /grammar/i.test(deck.name || '');
+
+    if (!hasGrammarDeck) return;
+
+    const levels = new Set();
+
+    const deckLevel = normalizeJlpt(deck.name);
+    if (deckLevel) levels.add(deckLevel);
+
+    (deck.cards || []).forEach((card) => {
+      const cardLevel = normalizeJlpt(card.jlpt);
+      if (cardLevel) levels.add(cardLevel);
+    });
+
+    const normalizedLevels = Array.from(levels).sort((a, b) => Number(a.slice(1)) - Number(b.slice(1)));
+    const finalLevels = normalizedLevels.length > 0 ? normalizedLevels : ['Unsorted'];
+
+    finalLevels.forEach((level) => {
+      if (!grouped.has(level)) grouped.set(level, []);
+      grouped.get(level).push(deck);
+    });
+  });
+
+  return Array.from(grouped.entries()).map(([level, groupedDecks]) => ({
+    level,
+    decks: groupedDecks,
+  }));
 }
 
 function matchesDeck(deck, collectionName, deckName) {
@@ -222,4 +272,4 @@ function buildDeckCollections(rawDecks, options = {}) {
   return collections;
 }
 
-module.exports = { buildDeckCollections };
+module.exports = { buildDeckCollections, normalizeJlpt, groupGrammarByJlpt };
