@@ -1,0 +1,16 @@
+<USER_REQUEST>
+here is the complete vocabs for n5 to n1. add this in database and show in the site
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-24T14:44:17+05:30.
+
+The user's current state is as follows:
+Active Document: /home/puja/deck/anki-web/data/n5_vocab.json (LANGUAGE_UNSPECIFIED)
+Cursor is on line: 24696
+Other open documents:
+- /home/puja/deck/anki-web/src/lib/kanjiData.js (LANGUAGE_UNSPECIFIED)
+- /home/puja/deck/anki-web/src/lib/kanaData.js (LANGUAGE_UNSPECIFIED)
+- /home/puja/deck/anki-web/src/context/LanguageContext.jsx (LANGUAGE_UNSPECIFIED)
+- /home/puja/deck/anki-web/.env.local (LANGUAGE_UNSPECIFIED)
+- /home/puja/deck/anki-web/src/lib/mongodb.js (LANGUAGE_UNSPECIFIED)
+</ADDITIONAL_METADATA>

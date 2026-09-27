@@ -3,39 +3,134 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { groupGrammarByJlpt } from '@/lib/groupDeckCollections';
+import { useLanguage } from '@/context/LanguageContext';
+import KanaChart from '../KanaChart';
+import KanjiBrowser from './KanjiBrowser';
+import GrammarBrowser from './GrammarBrowser';
+import ReadingLibrary from './ReadingLibrary';
+import ReaderView from './ReaderView';
+import RelationshipGraphView from '../RelationshipGraphView';
+import ExamReadinessWidget from '../ExamReadinessWidget';
+import { addWordFromReader } from '@/app/actions';
 
-const capitalize = (str) => {
-  if (!str) return '';
-  return str.charAt(0).toUpperCase() + str.slice(1);
+const formatCategory = (str) => {
+  if (!str) return 'General';
+  return String(str)
+    .split(/[_ ]+/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
 };
 
 const normalizeJlpt = (value) => {
   if (value == null) return '';
-
-  const text = String(value).trim();
-  if (!text) return '';
-
-  const compact = text.toUpperCase().replace(/[^A-Z0-9]/g, '');
-  const directMatch = compact.match(/N[1-5]/);
+  const text = String(value).trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const directMatch = text.match(/N[1-5]/);
   if (directMatch) return directMatch[0];
-
-  const jlptMatch = compact.match(/JLPTN([1-5])/);
+  const jlptMatch = text.match(/JLPTN([1-5])/);
   if (jlptMatch) return `N${jlptMatch[1]}`;
-
   return '';
 };
 
-export default function Dashboard({ decks, onManage, onStudy }) {
+const JLPT_COLOR_MAP = {
+  N5: { bg: 'bg-emerald-50 text-emerald-700 border-emerald-200', dot: 'bg-emerald-500' },
+  N4: { bg: 'bg-sky-50 text-sky-700 border-sky-200', dot: 'bg-sky-500' },
+  N3: { bg: 'bg-amber-50 text-amber-700 border-amber-200', dot: 'bg-amber-500' },
+  N2: { bg: 'bg-violet-50 text-violet-700 border-violet-200', dot: 'bg-violet-500' },
+  N1: { bg: 'bg-rose-50 text-rose-700 border-rose-200', dot: 'bg-rose-500' },
+};
+
+export default function Dashboard({
+  decks,
+  collection,
+  collectionId,
+  activeJlptFilter = 'all',
+  userVocabCards = [],
+  userCards = [],
+  onOpenReadinessModal,
+  onManage,
+  onStudy,
+}) {
+  const { t } = useLanguage();
   const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [activeTab, setActiveTab] = useState('all');
   const [now] = useState(() => Date.now());
+  const [graphRoot, setGraphRoot] = useState('食');
+  const [selectedStory, setSelectedStory] = useState(null);
+
+  const handleAddToSrs = async (cardData) => {
+    try {
+      await addWordFromReader(cardData);
+    } catch (err) {
+      console.error('Failed to add word from reader:', err);
+    }
+  };
+
+  const handleViewGraph = (rootChar) => {
+    if (rootChar) setGraphRoot(rootChar);
+    setActiveTab('graph');
+  };
+
+  const resolvedUserVocab = useMemo(() => {
+    if (userVocabCards && userVocabCards.length > 0) return userVocabCards;
+    return (decks || []).flatMap((d) => d.cards || []).filter((c) => {
+      const type = c.content_type || c.type;
+      return type === 'vocab' || (!type && c.kanji && c.reading && !c.grammar);
+    });
+  }, [userVocabCards, decks]);
+
+  const isKanaCollection = Boolean(
+    collection?.name?.match(/kana|hiragana|katakana|かな|五十音/i)
+  );
+
+  const isKanjiCollection = Boolean(
+    collection?.name?.match(/kanji|漢字/i)
+  );
+
+  const isGrammarCollection = Boolean(
+    collection?.name?.match(/grammar|文法/i)
+  );
+
+  const defaultKanaScript = collection?.name?.toLowerCase().includes('katakana') ? 'katakana' : 'hiragana';
 
   const filteredDecks = useMemo(() => {
     const query = search.trim().toLowerCase();
 
     return decks.filter((deck) => {
-      if (!query) return true;
+      // 1. Tab filter
+      if (activeTab !== 'all') {
+        const nameLower = deck.name.toLowerCase();
+        const categoryLower = (deck.category || '').toLowerCase();
+        const hasType = (deck.cards || []).some(c => (c.type || '').toLowerCase() === activeTab);
 
+        if (activeTab === 'grammar' && !nameLower.includes('grammar') && !categoryLower.includes('grammar') && !hasType) {
+          return false;
+        }
+        if (activeTab === 'vocab' && !nameLower.includes('vocab') && !categoryLower.includes('vocab') && !hasType) {
+          return false;
+        }
+        if (activeTab === 'kanji' && !nameLower.includes('kanji') && !categoryLower.includes('kanji') && !hasType) {
+          return false;
+        }
+        if (activeTab === 'kana' && !nameLower.includes('kana') && !nameLower.includes('hiragana') && !nameLower.includes('katakana') && !hasType) {
+          return false;
+        }
+      }
+
+      // 2. JLPT level filter
+      if (activeJlptFilter !== 'all') {
+        if (activeJlptFilter === 'kana') {
+          const isKana = deck.name.toLowerCase().includes('kana') || deck.name.toLowerCase().includes('hiragana') || deck.name.toLowerCase().includes('katakana');
+          if (!isKana) return false;
+        } else {
+          const deckJlpt = normalizeJlpt(deck.name);
+          const cardJlpts = (deck.cards || []).map(c => normalizeJlpt(c.jlpt));
+          const hasLevel = deckJlpt === activeJlptFilter || cardJlpts.includes(activeJlptFilter);
+          if (!hasLevel) return false;
+        }
+      }
+
+      // 3. Search query
+      if (!query) return true;
       const searchableText = [
         deck.name,
         deck.category,
@@ -43,149 +138,124 @@ export default function Dashboard({ decks, onManage, onStudy }) {
           card.kanji,
           card.reading,
           card.meaning,
+          card.grammar,
           card.category,
         ].join(' ')),
       ].join(' ').toLowerCase();
 
       return searchableText.includes(query);
     });
-  }, [decks, search]);
+  }, [decks, search, activeTab, activeJlptFilter]);
 
+  // Grammar Groups
   const grammarGroups = useMemo(() => {
     const query = search.trim().toLowerCase();
+    const grammarOnly = filteredDecks.filter(
+      (d) => d.name.toLowerCase().includes('grammar') || (d.category || '').toLowerCase().includes('grammar') || (d.cards || []).some(c => c.type === 'grammar')
+    );
 
-    return groupGrammarByJlpt(decks)
+    return groupGrammarByJlpt(grammarOnly)
       .map((group) => ({
         ...group,
         decks: group.decks.filter((deck) => {
           if (!query) return true;
-
           const text = [
             deck.name,
             ...(deck.cards || []).map((card) => [card.grammar, card.meaning, card.example].join(' ')),
-          ]
-            .join(' ')
-            .toLowerCase();
-
+          ].join(' ').toLowerCase();
           return text.includes(query);
         }),
       }))
       .filter((group) => group.decks.length > 0);
-  }, [decks, search]);
+  }, [filteredDecks, search]);
 
-  // Separate non-grammar decks (like Vocabs) to render them in standard DeckCards
-  const regularDecks = useMemo(() => {
-    return filteredDecks.filter(
+  // Standard Decks Grouped by Category
+  const categorizedRegularDecks = useMemo(() => {
+    const regular = filteredDecks.filter(
       (deck) => !deck.name.toLowerCase().includes('grammar') && !deck.category?.toLowerCase().includes('grammar')
     );
-  }, [filteredDecks]);
 
-  const totalCards = decks.reduce((sum, deck) => sum + deck.cards.length, 0);
-  const totalDue = decks.reduce(
-    (sum, deck) =>
-      sum + deck.cards.filter((card) => card.dueDate <= now && card.repetitions > 0).length,
+    const groups = {};
+
+    regular.forEach((deck) => {
+      let mainGroupName = deck.category ? formatCategory(deck.category) : '';
+      if (!mainGroupName || mainGroupName === 'Uncategorized') {
+        const nameLower = deck.name.toLowerCase();
+        if (nameLower.includes('vocab')) mainGroupName = `${t('vocabPillar')} (Vocabulary)`;
+        else if (nameLower.includes('kanji')) mainGroupName = `${t('kanjiPillar')} (Kanji)`;
+        else if (nameLower.includes('kana') || nameLower.includes('hiragana') || nameLower.includes('katakana')) mainGroupName = `${t('kanaPillar')} (Kana)`;
+        else mainGroupName = deck.name || 'General';
+      }
+
+      if (!groups[mainGroupName]) {
+        groups[mainGroupName] = [];
+      }
+
+      const cardsByCategory = {};
+      (deck.cards || []).forEach(card => {
+        const rawCat = card.category || 'General';
+        const cat = formatCategory(rawCat);
+        if (!cardsByCategory[cat]) cardsByCategory[cat] = [];
+        cardsByCategory[cat].push(card);
+      });
+
+      const catKeys = Object.keys(cardsByCategory);
+      if (catKeys.length > 1 && deck.cards.length > 15) {
+        catKeys.forEach(catName => {
+          groups[mainGroupName].push({
+            ...deck,
+            id: deck.id,
+            virtualKey: `${deck.id}-${catName}`,
+            name: `${deck.name} · ${catName}`,
+            cards: cardsByCategory[catName]
+          });
+        });
+      } else {
+        groups[mainGroupName].push({
+          ...deck,
+          virtualKey: deck.id,
+          cards: deck.cards || []
+        });
+      }
+    });
+
+    return Object.entries(groups)
+      .map(([category, groupDecks]) => ({
+        category,
+        decks: groupDecks.sort((a, b) => a.name.localeCompare(b.name)),
+      }))
+      .sort((a, b) => a.category.localeCompare(b.category));
+  }, [filteredDecks, t]);
+
+  const totalCards = filteredDecks.reduce((sum, deck) => sum + (deck.cards || []).length, 0);
+  const totalDue = filteredDecks.reduce(
+    (sum, deck) => sum + (deck.cards || []).filter((card) => card.dueDate <= now && card.repetitions > 0).length,
     0
   );
-  const totalNew = decks.reduce(
-    (sum, deck) => sum + deck.cards.filter((card) => card.repetitions === 0).length,
+  const totalNew = filteredDecks.reduce(
+    (sum, deck) => sum + (deck.cards || []).filter((card) => card.repetitions === 0).length,
     0
   );
 
-  return (
-    <div className="pb-16 animate-in fade-in duration-300">
-      
-      {/* Top Header / Stats */}
-      <section className="pt-2 pb-5 border-b border-slate-100">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2">
-            <StatPill label="Cards" value={totalCards} />
-            <StatPill label="Due" value={totalDue} tone="rose" />
-            <StatPill label="New" value={totalNew} tone="sky" />
+  if (isKanaCollection) {
+    return (
+      <div className="space-y-8 animate-in fade-in duration-300">
+        {/* Complete Kana Chart for this collection */}
+        <KanaChart onStudyKana={onStudy} defaultScript={defaultKanaScript} />
+
+        {/* Study Cards / Decks for this Kana Collection */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+            <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <span>{collection?.name || t('kanaPillar')} {t('decks')}</span>
+              <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">
+                {decks.length} {t('decks')}
+              </span>
+            </h2>
           </div>
 
-          <CreateDeckCard />
-        </div>
-      </section>
-
-      {/* Search Section */}
-      <section className="pt-5 pb-2">
-        <div className="relative">
-          <SearchIcon className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-          <input
-            type="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search decks and cards..."
-            className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-9 text-sm font-medium text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-slate-800"
-          />
-          {search && (
-            <button
-              type="button"
-              onClick={() => setSearch('')}
-              className="absolute right-2.5 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-md bg-slate-100 text-xs font-bold text-slate-500 transition-colors hover:bg-slate-200"
-              aria-label="Clear search"
-            >
-              x
-            </button>
-          )}
-        </div>
-      </section>
-
-      {/* Grammar Groups Section */}
-      {grammarGroups.length > 0 && (
-        <div className="space-y-3 pt-4">
-          <h2 className="mb-2 text-sm font-bold text-slate-700">Grammar Focus</h2>
-          {grammarGroups.map(({ level, decks: groupDecks }) => {
-            const totalGrammarPoints = groupDecks.reduce((sum, deck) => sum + (deck.cards || []).length, 0);
-            const studyDeck = {
-              id: `${level.toLowerCase()}-grammar-group`,
-              name: `${level} Grammar`,
-              cards: groupDecks.flatMap((deck) => deck.cards || []),
-            };
-
-            return (
-              <div key={level} className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-100 px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-blue-700">
-                    {level}
-                  </span>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-semibold text-slate-500">{totalGrammarPoints} grammar points</span>
-                    <button
-                      type="button"
-                      onClick={() => onStudy(studyDeck)}
-                      className="rounded-lg bg-slate-900 px-2.5 py-1 text-[10px] font-bold text-white transition-colors hover:bg-slate-700"
-                    >
-                      Study
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {groupDecks.map((deck) => (
-                    <button
-                      key={deck.id}
-                      type="button"
-                      onClick={() => onStudy(deck)}
-                      className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
-                    >
-                      {deck.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* Standard Decks Grid (Vocabs, Kanji, Kana, etc.) */}
-      {regularDecks.length > 0 && (
-        <div className="mt-8">
-          <h2 className="mb-3 text-sm font-bold text-slate-700">Study Decks</h2>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {regularDecks.map((deck) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {decks.map((deck) => (
               <DeckCard
                 key={deck.id}
                 deck={deck}
@@ -196,49 +266,406 @@ export default function Dashboard({ decks, onManage, onStudy }) {
             ))}
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (isKanjiCollection) {
+    const initialKanjiLevel = activeJlptFilter !== 'all' && activeJlptFilter !== 'kana' ? activeJlptFilter : 'N5';
+    return (
+      <div className="space-y-8 animate-in fade-in duration-300">
+        <KanjiBrowser
+          onStudyKanji={onStudy}
+          onViewGraph={handleViewGraph}
+          initialLevel={initialKanjiLevel}
+        />
+
+        {decks.length > 0 && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+              <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+                <span>{collection?.name || t('kanjiPillar')} {t('decks')}</span>
+                <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">
+                  {decks.length} {t('decks')}
+                </span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {decks.map((deck) => (
+                <DeckCard
+                  key={deck.id}
+                  deck={deck}
+                  now={now}
+                  onManage={onManage}
+                  onStudy={onStudy}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (isGrammarCollection) {
+    const initialGrammarLevel = activeJlptFilter !== 'all' && activeJlptFilter !== 'kana' ? activeJlptFilter : 'N5';
+    return (
+      <div className="space-y-8 animate-in fade-in duration-300">
+        <GrammarBrowser
+          onStudyGrammar={onStudy}
+          onViewGraph={handleViewGraph}
+          initialLevel={initialGrammarLevel}
+          userVocabCards={resolvedUserVocab}
+        />
+
+        {decks.length > 0 && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+              <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+                <span>{collection?.name || t('grammarPillar')} {t('decks')}</span>
+                <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">
+                  {decks.length} {t('decks')}
+                </span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {decks.map((deck) => (
+                <DeckCard
+                  key={deck.id}
+                  deck={deck}
+                  now={now}
+                  onManage={onManage}
+                  onStudy={onStudy}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6 animate-in fade-in duration-300">
+      
+      {/* Exam Readiness & Time-to-Fluency Widget */}
+      <ExamReadinessWidget
+        userCards={userCards && userCards.length > 0 ? userCards : resolvedUserVocab}
+        activeJlptFilter={activeJlptFilter}
+        onOpenModal={onOpenReadinessModal}
+      />
+
+      {/* Top Controls */}
+      <div className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-6 shadow-xs space-y-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          
+          {/* Metrics */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-xl bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700">
+              <span className="font-extrabold text-slate-950">{totalCards}</span> {t('cards')}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-xl bg-rose-50 border border-rose-200/80 px-3 py-1.5 text-xs font-bold text-rose-700">
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+              <span className="font-extrabold">{totalDue}</span> {t('dueCount')}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-xl bg-sky-50 border border-sky-200/80 px-3 py-1.5 text-xs font-bold text-sky-700">
+              <span className="font-extrabold">{totalNew}</span> {t('newCount')}
+            </span>
+          </div>
+
+          {/* Create Deck inline form */}
+          <CreateDeckCard collectionId={collectionId} />
+        </div>
+
+        {/* Tab Switcher & Search Bar */}
+        <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          
+          {/* Study Pillars */}
+          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
+            {[
+              { id: 'all', label: t('allPillar') },
+              { id: 'vocab', label: t('vocabPillar') },
+              { id: 'grammar', label: t('grammarPillar') },
+              { id: 'kanji', label: t('kanjiPillar') },
+              { id: 'kana', label: t('kanaPillar') },
+              { id: 'reading', label: t('navLibrary') || '読書' },
+              { id: 'graph', label: t('navExplore') || '関係図' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 ${
+                  activeTab === tab.id
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Search Box */}
+          <div className="relative sm:w-64">
+            <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder={t('searchDecksPlaceholder')}
+              className="w-full h-9 pl-9 pr-7 rounded-xl border border-slate-200 bg-slate-50 text-xs font-medium text-slate-800 outline-none focus:border-slate-900 focus:bg-white transition-all placeholder:text-slate-400"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-bold"
+              >
+                ×
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Grammar Module */}
+      {activeTab === 'grammar' && (
+        <section className="animate-in fade-in duration-300">
+          <GrammarBrowser
+            onStudyGrammar={onStudy}
+            onViewGraph={handleViewGraph}
+            initialLevel={activeJlptFilter !== 'all' && activeJlptFilter !== 'kana' ? activeJlptFilter : 'N5'}
+            userVocabCards={resolvedUserVocab}
+          />
+        </section>
+      )}
+
+      {/* Interactive Kanji Module */}
+      {activeTab === 'kanji' && (
+        <section className="animate-in fade-in duration-300">
+          <KanjiBrowser
+            onStudyKanji={onStudy}
+            onViewGraph={handleViewGraph}
+            initialLevel={activeJlptFilter !== 'all' && activeJlptFilter !== 'kana' ? activeJlptFilter : 'N5'}
+          />
+        </section>
+      )}
+
+      {/* Graded Reader & Reading Library Module */}
+      {activeTab === 'reading' && (
+        <section className="animate-in fade-in duration-300">
+          {selectedStory ? (
+            <ReaderView
+              story={selectedStory}
+              userCards={userVocabCards && userVocabCards.length > 0 ? userVocabCards : resolvedUserVocab}
+              onBack={() => setSelectedStory(null)}
+              onAddToSrs={handleAddToSrs}
+            />
+          ) : (
+            <ReadingLibrary
+              userCards={userVocabCards && userVocabCards.length > 0 ? userVocabCards : resolvedUserVocab}
+              onSelectStory={(story) => setSelectedStory(story)}
+              initialLevel={activeJlptFilter !== 'all' && activeJlptFilter !== 'kana' ? activeJlptFilter : 'all'}
+            />
+          )}
+        </section>
+      )}
+
+      {/* Interactive Relationship Graph Web */}
+      {activeTab === 'graph' && (
+        <section className="animate-in fade-in duration-300">
+          <RelationshipGraphView
+            initialQuery={graphRoot || '食'}
+            userVocabCards={resolvedUserVocab}
+            onStudy={onStudy}
+          />
+        </section>
+      )}
+
+      {/* Grammar Focus Section */}
+      {grammarGroups.length > 0 && activeTab !== 'reading' && activeTab !== 'graph' && (
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <span>{t('grammarFocusTitle')}</span>
+              <span className="text-xs font-bold text-purple-600 bg-purple-50 border border-purple-100 px-2 py-0.5 rounded-full">
+                {t('grammarPillar')}
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {grammarGroups.map(({ level, decks: groupDecks }) => {
+              const totalGrammarPoints = groupDecks.reduce((sum, deck) => sum + (deck.cards || []).length, 0);
+              const studyDeck = {
+                id: `${level.toLowerCase()}-grammar-group`,
+                name: `${level} ${t('grammarPillar')}`,
+                cards: groupDecks.flatMap((deck) => (deck.cards || []).map(c => ({ ...c, deckId: deck.id }))),
+              };
+
+              const dueInGroup = studyDeck.cards.filter(c => c.dueDate <= now && c.repetitions > 0).length;
+
+              return (
+                <div key={level} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-flex items-center rounded-xl border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-black text-purple-700">
+                          {level}
+                        </span>
+                        <span className="text-xs font-bold text-slate-500">
+                          {t('grammarPointsCount', { n: totalGrammarPoints })}
+                        </span>
+                      </div>
+
+                      {dueInGroup > 0 && (
+                        <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full">
+                          {t('reviewDue')} {dueInGroup}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {groupDecks.map((deck) => (
+                        <button
+                          key={deck.id}
+                          type="button"
+                          onClick={() => onStudy(deck)}
+                          className="rounded-lg border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-200 px-2.5 py-1 text-xs font-semibold text-slate-700 transition-colors"
+                        >
+                          {deck.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => onStudy(studyDeck)}
+                    className="w-full h-10 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold transition-all shadow-xs active:scale-98 flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <span>{t('studyAllGrammar', { level })}</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* Categorized Standard Decks Grid */}
+      {categorizedRegularDecks.length > 0 && activeTab !== 'reading' && activeTab !== 'graph' && (
+        <div className="space-y-8">
+          {categorizedRegularDecks.map((group) => (
+            <section key={group.category} className="space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
+                  <span>{group.category}</span>
+                  <span className="text-xs font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">
+                    {group.decks.length} {t('decks')}
+                  </span>
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {group.decks.map((deck) => (
+                  <DeckCard
+                    key={deck.virtualKey || deck.id}
+                    deck={deck}
+                    now={now}
+                    onManage={onManage}
+                    onStudy={onStudy}
+                  />
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       )}
 
       {/* Empty State */}
-      {grammarGroups.length === 0 && regularDecks.length === 0 && (
-        <section className="pt-6">
-          <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50/50 px-6 py-12 text-center">
-            <p className="text-sm font-semibold text-slate-700">No decks found</p>
-            <p className="mt-1 text-xs text-slate-400">Try adjusting your search or add a new deck.</p>
-          </div>
-        </section>
+      {activeTab !== 'reading' && activeTab !== 'graph' && grammarGroups.length === 0 && categorizedRegularDecks.length === 0 && (
+        <div className="rounded-2xl border border-dashed border-slate-200 bg-white p-12 text-center">
+          <p className="text-sm font-bold text-slate-700 mb-1">{t('noDecksMatch')}</p>
+          <p className="text-xs text-slate-400 mb-4">{t('noDecksMatchDesc')}</p>
+          <button
+            onClick={() => {
+              setSearch('');
+              setActiveTab('all');
+            }}
+            className="text-xs font-bold text-slate-900 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-xl transition-colors"
+          >
+            {t('resetFilter')}
+          </button>
+        </div>
       )}
     </div>
   );
 }
 
 function DeckCard({ deck, now, onManage, onStudy }) {
-  const due = deck.cards.filter((card) => card.dueDate <= now && card.repetitions > 0).length;
-  const newCards = deck.cards.filter((card) => card.repetitions === 0).length;
+  const { t } = useLanguage();
+  const cards = deck.cards || [];
+  const due = cards.filter((card) => card.dueDate <= now && card.repetitions > 0).length;
+  const newCards = cards.filter((card) => card.repetitions === 0).length;
   const studyCount = due + newCards;
-  const totalCards = deck.cards.length;
+  const totalCards = cards.length;
   const learnedCards = totalCards - newCards;
   const progressPercent = totalCards > 0 ? Math.round((learnedCards / totalCards) * 100) : 0;
-  const deckJlptLevels = Array.from(
-    new Set([normalizeJlpt(deck.name), ...(deck.cards || []).map((card) => normalizeJlpt(card.jlpt))].filter(Boolean))
+
+  const isKanaDeck = Boolean(
+    deck.name?.match(/kana|hiragana|katakana|かな/i) || 
+    (cards.length > 0 && cards.every(c => (c.content_type || c.type) === 'kana' || (c.type === 'hiragana' || c.type === 'katakana')))
   );
+
+  const deckJlptLevels = isKanaDeck
+    ? []
+    : Array.from(
+        new Set([normalizeJlpt(deck.name), ...cards.map((card) => normalizeJlpt(card.jlpt_level || card.jlpt))].filter(Boolean))
+      );
 
   const baseDeckId = deck.id.includes('-') ? deck.id.split('-')[0] : deck.id;
 
   return (
-    <article className="group flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-all hover:border-slate-300">
+    <article className="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
       <div>
-        <div className="flex items-start justify-between gap-3">
+        {/* Top Header */}
+        <div className="flex items-start justify-between gap-3 mb-3">
           <div className="min-w-0">
-            <h2 className="truncate text-base font-bold text-slate-900">
+            <div className="flex items-center gap-1.5 flex-wrap mb-1">
+              {isKanaDeck && (
+                <span className="inline-flex items-center gap-1 rounded-md border border-indigo-200 bg-indigo-50 text-indigo-700 px-2 py-0.5 text-[10px] font-black">
+                  <span>{t('kana') || 'かな'} {t('elementary') || '基礎'}</span>
+                </span>
+              )}
+              {deckJlptLevels.map((lvl) => {
+                const colorMeta = JLPT_COLOR_MAP[lvl] || { bg: 'bg-slate-100 text-slate-700 border-slate-200' };
+                return (
+                  <span
+                    key={`${deck.id}-${lvl}`}
+                    className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-[10px] font-black ${colorMeta.bg}`}
+                  >
+                    <span>{lvl}</span>
+                  </span>
+                );
+              })}
+            </div>
+
+            <h3 className="truncate text-base font-black text-slate-950 group-hover:text-slate-900 transition-colors">
               {deck.name}
-            </h2>
-            <p className="mt-0.5 text-xs text-slate-400">{totalCards} cards</p>
+            </h3>
+            <p className="text-xs text-slate-400 font-medium">{totalCards} {t('cards')}</p>
           </div>
 
           <div className="flex shrink-0 items-center gap-1">
             <Link
               href={`/stats/${baseDeckId}`}
-              className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
+              className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-800 transition-colors"
               title="Stats"
             >
               <ChartIcon />
@@ -246,7 +673,7 @@ function DeckCard({ deck, now, onManage, onStudy }) {
             <button
               type="button"
               onClick={() => onManage(baseDeckId)}
-              className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
+              className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-800 transition-colors"
               title="Manage"
             >
               <SettingsIcon />
@@ -254,32 +681,27 @@ function DeckCard({ deck, now, onManage, onStudy }) {
           </div>
         </div>
 
-        <div className="mt-3.5 grid grid-cols-2 gap-2">
-          <MiniMetric label="Due" value={due} tone="rose" />
-          <MiniMetric label="New" value={newCards} tone="sky" />
-        </div>
-
-        {deckJlptLevels.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {deckJlptLevels.map((level) => (
-              <span
-                key={`${deck.id}-${level}`}
-                className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-700"
-              >
-                {level}
-              </span>
-            ))}
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-2 gap-2 my-3">
+          <div className="flex items-center justify-between rounded-xl border border-rose-100 bg-rose-50/60 px-3 py-1.5 text-rose-700">
+            <span className="text-[11px] font-bold">{t('reviewDue')}</span>
+            <span className="text-xs font-black">{due}</span>
           </div>
-        )}
+          <div className="flex items-center justify-between rounded-xl border border-sky-100 bg-sky-50/60 px-3 py-1.5 text-sky-700">
+            <span className="text-[11px] font-bold">{t('newCount')}</span>
+            <span className="text-xs font-black">{newCards}</span>
+          </div>
+        </div>
       </div>
 
-      <div className="mt-4 space-y-3">
+      {/* Progress & Study Button */}
+      <div className="mt-4 space-y-3 pt-3 border-t border-slate-100">
         <div>
-          <div className="flex items-center justify-between text-[11px] font-semibold text-slate-400">
-            <span>Progress</span>
-            <span>{progressPercent}%</span>
+          <div className="flex items-center justify-between text-[11px] font-bold text-slate-400 mb-1">
+            <span>{t('masteryProgress')}</span>
+            <span className="text-slate-700 font-extrabold">{progressPercent}%</span>
           </div>
-          <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-slate-100">
+          <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
             <div
               className="h-full rounded-full bg-slate-900 transition-all duration-500"
               style={{ width: `${progressPercent}%` }}
@@ -293,19 +715,21 @@ function DeckCard({ deck, now, onManage, onStudy }) {
           onClick={() => {
             if (studyCount > 0) onStudy(deck);
           }}
-          className={`flex h-9 w-full items-center justify-center gap-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex h-10 w-full items-center justify-center gap-2 rounded-xl text-xs font-bold transition-all shadow-xs ${
             studyCount > 0
-              ? 'bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.98]'
+              ? 'bg-slate-950 text-white hover:bg-slate-800 active:scale-98 cursor-pointer'
               : 'cursor-not-allowed bg-slate-100 text-slate-400'
           }`}
         >
           {studyCount > 0 ? (
             <>
-              Study Now
-              <span className="rounded-md bg-white/20 px-1.5 py-0.2 text-[10px]">{studyCount}</span>
+              <span>{t('studyNow')}</span>
+              <span className="rounded-md bg-white/20 px-2 py-0.5 text-[10px] font-black">
+                {studyCount}
+              </span>
             </>
           ) : (
-            'All Caught Up'
+            t('allCompleted')
           )}
         </button>
       </div>
@@ -313,133 +737,76 @@ function DeckCard({ deck, now, onManage, onStudy }) {
   );
 }
 
-function CreateDeckCard() {
+function CreateDeckCard({ collectionId }) {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (loading) return;
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const name = formData.get('name')?.toString().trim();
-
-    if (!name) {
-      alert('Please enter a deck name.');
-      return;
-    }
+    if (loading || !name.trim()) return;
 
     try {
       setLoading(true);
       const { createDeck } = await import('@/app/actions');
+      const formData = new FormData();
+      formData.set('name', name.trim());
+      if (collectionId) {
+        formData.set('collectionId', collectionId);
+      }
       await createDeck(formData);
-      form.reset();
+      setName('');
       window.location.reload();
     } catch (error) {
       console.error('Failed to create deck:', error);
-      alert('Failed to create deck. Please try again.');
+      alert('Error creating deck.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full items-center gap-2 sm:w-auto">
+    <form onSubmit={handleSubmit} className="flex items-center gap-2 w-full md:w-auto">
       <input
         type="text"
-        name="name"
-        placeholder="New deck name..."
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder={t('newDeckPlaceholder')}
         required
-        className="h-10 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3.5 text-xs font-medium text-slate-800 outline-none transition-all placeholder:text-slate-400 focus:border-slate-800 sm:w-40"
+        className="h-9 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-xs font-medium text-slate-800 outline-none focus:border-slate-900 transition-all placeholder:text-slate-400 md:w-44"
       />
-
       <button
         type="submit"
-        disabled={loading}
-        className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-slate-900 px-4 text-xs font-bold text-white transition-all hover:bg-slate-800 active:scale-[0.98] disabled:opacity-50"
+        disabled={loading || !name.trim()}
+        className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-slate-950 px-3.5 text-xs font-bold text-white hover:bg-slate-800 transition-all active:scale-98 disabled:opacity-50 shrink-0"
       >
         <PlusIcon />
-        {loading ? 'Adding...' : 'Add'}
+        <span>{loading ? t('addingButton') : t('addDeckButton')}</span>
       </button>
     </form>
   );
 }
 
-function StatPill({ label, value, tone = 'slate' }) {
-  const tones = {
-    slate: 'bg-slate-100 text-slate-700',
-    rose: 'bg-rose-50 text-rose-700',
-    sky: 'bg-sky-50 text-sky-700',
-  };
-
+function PlusIcon() {
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold ${tones[tone]}`}>
-      <span className="font-bold">{value}</span>
-      <span className="opacity-75">{label}</span>
-    </span>
-  );
-}
-
-function MiniMetric({ label, value, tone }) {
-  const tones = {
-    rose: 'border-rose-100 bg-rose-50/50 text-rose-700',
-    sky: 'border-sky-100 bg-sky-50/50 text-sky-700',
-  };
-
-  return (
-    <div className={`flex items-center justify-between rounded-lg border px-3 py-1.5 ${tones[tone]}`}>
-      <span className="text-[11px] font-semibold">{label}</span>
-      <span className="text-xs font-bold">{value}</span>
-    </div>
-  );
-}
-
-function SearchIcon({ className = 'h-4 w-4' }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="m21 21-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
+    <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <path d="M12 5v14M5 12h14" />
     </svg>
   );
 }
 
 function ChartIcon() {
   return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M4.5 19.5h15M7 16v-5M12 16V6M17 16v-8"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4.5 19.5h15M7 16v-5M12 16V6M17 16v-8" />
     </svg>
   );
 }
 
 function SettingsIcon() {
   return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 15.25A3.25 3.25 0 1 0 12 8.75a3.25 3.25 0 0 0 0 6.5ZM19.4 13.5a7.86 7.86 0 0 0 .06-1.5l2.04-1.55-2-3.46-2.42.98a7.62 7.62 0 0 0-1.3-.76L15.45 4h-3.9l-.33 3.21c-.46.2-.9.46-1.3.76L7.5 6.99l-2 3.46L7.54 12a7.86 7.86 0 0 0 .06 1.5L5.5 15.06l2 3.46 2.42-.98c.4.3.84.56 1.3.76l.33 3.2h3.9l.33-3.2c.46-.2.9-.46 1.3-.76l2.42.98 2-3.46-2.1-1.56Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.7"
-      />
-    </svg>
-  );
-}
-
-function PlusIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 15.25A3.25 3.25 0 1 0 12 8.75a3.25 3.25 0 0 0 0 6.5ZM19.4 13.5a7.86 7.86 0 0 0 .06-1.5l2.04-1.55-2-3.46-2.42.98a7.62 7.62 0 0 0-1.3-.76L15.45 4h-3.9l-.33 3.21c-.46.2-.9.46-1.3.76L7.5 6.99l-2 3.46L7.54 12a7.86 7.86 0 0 0 .06 1.5L5.5 15.06l2 3.46 2.42-.98c.4.3.84.56 1.3.76l.33 3.2h3.9l.33-3.2c.46-.2.9-.46 1.3-.76l2.42.98 2-3.46-2.1-1.56Z" />
     </svg>
   );
 }

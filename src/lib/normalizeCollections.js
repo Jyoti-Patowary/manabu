@@ -28,17 +28,49 @@ function matchRecordId(record, targetId) {
   return candidates.some((value) => String(value ?? '') === String(targetId));
 }
 
+function normalizeJlptLevel(value) {
+  if (value == null) return null;
+  const text = String(value).trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const directMatch = text.match(/N[1-5]/);
+  if (directMatch) return directMatch[0];
+  const jlptMatch = text.match(/JLPTN([1-5])/);
+  if (jlptMatch) return `N${jlptMatch[1]}`;
+  return null;
+}
+
 function normalizeCardForClient(card, index, deckName = 'deck') {
   const baseText = card?.kanji || card?.reading || card?.grammar || card?.meaning || `card-${deckName}`;
   const fallbackId = `card-${safeSlug(deckName)}-${safeSlug(baseText)}-${index}`;
   const id = toIdString(card?._id || card?.id, fallbackId);
 
+  let rawType = card?.content_type || card?.type || 'vocab';
+  if (rawType === 'hiragana' || rawType === 'katakana') {
+    rawType = 'kana';
+  }
+  const contentType = ['vocab', 'kanji', 'grammar', 'kana'].includes(rawType) ? rawType : 'vocab';
+  const jlptLevel = contentType === 'kana' ? null : normalizeJlptLevel(card?.jlpt_level ?? card?.jlpt);
+
+  const easeFactor = Number(card?.ease_factor ?? card?.easeFactor ?? 2.5);
+  const nextReviewDate = Number(card?.next_review_date ?? card?.dueDate ?? Date.now());
+  const relationships = Array.isArray(card?.relationships) ? card.relationships : [];
+  const kanaType = card?.kana_type || (card?.type === 'katakana' ? 'katakana' : (card?.type === 'hiragana' ? 'hiragana' : (contentType === 'kana' ? 'hiragana' : '')));
+  const scriptGroup = card?.script_group || '';
+  const counterpart = card?.counterpart || '';
+  const mastered = Boolean(card?.mastered || (Number(card?.repetitions ?? 0) >= 2 && Number(card?.interval ?? 0) >= 7));
+
   return {
     id,
     _id: id,
-    type: card?.type || 'vocab',
+    content_type: contentType,
+    jlpt_level: jlptLevel,
+    relationships,
+    kana_type: kanaType,
+    script_group: scriptGroup,
+    counterpart,
+    mastered,
+    type: card?.type || contentType,
     category: card?.category || '',
-    jlpt: card?.jlpt || '',
+    jlpt: jlptLevel || card?.jlpt || '',
     tags: Array.isArray(card?.tags) ? card.tags : [],
     kanji: card?.kanji || '',
     reading: card?.reading || '',
@@ -70,8 +102,10 @@ function normalizeCardForClient(card, index, deckName = 'deck') {
     formalAlternative: card?.formalAlternative || '',
     interval: Number(card?.interval ?? 0),
     repetitions: Number(card?.repetitions ?? 0),
-    easeFactor: Number(card?.easeFactor ?? 2.5),
-    dueDate: Number(card?.dueDate ?? Date.now()),
+    ease_factor: easeFactor,
+    easeFactor,
+    next_review_date: nextReviewDate,
+    dueDate: nextReviewDate,
   };
 }
 
@@ -107,6 +141,7 @@ function normalizeCollectionsForClient(collections) {
 
 module.exports = {
   matchRecordId,
+  normalizeJlptLevel,
   normalizeCardForClient,
   normalizeDeckForClient,
   normalizeCollectionsForClient,

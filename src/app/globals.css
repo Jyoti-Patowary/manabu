@@ -1,26 +1,168 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Washi & Sumi (紙と墨) Neutral Ground */
+  --background: #FBFBF9;
+  --foreground: #18181B;
+  --surface-card: #FFFFFF;
+  --surface-subtle: #F4F4F0;
+  --surface-border: #E5E5DF;
+  --sumi-ink: #18181B;
+  --sumi-muted: #71717A;
+  --sumi-faint: #A1A1AA;
+
+  /* Single Primary Functional Accent: Vermilion (朱色 Shu-iro) */
+  --accent-vermilion: #D94826;
+  --accent-vermilion-hover: #BF3B1C;
+  --accent-vermilion-subtle: #FFF1EE;
+  --accent-vermilion-border: #FECDCA;
+
+  /* Systematic Content-Type Colors */
+  --color-kanji: #B45309;       /* Amber/Ochre 琥珀 */
+  --color-kanji-bg: #FEF3C7;
+  --color-kanji-border: #FDE68A;
+
+  --color-vocab: #1E40AF;       /* Deep Indigo 藍色 */
+  --color-vocab-bg: #DBEAFE;
+  --color-vocab-border: #BFDBFE;
+
+  --color-grammar: #15803D;     /* Forest Pine 常磐 */
+  --color-grammar-bg: #DCFCE7;
+  --color-grammar-border: #BBF7D0;
+
+  --color-kana: #475569;        /* Slate Sumi 墨色 */
+  --color-kana-bg: #F1F5F9;
+  --color-kana-border: #E2E8F0;
+
+  --color-reading: #7E22CE;     /* Plum Mulberry 桑色 */
+  --color-reading-bg: #F3E8FF;
+  --color-reading-border: #E9D5FF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Authentic Japanese typography utilities */
+.font-japanese {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+.font-serif-jp {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Shippori Mincho", serif;
+}
+
+/* Fast purposeful transitions (<180ms) */
+.transition-fast {
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Content Type Badges */
+.badge-kanji {
+  background-color: var(--color-kanji-bg);
+  color: var(--color-kanji);
+  border: 1px solid var(--color-kanji-border);
+}
+
+.badge-vocab {
+  background-color: var(--color-vocab-bg);
+  color: var(--color-vocab);
+  border: 1px solid var(--color-vocab-border);
+}
+
+.badge-grammar {
+  background-color: var(--color-grammar-bg);
+  color: var(--color-grammar);
+  border: 1px solid var(--color-grammar-border);
+}
+
+.badge-kana {
+  background-color: var(--color-kana-bg);
+  color: var(--color-kana);
+  border: 1px solid var(--color-kana-border);
+}
+
+.badge-reading {
+  background-color: var(--color-reading-bg);
+  color: var(--color-reading);
+  border: 1px solid var(--color-reading-border);
+}
+
+/* Traditional Hanko / Seal badge styling (判子) */
+.hanko-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 2px solid #D94826;
+  color: #D94826;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-shadow: 0 0 1px rgba(217, 72, 38, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(217, 72, 38, 0.15);
+}
+
+@keyframes hanko-pop {
+  0% {
+    transform: scale(1.4) rotate(-8deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.95) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-hanko {
+  animation: hanko-pop 160ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Flashcard 3D perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Clean minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4D4D0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A8A2;
+}
+
+@media (max-width: 640px) {
+  button, a {
+    touch-action: manipulation;
+  }
 }
