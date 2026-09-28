@@ -12,6 +12,7 @@ import ExampleSentence from '../src/models/ExampleSentence.js';
 import UserCard from '../src/models/UserCard.js';
 import UserProgress from '../src/models/UserProgress.js';
 import User from '../src/models/User.js';
+import { seedUnit6, seedUnit7 } from './seed-unit6-unit7.js';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
@@ -49,6 +50,18 @@ const SUPPLEMENTAL_KANJIDIC = {
   '題': { unicode: '984C', onyomi: ['ダイ'], kunyomi: [], meanings: ['topic', 'subject', 'theme'], strokeCount: 18, grade: 3, jlptLevel: 'N4' },
   '雑': { unicode: '96D1', onyomi: ['ザツ', 'ゾウ'], kunyomi: ['まじ.える', 'まじ.る'], meanings: ['miscellaneous', 'mixed'], strokeCount: 14, grade: 5, jlptLevel: 'N3' },
   '靴': { unicode: '9774', onyomi: ['カ'], kunyomi: ['くつ'], meanings: ['shoes', 'boots'], strokeCount: 13, grade: 8, jlptLevel: 'N2' },
+  '飛': { unicode: '98DB', onyomi: ['ヒ'], kunyomi: ['と.ぶ', 'と.ばす'], meanings: ['fly', 'skip'], strokeCount: 9, grade: 4, jlptLevel: 'N3' },
+  '音': { unicode: '97F3', onyomi: ['オン', 'イン'], kunyomi: ['おと', 'ね'], meanings: ['sound', 'noise'], strokeCount: 9, grade: 1, jlptLevel: 'N4' },
+  '除': { unicode: '9664', onyomi: ['ジョ', 'ジ'], kunyomi: ['のぞ.く'], meanings: ['exclude', 'remove', 'divide'], strokeCount: 10, grade: 6, jlptLevel: 'N2' },
+  '験': { unicode: '9A13', onyomi: ['ケン', 'ゲン'], kunyomi: ['ため.す'], meanings: ['verification', 'effect', 'testing'], strokeCount: 18, grade: 4, jlptLevel: 'N3' },
+  '風': { unicode: '98A8', onyomi: ['フウ', 'フ'], kunyomi: ['かぜ', 'かざ-'], meanings: ['wind', 'air', 'style'], strokeCount: 9, grade: 2, jlptLevel: 'N4' },
+  '険': { unicode: '967A', onyomi: ['ケン'], kunyomi: ['けわ.しい'], meanings: ['precipitous', 'inaccessible', 'severe'], strokeCount: 11, grade: 5, jlptLevel: 'N2' },
+  '限': { unicode: '9650', onyomi: ['ゲン'], kunyomi: ['かぎ.る', 'かぎ.り'], meanings: ['limit', 'restrict'], strokeCount: 9, grade: 5, jlptLevel: 'N3' },
+  '無': { unicode: '7121', onyomi: ['ム', 'ブ'], kunyomi: ['な.い'], meanings: ['nothingness', 'none', 'without'], strokeCount: 12, grade: 4, jlptLevel: 'N3' },
+  '頭': { unicode: '982D', onyomi: ['トウ', 'ズ'], kunyomi: ['あたま', 'かしら'], meanings: ['head'], strokeCount: 16, grade: 2, jlptLevel: 'N4' },
+  '間': { unicode: '9593', onyomi: ['カン', 'ケン'], kunyomi: ['あいだ', 'ま'], meanings: ['interval', 'space', 'between', 'time'], strokeCount: 12, grade: 2, jlptLevel: 'N5' },
+  '障': { unicode: '969C', onyomi: ['ショウ'], kunyomi: ['さわ.る'], meanings: ['hinder', 'hurt', 'obstacle'], strokeCount: 14, grade: 6, jlptLevel: 'N3' },
+  '震': { unicode: '9707', onyomi: ['シン'], kunyomi: ['ふる.う', 'ふる.える'], meanings: ['quake', 'shake', 'tremble'], strokeCount: 15, grade: 8, jlptLevel: 'N2' },
 };
 
 const LESSON_DEFINITIONS = [
@@ -670,16 +683,45 @@ async function seedUnit1(lessonDocs) {
   console.log('Seeding Unit 1: Lessons 7, 8, 9, 10...');
 
   // ----------------------------------------------------
-  // LESSON 7: Everyday Courtesy & Social Formulas
+  // LESSON 7: Everyday Courtesy & Social Formulas (Reference Lesson)
   // ----------------------------------------------------
   const l7Grammar = await GrammarPoint.findOneAndUpdate(
     { lessonId: lessonDocs[7]._id, order: 1 },
     {
       $set: {
-        title: 'Social Greetings & Courtesy Formulas',
-        pattern: 'Greeting Phrases (挨拶)',
-        formation: 'Fixed social conversational formula',
-        explanation: 'Japanese greetings are situational formulas reflecting the time of day, social distance, and relative hierarchy. Unlike literal questions in English ("How are you?"), Japanese formulas acknowledge social presence and reciprocal goodwill.',
+        categoryType: 'expression',
+        title: 'Expression 1: Social Greetings & Courtesy Formulas',
+        pattern: 'Greeting Formulas (あいさつと日常の表現)',
+        formation: 'Fixed situational conversational formulas (Time / Hierarchy / Context)',
+        courseLevel: 'N5 Foundation',
+        politenessLevel: 'Polite (丁寧語) & Casual (普通体)',
+        literalMeaning: 'Situational social acknowledgments & reciprocal goodwill',
+        naturalMeaning: 'Everyday greetings, apologies, and classroom phrases',
+        whyItIsUsed: 'Japanese greetings are situational formulas reflecting the time of day, social distance, and relative hierarchy. Unlike literal questions in English ("How are you?"), Japanese formulas acknowledge social presence and mutual goodwill. Using appropriate politeness levels establishes harmonious interpersonal relationships from day one.',
+        wordBreakdown: [
+          { japanese: 'おはよう', reading: 'おはよう', romaji: 'ohayou', literal: 'Early (casual)', role: 'Informal root' },
+          { japanese: 'ございます', reading: 'ございます', romaji: 'gozaimasu', literal: 'Polite existence', role: 'Polite honorific' },
+          { japanese: 'ありがとう', reading: 'ありがとう', romaji: 'arigatou', literal: 'Rare / precious', role: 'Gratitude root' },
+          { japanese: 'すみません', reading: 'すみません', romaji: 'sumimasen', literal: 'Cannot be settled', role: 'Polite acknowledgment of indebtedness' },
+        ],
+        explanation: 'Japanese social greetings (あいさつ) are fixed cultural formulas that establish the tone of an interaction.\n\n1. Hierarchy and Register: Politeness is morphological. Casual forms like おはよう and ありがとう are strictly for family and close peers. Adding ございます or です introduces polite social distance necessary with teachers, elders, and colleagues.\n\n2. Situational Formulas: Greetings are tailored to specific daily thresholds: waking hours (おはようございます), daytime (こんにちは), evening (こんばんは), and leave-taking (じゃあ、また / 失礼します).\n\n3. Functional Indebtedness: Phrases like すみません and よろしくお願いします reflect Japanese cultural values of mutual consideration (気遣い - kizukai) and acknowledging social effort.',
+        usage: 'Use standard polite formulas (おはようございます, ありがとうございます, すみません) with teachers, coworkers, and in shops.',
+        whenToUse: 'Use immediately upon encountering someone, entering a room, receiving assistance, or parting.',
+        whenNotToUse: 'Do not use casual greetings (おはよう, ありがとう) with superiors, teachers, or customers.',
+        nuance: 'さようなら carries a sense of finality ("farewell for a long time"). In daily classroom or workplace departures, use じゃあ、また (casual) or 失礼します (polite).',
+        beginnerTip: 'Whenever in doubt about politeness, always default to the longer form (おはようございます, ありがとうございます).',
+        commonMistakes: [
+          { incorrect: 'さようなら (to colleagues at end of day)', correct: 'お疲れ様でした / 失礼します', explanation: 'さようなら implies long-term or permanent farewell. In daily classroom or workplace departures, use じゃあまた (casual) or 失礼します (polite).' },
+          { incorrect: 'Using おはよう with a teacher', correct: 'おはようございます', explanation: 'Dropping ございます with an instructor sounds overly informal and disrespectful.' },
+        ],
+        comparison: {
+          target: 'Polite vs. Casual Courtesy Formulas',
+          comparisonPoints: [
+            { label: 'Morning Greeting', itemA: 'おはよう (Casual: friends & family)', itemB: 'おはようございます (Polite: teachers & seniors)', explanation: 'Adding ございます creates respectful social distance.' },
+            { label: 'Gratitude', itemA: 'ありがとう (Casual: close peers)', itemB: 'ありがとうございます (Polite: standard courtesy)', explanation: 'Using casual ありがとう with a teacher or clerk sounds overly familiar.' },
+            { label: 'Farewell', itemA: 'じゃあ、また (Daily: "See you")', itemB: 'さようなら (Definitive: "Farewell")', explanation: 'さようなら implies an extended or permanent parting.' },
+          ],
+        },
         notes: 'おはようございます is formal; おはよう is casual with peers and family.',
         caution: 'さようなら implies a long-term or definitive parting; use じゃあまた for daily casual farewells.',
         jlptLevel: 'N5',
@@ -689,20 +731,22 @@ async function seedUnit1(lessonDocs) {
   );
 
   const l7Vocab = [
-    { kanji: 'おはよう', kana: 'おはよう', meanings: ['Good morning (casual)'], pos: ['interjection'], seq: 1000100 },
-    { kanji: 'おはようございます', kana: 'おはようございます', meanings: ['Good morning (polite)'], pos: ['expression'], seq: 1000110 },
-    { kanji: 'こんにちは', kana: 'こんにちは', meanings: ['Hello', 'Good afternoon'], pos: ['expression'], seq: 1000120 },
-    { kanji: 'こんばんは', kana: 'こんばんは', meanings: ['Good evening'], pos: ['expression'], seq: 1000130 },
-    { kanji: 'さようなら', kana: 'さようなら', meanings: ['Goodbye', 'Farewell'], pos: ['expression'], seq: 1000140 },
-    { kanji: 'じゃあ、また', kana: 'じゃあ、また', meanings: ['See you later'], pos: ['expression'], seq: 1000150 },
-    { kanji: 'ありがとう', kana: 'ありがとう', meanings: ['Thank you (casual)'], pos: ['expression'], seq: 1000160 },
-    { kanji: 'ありがとうございます', kana: 'ありがとうございます', meanings: ['Thank you very much (polite)'], pos: ['expression'], seq: 1000170 },
-    { kanji: 'すみません', kana: 'すみません', meanings: ['Excuse me', 'I am sorry'], pos: ['expression'], seq: 1000180 },
-    { kanji: 'はい', kana: 'はい', meanings: ['Yes', 'Present'], pos: ['interjection'], seq: 1000190 },
-    { kanji: 'いいえ', kana: 'いいえ', meanings: ['No', 'Not at all'], pos: ['interjection'], seq: 1000200 },
-    { kanji: 'お願いします', kana: 'おねがいします', meanings: ['Please (requesting)'], pos: ['expression'], seq: 1000210 },
-    { kanji: '初めまして', kana: 'はじめまして', meanings: ['Nice to meet you (first time)'], pos: ['expression'], seq: 1000220 },
-    { kanji: 'よろしくお願いします', kana: 'よろしくおねがいします', meanings: ['Please treat me favorably'], pos: ['expression'], seq: 1000230 },
+    { kanji: 'おはよう', kana: 'おはよう', romaji: 'ohayou', meanings: ['Good morning (casual)'], naturalMeaning: 'Good morning', literalMeaning: 'It is early (お早う)', register: 'Casual (peers & family)', nuance: 'Used with friends, classmates, and family members in the morning before noon.', commonMistakes: 'Never use with teachers, managers, or customers; use おはようございます instead.', pos: ['interjection'], seq: 1000100 },
+    { kanji: 'おはようございます', kana: 'おはようございます', romaji: 'ohayou gozaimasu', meanings: ['Good morning (polite)'], naturalMeaning: 'Good morning', literalMeaning: 'It is honorably early', register: 'Polite (formal & respect)', nuance: 'Standard polite morning greeting required for teachers, bosses, colleagues, and elders.', pos: ['expression'], seq: 1000110 },
+    { kanji: 'こんにちは', kana: 'こんにちは', romaji: 'konnichiwa', meanings: ['Hello', 'Good afternoon'], naturalMeaning: 'Hello / Good afternoon', literalMeaning: 'As for today... (今日は)', register: 'General / Neutral', nuance: 'Used from midday until dusk. Written with final character は (pronounced "wa") because it originated as a sentence topic particle.', pos: ['expression'], seq: 1000120 },
+    { kanji: 'こんばんは', kana: 'こんばんは', romaji: 'konbanwa', meanings: ['Good evening'], naturalMeaning: 'Good evening', literalMeaning: 'As for this evening... (今晩は)', register: 'General / Neutral', nuance: 'Used after dark when meeting someone. Also written with particle は pronounced "wa".', pos: ['expression'], seq: 1000130 },
+    { kanji: 'さようなら', kana: 'さようなら', romaji: 'sayounara', meanings: ['Goodbye', 'Farewell'], naturalMeaning: 'Goodbye / Farewell', literalMeaning: 'If that is how it must be... (然様なら)', register: 'Formal / Definitive', nuance: 'Implies a long-term or permanent parting. For everyday school departures, native speakers prefer じゃあ、また or 失礼します.', pos: ['expression'], seq: 1000140 },
+    { kanji: 'じゃあ、また', kana: 'じゃあ、また', romaji: 'jaa, mata', meanings: ['See you later'], naturalMeaning: 'See you later / Bye', literalMeaning: 'Well then, again', register: 'Casual', nuance: 'Natural, friendly farewell for classmates, close peers, and friends.', pos: ['expression'], seq: 1000150 },
+    { kanji: 'ありがとう', kana: 'ありがとう', romaji: 'arigatou', meanings: ['Thank you (casual)'], naturalMeaning: 'Thanks / Thank you', literalMeaning: 'It is rare / hard to exist (有難う)', register: 'Casual', nuance: 'Friendly expression of gratitude for friends and family.', pos: ['expression'], seq: 1000160 },
+    { kanji: 'ありがとうございます', kana: 'ありがとうございます', romaji: 'arigatou gozaimasu', meanings: ['Thank you very much (polite)'], naturalMeaning: 'Thank you very much', literalMeaning: 'It is exceedingly rare and precious', register: 'Polite / Formal', nuance: 'Standard polite gratitude formula used with teachers, strangers, and service staff.', pos: ['expression'], seq: 1000170 },
+    { kanji: 'すみません', kana: 'すみません', romaji: 'sumimasen', meanings: ['Excuse me', 'I am sorry', 'Thank you (for trouble)'], naturalMeaning: 'Excuse me / I am sorry', literalMeaning: 'It cannot be completed / settled (済まない)', register: 'General / Polite', nuance: 'Triple-purpose formula: 1) Getting attention in public, 2) Apologizing for a minor bump/inconvenience, 3) Approaching politely before asking for directions or a favor.', pos: ['expression'], seq: 1000180 },
+    { kanji: 'はい', kana: 'はい', romaji: 'hai', meanings: ['Yes', 'Okay', 'That is right', 'Present (roll call)'], naturalMeaning: 'Yes / Okay / Present', literalMeaning: 'Affirmative acknowledgment', register: 'Standard / Polite', nuance: 'In classrooms, functions as the standard response when the teacher calls roll ("Present!"). In conversation, also acts as aizuchi (listener feedback) signaling "I am listening".', pos: ['interjection'], seq: 1000190 },
+    { kanji: 'いいえ', kana: 'いいえ', romaji: 'iie', meanings: ['No', 'Not at all', 'You are welcome'], naturalMeaning: 'No / Not at all', literalMeaning: 'Negative denial', register: 'Standard / Polite', nuance: 'Direct negative answer. In response to thanks or compliments, contextually means "Not at all / Do not mention it" as a modest brush-off.', pos: ['interjection'], seq: 1000200 },
+    { kanji: 'お願いします', kana: 'おねがいします', romaji: 'onegaishimasu', meanings: ['Please (requesting)', 'I ask of you'], naturalMeaning: 'Please / I request this', literalMeaning: 'I make a humble wish/request (お＋願い＋します)', register: 'Polite', nuance: 'Used when requesting an item (お水をお願いします) or asking someone to perform a task or service for you.', kanjiNotes: 'Contains N3 kanji 願, but this phrase is core N5 beginner everyday courtesy vocabulary.', pos: ['expression'], seq: 1000210 },
+    { kanji: '初めまして', kana: 'はじめまして', romaji: 'hajimemashite', meanings: ['Nice to meet you (first time)'], naturalMeaning: 'How do you do? / Nice to meet you', literalMeaning: 'For the very first time (from 始める / 初めて)', register: 'Polite', nuance: 'Strictly used ONLY when meeting someone for the first time in your life. Never use it with someone you have encountered before.', pos: ['expression'], seq: 1000220 },
+    { kanji: 'よろしくお願いします', kana: 'よろしくおねがいします', romaji: 'yoroshiku onegaishimasu', meanings: ['Nice to meet you', 'I look forward to working with you', 'Please treat me well'], naturalMeaning: 'I look forward to working with you / Nice to meet you', literalMeaning: 'I ask for your goodwill and favorable treatment', register: 'Polite / Formal', nuance: 'Indispensable reciprocal social formula. Spoken after 初めまして when introducing yourself, at the start of collaborative projects, or at the end of business emails.', kanjiNotes: 'Contains N3 kanji 願 in お願いします.', pos: ['expression'], seq: 1000230 },
+    { kanji: '先生', kana: 'せんせい', romaji: 'sensei', meanings: ['teacher', 'instructor', 'professor', 'doctor'], naturalMeaning: 'Teacher / Professor', literalMeaning: 'Born before (先 = before, 生 = life/birth)', register: 'Respectful / Polite', nuance: 'Honorific title used when addressing instructors, professors, and medical doctors.', pos: ['noun'], seq: 1381330 },
+    { kanji: '失礼します', kana: 'しつれいします', romaji: 'shitsurei shimasu', meanings: ['Excuse me (entering/leaving)', 'Goodbye (polite)'], naturalMeaning: 'Excuse me / Goodbye (polite)', literalMeaning: 'I am committing a rudeness / impoliteness (失礼)', register: 'Polite / Formal', nuance: 'Essential phrase used when entering or leaving a teacher’s office, stepping out of a meeting room, or hanging up a formal phone call.', pos: ['expression'], seq: 1307130 },
   ];
 
   const l7VocabDocs = [];
@@ -715,8 +759,16 @@ async function seedUnit1(lessonDocs) {
           meanings: v.meanings,
           partOfSpeech: v.pos,
           jmdictSeq: v.seq,
+          romaji: v.romaji,
+          naturalMeaning: v.naturalMeaning,
+          literalMeaning: v.literalMeaning,
+          register: v.register,
+          nuance: v.nuance,
+          commonMistakes: v.commonMistakes,
+          kanjiNotes: v.kanjiNotes,
           thematicCategory: 'greetings',
           jlptLevel: 'N5',
+          courseLevel: 'N5 Foundation',
         },
       },
       { upsert: true, new: true }
@@ -728,11 +780,18 @@ async function seedUnit1(lessonDocs) {
     { tatoebaId: 10101 },
     {
       $set: {
-        japanese: '田中さん、おはようございます。',
-        furigana: 'たなかさん、おはようございます。',
-        english: 'Good morning, Mr. Tanaka.',
+        japanese: '田中先生、おはようございます。',
+        furigana: 'たなかせんせい、おはようございます。',
+        romaji: 'Tanaka-sensei, ohayou gozaimasu.',
+        english: 'Good morning, Professor Tanaka.',
+        naturalEnglish: 'Good morning, Professor Tanaka.',
+        breakdown: [
+          { japanese: '田中先生', reading: 'たなかせんせい', romaji: 'Tanaka-sensei', english: 'Professor Tanaka', role: 'Addressee' },
+          { japanese: 'おはようございます', reading: 'おはようございます', romaji: 'ohayou gozaimasu', english: 'good morning (polite)', role: 'Polite greeting' },
+        ],
+        grammarNote: 'Always use the polite ございます form when greeting teachers, superiors, or seniors.',
         relatedGrammarId: l7Grammar._id,
-        relatedVocabIds: [l7VocabDocs[1]._id],
+        relatedVocabIds: [l7VocabDocs[1]._id, l7VocabDocs[14]._id],
       },
     },
     { upsert: true, new: true }
@@ -742,18 +801,50 @@ async function seedUnit1(lessonDocs) {
     { tatoebaId: 10102 },
     {
       $set: {
-        japanese: 'どうもありがとうございます。',
-        furigana: 'どうも ありがとうございます。',
-        english: 'Thank you very much indeed.',
+        japanese: 'すみません、駅はどこですか。',
+        furigana: 'すみません、えきは どこですか。',
+        romaji: 'Sumimasen, eki wa doko desu ka.',
+        english: 'Excuse me, where is the station?',
+        naturalEnglish: 'Excuse me, where is the station?',
+        breakdown: [
+          { japanese: 'すみません', reading: 'すみません', romaji: 'sumimasen', english: 'excuse me', role: 'Polite approach' },
+          { japanese: '駅', reading: 'えき', romaji: 'eki', english: 'station', role: 'Topic noun' },
+          { japanese: 'は', reading: 'わ', romaji: 'wa', english: 'as for', role: 'Topic particle' },
+          { japanese: 'どこ', reading: 'どこ', romaji: 'doko', english: 'where', role: 'Interrogative pronoun' },
+          { japanese: 'ですか', reading: 'ですか', romaji: 'desu ka', english: 'is it?', role: 'Polite question predicate' },
+        ],
+        grammarNote: 'すみません politely cushions your presence before asking a stranger for directions.',
         relatedGrammarId: l7Grammar._id,
-        relatedVocabIds: [l7VocabDocs[7]._id],
+        relatedVocabIds: [l7VocabDocs[8]._id],
+      },
+    },
+    { upsert: true, new: true }
+  );
+
+  const s3 = await ExampleSentence.findOneAndUpdate(
+    { tatoebaId: 10103 },
+    {
+      $set: {
+        japanese: '初めまして、スミスです。よろしくお願いします。',
+        furigana: 'はじめまして、スミスです。よろしく おねがいします。',
+        romaji: 'Hajimemashite, Sumisu desu. Yoroshiku onegaishimasu.',
+        english: 'Nice to meet you, I am Smith. I look forward to working with you.',
+        naturalEnglish: 'Nice to meet you, I am Smith. I look forward to working with you.',
+        breakdown: [
+          { japanese: '初めまして', reading: 'はじめまして', romaji: 'hajimemashite', english: 'nice to meet you (first time)', role: 'Self-introduction opener' },
+          { japanese: 'スミスです', reading: 'スミスです', romaji: 'Sumisu desu', english: 'I am Smith', role: 'Identity predicate' },
+          { japanese: 'よろしくお願いします', reading: 'よろしくおねがいします', romaji: 'yoroshiku onegaishimasu', english: 'please treat me favorably', role: 'Closing goodwill formula' },
+        ],
+        grammarNote: 'The standard self-introduction tripartite formula: Opening (初めまして) + Name (〜です) + Closing (よろしくお願いします).',
+        relatedGrammarId: l7Grammar._id,
+        relatedVocabIds: [l7VocabDocs[12]._id, l7VocabDocs[13]._id],
       },
     },
     { upsert: true, new: true }
   );
 
   await GrammarPoint.findByIdAndUpdate(l7Grammar._id, {
-    $set: { exampleSentenceIds: [s1._id, s2._id] },
+    $set: { exampleSentenceIds: [s1._id, s2._id, s3._id] },
   });
 
   // ----------------------------------------------------
@@ -763,10 +854,38 @@ async function seedUnit1(lessonDocs) {
     { lessonId: lessonDocs[8]._id, order: 1 },
     {
       $set: {
+        categoryType: 'structure',
         title: 'State of Being (だ / です)',
         pattern: '[Noun] + です / ではありません',
-        formation: 'Affirmative: Noun + です. Formal Negative: Noun + ではありません. Conversational Negative: Noun + じゃありません.',
-        explanation: 'Declares what an entity is or is not. Unlike the English verb "to be", です indicates non-past state of being and establishes polite conversational courtesy. To declare identity, use [Noun] + です. To formally negate identity ("is not / am not"), use [Noun] + ではありません. In everyday spoken conversation, ではありません is frequently contracted to じゃありません.',
+        formation: 'Affirmative: Noun + です. Formal Negative: Noun + ではありません. Spoken Negative: Noun + じゃありません.',
+        courseLevel: 'N5 Foundation',
+        politenessLevel: 'Polite (です) vs. Plain/Casual (だ)',
+        literalMeaning: 'State of being / Identity declaration',
+        naturalMeaning: 'am / is / are (identity or state)',
+        whyItIsUsed: 'Unlike English, Japanese has no true equational verb like "to be" that changes with person (am/is/are). Instead, Japanese sentences declare a state of being at the end of the sentence. Adding です (polite) or だ (casual) completes the grammatical thought and establishes your social relationship with the listener.',
+        wordBreakdown: [
+          { japanese: '私', reading: 'わたし', romaji: 'watashi', literal: 'I / me', role: 'Speaker pronoun' },
+          { japanese: 'は', reading: 'わ', romaji: 'wa', literal: 'As for', role: 'Topic marker' },
+          { japanese: '学生', reading: 'がくせい', romaji: 'gakusei', literal: 'Student', role: 'Noun predicate' },
+          { japanese: 'です', reading: 'です', romaji: 'desu', literal: 'is / am (polite)', role: 'Formal copula' },
+        ],
+        explanation: 'Declares what an entity is or is not. Unlike the English verb "to be", です indicates non-past state of being and establishes polite conversational courtesy.\n\n1. Affirmative Identity: [Noun] + です declares identity with standard politeness.\n2. Formal Negation: [Noun] + ではありません ("is not / am not") is standard in writing, formal speeches, and business.\n3. Conversational Negation: In daily conversation, では contracts to じゃ: [Noun] + じゃありません.',
+        usage: 'Use です with teachers, coworkers, and acquaintances. Use ではありません in formal contexts.',
+        whenToUse: 'Use to state your profession, nationality, identity, or current condition.',
+        whenNotToUse: 'Do not attach です directly after い-adjective roots without understanding inflection (e.g. 高いです is polite present, but 高ではありません is ungrammatical; adjectives negate with 〜くない).',
+        nuance: 'です conveys respect and neutrality without emotional distance. Casual conversations replace です with だ.',
+        beginnerTip: 'Think of です as a courtesy cushion placed at the end of the sentence rather than just the word "is".',
+        commonMistakes: [
+          { incorrect: '私は学生だです。', correct: '私は学生です。 / 私は学生だ。', explanation: 'だ and です both express state-of-being; they must NEVER be stacked together. Use です for polite speech and だ for casual speech.' },
+          { incorrect: '学生ですではありません。', correct: '学生ではありません。', explanation: 'To negate a noun, replace です with ではありません (formal) or じゃありません (conversational). Do not keep です!' },
+        ],
+        comparison: {
+          target: 'Polite (です) vs. Plain (だ) vs. Negation',
+          comparisonPoints: [
+            { label: 'Affirmative State', itemA: '学生です (Polite: standard courtesy)', itemB: '学生だ (Plain: casual with peers)', explanation: 'です establishes social distance and respect; だ is used with close friends or in inner thoughts.' },
+            { label: 'Negative State', itemA: '学生ではありません (Formal / Written)', itemB: '学生じゃありません (Conversational / Spoken)', explanation: 'ではありません is standard in business; では contracts to じゃ in daily dialogue.' },
+          ],
+        },
         notes: 'ではありません is formal and standard in writing, speeches, and polite business settings. じゃありません is everyday conversational speech.',
         caution: 'Do not use です directly after an い-adjective stem alone (e.g. 高いです is polite, but 高ではありません is ungrammatical; adjectives negate with 〜くない).',
         jlptLevel: 'N5',
@@ -779,10 +898,36 @@ async function seedUnit1(lessonDocs) {
     { lessonId: lessonDocs[8]._id, order: 2 },
     {
       $set: {
+        categoryType: 'grammar',
         title: 'The Topic Marker Particle (は - wa)',
         pattern: '[Topic] + は',
         formation: 'Noun + は (written with the character は, pronounced "wa")',
-        explanation: 'Establishes the psychological frame of reference or conversational theme: "Speaking of [Topic]..." or "As for [Topic]...". Once introduced with は, the topic remains the understood context for subsequent remarks until changed. Contrast this with grammatical subjects: the topic is what the sentence is about, not necessarily who is performing an action.',
+        courseLevel: 'N5 Foundation',
+        literalMeaning: 'As for [Topic]...',
+        naturalMeaning: 'Speaking of [Topic]... (marks the sentence theme)',
+        whyItIsUsed: 'Japanese communication prioritizes establishing a shared psychological frame before providing new information. Particle は acts like a spotlight announcing: "Regarding X, let me tell you about it for the rest of this sentence." Contrast this with grammatical subjects: topic は marks what the conversation is about, not necessarily who is performing the physical verb.',
+        wordBreakdown: [
+          { japanese: '私', reading: 'わたし', romaji: 'watashi', literal: 'I', role: 'Topic entity' },
+          { japanese: 'は', reading: 'わ', romaji: 'wa', literal: 'as for', role: 'Topic particle' },
+          { japanese: '学生です', reading: 'がくせいです', romaji: 'gakusei desu', literal: 'am student', role: 'Comment / Predicate' },
+        ],
+        explanation: 'Establishes the conversational theme or frame of reference: "Speaking of [Topic]..." or "As for [Topic]...". Once introduced with は, the topic remains the understood context for subsequent remarks until changed.\n\nDeep Distinction: Topic vs. Subject:\n• は introduces the theme ("As for me...") and the main focus of information is on what follows (the comment).\n• が marks the specific grammatical subject ("I am the one...") and the focus is on the subject itself.',
+        usage: 'Use は when introducing who or what you are discussing, or when making a contrast between two known things.',
+        whenToUse: 'Use to establish the overarching subject/theme of your discourse.',
+        whenNotToUse: 'Do not confuse topic marker は with the English subject verb "is" — は does not mean "is", it simply tags the topic.',
+        nuance: 'Remember: particle は is always written with the hiragana character は (ha), but always pronounced as "wa" when acting as a grammatical particle.',
+        beginnerTip: 'Read 私は as "Speaking of me..." or "As for me...". This prevents you from mistranslating は as "is".',
+        commonMistakes: [
+          { incorrect: 'Translating は as the English verb "is"', correct: 'は is a particle marking the topic frame, not a verb.', explanation: 'In 私は学生です, the state of being is expressed by です, not は.' },
+          { incorrect: 'Pronouncing topic は as "ha"', correct: 'Pronounce as "wa"', explanation: 'When written as a grammatical particle, the character は is always pronounced "wa".' },
+        ],
+        comparison: {
+          target: 'Topic (は) vs. Subject (が)',
+          comparisonPoints: [
+            { label: 'Core Function', itemA: '私は学生です (Topic は: "As for me, I am a student")', itemB: '私が学生です (Subject が: "I am the one who is a student")', explanation: 'With は, emphasis is on the predicate (学生です). With が, emphasis is on the subject (私), identifying the student.' },
+            { label: 'Conversational Role', itemA: 'Answers: "What do you do?"', itemB: 'Answers: "Who among you is the student?"', explanation: 'が performs exhaustive identification (answers "who/which one"), while は provides a theme for description.' },
+          ],
+        },
         notes: 'Remember: particle は is always written with the hiragana character は (ha), but always pronounced as "wa" when acting as a grammatical particle.',
         caution: 'Do not confuse topic marker は with the English subject "is" — は does not mean "is", it simply tags the topic.',
         jlptLevel: 'N5',
@@ -795,10 +940,34 @@ async function seedUnit1(lessonDocs) {
     { lessonId: lessonDocs[8]._id, order: 3 },
     {
       $set: {
+        categoryType: 'grammar',
         title: 'Question Particle (か)',
         pattern: '[Sentence] + か',
         formation: 'Polite sentence ending + か (e.g. ですか / ますか)',
-        explanation: 'Turns any declarative statement into an inquiry without inverting word order or requiring auxiliary helping verbs (unlike English "Are you...?" or "Do you...?"). It effectively functions as a spoken audible question mark.',
+        courseLevel: 'N5 Foundation',
+        literalMeaning: 'Question marker (verbal "?")',
+        naturalMeaning: 'Turns statement into a question',
+        whyItIsUsed: 'English questions invert word order or require auxiliary helping verbs ("You are a student" → "Are you a student?"). Japanese preserves the exact same grammatical word order and simply appends particle か to the end of the sentence, acting as an audible spoken question mark.',
+        wordBreakdown: [
+          { japanese: '学生', reading: 'がくせい', romaji: 'gakusei', literal: 'student', role: 'Noun' },
+          { japanese: 'です', reading: 'です', romaji: 'desu', literal: 'is / am', role: 'Copula' },
+          { japanese: 'か', reading: 'か', romaji: 'ka', literal: '?', role: 'Question particle' },
+        ],
+        explanation: 'Turns any declarative statement into an inquiry without inverting word order or requiring auxiliary helping verbs. It effectively functions as a spoken audible question mark.\n\nIn standard formal Japanese, questions end with a period (。) followed by か, though modern informal writing often adds a question mark (？).',
+        usage: 'Attach to です or ます with rising intonation to ask polite questions.',
+        whenToUse: 'Use at the end of sentences when seeking information, confirmation, or clarification.',
+        whenNotToUse: 'In casual speech between close peers, drop か and use rising intonation directly (e.g. 学生？ instead of 学生だか).',
+        nuance: 'Adding か to casual だ (だか) sounds harsh or blunt; peers ask questions with rising intonation alone.',
+        beginnerTip: 'Japanese word order never changes when forming questions — just add か at the end!',
+        commonMistakes: [
+          { incorrect: '学生だか？ (in casual speech)', correct: '学生？ (with rising intonation)', explanation: 'In casual speech, do not add か after だ. Simply say the noun with rising intonation.' },
+        ],
+        comparison: {
+          target: 'Polite Question vs. Casual Question',
+          comparisonPoints: [
+            { label: 'Polite Register', itemA: '学生ですか。 (Standard polite question)', itemB: '学生？ (Casual question with rising tone)', explanation: 'Polite questions take ですか; casual speech drops です and か completely.' },
+          ],
+        },
         notes: 'In standard formal Japanese, questions end with a period (。) followed by か, though modern informal writing often adds a question mark (？).',
         jlptLevel: 'N5',
       },
@@ -3793,9 +3962,9 @@ async function seedKanjiForCourse(lessonDocs) {
     charFirstLesson.set(c, lessonDocs[6]._id);
   }
 
-  // 4. Scan all VocabEntry documents across Units 0-5 in curriculum lesson order (order 7..24)
+  // 4. Scan all VocabEntry documents across all 30 lessons in curriculum order (order 7..30)
   const cjkRegex = /[\u4e00-\u9faf\u3400-\u4dbf]/g;
-  for (let order = 7; order <= 24; order++) {
+  for (let order = 7; order <= 30; order++) {
     const lDoc = lessonDocs[order];
     if (!lDoc) continue;
     const vocabs = await VocabEntry.find({ lessonId: lDoc._id }).lean();
@@ -3805,26 +3974,30 @@ async function seedKanjiForCourse(lessonDocs) {
       if (matches) {
         for (const c of matches) {
           if (!charFirstLesson.has(c)) {
-            charFirstLesson.set(c, lDoc._id);
+            charFirstLesson.set(c, { lessonId: lDoc._id, order });
           }
         }
       }
     }
   }
 
-  console.log(`Found ${charFirstLesson.size} unique kanji characters across Units 0-5.`);
+  console.log(`Found ${charFirstLesson.size} unique kanji characters across the 30-lesson curriculum.`);
 
   // Remove any obsolete kanji not present in current curriculum
   await KanjiEntry.deleteMany({ character: { $nin: Array.from(charFirstLesson.keys()) } });
 
-  // 5. Upsert KanjiEntry for each character with its first introduction lessonId
+  // 5. Upsert KanjiEntry for each character with its first introduction lessonId and deep understanding fields
   let createdCount = 0;
-  for (const [char, lessonId] of charFirstLesson.entries()) {
+  for (const [char, meta] of charFirstLesson.entries()) {
     const dict = kanjiDictMap.get(char);
     if (!dict) {
       console.warn(`Warning: Missing KANJIDIC2 definition for '${char}'`);
       continue;
     }
+
+    const coreMeaning = dict.meanings?.[0] || 'Character';
+    const primaryReading = dict.onyomi?.[0] || dict.kunyomi?.[0] || '';
+    const isN5 = dict.jlptLevel === 'N5';
 
     await KanjiEntry.findOneAndUpdate(
       { character: char },
@@ -3835,10 +4008,14 @@ async function seedKanjiForCourse(lessonDocs) {
           onyomi: dict.onyomi || dict.on || [],
           kunyomi: dict.kunyomi || dict.kun || [],
           meanings: dict.meanings || [],
+          coreMeaning,
+          relevantReading: primaryReading,
+          whyAppearsHere: `Introduced in Lesson ${meta.order} vocabulary.`,
+          courseRelevance: isN5 ? 'N5 Core Required Kanji' : `Encountered in Vocabulary (JLPT ${dict.jlptLevel || 'N4'})`,
           strokeCount: dict.strokeCount || dict.strokes || 1,
           grade: dict.grade || 1,
           jlptLevel: dict.jlptLevel || dict.level || 'N5',
-          lessonId: lessonId,
+          lessonId: meta.lessonId,
         },
       },
       { upsert: true, new: true }
@@ -3956,13 +4133,19 @@ async function main() {
   // 7. Seed Unit 5
   await seedUnit5(lessonDocs);
 
-  // 8. Seed Kanji for Course (automated from vocabulary & Lesson 6 across Units 0-5)
+  // 8. Seed Unit 6
+  await seedUnit6(lessonDocs);
+
+  // 9. Seed Unit 7
+  await seedUnit7(lessonDocs);
+
+  // 10. Seed Kanji for Course (automated from vocabulary & Lesson 6 across all 30 lessons)
   await seedKanjiForCourse(lessonDocs);
 
-  // 8. Seed User, Progress, & SM-2 cards
+  // 11. Seed User, Progress, & SM-2 cards
   await seedUserAndProgress(lessonDocs);
 
-  // 5. Generate and print summary counts table
+  // 12. Generate and print summary counts table
   console.log('\n======================================================');
   console.log('               PER-LESSON CONTENT COUNTS              ');
   console.log('======================================================');
@@ -3988,6 +4171,36 @@ async function main() {
   }
 
   console.table(summary);
+
+  // 13. Comprehensive Curriculum Validation Report (Lessons 1-30)
+  console.log('\n======================================================');
+  console.log('            CURRICULUM VALIDATION REPORT              ');
+  console.log('======================================================');
+  let allValid = true;
+  for (const l of allLessons) {
+    const kCount = await KanaEntry.countDocuments({ lessonId: l._id });
+    const gCount = await GrammarPoint.countDocuments({ lessonId: l._id });
+    const vCount = await VocabEntry.countDocuments({ lessonId: l._id });
+    const kjCount = await KanjiEntry.countDocuments({ lessonId: l._id });
+    const totalItems = kCount + gCount + vCount + kjCount;
+
+    // Check for duplicate vocabulary within the same lesson
+    const vocabList = await VocabEntry.find({ lessonId: l._id }).lean();
+    const vocabKanjiSet = new Set();
+    let hasDupeVocab = false;
+    for (const v of vocabList) {
+      const key = v.kanji || v.kana;
+      if (vocabKanjiSet.has(key)) hasDupeVocab = true;
+      vocabKanjiSet.add(key);
+    }
+
+    const isValid = totalItems > 0 && !hasDupeVocab;
+    if (!isValid) allValid = false;
+    const status = isValid ? '✓ VALID' : '✗ ISSUE';
+    console.log(`Lesson ${String(l.order).padStart(2, ' ')}: ${l.title.padEnd(38, ' ')} [${status}] (G:${gCount}, V:${vCount}, K:${kjCount}, Kana:${kCount})`);
+  }
+  console.log(`\nOverall Curriculum Status: ${allValid ? 'ALL 30 LESSONS VERIFIED PASSING ✓' : 'SOME LESSONS REQUIRE ATTENTION ✗'}`);
+  console.log('======================================================\n');
 
   const totalUserCards = await UserCard.countDocuments({});
   const dueUserCards = await UserCard.countDocuments({ nextReviewDate: { $lte: new Date() } });

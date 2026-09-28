@@ -352,56 +352,91 @@ export default function LessonFlowView({
       {/* 4. KANJI FUNDAMENTALS SECTION */}
       {(activeTab === 'all' || activeTab === 'kanji') && kanjiList.length > 0 && (
         <section className="space-y-4">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
-            <h2 className="text-lg font-black text-[#18181B]">{t('kanjiFundamentals') || 'Kanji Fundamentals'}</h2>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+              <h2 className="text-lg font-black text-[#18181B]">{t('kanjiFundamentals') || 'Kanji Fundamentals'}</h2>
+            </div>
+            <span className="text-xs text-[#71717A]">{kanjiList.length} characters</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {kanjiList.map((kj) => (
               <div
                 key={kj._id}
-                className="p-5 rounded-2xl border border-[#E5E5DF] bg-white shadow-2xs space-y-4"
+                className="p-5 rounded-3xl border border-[#E5E5DF] bg-white shadow-2xs space-y-4 hover:border-amber-400 transition-fast"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-[#FFF8EE] border border-amber-200 flex items-center justify-center text-4xl font-serif font-black text-amber-900 shrink-0">
+                  <div className="w-16 h-16 rounded-2xl bg-[#FFF8EE] border border-amber-200 flex items-center justify-center text-4xl font-serif font-black text-amber-900 shrink-0 shadow-2xs">
                     {kj.character}
                   </div>
 
-                  <div className="space-y-1 flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-base font-black text-[#18181B]">
-                        {kj.meanings?.join(', ')}
-                      </h3>
+                  <div className="space-y-1.5 flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <div>
+                        <h3 className="text-base font-black text-[#18181B] leading-tight">
+                          {kj.coreMeaning || kj.meanings?.join(', ')}
+                        </h3>
+                        {kj.coreMeaning && kj.meanings?.length > 1 && (
+                          <div className="text-[11px] text-[#71717A]">
+                            Also: {kj.meanings.filter((m) => m !== kj.coreMeaning).join(', ')}
+                          </div>
+                        )}
+                      </div>
                       <button
                         onClick={() => speakJapanese(kj.character)}
-                        className="p-1.5 rounded-lg text-[#71717A] hover:bg-[#F4F4F0]"
+                        className="p-1.5 rounded-xl text-[#71717A] hover:bg-[#F4F4F0] cursor-pointer shrink-0"
                         title={t('pronounce') || 'Listen'}
                       >
                         🔊
                       </button>
                     </div>
 
-                    <div className="text-xs text-[#71717A] space-y-0.5">
+                    {/* Relevant Reading for this Lesson */}
+                    {kj.relevantReading && (
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 text-amber-900 font-bold text-xs border border-amber-200">
+                        <span className="text-[10px] uppercase tracking-wider text-amber-700">Lesson Reading:</span>
+                        <span className="font-japanese font-black">{kj.relevantReading}</span>
+                      </div>
+                    )}
+
+                    <div className="text-xs text-[#71717A] space-y-0.5 pt-0.5">
                       {kj.onyomi?.length > 0 && (
                         <div>
                           <strong className="text-[#18181B]">On'yomi: </strong>
-                          <span className="font-japanese">{kj.onyomi.join('、')}</span>
+                          <span className="font-japanese font-medium">{kj.onyomi.join('、')}</span>
                         </div>
                       )}
                       {kj.kunyomi?.length > 0 && (
                         <div>
                           <strong className="text-[#18181B]">Kun'yomi: </strong>
-                          <span className="font-japanese">{kj.kunyomi.join('、')}</span>
+                          <span className="font-japanese font-medium">{kj.kunyomi.join('、')}</span>
                         </div>
                       )}
                     </div>
                   </div>
                 </div>
 
+                {/* Why Kanji Appears Here & Course Relevance */}
+                {(kj.whyAppearsHere || kj.courseRelevance) && (
+                  <div className="p-3 rounded-2xl bg-[#FFFDF7] border border-amber-100 text-xs text-amber-950 space-y-1">
+                    {kj.courseRelevance && (
+                      <div className="text-[10px] font-black uppercase tracking-wider text-amber-700">
+                        {kj.courseRelevance}
+                      </div>
+                    )}
+                    {kj.whyAppearsHere && (
+                      <p className="leading-relaxed text-[#3F3F46]">{kj.whyAppearsHere}</p>
+                    )}
+                  </div>
+                )}
+
                 <div className="flex items-center justify-between pt-2 border-t border-[#F4F4F0] text-xs text-[#71717A]">
-                  <span>Strokes: {kj.strokeCount}</span>
-                  {kj.radicals?.length > 0 && <span>Radicals: {kj.radicals.join(', ')}</span>}
+                  <span>Strokes: <strong className="text-[#18181B]">{kj.strokeCount}</strong></span>
+                  {kj.radicals?.length > 0 && <span>Radical: <strong className="text-[#18181B]">{kj.radicals.join(', ')}</strong></span>}
+                  <span className="font-mono text-[11px] bg-[#F4F4F0] px-2 py-0.5 rounded">
+                    {kj.jlptLevel || 'N5'}
+                  </span>
                 </div>
               </div>
             ))}
@@ -409,42 +444,69 @@ export default function LessonFlowView({
         </section>
       )}
 
-      {/* 5. GRAMMAR POINTS SECTION (Tae Kim Sequenced + Tatoeba Examples) */}
+      {/* 5. GRAMMAR & EXPRESSIONS SECTION (Deep Understanding Architecture) */}
       {(activeTab === 'all' || activeTab === 'grammar') && grammarList.length > 0 && (
         <section className="space-y-6">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
-            <h2 className="text-lg font-black text-[#18181B]">{t('grammarConcepts') || 'Grammar Concepts & Structure'}</h2>
+            <h2 className="text-lg font-black text-[#18181B]">{t('grammarConcepts') || 'Grammar Concepts & Expressions'}</h2>
           </div>
 
           <div className="space-y-6">
             {grammarList.map((g, idx) => (
               <div
                 key={g._id}
-                className="rounded-3xl border border-[#E5E5DF] bg-white p-6 sm:p-7 shadow-xs space-y-5"
+                className="rounded-3xl border border-[#E5E5DF] bg-white p-6 sm:p-7 shadow-xs space-y-6 hover:border-emerald-300 transition-fast"
               >
-                {/* Grammar Header */}
-                <div className="space-y-2">
+                {/* 1. Header & Level Badges */}
+                <div className="space-y-3">
                   <div className="flex items-center justify-between flex-wrap gap-2">
-                    <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
-                      Grammar {idx + 1}: {g.title}
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                        {g.categoryType === 'expression'
+                          ? `Expression ${idx + 1}`
+                          : g.categoryType === 'usage-pattern'
+                          ? `Usage Pattern ${idx + 1}`
+                          : `Grammar Point ${idx + 1}`}
+                      </span>
+                      {g.courseLevel && (
+                        <span className="text-xs font-semibold text-blue-800 bg-blue-50 px-2.5 py-0.5 rounded-md border border-blue-200">
+                          {g.courseLevel}
+                        </span>
+                      )}
+                      {g.politenessLevel && (
+                        <span className="text-xs font-semibold text-purple-800 bg-purple-50 px-2.5 py-0.5 rounded-md border border-purple-200">
+                          {g.politenessLevel}
+                        </span>
+                      )}
+                    </div>
                     <span className="text-xs font-bold text-[#71717A]">
-                      {g.jlptLevel ? `JLPT ${g.jlptLevel}` : 'Foundational'}
+                      {g.jlptLevel ? `JLPT ${g.jlptLevel}` : 'Core N5'}
                     </span>
                   </div>
 
+                  <h3 className="text-xl sm:text-2xl font-black text-[#18181B] tracking-tight">
+                    {g.title}
+                  </h3>
+
                   {/* Structural Formula Pattern */}
-                  <div className="p-3.5 rounded-2xl bg-[#FBFBF9] border border-[#E5E5DF] flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider">{t('formationRule') || 'Formation Pattern'}</div>
-                      <div className="text-base sm:text-lg font-mono font-black text-[#18181B] mt-0.5">
+                  <div className="p-4 rounded-2xl bg-[#FBFBF9] border border-[#E5E5DF] flex items-center justify-between gap-4">
+                    <div className="space-y-0.5">
+                      <div className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider">
+                        {t('formationRule') || 'Formation Pattern'}
+                      </div>
+                      <div className="text-base sm:text-lg font-mono font-black text-[#18181B]">
                         {g.pattern}
                       </div>
+                      {g.formation && g.formation !== g.pattern && (
+                        <div className="text-xs text-[#52525B] font-medium pt-0.5">
+                          {g.formation}
+                        </div>
+                      )}
                     </div>
                     <button
                       onClick={() => speakJapanese(g.pattern.replace(/\[.*?\]/g, ''))}
-                      className="p-2 rounded-xl bg-white border border-[#E5E5DF] text-[#18181B] hover:bg-[#F4F4F0] transition-fast cursor-pointer"
+                      className="p-2.5 rounded-xl bg-white border border-[#E5E5DF] text-[#18181B] hover:bg-[#F4F4F0] transition-fast cursor-pointer shrink-0 shadow-2xs"
                       title={t('pronounce') || 'Listen'}
                     >
                       🔊
@@ -452,55 +514,254 @@ export default function LessonFlowView({
                   </div>
                 </div>
 
-                {/* Grammar Explanation */}
-                <div className="text-xs sm:text-sm text-[#3F3F46] leading-relaxed whitespace-pre-line border-l-3 border-[#D94826] pl-4 py-1">
-                  {g.explanation}
-                </div>
+                {/* 2. Literal Structure vs. Natural English (Progressive Understanding) */}
+                {(g.literalMeaning || g.naturalMeaning) && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-2xl bg-[#F8F9FA] border border-[#E9ECEF]">
+                    {g.literalMeaning && (
+                      <div className="space-y-1">
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-amber-700 flex items-center gap-1">
+                          <span>🔍</span>
+                          <span>Literal Japanese Structure</span>
+                        </div>
+                        <div className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                          {g.literalMeaning}
+                        </div>
+                      </div>
+                    )}
+                    {g.naturalMeaning && (
+                      <div className="space-y-1">
+                        <div className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 flex items-center gap-1">
+                          <span>🎯</span>
+                          <span>Natural English Meaning</span>
+                        </div>
+                        <div className="text-xs sm:text-sm font-black text-[#18181B] leading-snug">
+                          {g.naturalMeaning}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
-                {/* Tatoeba Example Sentences */}
-                {Array.isArray(g.exampleSentenceIds) && g.exampleSentenceIds.length > 0 && (
-                  <div className="space-y-3 pt-2">
-                    <div className="text-xs font-bold text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
-                      <span>{t('exampleSentence') || 'Example Sentences (Tatoeba)'}</span>
-                      <span className="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
-                        CC-BY 2.0
-                      </span>
+                {/* 3. Word-by-Word Component Breakdown */}
+                {Array.isArray(g.wordBreakdown) && g.wordBreakdown.length > 0 && (
+                  <div className="space-y-2">
+                    <div className="text-[11px] font-bold text-[#71717A] uppercase tracking-wider">
+                      Component Breakdown (構成要素)
                     </div>
-
-                    <div className="space-y-2.5">
-                      {g.exampleSentenceIds.map((ex) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+                      {g.wordBreakdown.map((item, bIdx) => (
                         <div
-                          key={ex._id || ex.japanese}
-                          className="p-3.5 rounded-2xl bg-[#F8F8F6] border border-[#E5E5DF] flex items-start justify-between gap-4 group hover:border-[#18181B] transition-fast"
+                          key={bIdx}
+                          className="p-3 rounded-2xl bg-white border border-[#E5E5DF] shadow-2xs space-y-1"
                         >
-                          <div className="space-y-1">
-                            <div className="text-base sm:text-lg font-bold text-[#18181B] font-japanese">
-                              {ex.japanese}
-                            </div>
-                            {ex.furigana && ex.furigana !== ex.japanese && (
-                              <div className="text-xs text-[#71717A] font-japanese">
-                                {ex.furigana}
-                              </div>
+                          <div className="flex items-baseline justify-between">
+                            <span className="font-japanese font-black text-[#18181B] text-base">{item.japanese}</span>
+                            {item.reading && item.reading !== item.japanese && (
+                              <span className="text-[10px] text-[#71717A] font-japanese">{item.reading}</span>
                             )}
-                            <div className="text-xs sm:text-sm text-[#52525B]">
-                              {ex.english}
-                            </div>
                           </div>
-
-                          <button
-                            onClick={() => speakJapanese(ex.japanese)}
-                            className="p-2 rounded-xl bg-white border border-[#E5E5DF] hover:bg-[#E5E5DF] text-[#18181B] transition-fast shrink-0 cursor-pointer"
-                            title={t('pronounce') || 'Listen'}
-                          >
-                            🔊
-                          </button>
+                          {item.romaji && (
+                            <div className="text-[10px] font-mono text-[#A1A1AA]">{item.romaji}</div>
+                          )}
+                          <div className="text-xs font-bold text-[#27272A]">{item.literal}</div>
+                          {item.role && (
+                            <div className="text-[10px] font-medium text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-100 inline-block">
+                              {item.role}
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* Per-Grammar-Point SRS Enrollment Action */}
+                {/* 4. "WHY IT IS USED" Communicative Purpose Callout */}
+                {g.whyItIsUsed && (
+                  <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-xs font-black text-amber-900">
+                      <span>💡</span>
+                      <span>Why Japanese Uses This Structure (Communicative Purpose)</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-amber-950 leading-relaxed font-medium">
+                      {g.whyItIsUsed}
+                    </p>
+                  </div>
+                )}
+
+                {/* 5. Detailed Linguistic Explanation */}
+                <div className="text-xs sm:text-sm text-[#3F3F46] leading-relaxed whitespace-pre-line border-l-3 border-[#D94826] pl-4 py-1">
+                  {g.explanation}
+                </div>
+
+                {/* 6. Context & Nuance Notes */}
+                {(g.whenToUse || g.whenNotToUse || g.nuance || g.beginnerTip) && (
+                  <div className="space-y-2 pt-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                      {g.whenToUse && (
+                        <div className="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-100 text-emerald-950 space-y-0.5">
+                          <strong className="text-[10px] uppercase font-bold text-emerald-700 block">✓ When to use</strong>
+                          <p className="leading-snug">{g.whenToUse}</p>
+                        </div>
+                      )}
+                      {g.whenNotToUse && (
+                        <div className="p-3 rounded-2xl bg-rose-50/60 border border-rose-100 text-rose-950 space-y-0.5">
+                          <strong className="text-[10px] uppercase font-bold text-rose-700 block">✕ When NOT to use</strong>
+                          <p className="leading-snug">{g.whenNotToUse}</p>
+                        </div>
+                      )}
+                    </div>
+                    {g.nuance && (
+                      <div className="p-3 rounded-2xl bg-[#F4F4F0] border border-[#E5E5DF] text-xs text-[#3F3F46] space-y-0.5">
+                        <strong className="text-[10px] uppercase font-bold text-[#71717A] block">Nuance & Pragmatics</strong>
+                        <p className="leading-relaxed">{g.nuance}</p>
+                      </div>
+                    )}
+                    {g.beginnerTip && (
+                      <div className="p-3 rounded-2xl bg-blue-50/70 border border-blue-100 text-xs text-blue-950 space-y-0.5">
+                        <strong className="text-[10px] uppercase font-bold text-blue-700 block">💡 Beginner Tip</strong>
+                        <p className="leading-relaxed">{g.beginnerTip}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* 7. Comparison Table (e.g. は vs が, です vs だ) */}
+                {g.comparison && Array.isArray(g.comparison.comparisonPoints) && g.comparison.comparisonPoints.length > 0 && (
+                  <div className="space-y-2 p-4 rounded-2xl bg-[#FBFBF9] border border-[#E5E5DF]">
+                    <div className="text-xs font-black text-[#18181B] flex items-center gap-1.5">
+                      <span>⚖️</span>
+                      <span>Comparison: {g.comparison.target || 'Contrast Analysis'}</span>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left text-xs border-collapse">
+                        <thead>
+                          <tr className="border-b border-[#E5E5DF] text-[#71717A]">
+                            <th className="py-2 pr-3 font-bold">Concept</th>
+                            <th className="py-2 px-3 font-bold font-japanese">Pattern A</th>
+                            <th className="py-2 px-3 font-bold font-japanese">Pattern B</th>
+                            <th className="py-2 pl-3 font-bold">Contrast & Function</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[#F4F4F0]">
+                          {g.comparison.comparisonPoints.map((cp, cIdx) => (
+                            <tr key={cIdx} className="hover:bg-white transition-fast">
+                              <td className="py-2 pr-3 font-bold text-[#18181B]">{cp.label}</td>
+                              <td className="py-2 px-3 font-japanese font-bold text-blue-700">{cp.itemA}</td>
+                              <td className="py-2 px-3 font-japanese font-bold text-purple-700">{cp.itemB}</td>
+                              <td className="py-2 pl-3 text-[#52525B] leading-snug">{cp.explanation}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                {/* 8. Common Learner Mistakes (❌ vs ✅) */}
+                {((Array.isArray(g.commonMistakes) && g.commonMistakes.length > 0) || g.caution) && (
+                  <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2.5">
+                    <div className="text-xs font-black text-amber-900 flex items-center gap-1.5">
+                      <span>⚠️</span>
+                      <span>Common Beginner Mistakes to Avoid</span>
+                    </div>
+                    {Array.isArray(g.commonMistakes) && g.commonMistakes.length > 0 ? (
+                      <div className="space-y-2">
+                        {g.commonMistakes.map((cm, mIdx) => (
+                          <div key={mIdx} className="p-3 rounded-xl bg-white border border-amber-100 text-xs space-y-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="font-japanese font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
+                                ❌ {cm.incorrect}
+                              </span>
+                              <span className="text-[#A1A1AA]">→</span>
+                              <span className="font-japanese font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                                ✅ {cm.correct}
+                              </span>
+                            </div>
+                            <p className="text-[#52525B] leading-snug pt-0.5">{cm.explanation}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-xs text-amber-950 font-medium leading-relaxed">{g.caution}</p>
+                    )}
+                  </div>
+                )}
+
+                {/* 9. Contextual Example Sentences (with Romaji & Word Breakdowns) */}
+                {Array.isArray(g.exampleSentenceIds) && g.exampleSentenceIds.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <div className="text-xs font-bold text-[#71717A] uppercase tracking-wider flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <span>{t('exampleSentence') || 'Example Sentences (Tatoeba)'}</span>
+                        <span className="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
+                          CC-BY 2.0
+                        </span>
+                      </div>
+                      <span className="text-[11px] text-[#A1A1AA]">{g.exampleSentenceIds.length} examples</span>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      {g.exampleSentenceIds.map((ex) => (
+                        <div
+                          key={ex._id || ex.japanese}
+                          className="p-4 rounded-2xl bg-[#F8F8F6] border border-[#E5E5DF] space-y-2 group hover:border-[#18181B] transition-fast"
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="space-y-1 flex-1">
+                              <div className="text-base sm:text-lg font-bold text-[#18181B] font-japanese leading-snug">
+                                {ex.japanese}
+                              </div>
+                              {ex.furigana && ex.furigana !== ex.japanese && (
+                                <div className="text-xs text-[#71717A] font-japanese">
+                                  {ex.furigana}
+                                </div>
+                              )}
+                              {ex.romaji && (
+                                <div className="text-[11px] text-[#A1A1AA] font-mono">
+                                  {ex.romaji}
+                                </div>
+                              )}
+                              <div className="text-xs sm:text-sm font-medium text-[#27272A] pt-0.5">
+                                {ex.naturalEnglish || ex.english}
+                              </div>
+                            </div>
+
+                            <button
+                              onClick={() => speakJapanese(ex.japanese)}
+                              className="p-2 rounded-xl bg-white border border-[#E5E5DF] hover:bg-[#E5E5DF] text-[#18181B] transition-fast shrink-0 cursor-pointer shadow-2xs"
+                              title={t('pronounce') || 'Listen'}
+                            >
+                              🔊
+                            </button>
+                          </div>
+
+                          {/* Sentence Word Breakdown (if provided) */}
+                          {Array.isArray(ex.breakdown) && ex.breakdown.length > 0 && (
+                            <div className="pt-2 border-t border-[#EAEAE6] flex flex-wrap gap-1.5">
+                              {ex.breakdown.map((b, bIdx) => (
+                                <span
+                                  key={bIdx}
+                                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-white border border-[#E5E5DF] text-[10px] text-[#3F3F46]"
+                                >
+                                  <strong className="font-japanese text-[#18181B]">{b.japanese}</strong>
+                                  <span className="text-[#A1A1AA]">({b.english})</span>
+                                </span>
+                              ))}
+                            </div>
+                          )}
+
+                          {ex.grammarNote && (
+                            <div className="text-[11px] text-emerald-800 bg-emerald-50/70 px-2.5 py-1 rounded-lg border border-emerald-100">
+                              ℹ️ {ex.grammarNote}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 10. Per-Grammar-Point SRS Enrollment Action */}
                 <div className="pt-3 border-t border-[#F4F4F0] flex items-center justify-between flex-wrap gap-3">
                   <div className="text-xs">
                     {enrolledGrammarIds.has(String(g._id)) ? (
@@ -562,42 +823,91 @@ export default function LessonFlowView({
             <span className="text-xs text-[#71717A]">{vocabList.length} words</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {vocabList.map((v) => (
               <div
                 key={v._id}
-                className="p-4 rounded-2xl border border-[#E5E5DF] bg-white shadow-2xs hover:border-[#18181B] transition-fast space-y-2"
+                className="p-5 rounded-3xl border border-[#E5E5DF] bg-white shadow-2xs hover:border-[#18181B] transition-fast space-y-3"
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <div className="text-xl font-black text-[#18181B] font-japanese">
+                      <div className="text-2xl font-black text-[#18181B] font-japanese">
                         {v.kanji || v.kana}
                       </div>
                       {isKatakanaLoanword(v.kanji || v.kana, v) && <LoanwordBadge />}
+                      {v.register && (
+                        <span className="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-100">
+                          {v.register}
+                        </span>
+                      )}
                     </div>
                     {v.kanji && (
                       <div className="text-xs font-bold text-[#71717A] font-japanese">
                         {v.kana}
                       </div>
                     )}
+                    {v.romaji && (
+                      <div className="text-[10px] font-mono text-[#A1A1AA]">
+                        {v.romaji}
+                      </div>
+                    )}
                   </div>
 
                   <button
                     onClick={() => speakJapanese(v.kanji || v.kana)}
-                    className="p-1.5 rounded-lg text-[#71717A] hover:bg-[#F4F4F0] cursor-pointer shrink-0"
+                    className="p-2 rounded-xl text-[#71717A] hover:bg-[#F4F4F0] cursor-pointer shrink-0 border border-[#F4F4F0]"
                     title={t('pronounce') || 'Listen'}
                   >
                     🔊
                   </button>
                 </div>
 
-                <div className="text-sm font-medium text-[#27272A]">
-                  {v.meanings?.join(', ')}
+                {/* Meanings: Natural vs. Literal */}
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-[#18181B]">
+                    {v.naturalMeaning || v.meanings?.join(', ')}
+                  </div>
+                  {v.literalMeaning && (
+                    <div className="text-xs text-[#71717A] italic">
+                      Literal: {v.literalMeaning}
+                    </div>
+                  )}
                 </div>
 
+                {/* Nuance / Usage / Context Notes */}
+                {(v.usage || v.nuance || v.kanjiNotes) && (
+                  <div className="text-xs text-[#52525B] p-2.5 rounded-xl bg-[#FBFBF9] border border-[#F4F4F0] space-y-1">
+                    {v.usage && <p className="leading-snug">{v.usage}</p>}
+                    {v.nuance && <p className="text-[11px] text-[#71717A] leading-snug">💡 {v.nuance}</p>}
+                    {v.kanjiNotes && <p className="text-[11px] text-amber-800 leading-snug">ℹ️ {v.kanjiNotes}</p>}
+                  </div>
+                )}
+
+                {/* Collocations / Common Mistakes */}
+                {(v.collocations?.length > 0 || v.commonMistakes) && (
+                  <div className="space-y-1 text-xs pt-1">
+                    {v.collocations?.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        <span className="text-[10px] font-bold text-[#71717A]">Collocations:</span>
+                        {v.collocations.map((c, cIdx) => (
+                          <span key={cIdx} className="font-japanese text-[11px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-800">
+                            {c}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {v.commonMistakes && (
+                      <div className="text-[11px] text-rose-700 bg-rose-50/70 p-2 rounded-lg border border-rose-100">
+                        ⚠️ {v.commonMistakes}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Pos & Example */}
                 {v.partOfSpeech?.length > 0 && (
-                  <div className="text-[10px] font-mono text-[#71717A]">
+                  <div className="text-[10px] font-mono text-[#71717A] pt-1 border-t border-[#F4F4F0]">
                     {v.partOfSpeech.join(' · ')}
                   </div>
                 )}
@@ -613,7 +923,7 @@ export default function LessonFlowView({
                       </div>
                     )}
                     <div className="text-[11px] text-[#52525B]">
-                      {v.exampleSentenceIds[0]?.english}
+                      {v.exampleSentenceIds[0]?.naturalEnglish || v.exampleSentenceIds[0]?.english}
                     </div>
                   </div>
                 )}

@@ -185,14 +185,48 @@ export default function GrammarCardView({
         </div>
       )}
 
+      {/* Why It Is Used Callout */}
+      {(card.whyItIsUsed || card.content?.whyItIsUsed) && (
+        <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 space-y-1">
+          <div className="flex items-center gap-1.5 text-xs font-black text-amber-900">
+            <span>💡</span>
+            <span>Why Japanese Uses This Structure</span>
+          </div>
+          <p className="text-xs sm:text-sm font-medium text-amber-950 leading-relaxed">
+            {card.whyItIsUsed || card.content?.whyItIsUsed}
+          </p>
+        </div>
+      )}
+
+      {/* Word Breakdown if available */}
+      {(card.wordBreakdown || card.content?.wordBreakdown)?.length > 0 && (
+        <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+          <span className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400 block">
+            構成要素 (Component Breakdown)
+          </span>
+          <div className="flex flex-wrap gap-1.5">
+            {(card.wordBreakdown || card.content?.wordBreakdown).map((item, bIdx) => (
+              <span
+                key={bIdx}
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-800"
+              >
+                <strong className="font-japanese">{item.japanese}</strong>
+                <span className="text-slate-500">({item.literal})</span>
+                {item.role && <span className="text-[10px] text-purple-700 font-medium">[{item.role}]</span>}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Usage & Nuance Explanation */}
-      {card.usage && (
+      {(card.usage || card.content?.explanation) && (
         <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
           <span className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400 block">
             解説・ニュアンス (Usage & Nuance)
           </span>
-          <p className="text-sm font-medium text-slate-700 leading-relaxed">
-            {card.usage}
+          <p className="text-sm font-medium text-slate-700 leading-relaxed whitespace-pre-line">
+            {card.usage || card.content?.explanation}
           </p>
         </div>
       )}
