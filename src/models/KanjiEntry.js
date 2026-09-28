@@ -17,8 +17,6 @@ export const KanjiEntrySchema = new Schema(
     jlptLevel: { type: String, enum: ['N5', 'N4', 'N3', 'N2', 'N1', null], default: null },
 
     // Deep Understanding Educational Fields
-    lessonReading: { type: String, default: '' },
-    lessonRomaji: { type: String, default: '' },
     coreMeaning: { type: String, default: '' },
     relevantReading: { type: String, default: '' },
     whyAppearsHere: { type: String, default: '' },

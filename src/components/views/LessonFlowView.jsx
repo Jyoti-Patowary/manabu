@@ -5,7 +5,6 @@ import { useLanguage } from '@/context/LanguageContext';
 import KanjiCanvas from '../KanjiCanvas';
 import LoanwordBadge from '../LoanwordBadge';
 import { isKatakanaLoanword } from '@/lib/japaneseUtils';
-import { getKanjiLessonReading } from '@/lib/kanjiContextualReadings';
 import { fetchLessonDetail, completeLessonAction, enrollGrammarPointAction } from '@/app/actions';
 import { awardXp } from '@/lib/accountEngine';
 
@@ -363,10 +362,9 @@ export default function LessonFlowView({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {kanjiList.map((kj) => {
-              const contextual = getKanjiLessonReading(kj.character);
-              const reading = kj.lessonReading || contextual?.reading || kj.relevantReading || '';
-              const romaji = kj.lessonRomaji || contextual?.romaji || '';
-              const coreMeaning = kj.coreMeaning || contextual?.meaning || (Array.isArray(kj.meanings) ? kj.meanings[0] : kj.meaning) || '';
+              const reading = kj.lessonReading || kj.relevantReading || '';
+              const romaji = kj.lessonRomaji || '';
+              const coreMeaning = kj.coreMeaning || (Array.isArray(kj.meanings) ? kj.meanings[0] : kj.meaning) || '';
 
               return (
                 <div
@@ -412,7 +410,7 @@ export default function LessonFlowView({
                         </h3>
                         {kj.meanings?.length > 1 && (
                           <div className="text-[11px] text-[#71717A] truncate">
-                            Also: {kj.meanings.filter((m) => m !== coreMeaning && m !== contextual?.meaning).slice(0, 3).join(', ')}
+                            Also: {kj.meanings.filter((m) => m !== coreMeaning).slice(0, 3).join(', ')}
                           </div>
                         )}
                       </div>

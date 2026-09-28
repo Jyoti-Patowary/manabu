@@ -659,21 +659,33 @@ async function seedUnit0(lessonDocs) {
   ];
 
   for (const k of introKanji) {
+    const contextual = getKanjiLessonReading(k.char);
+    const reading = contextual?.reading || k.kun?.[0] || '';
+    const romaji = contextual?.romaji || '';
+    const meaning = contextual?.meaning || k.m[0] || 'Character';
+
     await KanjiEntry.findOneAndUpdate(
       { character: k.char },
       {
         $set: {
+          character: k.char,
           unicode: k.uni,
           onyomi: k.on,
           kunyomi: k.kun,
           meanings: k.m,
+          lessonReading: reading,
+          lessonRomaji: romaji,
+          coreMeaning: meaning,
+          relevantReading: reading,
+          whyAppearsHere: 'Foundational Kanji introduced in Lesson 6 Kanji Fundamentals.',
+          courseRelevance: 'N5 Core Required Kanji',
           strokeCount: k.strokes,
           grade: k.grade,
           lessonId: lessonDocs[6]._id,
           jlptLevel: 'N5',
         },
       },
-      { upsert: true }
+      { upsert: true, new: true }
     );
   }
 
@@ -3960,7 +3972,7 @@ async function seedKanjiForCourse(lessonDocs) {
   const charFirstLesson = new Map();
   const introChars = ['一', '二', '三', '日', '月', '木', '山', '川', '人', '口'];
   for (const c of introChars) {
-    charFirstLesson.set(c, lessonDocs[6]._id);
+    charFirstLesson.set(c, { lessonId: lessonDocs[6]._id, order: 6 });
   }
 
   // 4. Scan all VocabEntry documents across all 30 lessons in curriculum order (order 7..30)
@@ -4001,6 +4013,9 @@ async function seedKanjiForCourse(lessonDocs) {
     const lessonRomaji = contextual?.romaji || '';
     const coreMeaning = contextual?.meaning || dict.meanings?.[0] || 'Character';
     const isN5 = dict.jlptLevel === 'N5';
+    const whyAppearsHere = meta.order === 6
+      ? 'Foundational Kanji introduced in Lesson 6 Kanji Fundamentals.'
+      : `Introduced in Lesson ${meta.order} vocabulary.`;
 
     await KanjiEntry.findOneAndUpdate(
       { character: char },
@@ -4015,7 +4030,7 @@ async function seedKanjiForCourse(lessonDocs) {
           lessonRomaji,
           coreMeaning,
           relevantReading: lessonReading,
-          whyAppearsHere: `Introduced in Lesson ${meta.order} vocabulary.`,
+          whyAppearsHere,
           courseRelevance: isN5 ? 'N5 Core Required Kanji' : `Encountered in Vocabulary (JLPT ${dict.jlptLevel || 'N4'})`,
           strokeCount: dict.strokeCount || dict.strokes || 1,
           grade: dict.grade || 1,

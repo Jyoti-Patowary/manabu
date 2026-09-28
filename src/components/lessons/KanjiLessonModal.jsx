@@ -3,7 +3,6 @@
 import { useState, useCallback } from 'react';
 import KanjiCanvas from '@/components/KanjiCanvas';
 import { useLanguage } from '@/context/LanguageContext';
-import { getKanjiLessonReading } from '@/lib/kanjiContextualReadings';
 
 export default function KanjiLessonModal({
   kanjiItem,
@@ -29,16 +28,11 @@ export default function KanjiLessonModal({
 
   if (!kanjiItem) return null;
 
-  const char = kanjiItem.kanji || kanjiItem.character || '';
-  const strokeCount = kanjiItem.stroke_count || kanjiItem.strokes || kanjiItem.strokeCount || 0;
+  const char = kanjiItem.kanji || '';
+  const strokeCount = kanjiItem.stroke_count || kanjiItem.strokes || 0;
   const meaningsText = Array.isArray(kanjiItem.meanings) ? kanjiItem.meanings.join(', ') : (kanjiItem.meaning || '');
-  const onyomi = Array.isArray(kanjiItem.on_readings) ? kanjiItem.on_readings : (kanjiItem.onyomi ? (Array.isArray(kanjiItem.onyomi) ? kanjiItem.onyomi : kanjiItem.onyomi.split(/[、,]/)) : []);
-  const kunyomi = Array.isArray(kanjiItem.kun_readings) ? kanjiItem.kun_readings : (kanjiItem.kunyomi ? (Array.isArray(kanjiItem.kunyomi) ? kanjiItem.kunyomi : kanjiItem.kunyomi.split(/[、,]/)) : []);
-
-  const contextual = getKanjiLessonReading(char);
-  const reading = kanjiItem.lessonReading || contextual?.reading || kanjiItem.relevantReading || '';
-  const romaji = kanjiItem.lessonRomaji || contextual?.romaji || '';
-  const meaning = kanjiItem.coreMeaning || contextual?.meaning || meaningsText;
+  const onyomi = Array.isArray(kanjiItem.on_readings) ? kanjiItem.on_readings : (kanjiItem.onyomi ? kanjiItem.onyomi.split(/[、,]/) : []);
+  const kunyomi = Array.isArray(kanjiItem.kun_readings) ? kanjiItem.kun_readings : (kanjiItem.kunyomi ? kanjiItem.kunyomi.split(/[、,]/) : []);
 
   // Common sample compounds for this kanji
   const compounds = Array.isArray(kanjiItem.compounds) ? kanjiItem.compounds : [
@@ -55,14 +49,12 @@ export default function KanjiLessonModal({
         onClick={(e) => e.stopPropagation()}
         className="bg-[#FFFFFF] rounded-3xl border border-[#E8E8E2] max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl space-y-6 animate-in zoom-in-95 duration-150 text-[#1A1A1A]"
       >
-        {/* Header: 1. Kanji, 2. Hiragana reading, 3. Romaji, 4. Meaning */}
+        {/* Header */}
         <div className="flex items-start justify-between border-b border-[#E8E8E2] pb-4">
-          <div className="flex items-start gap-4">
-            {/* 1. Kanji Character */}
-            <div className="w-18 h-18 rounded-2xl bg-[#FFF8EE] border border-amber-200 flex items-center justify-center text-4xl sm:text-5xl font-serif-jp font-black text-amber-900 shrink-0 shadow-xs">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#FAFAF7] border border-[#E8E8E2] flex items-center justify-center text-4xl font-serif-jp font-black text-[#1A1A1A] shadow-xs">
               {char}
             </div>
-
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase bg-amber-50 text-[#B45309] border border-amber-200">
@@ -72,22 +64,8 @@ export default function KanjiLessonModal({
                   {strokeCount} 画
                 </span>
               </div>
-
-              {/* 2. Hiragana Reading (prominent) */}
-              <div className="text-2xl sm:text-3xl font-japanese font-black text-[#1A1A1A] tracking-tight leading-tight">
-                {reading}
-              </div>
-
-              {/* 3. Romaji */}
-              {romaji && (
-                <div className="text-xs font-mono font-bold text-amber-800 tracking-wider">
-                  {romaji}
-                </div>
-              )}
-
-              {/* 4. Meaning */}
-              <h2 className="text-base sm:text-lg font-bold text-[#27272A] pt-0.5">
-                {meaning}
+              <h2 className="text-xl sm:text-2xl font-black font-serif-jp tracking-tight text-[#1A1A1A]">
+                {meaningsText}
               </h2>
               {kanjiItem.heisig_en && (
                 <p className="text-xs text-[#71717A]">
