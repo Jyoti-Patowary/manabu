@@ -362,18 +362,16 @@ export default function LessonFlowView({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {kanjiList.map((kj) => {
-              const currentCtx = kj.currentContext || (kj.courseContexts?.[0]);
-              const primaryVocab = kj.primaryVocabulary || currentCtx?.vocabulary || kj.character;
-              const reading = kj.lessonReading || currentCtx?.reading || kj.relevantReading || '';
-              const romaji = kj.lessonRomaji || currentCtx?.romaji || '';
-              const coreMeaning = kj.coreMeaning || currentCtx?.meaning || (Array.isArray(kj.meanings) ? kj.meanings[0] : kj.meaning) || '';
+              const reading = kj.lessonReading || kj.relevantReading || '';
+              const romaji = kj.lessonRomaji || '';
+              const coreMeaning = kj.coreMeaning || (Array.isArray(kj.meanings) ? kj.meanings[0] : kj.meaning) || '';
 
               return (
                 <div
                   key={kj._id}
                   className="p-5 rounded-3xl border border-[#E5E5DF] bg-white shadow-2xs space-y-4 hover:border-amber-400 transition-fast"
                 >
-                  {/* Top Block: 1. Kanji Character, 2. Course Vocabulary Context, 3. Reading/Romaji, 4. Meaning */}
+                  {/* Top Block: 1. Kanji Character, 2. Hiragana Reading, 3. Romaji, 4. Meaning */}
                   <div className="flex items-start gap-4">
                     {/* 1. Kanji character (visually prominent) */}
                     <div className="w-18 h-18 rounded-2xl bg-[#FFF8EE] border border-amber-200 flex items-center justify-center text-4xl sm:text-5xl font-serif-jp font-black text-amber-900 shrink-0 shadow-2xs">
@@ -381,24 +379,14 @@ export default function LessonFlowView({
                     </div>
 
                     <div className="space-y-1 flex-1 min-w-0">
-                      {/* Course Vocabulary Context indicator when kanji is inside a word */}
-                      {primaryVocab && primaryVocab !== kj.character && (
-                        <div className="flex items-center gap-1.5 text-xs text-amber-900 font-semibold mb-0.5">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-1.5 py-0.5 rounded">
-                            Seen in
-                          </span>
-                          <span className="font-japanese font-bold text-base text-[#18181B]">{primaryVocab}</span>
-                        </div>
-                      )}
-
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          {/* 2. Learner-facing Hiragana reading of the vocabulary word */}
+                          {/* 2. Hiragana reading (clear, high readability, visually prominent) */}
                           <div className="text-2xl sm:text-3xl font-japanese font-black text-[#18181B] tracking-tight leading-tight">
                             {reading}
                           </div>
 
-                          {/* 3. Romaji (Hepburn) */}
+                          {/* 3. Romaji (clear support for pronunciation) */}
                           {romaji && (
                             <div className="text-xs font-mono font-bold text-amber-800 tracking-wider pt-0.5">
                               {romaji}
@@ -407,7 +395,7 @@ export default function LessonFlowView({
                         </div>
 
                         <button
-                          onClick={() => speakJapanese(primaryVocab || kj.character)}
+                          onClick={() => speakJapanese(kj.character)}
                           className="p-1.5 rounded-xl text-[#71717A] hover:bg-[#F4F4F0] hover:text-[#18181B] cursor-pointer shrink-0 transition-fast"
                           title={t('pronounce') || 'Listen'}
                         >
@@ -415,26 +403,23 @@ export default function LessonFlowView({
                         </button>
                       </div>
 
-                      {/* 4. Meaning / English translation in course context */}
+                      {/* 4. Meaning / English translation */}
                       <div className="pt-1.5">
                         <h3 className="text-sm sm:text-base font-bold text-[#18181B] leading-snug">
                           {coreMeaning}
                         </h3>
                         {kj.meanings?.length > 1 && (
                           <div className="text-[11px] text-[#71717A] truncate">
-                            Dictionary: {kj.meanings.filter((m) => m !== coreMeaning).slice(0, 3).join(', ')}
+                            Also: {kj.meanings.filter((m) => m !== coreMeaning).slice(0, 3).join(', ')}
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
 
-                  {/* 5. Supporting readings (On'yomi / Kun'yomi dictionary reference) */}
+                  {/* 5. Supporting readings (On'yomi / Kun'yomi) */}
                   {(kj.onyomi?.length > 0 || kj.kunyomi?.length > 0) && (
                     <div className="p-3 rounded-2xl bg-[#FAFAF8] border border-[#EBEBE6] text-xs space-y-1.5">
-                      <div className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider">
-                        辞書リファレンス (Dictionary Reference)
-                      </div>
                       {kj.onyomi?.length > 0 && (
                         <div className="flex items-baseline gap-2">
                           <span className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider w-16 shrink-0">On'yomi:</span>
@@ -449,26 +434,6 @@ export default function LessonFlowView({
                       )}
                     </div>
                   )}
-
-                  {/* Multiple Contexts Across Lessons */}
-                  {kj.courseContexts?.length > 1 && (
-                    <div className="p-2.5 rounded-2xl bg-[#F9F9F6] border border-[#EBEBE6] text-xs space-y-1">
-                      <div className="text-[10px] font-bold text-amber-800 uppercase tracking-wider">
-                        他の学習語彙 (Also appears in):
-                      </div>
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        {kj.courseContexts
-                          .filter((c) => c.vocabulary !== primaryVocab)
-                          .slice(0, 4)
-                          .map((ctx, idx) => (
-                            <span key={idx} className="px-2 py-0.5 rounded-lg bg-white border border-[#E5E5DF] text-[#3F3F46]">
-                              L{ctx.lesson}: <strong className="font-japanese text-[#18181B]">{ctx.vocabulary}</strong> ({ctx.reading})
-                            </span>
-                          ))}
-                      </div>
-                    </div>
-                  )}
-
 
                   {/* Why Kanji Appears Here & Course Relevance */}
                   {(kj.whyAppearsHere || kj.courseRelevance) && (
