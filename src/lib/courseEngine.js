@@ -8,6 +8,7 @@ import ExampleSentence from '../models/ExampleSentence.js';
 import UserCard from '../models/UserCard.js';
 import UserProgress from '../models/UserProgress.js';
 import User from '../models/User.js';
+import { getKanjiLessonReading } from './kanjiContextualReadings.js';
 
 /**
  * SM-2 Spaced Repetition calculation
@@ -176,6 +177,16 @@ export async function getLessonDetail(lessonId, userId = null) {
     KanaEntry.find({ lessonId: lesson._id }).lean(),
   ]);
 
+  const enrichedKanjiEntries = kanjiEntries.map((kj) => {
+    const contextual = getKanjiLessonReading(kj.character);
+    return {
+      ...kj,
+      lessonReading: kj.lessonReading || contextual?.reading || kj.relevantReading || '',
+      lessonRomaji: kj.lessonRomaji || contextual?.romaji || '',
+      coreMeaning: kj.coreMeaning || contextual?.meaning || (Array.isArray(kj.meanings) ? kj.meanings[0] : kj.meaning) || '',
+    };
+  });
+
   let enrolledGrammarPointIds = [];
   if (userId && grammarPoints.length > 0) {
     const enrolledUserCards = await UserCard.find({
@@ -190,7 +201,7 @@ export async function getLessonDetail(lessonId, userId = null) {
     lesson,
     grammarPoints,
     vocabEntries,
-    kanjiEntries,
+    kanjiEntries: enrichedKanjiEntries,
     kanaEntries,
     enrolledGrammarPointIds,
   };
@@ -258,8 +269,9 @@ export async function getDueUserCards(userId) {
         content,
         // Canonical front/back mappings
         kanji: content.kanji || content.character || content.pattern || '',
-        reading: content.kana || content.reading || content.romaji || (content.onyomi?.[0] || ''),
-        meaning: Array.isArray(content.meanings) ? content.meanings.join(', ') : (content.explanation || content.title || ''),
+        reading: content.lessonReading || (userCard.cardType === 'kanji' ? getKanjiLessonReading(content.character || content.kanji)?.reading : null) || content.relevantReading || content.kana || content.reading || (content.onyomi?.[0] || ''),
+        romaji: content.lessonRomaji || (userCard.cardType === 'kanji' ? getKanjiLessonReading(content.character || content.kanji)?.romaji : null) || content.romaji || '',
+        meaning: content.coreMeaning || (userCard.cardType === 'kanji' ? getKanjiLessonReading(content.character || content.kanji)?.meaning : null) || (Array.isArray(content.meanings) ? content.meanings.join(', ') : (content.explanation || content.title || '')),
         example: content.exampleSentenceIds?.[0]?.japanese || '',
         exampleMeaning: content.exampleSentenceIds?.[0]?.english || '',
         content_type: userCard.cardType,

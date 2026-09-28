@@ -5,6 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import KanjiCanvas from '../KanjiCanvas';
 import LoanwordBadge from '../LoanwordBadge';
 import { isKatakanaLoanword } from '@/lib/japaneseUtils';
+import { getKanjiLessonReading } from '@/lib/kanjiContextualReadings';
 import { fetchLessonDetail, completeLessonAction, enrollGrammarPointAction } from '@/app/actions';
 import { awardXp } from '@/lib/accountEngine';
 
@@ -361,85 +362,106 @@ export default function LessonFlowView({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {kanjiList.map((kj) => (
-              <div
-                key={kj._id}
-                className="p-5 rounded-3xl border border-[#E5E5DF] bg-white shadow-2xs space-y-4 hover:border-amber-400 transition-fast"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-[#FFF8EE] border border-amber-200 flex items-center justify-center text-4xl font-serif font-black text-amber-900 shrink-0 shadow-2xs">
-                    {kj.character}
-                  </div>
+            {kanjiList.map((kj) => {
+              const contextual = getKanjiLessonReading(kj.character);
+              const reading = kj.lessonReading || contextual?.reading || kj.relevantReading || '';
+              const romaji = kj.lessonRomaji || contextual?.romaji || '';
+              const coreMeaning = kj.coreMeaning || contextual?.meaning || (Array.isArray(kj.meanings) ? kj.meanings[0] : kj.meaning) || '';
 
-                  <div className="space-y-1.5 flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-2">
-                      <div>
-                        <h3 className="text-base font-black text-[#18181B] leading-tight">
-                          {kj.coreMeaning || kj.meanings?.join(', ')}
+              return (
+                <div
+                  key={kj._id}
+                  className="p-5 rounded-3xl border border-[#E5E5DF] bg-white shadow-2xs space-y-4 hover:border-amber-400 transition-fast"
+                >
+                  {/* Top Block: 1. Kanji Character, 2. Hiragana Reading, 3. Romaji, 4. Meaning */}
+                  <div className="flex items-start gap-4">
+                    {/* 1. Kanji character (visually prominent) */}
+                    <div className="w-18 h-18 rounded-2xl bg-[#FFF8EE] border border-amber-200 flex items-center justify-center text-4xl sm:text-5xl font-serif-jp font-black text-amber-900 shrink-0 shadow-2xs">
+                      {kj.character}
+                    </div>
+
+                    <div className="space-y-1 flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          {/* 2. Hiragana reading (clear, high readability, visually prominent) */}
+                          <div className="text-2xl sm:text-3xl font-japanese font-black text-[#18181B] tracking-tight leading-tight">
+                            {reading}
+                          </div>
+
+                          {/* 3. Romaji (clear support for pronunciation) */}
+                          {romaji && (
+                            <div className="text-xs font-mono font-bold text-amber-800 tracking-wider pt-0.5">
+                              {romaji}
+                            </div>
+                          )}
+                        </div>
+
+                        <button
+                          onClick={() => speakJapanese(kj.character)}
+                          className="p-1.5 rounded-xl text-[#71717A] hover:bg-[#F4F4F0] hover:text-[#18181B] cursor-pointer shrink-0 transition-fast"
+                          title={t('pronounce') || 'Listen'}
+                        >
+                          🔊
+                        </button>
+                      </div>
+
+                      {/* 4. Meaning / English translation */}
+                      <div className="pt-1.5">
+                        <h3 className="text-sm sm:text-base font-bold text-[#18181B] leading-snug">
+                          {coreMeaning}
                         </h3>
-                        {kj.coreMeaning && kj.meanings?.length > 1 && (
-                          <div className="text-[11px] text-[#71717A]">
-                            Also: {kj.meanings.filter((m) => m !== kj.coreMeaning).join(', ')}
+                        {kj.meanings?.length > 1 && (
+                          <div className="text-[11px] text-[#71717A] truncate">
+                            Also: {kj.meanings.filter((m) => m !== coreMeaning && m !== contextual?.meaning).slice(0, 3).join(', ')}
                           </div>
                         )}
                       </div>
-                      <button
-                        onClick={() => speakJapanese(kj.character)}
-                        className="p-1.5 rounded-xl text-[#71717A] hover:bg-[#F4F4F0] cursor-pointer shrink-0"
-                        title={t('pronounce') || 'Listen'}
-                      >
-                        🔊
-                      </button>
                     </div>
+                  </div>
 
-                    {/* Relevant Reading for this Lesson */}
-                    {kj.relevantReading && (
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 text-amber-900 font-bold text-xs border border-amber-200">
-                        <span className="text-[10px] uppercase tracking-wider text-amber-700">Lesson Reading:</span>
-                        <span className="font-japanese font-black">{kj.relevantReading}</span>
-                      </div>
-                    )}
-
-                    <div className="text-xs text-[#71717A] space-y-0.5 pt-0.5">
+                  {/* 5. Supporting readings (On'yomi / Kun'yomi) */}
+                  {(kj.onyomi?.length > 0 || kj.kunyomi?.length > 0) && (
+                    <div className="p-3 rounded-2xl bg-[#FAFAF8] border border-[#EBEBE6] text-xs space-y-1.5">
                       {kj.onyomi?.length > 0 && (
-                        <div>
-                          <strong className="text-[#18181B]">On'yomi: </strong>
-                          <span className="font-japanese font-medium">{kj.onyomi.join('、')}</span>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider w-16 shrink-0">On'yomi:</span>
+                          <span className="font-japanese font-bold text-[#18181B]">{kj.onyomi.join('、')}</span>
                         </div>
                       )}
                       {kj.kunyomi?.length > 0 && (
-                        <div>
-                          <strong className="text-[#18181B]">Kun'yomi: </strong>
-                          <span className="font-japanese font-medium">{kj.kunyomi.join('、')}</span>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-[10px] font-bold text-[#71717A] uppercase tracking-wider w-16 shrink-0">Kun'yomi:</span>
+                          <span className="font-japanese font-bold text-[#18181B]">{kj.kunyomi.join('、')}</span>
                         </div>
                       )}
                     </div>
+                  )}
+
+                  {/* Why Kanji Appears Here & Course Relevance */}
+                  {(kj.whyAppearsHere || kj.courseRelevance) && (
+                    <div className="p-3 rounded-2xl bg-[#FFFDF7] border border-amber-100 text-xs text-amber-950 space-y-1">
+                      {kj.courseRelevance && (
+                        <div className="text-[10px] font-black uppercase tracking-wider text-amber-700">
+                          {kj.courseRelevance}
+                        </div>
+                      )}
+                      {kj.whyAppearsHere && (
+                        <p className="leading-relaxed text-[#3F3F46]">{kj.whyAppearsHere}</p>
+                      )}
+                    </div>
+                  )}
+
+                  {/* 6. Strokes / other details */}
+                  <div className="flex items-center justify-between pt-2 border-t border-[#F4F4F0] text-xs text-[#71717A]">
+                    <span>Strokes: <strong className="text-[#18181B]">{kj.strokeCount || kj.strokes || 1}</strong></span>
+                    {kj.radicals?.length > 0 && <span>Radical: <strong className="text-[#18181B]">{kj.radicals.join(', ')}</strong></span>}
+                    <span className="font-mono text-[11px] bg-[#F4F4F0] px-2 py-0.5 rounded font-bold text-[#52525B]">
+                      {kj.jlptLevel || 'N5'}
+                    </span>
                   </div>
                 </div>
-
-                {/* Why Kanji Appears Here & Course Relevance */}
-                {(kj.whyAppearsHere || kj.courseRelevance) && (
-                  <div className="p-3 rounded-2xl bg-[#FFFDF7] border border-amber-100 text-xs text-amber-950 space-y-1">
-                    {kj.courseRelevance && (
-                      <div className="text-[10px] font-black uppercase tracking-wider text-amber-700">
-                        {kj.courseRelevance}
-                      </div>
-                    )}
-                    {kj.whyAppearsHere && (
-                      <p className="leading-relaxed text-[#3F3F46]">{kj.whyAppearsHere}</p>
-                    )}
-                  </div>
-                )}
-
-                <div className="flex items-center justify-between pt-2 border-t border-[#F4F4F0] text-xs text-[#71717A]">
-                  <span>Strokes: <strong className="text-[#18181B]">{kj.strokeCount}</strong></span>
-                  {kj.radicals?.length > 0 && <span>Radical: <strong className="text-[#18181B]">{kj.radicals.join(', ')}</strong></span>}
-                  <span className="font-mono text-[11px] bg-[#F4F4F0] px-2 py-0.5 rounded">
-                    {kj.jlptLevel || 'N5'}
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       )}

@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { getKanjiByLevel, searchKanji, createKanjiCard, JLPT_KANJI_LEVELS, KANJI_COUNT_BY_LEVEL } from '@/lib/kanjiData';
+import { getKanjiLessonReading } from '@/lib/kanjiContextualReadings';
 import KanjiCanvas from '@/components/KanjiCanvas';
 
 export default function KanjiBrowser({ onStudyKanji, onViewGraph, initialLevel = 'N5' }) {
@@ -141,6 +142,8 @@ export default function KanjiBrowser({ onStudyKanji, onViewGraph, initialLevel =
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 max-h-[640px] overflow-y-auto pr-1">
             {kanjiList.map((item) => {
               const isSelected = selectedKanji?.kanji === item.kanji;
+              const contextual = getKanjiLessonReading(item.kanji);
+              const reading = item.lessonReading || contextual?.reading || '';
               return (
                 <button
                   key={`${item.kanji}-${item.unicode}`}
@@ -161,9 +164,16 @@ export default function KanjiBrowser({ onStudyKanji, onViewGraph, initialLevel =
                   </span>
 
                   {/* Character */}
-                  <span className="text-3xl font-black font-japanese text-slate-900 group-hover:text-violet-700 transition-colors my-1">
+                  <span className="text-3xl font-black font-japanese text-slate-900 group-hover:text-violet-700 transition-colors my-0.5">
                     {item.kanji}
                   </span>
+
+                  {/* Contextual Reading */}
+                  {reading && (
+                    <span className="text-[11px] font-bold text-violet-700 font-japanese truncate w-full">
+                      {reading}
+                    </span>
+                  )}
 
                   {/* Primary Meaning */}
                   <span className="text-[10px] font-bold text-slate-500 truncate w-full group-hover:text-slate-900">
@@ -177,20 +187,38 @@ export default function KanjiBrowser({ onStudyKanji, onViewGraph, initialLevel =
 
         {/* Right: Selected Kanji Calligraphy Practice Drawer */}
         <div className="bg-white rounded-3xl border border-slate-200/90 p-5 shadow-sm space-y-4 lg:sticky lg:top-4">
-          {selectedKanji ? (
+          {selectedKanji ? (() => {
+            const selContextual = getKanjiLessonReading(selectedKanji.kanji);
+            const selReading = selectedKanji.lessonReading || selContextual?.reading || '';
+            const selRomaji = selectedKanji.lessonRomaji || selContextual?.romaji || '';
+            const selMeaning = selectedKanji.coreMeaning || selContextual?.meaning || (Array.isArray(selectedKanji.meanings) ? selectedKanji.meanings.join(', ') : selectedKanji.meaning) || '';
+
+            return (
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-3xl font-black font-japanese text-slate-950">
+                <div className="flex items-center gap-3">
+                  <span className="text-4xl font-black font-japanese text-slate-950">
                     {selectedKanji.kanji}
                   </span>
                   <div>
-                    <span className="text-xs font-black text-violet-700 uppercase block">
-                      JLPT {level}
-                    </span>
-                    <span className="text-xs text-slate-500 font-bold">
-                      {selectedKanji.stroke_count} 画
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-black text-violet-700 uppercase">
+                        JLPT {level}
+                      </span>
+                      <span className="text-xs text-slate-500 font-bold">
+                        {selectedKanji.stroke_count} 画
+                      </span>
+                    </div>
+                    {selReading && (
+                      <div className="text-lg font-black font-japanese text-slate-900 leading-tight">
+                        {selReading}
+                      </div>
+                    )}
+                    {selRomaji && (
+                      <div className="text-xs font-mono font-bold text-violet-700">
+                        {selRomaji}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -209,7 +237,7 @@ export default function KanjiBrowser({ onStudyKanji, onViewGraph, initialLevel =
                 <div>
                   <span className="text-[10px] font-bold text-slate-400 block mb-0.5">意味 (Meanings)</span>
                   <p className="font-bold text-slate-900 leading-snug">
-                    {Array.isArray(selectedKanji.meanings) ? selectedKanji.meanings.join(', ') : selectedKanji.meaning}
+                    {selMeaning}
                   </p>
                 </div>
 
@@ -263,7 +291,8 @@ export default function KanjiBrowser({ onStudyKanji, onViewGraph, initialLevel =
                 />
               </div>
             </div>
-          ) : (
+            );
+          })() : (
             <div className="py-16 text-center space-y-3">
               <div className="w-16 h-16 rounded-2xl bg-violet-50 border border-violet-100 text-violet-600 flex items-center justify-center text-3xl mx-auto shadow-2xs font-japanese">
                 字

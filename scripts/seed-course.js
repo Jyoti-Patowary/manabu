@@ -13,6 +13,7 @@ import UserCard from '../src/models/UserCard.js';
 import UserProgress from '../src/models/UserProgress.js';
 import User from '../src/models/User.js';
 import { seedUnit6, seedUnit7 } from './seed-unit6-unit7.js';
+import { getKanjiLessonReading } from '../src/lib/kanjiContextualReadings.js';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
@@ -3995,8 +3996,10 @@ async function seedKanjiForCourse(lessonDocs) {
       continue;
     }
 
-    const coreMeaning = dict.meanings?.[0] || 'Character';
-    const primaryReading = dict.onyomi?.[0] || dict.kunyomi?.[0] || '';
+    const contextual = getKanjiLessonReading(char);
+    const lessonReading = contextual?.reading || dict.kunyomi?.[0]?.replace(/\./g, '') || dict.onyomi?.[0] || '';
+    const lessonRomaji = contextual?.romaji || '';
+    const coreMeaning = contextual?.meaning || dict.meanings?.[0] || 'Character';
     const isN5 = dict.jlptLevel === 'N5';
 
     await KanjiEntry.findOneAndUpdate(
@@ -4008,8 +4011,10 @@ async function seedKanjiForCourse(lessonDocs) {
           onyomi: dict.onyomi || dict.on || [],
           kunyomi: dict.kunyomi || dict.kun || [],
           meanings: dict.meanings || [],
+          lessonReading,
+          lessonRomaji,
           coreMeaning,
-          relevantReading: primaryReading,
+          relevantReading: lessonReading,
           whyAppearsHere: `Introduced in Lesson ${meta.order} vocabulary.`,
           courseRelevance: isN5 ? 'N5 Core Required Kanji' : `Encountered in Vocabulary (JLPT ${dict.jlptLevel || 'N4'})`,
           strokeCount: dict.strokeCount || dict.strokes || 1,
