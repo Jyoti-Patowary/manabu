@@ -13,7 +13,7 @@ import UserCard from '../src/models/UserCard.js';
 import UserProgress from '../src/models/UserProgress.js';
 import User from '../src/models/User.js';
 import { seedUnit6, seedUnit7 } from './seed-unit6-unit7.js';
-import { getKanjiLessonReading } from '../src/lib/kanjiContextualReadings.js';
+import { getKanjiCourseContexts, getKanjiContextForLesson, getKanjiLessonReading } from '../src/lib/kanjiContextualReadings.js';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
@@ -659,10 +659,11 @@ async function seedUnit0(lessonDocs) {
   ];
 
   for (const k of introKanji) {
-    const contextual = getKanjiLessonReading(k.char);
-    const reading = contextual?.reading || k.kun?.[0] || '';
-    const romaji = contextual?.romaji || '';
-    const meaning = contextual?.meaning || k.m[0] || 'Character';
+    const contexts = getKanjiCourseContexts(k.char);
+    const primaryCtx = contexts[0] || { reading: k.kun?.[0] || '', romaji: '', meaning: k.m[0] || 'Character', vocabulary: k.char };
+    const reading = primaryCtx.reading;
+    const romaji = primaryCtx.romaji;
+    const meaning = primaryCtx.meaning;
 
     await KanjiEntry.findOneAndUpdate(
       { character: k.char },
@@ -673,6 +674,11 @@ async function seedUnit0(lessonDocs) {
           onyomi: k.on,
           kunyomi: k.kun,
           meanings: k.m,
+          courseContexts: contexts.map((c) => ({
+            ...c,
+            lessonId: lessonDocs[c.lesson]?._id || null,
+          })),
+          primaryVocabulary: primaryCtx.vocabulary || k.char,
           lessonReading: reading,
           lessonRomaji: romaji,
           coreMeaning: meaning,
@@ -4008,13 +4014,22 @@ async function seedKanjiForCourse(lessonDocs) {
       continue;
     }
 
-    const contextual = getKanjiLessonReading(char);
-    const lessonReading = contextual?.reading || dict.kunyomi?.[0]?.replace(/\./g, '') || dict.onyomi?.[0] || '';
-    const lessonRomaji = contextual?.romaji || '';
-    const coreMeaning = contextual?.meaning || dict.meanings?.[0] || 'Character';
+    const contexts = getKanjiCourseContexts(char);
+    const primaryCtx = getKanjiContextForLesson(char, meta.order) || contexts[0] || {
+      reading: dict.kunyomi?.[0]?.replace(/\./g, '') || dict.onyomi?.[0] || '',
+      romaji: '',
+      meaning: dict.meanings?.[0] || 'Character',
+      vocabulary: char,
+      lesson: meta.order,
+    };
+    const lessonReading = primaryCtx.reading;
+    const lessonRomaji = primaryCtx.romaji;
+    const coreMeaning = primaryCtx.meaning;
     const isN5 = dict.jlptLevel === 'N5';
     const whyAppearsHere = meta.order === 6
       ? 'Foundational Kanji introduced in Lesson 6 Kanji Fundamentals.'
+      : primaryCtx.vocabulary && primaryCtx.vocabulary !== char
+      ? `Encountered in Lesson ${meta.order} vocabulary "${primaryCtx.vocabulary}".`
       : `Introduced in Lesson ${meta.order} vocabulary.`;
 
     await KanjiEntry.findOneAndUpdate(
@@ -4026,6 +4041,11 @@ async function seedKanjiForCourse(lessonDocs) {
           onyomi: dict.onyomi || dict.on || [],
           kunyomi: dict.kunyomi || dict.kun || [],
           meanings: dict.meanings || [],
+          courseContexts: contexts.map((c) => ({
+            ...c,
+            lessonId: lessonDocs[c.lesson]?._id || null,
+          })),
+          primaryVocabulary: primaryCtx.vocabulary || char,
           lessonReading,
           lessonRomaji,
           coreMeaning,

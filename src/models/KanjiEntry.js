@@ -16,7 +16,20 @@ export const KanjiEntrySchema = new Schema(
     grade: { type: Number },
     jlptLevel: { type: String, enum: ['N5', 'N4', 'N3', 'N2', 'N1', null], default: null },
 
-    // Deep Understanding Educational Fields
+    // Deep Understanding Course Contexts & Educational Fields
+    courseContexts: [
+      {
+        lesson: { type: Number, required: true },
+        lessonId: { type: Schema.Types.ObjectId, ref: 'Lesson' },
+        vocabulary: { type: String, required: true },
+        reading: { type: String, required: true },
+        romaji: { type: String, default: '' },
+        meaning: { type: String, default: '' },
+      },
+    ],
+    primaryVocabulary: { type: String, default: '' },
+    lessonReading: { type: String, default: '' },
+    lessonRomaji: { type: String, default: '' },
     coreMeaning: { type: String, default: '' },
     relevantReading: { type: String, default: '' },
     whyAppearsHere: { type: String, default: '' },

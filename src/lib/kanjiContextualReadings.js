@@ -1,356 +1,4256 @@
-// Canonical Contextual Readings and Romaji for all 347 Kanji in the Curriculum
-// Maps each Kanji to its primary lesson-context reading, standard Hepburn romaji, and core meaning.
+/**
+ * Kanji Course Contexts System
+ *
+ * Sourced directly from actual curriculum vocabulary records across Lessons 1-30.
+ *
+ * CRITICAL ARCHITECTURAL DISTINCTIONS:
+ * 1. Dictionary readings (On'yomi, Kun'yomi, standard definitions) remain strictly preserved
+ *    in dictionary source data (KANJIDIC2) and are never modified or overwritten.
+ * 2. Vocabulary readings represent the complete learner-facing Japanese words taught in each lesson.
+ * 3. Course context records link each Kanji character to the actual vocabulary term(s) where
+ *    the learner encounters it, preventing stem truncation (e.g. 冷 is contextualized via 冷たい)
+ *    and avoiding conflating compound words with individual character readings.
+ * 4. Multiple contexts for a single Kanji are preserved as structured arrays rather than
+ *    being collapsed into a single string.
+ */
 
-export const KANJI_CONTEXTUAL_READINGS = {
-  "一": { reading: "いち", romaji: "ichi", meaning: "one", lesson: 6 },
-  "二": { reading: "に", romaji: "ni", meaning: "two", lesson: 6 },
-  "三": { reading: "さん", romaji: "san", meaning: "three", lesson: 6 },
-  "日": { reading: "ひ / にち", romaji: "hi / nichi", meaning: "day, sun", lesson: 6 },
-  "月": { reading: "つき / げつ", romaji: "tsuki / getsu", meaning: "month, moon", lesson: 6 },
-  "木": { reading: "き / もく", romaji: "ki / moku", meaning: "tree, wood", lesson: 6 },
-  "山": { reading: "やま", romaji: "yama", meaning: "mountain", lesson: 6 },
-  "川": { reading: "かわ", romaji: "kawa", meaning: "river", lesson: 6 },
-  "人": { reading: "ひと / じん", romaji: "hito / jin", meaning: "person", lesson: 6 },
-  "口": { reading: "くち", romaji: "kuchi", meaning: "mouth", lesson: 6 },
-  "願": { reading: "ねが(う)", romaji: "nega(u)", meaning: "request, wish", lesson: 7 },
-  "初": { reading: "はじ(め)", romaji: "haji(me)", meaning: "first, beginning", lesson: 7 },
-  "先": { reading: "せん", romaji: "sen", meaning: "before, previous, teacher", lesson: 7 },
-  "生": { reading: "せい", romaji: "sei", meaning: "life, birth, student", lesson: 7 },
-  "失": { reading: "しつ", romaji: "shitsu", meaning: "lose, fault", lesson: 7 },
-  "礼": { reading: "れい", romaji: "rei", meaning: "courtesy, gratitude", lesson: 7 },
-  "私": { reading: "わたし", romaji: "watashi", meaning: "I, me, private", lesson: 8 },
-  "彼": { reading: "かれ", romaji: "kare", meaning: "he, that", lesson: 8 },
-  "女": { reading: "おんな", romaji: "onna", meaning: "woman, female", lesson: 8 },
-  "学": { reading: "がく", romaji: "gaku", meaning: "study, learn", lesson: 8 },
-  "会": { reading: "かい", romaji: "kai", meaning: "meeting, company", lesson: 8 },
-  "社": { reading: "しゃ", romaji: "sha", meaning: "company, society", lesson: 8 },
-  "員": { reading: "いん", romaji: "in", meaning: "member, employee", lesson: 8 },
-  "本": { reading: "ほん", romaji: "hon", meaning: "book, origin, real", lesson: 8 },
-  "友": { reading: "とも", romaji: "tomo", meaning: "friend", lesson: 8 },
-  "達": { reading: "だち", romaji: "dachi", meaning: "attain, plural marker", lesson: 8 },
-  "誰": { reading: "だれ", romaji: "dare", meaning: "who", lesson: 8 },
-  "何": { reading: "なに / なん", romaji: "nani / nan", meaning: "what", lesson: 8 },
-  "名": { reading: "な", romaji: "na", meaning: "name, reputation", lesson: 8 },
-  "前": { reading: "まえ", romaji: "mae", meaning: "front, before", lesson: 8 },
-  "辞": { reading: "じ", romaji: "ji", meaning: "word, phrase", lesson: 9 },
-  "書": { reading: "しょ / か(く)", romaji: "sho / ka(ku)", meaning: "book, write", lesson: 9 },
-  "傘": { reading: "かさ", romaji: "kasa", meaning: "umbrella", lesson: 9 },
-  "鍵": { reading: "かぎ", romaji: "kagi", meaning: "key", lesson: 9 },
-  "車": { reading: "くるま / しゃ", romaji: "kuruma / sha", meaning: "car, vehicle", lesson: 9 },
-  "時": { reading: "じ / とき", romaji: "ji / toki", meaning: "time, hour, clock", lesson: 9 },
-  "計": { reading: "けい", romaji: "kei", meaning: "measure, plan", lesson: 9 },
-  "四": { reading: "よん", romaji: "yon", meaning: "four", lesson: 10 },
-  "五": { reading: "ご", romaji: "go", meaning: "five", lesson: 10 },
-  "六": { reading: "ろく", romaji: "roku", meaning: "six", lesson: 10 },
-  "七": { reading: "なな", romaji: "nana", meaning: "seven", lesson: 10 },
-  "八": { reading: "はち", romaji: "hachi", meaning: "eight", lesson: 10 },
-  "九": { reading: "きゅう", romaji: "kyuu", meaning: "nine", lesson: 10 },
-  "十": { reading: "じゅう", romaji: "juu", meaning: "ten", lesson: 10 },
-  "百": { reading: "ひゃく", romaji: "hyaku", meaning: "hundred", lesson: 10 },
-  "歳": { reading: "さい", romaji: "sai", meaning: "year-end", lesson: 10 },
-  "財": { reading: "さい", romaji: "sai", meaning: "property", lesson: 10 },
-  "布": { reading: "ふ", romaji: "fu", meaning: "linen", lesson: 10 },
-  "家": { reading: "いえ / うち", romaji: "ie / uchi", meaning: "house, home", lesson: 10 },
-  "族": { reading: "ぞく", romaji: "zoku", meaning: "family, tribe", lesson: 10 },
-  "父": { reading: "ちち / とう", romaji: "chichi / tou", meaning: "father", lesson: 10 },
-  "母": { reading: "はは / かあ", romaji: "haha / kaa", meaning: "mother", lesson: 10 },
-  "食": { reading: "た(べる) / しょく", romaji: "ta(beru) / shoku", meaning: "eat, food", lesson: 11 },
-  "飲": { reading: "の(む) / いん", romaji: "no(mu) / in", meaning: "drink", lesson: 11 },
-  "読": { reading: "よ(む)", romaji: "yo(mu)", meaning: "read", lesson: 11 },
-  "聞": { reading: "ぶん / き(く)", romaji: "bun / ki(ku)", meaning: "hear, listen", lesson: 11 },
-  "見": { reading: "み(る)", romaji: "mi(ru)", meaning: "see, look, watch", lesson: 11 },
-  "行": { reading: "い(く) / こう", romaji: "i(ku) / kou", meaning: "go, conduct", lesson: 11 },
-  "来": { reading: "く(る) / らい", romaji: "ku(ru) / rai", meaning: "come, next", lesson: 11 },
-  "帰": { reading: "かえ(る)", romaji: "kae(ru)", meaning: "return, go home", lesson: 11 },
-  "飯": { reading: "はん / めし", romaji: "han / meshi", meaning: "meal, cooked rice", lesson: 11 },
-  "水": { reading: "みず / すい", romaji: "mizu / sui", meaning: "water", lesson: 11 },
-  "茶": { reading: "ちゃ", romaji: "cha", meaning: "tea", lesson: 11 },
-  "校": { reading: "こう", romaji: "kou", meaning: "school", lesson: 11 },
-  "図": { reading: "ず / と", romaji: "zu / to", meaning: "diagram, map", lesson: 11 },
-  "館": { reading: "かん", romaji: "kan", meaning: "building, hall", lesson: 11 },
-  "駅": { reading: "えき", romaji: "eki", meaning: "train station", lesson: 11 },
-  "起": { reading: "お(きる)", romaji: "o(kiru)", meaning: "wake up, get up", lesson: 12 },
-  "寝": { reading: "ね(る)", romaji: "ne(ru)", meaning: "sleep, lie down", lesson: 12 },
-  "勉": { reading: "べん", romaji: "ben", meaning: "exertion, study", lesson: 12 },
-  "強": { reading: "きょう / つよ(い)", romaji: "kyou / tsuyo(i)", meaning: "strong", lesson: 12 },
-  "今": { reading: "いま / こん", romaji: "ima / kon", meaning: "now, present", lesson: 12 },
-  "明": { reading: "めい / あした", romaji: "mei / ashita", meaning: "bright, tomorrow", lesson: 12 },
-  "昨": { reading: "さく / きのう", romaji: "saku / kinou", meaning: "previous, yesterday", lesson: 12 },
-  "毎": { reading: "まい", romaji: "mai", meaning: "every", lesson: 12 },
-  "朝": { reading: "あさ / ちょう", romaji: "asa / chou", meaning: "morning", lesson: 12 },
-  "昼": { reading: "ひる / ちゅう", romaji: "hiru / chuu", meaning: "noon, daytime", lesson: 12 },
-  "夜": { reading: "よる / や", romaji: "yoru / ya", meaning: "night", lesson: 12 },
-  "分": { reading: "ふん / ぶん", romaji: "fun / bun", meaning: "minute, part, understand", lesson: 12 },
-  "午": { reading: "ご", romaji: "go", meaning: "noon", lesson: 12 },
-  "後": { reading: "ご", romaji: "go", meaning: "behind", lesson: 12 },
-  "男": { reading: "おとこ", romaji: "otoko", meaning: "male", lesson: 13 },
-  "子": { reading: "こ / し", romaji: "ko / shi", meaning: "child", lesson: 13 },
-  "供": { reading: "ども / きょう", romaji: "domo / kyou", meaning: "companion, offer", lesson: 13 },
-  "犬": { reading: "いぬ", romaji: "inu", meaning: "dog", lesson: 13 },
-  "猫": { reading: "ねこ", romaji: "neko", meaning: "cat", lesson: 13 },
-  "机": { reading: "つくえ", romaji: "tsukue", meaning: "desk", lesson: 13 },
-  "椅": { reading: "い", romaji: "i", meaning: "chair", lesson: 13 },
-  "部": { reading: "へ / ぶ", romaji: "he / bu", meaning: "room, section, part", lesson: 13 },
-  "屋": { reading: "や / おく", romaji: "ya / oku", meaning: "room, shop, roof", lesson: 13 },
-  "上": { reading: "うえ / じょう", romaji: "ue / jou", meaning: "above, top", lesson: 13 },
-  "下": { reading: "した / か", romaji: "shita / ka", meaning: "below, under", lesson: 13 },
-  "中": { reading: "なか / ちゅう", romaji: "naka / chuu", meaning: "inside, middle", lesson: 13 },
-  "話": { reading: "はな(す) / わ", romaji: "hana(su) / wa", meaning: "speak, talk, story", lesson: 14 },
-  "待": { reading: "ま", romaji: "ma", meaning: "wait", lesson: 14 },
-  "買": { reading: "か(う)", romaji: "ka(u)", meaning: "buy", lesson: 14 },
-  "電": { reading: "でん", romaji: "den", meaning: "electricity", lesson: 14 },
-  "緒": { reading: "しょ", romaji: "sho", meaning: "thong", lesson: 14 },
-  "約": { reading: "やく", romaji: "yaku", meaning: "promise", lesson: 14 },
-  "束": { reading: "そく", romaji: "soku", meaning: "bundle", lesson: 14 },
-  "手": { reading: "て", romaji: "te", meaning: "hand", lesson: 14 },
-  "紙": { reading: "がみ / かみ", romaji: "gami / kami", meaning: "paper", lesson: 14 },
-  "映": { reading: "えい", romaji: "ei", meaning: "reflect", lesson: 14 },
-  "画": { reading: "が", romaji: "ga", meaning: "brush-stroke", lesson: 14 },
-  "店": { reading: "みせ / てん", romaji: "mise / ten", meaning: "shop, store", lesson: 14 },
-  "週": { reading: "しゅう", romaji: "shuu", meaning: "week", lesson: 14 },
-  "末": { reading: "まつ", romaji: "matsu", meaning: "end", lesson: 14 },
-  "物": { reading: "もの / ぶつ", romaji: "mono / butsu", meaning: "thing, object", lesson: 14 },
-  "公": { reading: "こう", romaji: "kou", meaning: "public", lesson: 14 },
-  "園": { reading: "えん", romaji: "en", meaning: "park", lesson: 14 },
-  "大": { reading: "おお / だい", romaji: "oo / dai", meaning: "big, large", lesson: 15 },
-  "小": { reading: "ちい", romaji: "chii", meaning: "little", lesson: 15 },
-  "高": { reading: "たか", romaji: "taka", meaning: "tall", lesson: 15 },
-  "安": { reading: "やす", romaji: "yasu", meaning: "relax", lesson: 15 },
-  "新": { reading: "しん / あたら(しい)", romaji: "shin / atara(shii)", meaning: "new", lesson: 15 },
-  "古": { reading: "ふる", romaji: "furu", meaning: "old", lesson: 15 },
-  "良": { reading: "い", romaji: "i", meaning: "good", lesson: 15 },
-  "悪": { reading: "わる", romaji: "waru", meaning: "bad", lesson: 15 },
-  "暑": { reading: "あつ", romaji: "atsu", meaning: "sultry", lesson: 15 },
-  "寒": { reading: "さむ", romaji: "samu", meaning: "cold", lesson: 15 },
-  "熱": { reading: "あつ", romaji: "atsu", meaning: "heat", lesson: 15 },
-  "冷": { reading: "つめ", romaji: "tsume", meaning: "cool", lesson: 15 },
-  "美": { reading: "おいしい", romaji: "oishii", meaning: "beauty", lesson: 15 },
-  "味": { reading: "あじ", romaji: "aji", meaning: "flavor", lesson: 15 },
-  "楽": { reading: "たの", romaji: "tano", meaning: "music", lesson: 15 },
-  "面": { reading: "おもしろい", romaji: "omoshiroi", meaning: "mask", lesson: 15 },
-  "白": { reading: "しろ", romaji: "shiro", meaning: "white", lesson: 15 },
-  "忙": { reading: "いそが", romaji: "isoga", meaning: "busy", lesson: 15 },
-  "静": { reading: "しず", romaji: "shizu", meaning: "quiet", lesson: 16 },
-  "賑": { reading: "にぎ", romaji: "nigi", meaning: "bustling", lesson: 16 },
-  "有": { reading: "ゆう", romaji: "yuu", meaning: "possess", lesson: 16 },
-  "親": { reading: "しん", romaji: "shin", meaning: "parent", lesson: 16 },
-  "切": { reading: "き(る) / せつ", romaji: "ki(ru) / setsu", meaning: "cut", lesson: 16 },
-  "元": { reading: "げん", romaji: "gen", meaning: "beginning", lesson: 16 },
-  "気": { reading: "き", romaji: "ki", meaning: "spirit", lesson: 16 },
-  "暇": { reading: "ひま", romaji: "hima", meaning: "spare time", lesson: 16 },
-  "便": { reading: "べん", romaji: "ben", meaning: "convenience", lesson: 16 },
-  "利": { reading: "り", romaji: "ri", meaning: "profit", lesson: 16 },
-  "不": { reading: "ふ", romaji: "fu", meaning: "negative", lesson: 16 },
-  "綺": { reading: "き", romaji: "ki", meaning: "figured cloth", lesson: 16 },
-  "麗": { reading: "れい", romaji: "rei", meaning: "lovely", lesson: 16 },
-  "好": { reading: "す", romaji: "su", meaning: "fond", lesson: 16 },
-  "嫌": { reading: "きら", romaji: "kira", meaning: "dislike", lesson: 16 },
-  "丈": { reading: "じょう", romaji: "jou", meaning: "sturdy", lesson: 16 },
-  "夫": { reading: "ぶ", romaji: "bu", meaning: "husband", lesson: 16 },
-  "簡": { reading: "かん", romaji: "kan", meaning: "simplicity", lesson: 16 },
-  "単": { reading: "たん", romaji: "tan", meaning: "simple", lesson: 16 },
-  "変": { reading: "へん", romaji: "hen", meaning: "unusual", lesson: 16 },
-  "番": { reading: "ばん", romaji: "ban", meaning: "turn", lesson: 17 },
-  "少": { reading: "すこ", romaji: "suko", meaning: "few", lesson: 17 },
-  "全": { reading: "ぜん", romaji: "zen", meaning: "whole", lesson: 17 },
-  "然": { reading: "ぜん", romaji: "zen", meaning: "sort of thing", lesson: 17 },
-  "世": { reading: "せ", romaji: "se", meaning: "generation", lesson: 17 },
-  "界": { reading: "かい", romaji: "kai", meaning: "world", lesson: 17 },
-  "季": { reading: "き", romaji: "ki", meaning: "seasons", lesson: 17 },
-  "節": { reading: "せつ", romaji: "setsu", meaning: "node", lesson: 17 },
-  "春": { reading: "はる", romaji: "haru", meaning: "springtime", lesson: 17 },
-  "夏": { reading: "なつ", romaji: "natsu", meaning: "summer", lesson: 17 },
-  "秋": { reading: "あき", romaji: "aki", meaning: "autumn", lesson: 17 },
-  "冬": { reading: "ふゆ", romaji: "fuyu", meaning: "winter", lesson: 17 },
-  "入": { reading: "い", romaji: "i", meaning: "enter", lesson: 18 },
-  "洗": { reading: "あら", romaji: "ara", meaning: "wash", lesson: 19 },
-  "立": { reading: "た", romaji: "ta", meaning: "stand up", lesson: 19 },
-  "座": { reading: "すわ", romaji: "suwa", meaning: "squat", lesson: 19 },
-  "取": { reading: "と", romaji: "to", meaning: "take", lesson: 19 },
-  "呼": { reading: "よ", romaji: "yo", meaning: "call", lesson: 19 },
-  "遊": { reading: "あそ", romaji: "aso", meaning: "play", lesson: 19 },
-  "歩": { reading: "ある", romaji: "aru", meaning: "walk", lesson: 19 },
-  "泳": { reading: "およ", romaji: "oyo", meaning: "swim", lesson: 19 },
-  "急": { reading: "いそ", romaji: "iso", meaning: "hurry", lesson: 19 },
-  "出": { reading: "だ", romaji: "da", meaning: "exit", lesson: 19 },
-  "借": { reading: "か", romaji: "ka", meaning: "borrow", lesson: 19 },
-  "貸": { reading: "か", romaji: "ka", meaning: "lend", lesson: 19 },
-  "開": { reading: "あ", romaji: "a", meaning: "open", lesson: 19 },
-  "閉": { reading: "し", romaji: "shi", meaning: "closed", lesson: 19 },
-  "住": { reading: "す", romaji: "su", meaning: "dwell", lesson: 20 },
-  "知": { reading: "し", romaji: "shi", meaning: "know", lesson: 20 },
-  "持": { reading: "も", romaji: "mo", meaning: "hold", lesson: 20 },
-  "働": { reading: "はたら(く)", romaji: "hatara(ku)", meaning: "work", lesson: 20 },
-  "覚": { reading: "おぼ", romaji: "obo", meaning: "memorize", lesson: 20 },
-  "忘": { reading: "わす", romaji: "wasu", meaning: "forget", lesson: 20 },
-  "着": { reading: "き", romaji: "ki", meaning: "don", lesson: 20 },
-  "履": { reading: "は", romaji: "ha", meaning: "perform", lesson: 20 },
-  "結": { reading: "けっこん", romaji: "kekkon", meaning: "tie", lesson: 20 },
-  "婚": { reading: "こん", romaji: "kon", meaning: "marriage", lesson: 20 },
-  "独": { reading: "どく", romaji: "doku", meaning: "single", lesson: 20 },
-  "身": { reading: "しん", romaji: "shin", meaning: "somebody", lesson: 20 },
-  "所": { reading: "しょ", romaji: "sho", meaning: "place", lesson: 20 },
-  "号": { reading: "ごう", romaji: "gou", meaning: "nickname", lesson: 20 },
-  "写": { reading: "しゃ / うつ(す)", romaji: "sha / utsu(su)", meaning: "copy, photograph", lesson: 21 },
-  "真": { reading: "しん / ま", romaji: "shin / ma", meaning: "true, reality", lesson: 21 },
-  "撮": { reading: "と", romaji: "to", meaning: "snapshot", lesson: 21 },
-  "吸": { reading: "す", romaji: "su", meaning: "suck", lesson: 21 },
-  "病": { reading: "びょう", romaji: "byou", meaning: "ill", lesson: 21 },
-  "院": { reading: "いん", romaji: "in", meaning: "institution", lesson: 21 },
-  "術": { reading: "じゅつ", romaji: "jutsu", meaning: "art", lesson: 21 },
-  "声": { reading: "こえ", romaji: "koe", meaning: "voice", lesson: 21 },
-  "窓": { reading: "まど", romaji: "mado", meaning: "window", lesson: 21 },
-  "席": { reading: "せき", romaji: "seki", meaning: "seat", lesson: 21 },
-  "荷": { reading: "に / か", romaji: "ni / ka", meaning: "luggage, cargo", lesson: 21 },
-  "当": { reading: "とう", romaji: "tou", meaning: "hit", lesson: 22 },
-  "嘘": { reading: "うそ", romaji: "uso", meaning: "lie", lesson: 22 },
-  "多": { reading: "た", romaji: "ta", meaning: "many", lesson: 22 },
-  "晩": { reading: "ばん", romaji: "ban", meaning: "evening, night", lesson: 22 },
-  "宿": { reading: "しゅく", romaji: "shuku", meaning: "inn", lesson: 22 },
-  "題": { reading: "だい", romaji: "dai", meaning: "topic", lesson: 22 },
-  "授": { reading: "じゅ", romaji: "ju", meaning: "impart", lesson: 22 },
-  "業": { reading: "ぎょう", romaji: "gyou", meaning: "business", lesson: 22 },
-  "休": { reading: "やす(む)", romaji: "yasu(mu)", meaning: "rest, take time off", lesson: 22 },
-  "思": { reading: "おも", romaji: "omo", meaning: "think", lesson: 23 },
-  "言": { reading: "い", romaji: "i", meaning: "say", lesson: 23 },
-  "考": { reading: "かんが", romaji: "kanga", meaning: "consider", lesson: 23 },
-  "意": { reading: "い", romaji: "i", meaning: "idea", lesson: 23 },
-  "質": { reading: "しつ", romaji: "shitsu", meaning: "substance", lesson: 23 },
-  "問": { reading: "もん", romaji: "mon", meaning: "question", lesson: 23 },
-  "答": { reading: "こた", romaji: "kota", meaning: "solution", lesson: 23 },
-  "雑": { reading: "ざつ", romaji: "zatsu", meaning: "miscellaneous", lesson: 23 },
-  "誌": { reading: "し", romaji: "shi", meaning: "magazine, record", lesson: 23 },
-  "葉": { reading: "は", romaji: "ha", meaning: "leaf", lesson: 23 },
-  "文": { reading: "ぶん", romaji: "bun", meaning: "sentence", lesson: 23 },
-  "化": { reading: "か", romaji: "ka", meaning: "change", lesson: 23 },
-  "将": { reading: "しょう", romaji: "shou", meaning: "leader", lesson: 23 },
-  "天": { reading: "てん", romaji: "ten", meaning: "heavens", lesson: 23 },
-  "予": { reading: "よ", romaji: "yo", meaning: "beforehand", lesson: 23 },
-  "報": { reading: "ほう", romaji: "hou", meaning: "report", lesson: 23 },
-  "方": { reading: "かた", romaji: "kata", meaning: "direction", lesson: 24 },
-  "料": { reading: "りょう", romaji: "ryou", meaning: "fee", lesson: 24 },
-  "理": { reading: "り", romaji: "ri", meaning: "logic", lesson: 24 },
-  "弁": { reading: "べん", romaji: "ben", meaning: "valve", lesson: 24 },
-  "菓": { reading: "か", romaji: "ka", meaning: "candy", lesson: 24 },
-  "服": { reading: "ふく", romaji: "fuku", meaning: "clothing", lesson: 24 },
-  "靴": { reading: "くつ", romaji: "kutsu", meaning: "shoes", lesson: 24 },
-  "帽": { reading: "ぼう", romaji: "bou", meaning: "cap", lesson: 24 },
-  "眼": { reading: "め", romaji: "me", meaning: "eyeball", lesson: 24 },
-  "鏡": { reading: "かがみ", romaji: "kagami", meaning: "mirror", lesson: 24 },
-  "場": { reading: "ば", romaji: "ba", meaning: "location", lesson: 24 },
-  "町": { reading: "まち", romaji: "machi", meaning: "town", lesson: 24 },
-  "道": { reading: "みち", romaji: "michi", meaning: "road-way", lesson: 24 },
-  "作": { reading: "つく", romaji: "tsuku", meaning: "make", lesson: 24 },
-  "脱": { reading: "ぬ", romaji: "nu", meaning: "undress", lesson: 24 },
-  "落": { reading: "お", romaji: "o", meaning: "fall", lesson: 24 },
-  "旅": { reading: "りょ", romaji: "ryo", meaning: "trip", lesson: 25 },
-  "観": { reading: "かん", romaji: "kan", meaning: "outlook", lesson: 25 },
-  "光": { reading: "こう", romaji: "kou", meaning: "ray", lesson: 25 },
-  "土": { reading: "つち", romaji: "tsuchi", meaning: "soil", lesson: 25 },
-  "産": { reading: "うむ", romaji: "umu", meaning: "products", lesson: 25 },
-  "符": { reading: "ぷ / ふ", romaji: "pu / fu", meaning: "token, tally, ticket", lesson: 25 },
-  "飛": { reading: "ひ", romaji: "hi", meaning: "fly", lesson: 25 },
-  "機": { reading: "き", romaji: "ki", meaning: "loom", lesson: 25 },
-  "空": { reading: "くう", romaji: "kuu", meaning: "empty", lesson: 25 },
-  "港": { reading: "こう", romaji: "kou", meaning: "harbor", lesson: 25 },
-  "趣": { reading: "しゅ", romaji: "shu", meaning: "purport", lesson: 25 },
-  "音": { reading: "おん", romaji: "on", meaning: "sound", lesson: 25 },
-  "歌": { reading: "うた", romaji: "uta", meaning: "song", lesson: 25 },
-  "欲": { reading: "ほ", romaji: "ho", meaning: "longing", lesson: 25 },
-  "金": { reading: "かね", romaji: "kane", meaning: "gold", lesson: 25 },
-  "自": { reading: "じ", romaji: "ji", meaning: "oneself", lesson: 25 },
-  "転": { reading: "てん", romaji: "ten", meaning: "revolve", lesson: 25 },
-  "富": { reading: "ふ", romaji: "fu", meaning: "wealth", lesson: 26 },
-  "士": { reading: "さむらい", romaji: "samurai", meaning: "gentleman", lesson: 26 },
-  "登": { reading: "のぼ", romaji: "nobo", meaning: "ascend", lesson: 26 },
-  "温": { reading: "おん", romaji: "on", meaning: "warm", lesson: 26 },
-  "泉": { reading: "せん", romaji: "sen", meaning: "spring", lesson: 26 },
-  "泊": { reading: "と", romaji: "to", meaning: "overnight stay", lesson: 26 },
-  "乗": { reading: "の", romaji: "no", meaning: "ride", lesson: 26 },
-  "度": { reading: "ど", romaji: "do", meaning: "degrees", lesson: 26 },
-  "掃": { reading: "そう", romaji: "sou", meaning: "sweep", lesson: 26 },
-  "除": { reading: "のぞく", romaji: "nozoku", meaning: "exclude", lesson: 26 },
-  "濯": { reading: "たく", romaji: "taku", meaning: "laundry", lesson: 26 },
-  "散": { reading: "さん", romaji: "san", meaning: "scatter", lesson: 26 },
-  "運": { reading: "うん", romaji: "un", meaning: "carry", lesson: 26 },
-  "動": { reading: "どう", romaji: "dou", meaning: "move", lesson: 26 },
-  "神": { reading: "じん", romaji: "jin", meaning: "gods", lesson: 26 },
-  "寺": { reading: "てら", romaji: "tera", meaning: "Buddhist temple", lesson: 26 },
-  "祭": { reading: "まつ", romaji: "matsu", meaning: "ritual", lesson: 26 },
-  "経": { reading: "けい", romaji: "kei", meaning: "sutra", lesson: 26 },
-  "験": { reading: "けん", romaji: "ken", meaning: "verification", lesson: 26 },
-  "弾": { reading: "ひ", romaji: "hi", meaning: "bullet", lesson: 27 },
-  "外": { reading: "そと / がい", romaji: "soto / gai", meaning: "outside, foreign", lesson: 27 },
-  "国": { reading: "くに / こく", romaji: "kuni / koku", meaning: "country, nation", lesson: 27 },
-  "語": { reading: "ご", romaji: "go", meaning: "language, word", lesson: 27 },
-  "英": { reading: "えい", romaji: "ei", meaning: "England", lesson: 27 },
-  "通": { reading: "つう", romaji: "tsuu", meaning: "traffic", lesson: 27 },
-  "漢": { reading: "かん", romaji: "kan", meaning: "Sino-", lesson: 27 },
-  "字": { reading: "じ", romaji: "ji", meaning: "character", lesson: 27 },
-  "発": { reading: "はつ", romaji: "hatsu", meaning: "departure", lesson: 27 },
-  "得": { reading: "とく", romaji: "toku", meaning: "gain", lesson: 27 },
-  "苦": { reading: "にが", romaji: "niga", meaning: "suffering", lesson: 27 },
-  "直": { reading: "なお", romaji: "nao", meaning: "straightaway", lesson: 27 },
-  "練": { reading: "れん", romaji: "ren", meaning: "practice", lesson: 27 },
-  "習": { reading: "しゅう", romaji: "shuu", meaning: "learn", lesson: 27 },
-  "薬": { reading: "くすり", romaji: "kusuri", meaning: "medicine", lesson: 28 },
-  "風": { reading: "かぜ", romaji: "kaze", meaning: "wind", lesson: 28 },
-  "邪": { reading: "よこしま", romaji: "yokoshima", meaning: "wicked", lesson: 28 },
-  "医": { reading: "い", romaji: "i", meaning: "doctor", lesson: 28 },
-  "者": { reading: "しゃ", romaji: "sha", meaning: "someone", lesson: 28 },
-  "保": { reading: "ほ", romaji: "ho", meaning: "protect", lesson: 28 },
-  "険": { reading: "けん", romaji: "ken", meaning: "precipitous", lesson: 28 },
-  "証": { reading: "しょう", romaji: "shou", meaning: "evidence", lesson: 28 },
-  "規": { reading: "き", romaji: "ki", meaning: "standard", lesson: 28 },
-  "則": { reading: "そく", romaji: "soku", meaning: "rule", lesson: 28 },
-  "法": { reading: "ほう", romaji: "hou", meaning: "method", lesson: 28 },
-  "律": { reading: "りつ", romaji: "ritsu", meaning: "rhythm", lesson: 28 },
-  "守": { reading: "まも", romaji: "mamo", meaning: "guard", lesson: 28 },
-  "払": { reading: "はら", romaji: "hara", meaning: "pay", lesson: 28 },
-  "渡": { reading: "わた", romaji: "wata", meaning: "transit", lesson: 28 },
-  "提": { reading: "てい", romaji: "tei", meaning: "propose", lesson: 28 },
-  "期": { reading: "き", romaji: "ki", meaning: "period", lesson: 28 },
-  "限": { reading: "げん", romaji: "gen", meaning: "limit", lesson: 28 },
-  "無": { reading: "む", romaji: "mu", meaning: "nothingness", lesson: 28 },
-  "体": { reading: "からだ", romaji: "karada", meaning: "body", lesson: 29 },
-  "頭": { reading: "あたま", romaji: "atama", meaning: "head", lesson: 29 },
-  "腹": { reading: "はら", romaji: "hara", meaning: "abdomen", lesson: 29 },
-  "痛": { reading: "いた", romaji: "ita", meaning: "pain", lesson: 29 },
-  "心": { reading: "しん", romaji: "shin", meaning: "heart", lesson: 29 },
-  "配": { reading: "くばる", romaji: "kubaru", meaning: "distribute", lesson: 29 },
-  "健": { reading: "けん", romaji: "ken", meaning: "healthy", lesson: 29 },
-  "康": { reading: "こう", romaji: "kou", meaning: "ease", lesson: 29 },
-  "野": { reading: "や", romaji: "ya", meaning: "plains", lesson: 29 },
-  "菜": { reading: "さい", romaji: "sai", meaning: "vegetable", lesson: 29 },
-  "早": { reading: "はや", romaji: "haya", meaning: "early", lesson: 29 },
-  "睡": { reading: "すい", romaji: "sui", meaning: "drowsy", lesson: 29 },
-  "眠": { reading: "みん", romaji: "min", meaning: "sleep", lesson: 29 },
-  "甘": { reading: "あま", romaji: "ama", meaning: "sweet", lesson: 29 },
-  "辛": { reading: "から", romaji: "kara", meaning: "spicy", lesson: 29 },
-  "塩": { reading: "しお", romaji: "shio", meaning: "salt", lesson: 29 },
-  "砂": { reading: "さ", romaji: "sa", meaning: "sand", lesson: 29 },
-  "糖": { reading: "とう", romaji: "tou", meaning: "sugar", lesson: 29 },
-  "都": { reading: "つ", romaji: "tsu", meaning: "metropolis", lesson: 30 },
-  "合": { reading: "ごう", romaji: "gou", meaning: "fit", lesson: 30 },
-  "用": { reading: "よう", romaji: "you", meaning: "utilize", lesson: 30 },
-  "事": { reading: "じ", romaji: "ji", meaning: "matter", lesson: 30 },
-  "定": { reading: "てい", romaji: "tei", meaning: "determine", lesson: 30 },
-  "遅": { reading: "おく", romaji: "oku", meaning: "slow", lesson: 30 },
-  "間": { reading: "あいだ / かん", romaji: "aida / kan", meaning: "interval, space, between", lesson: 30 },
-  "故": { reading: "こ", romaji: "ko", meaning: "happenstance", lesson: 30 },
-  "障": { reading: "しょう", romaji: "shou", meaning: "obstacle", lesson: 30 },
-  "台": { reading: "たい", romaji: "tai", meaning: "pedestal", lesson: 30 },
-  "地": { reading: "じ", romaji: "ji", meaning: "ground", lesson: 30 },
-  "震": { reading: "しん", romaji: "shin", meaning: "quake", lesson: 30 },
-  "火": { reading: "か", romaji: "ka", meaning: "fire", lesson: 30 },
-  "由": { reading: "ゆ", romaji: "yu", meaning: "wherefore", lesson: 30 },
-  "確": { reading: "たし", romaji: "tashi", meaning: "assurance", lesson: 30 },
-  "残": { reading: "ざん", romaji: "zan", meaning: "remainder", lesson: 30 },
-  "念": { reading: "ねん", romaji: "nen", meaning: "wish", lesson: 30 },
-  "原": { reading: "げん", romaji: "gen", meaning: "origin, field", lesson: 30 },
-  "因": { reading: "いん", romaji: "in", meaning: "cause, factor", lesson: 30 },
+export const KANJI_COURSE_CONTEXTS = {
+  "一": [
+    {
+      "lesson": 6,
+      "vocabulary": "一",
+      "reading": "いち",
+      "romaji": "ichi",
+      "meaning": "one"
+    },
+    {
+      "lesson": 10,
+      "vocabulary": "一",
+      "reading": "いち",
+      "romaji": "ichi",
+      "meaning": "one"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "一緒に",
+      "reading": "いっしょに",
+      "romaji": "isshoni",
+      "meaning": "together"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "一人で",
+      "reading": "ひとりで",
+      "romaji": "hitoride",
+      "meaning": "alone"
+    },
+    {
+      "lesson": 17,
+      "vocabulary": "一番",
+      "reading": "いちばん",
+      "romaji": "ichiban",
+      "meaning": "most"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "一度",
+      "reading": "いちど",
+      "romaji": "ichido",
+      "meaning": "once / one time"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "一度も",
+      "reading": "いちども",
+      "romaji": "ichidomo",
+      "meaning": "not even once (with neg)"
+    }
+  ],
+  "二": [
+    {
+      "lesson": 6,
+      "vocabulary": "二",
+      "reading": "に",
+      "romaji": "ni",
+      "meaning": "two"
+    },
+    {
+      "lesson": 10,
+      "vocabulary": "二",
+      "reading": "に",
+      "romaji": "ni",
+      "meaning": "two"
+    }
+  ],
+  "三": [
+    {
+      "lesson": 6,
+      "vocabulary": "三",
+      "reading": "さん",
+      "romaji": "san",
+      "meaning": "three"
+    },
+    {
+      "lesson": 10,
+      "vocabulary": "三",
+      "reading": "さん",
+      "romaji": "san",
+      "meaning": "three"
+    }
+  ],
+  "日": [
+    {
+      "lesson": 6,
+      "vocabulary": "日",
+      "reading": "ひ",
+      "romaji": "hi",
+      "meaning": "day, sun"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "日本人",
+      "reading": "にほんじん",
+      "romaji": "nihonjin",
+      "meaning": "Japanese person"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "今日",
+      "reading": "きょう",
+      "romaji": "kyou",
+      "meaning": "today"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "明日",
+      "reading": "あした",
+      "romaji": "ashita",
+      "meaning": "tomorrow"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "昨日",
+      "reading": "きのう",
+      "romaji": "kinou",
+      "meaning": "yesterday"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "毎日",
+      "reading": "まいにち",
+      "romaji": "mainichi",
+      "meaning": "every day"
+    },
+    {
+      "lesson": 17,
+      "vocabulary": "日本",
+      "reading": "にほん",
+      "romaji": "nihon",
+      "meaning": "Japan"
+    }
+  ],
+  "月": [
+    {
+      "lesson": 6,
+      "vocabulary": "月",
+      "reading": "つき",
+      "romaji": "tsuki",
+      "meaning": "month, moon"
+    }
+  ],
+  "木": [
+    {
+      "lesson": 6,
+      "vocabulary": "木",
+      "reading": "き",
+      "romaji": "ki",
+      "meaning": "tree, wood"
+    }
+  ],
+  "山": [
+    {
+      "lesson": 6,
+      "vocabulary": "山",
+      "reading": "やま",
+      "romaji": "yama",
+      "meaning": "mountain"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "富士山",
+      "reading": "ふじさん",
+      "romaji": "Fujisan",
+      "meaning": "Mount Fuji"
+    }
+  ],
+  "川": [
+    {
+      "lesson": 6,
+      "vocabulary": "川",
+      "reading": "かわ",
+      "romaji": "kawa",
+      "meaning": "river"
+    }
+  ],
+  "人": [
+    {
+      "lesson": 6,
+      "vocabulary": "人",
+      "reading": "ひと",
+      "romaji": "hito",
+      "meaning": "person"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "日本人",
+      "reading": "にほんじん",
+      "romaji": "nihonjin",
+      "meaning": "Japanese person"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "アメリカ人",
+      "reading": "あめりかじん",
+      "romaji": "amerikajin",
+      "meaning": "American person"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "人",
+      "reading": "ひと",
+      "romaji": "hito",
+      "meaning": "person"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "男の人",
+      "reading": "おとこのひと",
+      "romaji": "otokonohito",
+      "meaning": "man"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "女の人",
+      "reading": "おんなのひと",
+      "romaji": "onnanohito",
+      "meaning": "woman"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "一人で",
+      "reading": "ひとりで",
+      "romaji": "hitoride",
+      "meaning": "alone"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "大人",
+      "reading": "おとな",
+      "romaji": "otona",
+      "meaning": "adult"
+    }
+  ],
+  "口": [
+    {
+      "lesson": 6,
+      "vocabulary": "口",
+      "reading": "くち",
+      "romaji": "kuchi",
+      "meaning": "mouth"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "入口",
+      "reading": "いりぐち",
+      "romaji": "iriguchi",
+      "meaning": "entrance"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "出口",
+      "reading": "でぐち",
+      "romaji": "deguchi",
+      "meaning": "exit"
+    }
+  ],
+  "願": [
+    {
+      "lesson": 7,
+      "vocabulary": "お願いします",
+      "reading": "おねがいします",
+      "romaji": "onegaishimasu",
+      "meaning": "Please / I request this"
+    },
+    {
+      "lesson": 7,
+      "vocabulary": "よろしくお願いします",
+      "reading": "よろしくおねがいします",
+      "romaji": "yoroshiku onegaishimasu",
+      "meaning": "I look forward to working with you / Nice to meet you"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "お願い",
+      "reading": "おねがい",
+      "romaji": "onegai",
+      "meaning": "request"
+    }
+  ],
+  "初": [
+    {
+      "lesson": 7,
+      "vocabulary": "初めまして",
+      "reading": "はじめまして",
+      "romaji": "hajimemashite",
+      "meaning": "How do you do? / Nice to meet you"
+    }
+  ],
+  "先": [
+    {
+      "lesson": 7,
+      "vocabulary": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meaning": "Teacher / Professor"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meaning": "teacher"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "先週",
+      "reading": "せんしゅう",
+      "romaji": "senshuu",
+      "meaning": "last week"
+    }
+  ],
+  "生": [
+    {
+      "lesson": 7,
+      "vocabulary": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meaning": "Teacher / Professor"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "学生",
+      "reading": "がくせい",
+      "romaji": "gakusei",
+      "meaning": "student"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meaning": "teacher"
+    }
+  ],
+  "失": [
+    {
+      "lesson": 7,
+      "vocabulary": "失礼します",
+      "reading": "しつれいします",
+      "romaji": "shitsurei shimasu",
+      "meaning": "Excuse me / Goodbye (polite)"
+    }
+  ],
+  "礼": [
+    {
+      "lesson": 7,
+      "vocabulary": "失礼します",
+      "reading": "しつれいします",
+      "romaji": "shitsurei shimasu",
+      "meaning": "Excuse me / Goodbye (polite)"
+    }
+  ],
+  "私": [
+    {
+      "lesson": 8,
+      "vocabulary": "私",
+      "reading": "わたし",
+      "romaji": "watashi",
+      "meaning": "I"
+    }
+  ],
+  "彼": [
+    {
+      "lesson": 8,
+      "vocabulary": "彼",
+      "reading": "かれ",
+      "romaji": "kare",
+      "meaning": "he"
+    },
+    {
+      "lesson": 8,
+      "vocabulary": "彼女",
+      "reading": "かのじょ",
+      "romaji": "kanojo",
+      "meaning": "she"
+    }
+  ],
+  "女": [
+    {
+      "lesson": 8,
+      "vocabulary": "彼女",
+      "reading": "かのじょ",
+      "romaji": "kanojo",
+      "meaning": "she"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "女の人",
+      "reading": "おんなのひと",
+      "romaji": "onnanohito",
+      "meaning": "woman"
+    }
+  ],
+  "学": [
+    {
+      "lesson": 8,
+      "vocabulary": "学生",
+      "reading": "がくせい",
+      "romaji": "gakusei",
+      "meaning": "student"
+    },
+    {
+      "lesson": 11,
+      "vocabulary": "学校",
+      "reading": "がっこう",
+      "romaji": "gakkou",
+      "meaning": "school"
+    }
+  ],
+  "会": [
+    {
+      "lesson": 8,
+      "vocabulary": "会社員",
+      "reading": "かいしゃいん",
+      "romaji": "kaishain",
+      "meaning": "company employee"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "会う",
+      "reading": "あう",
+      "romaji": "au",
+      "meaning": "to meet"
+    },
+    {
+      "lesson": 19,
+      "vocabulary": "会う",
+      "reading": "あう",
+      "romaji": "au",
+      "meaning": "to meet"
+    },
+    {
+      "lesson": 20,
+      "vocabulary": "会社",
+      "reading": "かいしゃ",
+      "romaji": "kaisha",
+      "meaning": "company"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "社会",
+      "reading": "しゃかい",
+      "romaji": "shakai",
+      "meaning": "society"
+    }
+  ],
+  "社": [
+    {
+      "lesson": 8,
+      "vocabulary": "会社員",
+      "reading": "かいしゃいん",
+      "romaji": "kaishain",
+      "meaning": "company employee"
+    },
+    {
+      "lesson": 20,
+      "vocabulary": "会社",
+      "reading": "かいしゃ",
+      "romaji": "kaisha",
+      "meaning": "company"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "社会",
+      "reading": "しゃかい",
+      "romaji": "shakai",
+      "meaning": "society"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "神社",
+      "reading": "じんじゃ",
+      "romaji": "jinja",
+      "meaning": "Shinto shrine"
+    }
+  ],
+  "員": [
+    {
+      "lesson": 8,
+      "vocabulary": "会社員",
+      "reading": "かいしゃいん",
+      "romaji": "kaishain",
+      "meaning": "company employee"
+    }
+  ],
+  "本": [
+    {
+      "lesson": 8,
+      "vocabulary": "日本人",
+      "reading": "にほんじん",
+      "romaji": "nihonjin",
+      "meaning": "Japanese person"
+    },
+    {
+      "lesson": 9,
+      "vocabulary": "本",
+      "reading": "ほん",
+      "romaji": "hon",
+      "meaning": "book"
+    },
+    {
+      "lesson": 17,
+      "vocabulary": "日本",
+      "reading": "にほん",
+      "romaji": "nihon",
+      "meaning": "Japan"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "本当",
+      "reading": "ほんとう",
+      "romaji": "hontou",
+      "meaning": "truth"
+    }
+  ],
+  "友": [
+    {
+      "lesson": 8,
+      "vocabulary": "友達",
+      "reading": "ともだち",
+      "romaji": "tomodachi",
+      "meaning": "friend"
+    }
+  ],
+  "達": [
+    {
+      "lesson": 8,
+      "vocabulary": "友達",
+      "reading": "ともだち",
+      "romaji": "tomodachi",
+      "meaning": "friend"
+    }
+  ],
+  "誰": [
+    {
+      "lesson": 8,
+      "vocabulary": "誰",
+      "reading": "だれ",
+      "romaji": "dare",
+      "meaning": "who"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "誰か",
+      "reading": "だれか",
+      "romaji": "dareka",
+      "meaning": "someone"
+    }
+  ],
+  "何": [
+    {
+      "lesson": 8,
+      "vocabulary": "何",
+      "reading": "なに",
+      "romaji": "nani",
+      "meaning": "what"
+    }
+  ],
+  "名": [
+    {
+      "lesson": 8,
+      "vocabulary": "名前",
+      "reading": "なまえ",
+      "romaji": "namae",
+      "meaning": "name"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "有名",
+      "reading": "ゆうめい",
+      "romaji": "yuumei",
+      "meaning": "famous"
+    }
+  ],
+  "前": [
+    {
+      "lesson": 8,
+      "vocabulary": "名前",
+      "reading": "なまえ",
+      "romaji": "namae",
+      "meaning": "name"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "午前",
+      "reading": "ごぜん",
+      "romaji": "gozen",
+      "meaning": "morning"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "前",
+      "reading": "まえ",
+      "romaji": "mae",
+      "meaning": "in front"
+    }
+  ],
+  "辞": [
+    {
+      "lesson": 9,
+      "vocabulary": "辞書",
+      "reading": "じしょ",
+      "romaji": "jisho",
+      "meaning": "dictionary"
+    }
+  ],
+  "書": [
+    {
+      "lesson": 9,
+      "vocabulary": "辞書",
+      "reading": "じしょ",
+      "romaji": "jisho",
+      "meaning": "dictionary"
+    },
+    {
+      "lesson": 11,
+      "vocabulary": "書く",
+      "reading": "かく",
+      "romaji": "kaku",
+      "meaning": "to write"
+    },
+    {
+      "lesson": 11,
+      "vocabulary": "図書館",
+      "reading": "としょかん",
+      "romaji": "toshokan",
+      "meaning": "library"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "書く",
+      "reading": "かく",
+      "romaji": "kaku",
+      "meaning": "to write"
+    }
+  ],
+  "傘": [
+    {
+      "lesson": 9,
+      "vocabulary": "傘",
+      "reading": "かさ",
+      "romaji": "kasa",
+      "meaning": "umbrella"
+    }
+  ],
+  "鍵": [
+    {
+      "lesson": 9,
+      "vocabulary": "鍵",
+      "reading": "かぎ",
+      "romaji": "kagi",
+      "meaning": "key"
+    }
+  ],
+  "車": [
+    {
+      "lesson": 9,
+      "vocabulary": "車",
+      "reading": "くるま",
+      "romaji": "kuruma",
+      "meaning": "car"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "自転車",
+      "reading": "じてんしゃ",
+      "romaji": "jitensha",
+      "meaning": "bicycle"
+    }
+  ],
+  "時": [
+    {
+      "lesson": 9,
+      "vocabulary": "時計",
+      "reading": "とけい",
+      "romaji": "tokei",
+      "meaning": "watch"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "時",
+      "reading": "じ",
+      "romaji": "ji",
+      "meaning": "o'clock (hour counter)"
+    }
+  ],
+  "計": [
+    {
+      "lesson": 9,
+      "vocabulary": "時計",
+      "reading": "とけい",
+      "romaji": "tokei",
+      "meaning": "watch"
+    }
+  ],
+  "四": [
+    {
+      "lesson": 10,
+      "vocabulary": "四",
+      "reading": "よん",
+      "romaji": "yon",
+      "meaning": "four"
+    }
+  ],
+  "五": [
+    {
+      "lesson": 10,
+      "vocabulary": "五",
+      "reading": "ご",
+      "romaji": "go",
+      "meaning": "five"
+    }
+  ],
+  "六": [
+    {
+      "lesson": 10,
+      "vocabulary": "六",
+      "reading": "ろく",
+      "romaji": "roku",
+      "meaning": "six"
+    }
+  ],
+  "七": [
+    {
+      "lesson": 10,
+      "vocabulary": "七",
+      "reading": "なな",
+      "romaji": "nana",
+      "meaning": "seven"
+    }
+  ],
+  "八": [
+    {
+      "lesson": 10,
+      "vocabulary": "八",
+      "reading": "はち",
+      "romaji": "hachi",
+      "meaning": "eight"
+    }
+  ],
+  "九": [
+    {
+      "lesson": 10,
+      "vocabulary": "九",
+      "reading": "きゅう",
+      "romaji": "kyuu",
+      "meaning": "nine"
+    }
+  ],
+  "十": [
+    {
+      "lesson": 10,
+      "vocabulary": "十",
+      "reading": "じゅう",
+      "romaji": "juu",
+      "meaning": "ten"
+    },
+    {
+      "lesson": 29,
+      "vocabulary": "十分",
+      "reading": "じゅうぶん",
+      "romaji": "juubun",
+      "meaning": "sufficiently / plenty / enough"
+    }
+  ],
+  "百": [
+    {
+      "lesson": 10,
+      "vocabulary": "百",
+      "reading": "ひゃく",
+      "romaji": "hyaku",
+      "meaning": "hundred"
+    }
+  ],
+  "歳": [
+    {
+      "lesson": 10,
+      "vocabulary": "歳",
+      "reading": "さい",
+      "romaji": "sai",
+      "meaning": "years old (age counter)"
+    }
+  ],
+  "財": [
+    {
+      "lesson": 10,
+      "vocabulary": "財布",
+      "reading": "さいふ",
+      "romaji": "saifu",
+      "meaning": "wallet"
+    }
+  ],
+  "布": [
+    {
+      "lesson": 10,
+      "vocabulary": "財布",
+      "reading": "さいふ",
+      "romaji": "saifu",
+      "meaning": "wallet"
+    }
+  ],
+  "家": [
+    {
+      "lesson": 10,
+      "vocabulary": "家族",
+      "reading": "かぞく",
+      "romaji": "kazoku",
+      "meaning": "family"
+    },
+    {
+      "lesson": 11,
+      "vocabulary": "家",
+      "reading": "いえ",
+      "romaji": "ie",
+      "meaning": "house"
+    }
+  ],
+  "族": [
+    {
+      "lesson": 10,
+      "vocabulary": "家族",
+      "reading": "かぞく",
+      "romaji": "kazoku",
+      "meaning": "family"
+    }
+  ],
+  "父": [
+    {
+      "lesson": 10,
+      "vocabulary": "父",
+      "reading": "ちち",
+      "romaji": "chichi",
+      "meaning": "father (humble / own)"
+    }
+  ],
+  "母": [
+    {
+      "lesson": 10,
+      "vocabulary": "母",
+      "reading": "はは",
+      "romaji": "haha",
+      "meaning": "mother (humble / own)"
+    }
+  ],
+  "食": [
+    {
+      "lesson": 11,
+      "vocabulary": "食べる",
+      "reading": "たべる",
+      "romaji": "taberu",
+      "meaning": "to eat"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "食べる",
+      "reading": "たべる",
+      "romaji": "taberu",
+      "meaning": "to eat"
+    }
+  ],
+  "飲": [
+    {
+      "lesson": 11,
+      "vocabulary": "飲む",
+      "reading": "のむ",
+      "romaji": "nomu",
+      "meaning": "to drink"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "飲む",
+      "reading": "のむ",
+      "romaji": "nomu",
+      "meaning": "to drink"
+    }
+  ],
+  "読": [
+    {
+      "lesson": 11,
+      "vocabulary": "読む",
+      "reading": "よむ",
+      "romaji": "yomu",
+      "meaning": "to read"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "読む",
+      "reading": "よむ",
+      "romaji": "yomu",
+      "meaning": "to read"
+    }
+  ],
+  "聞": [
+    {
+      "lesson": 11,
+      "vocabulary": "聞く",
+      "reading": "きく",
+      "romaji": "kiku",
+      "meaning": "to hear"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "聞く",
+      "reading": "きく",
+      "romaji": "kiku",
+      "meaning": "to listen"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "新聞",
+      "reading": "しんぶん",
+      "romaji": "shinbun",
+      "meaning": "newspaper"
+    }
+  ],
+  "見": [
+    {
+      "lesson": 11,
+      "vocabulary": "見る",
+      "reading": "みる",
+      "romaji": "miru",
+      "meaning": "to see"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "見る",
+      "reading": "みる",
+      "romaji": "miru",
+      "meaning": "to see"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "意見",
+      "reading": "いけん",
+      "romaji": "iken",
+      "meaning": "opinion"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "見せる",
+      "reading": "みせる",
+      "romaji": "miseru",
+      "meaning": "to show / display"
+    }
+  ],
+  "行": [
+    {
+      "lesson": 11,
+      "vocabulary": "行く",
+      "reading": "いく",
+      "romaji": "iku",
+      "meaning": "to go"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "行く",
+      "reading": "いく",
+      "romaji": "iku",
+      "meaning": "to go"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "旅行",
+      "reading": "りょこう",
+      "romaji": "ryokou",
+      "meaning": "travel / trip"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "飛行機",
+      "reading": "ひこうき",
+      "romaji": "hikouki",
+      "meaning": "airplane"
+    }
+  ],
+  "来": [
+    {
+      "lesson": 11,
+      "vocabulary": "来る",
+      "reading": "くる",
+      "romaji": "kuru",
+      "meaning": "to come"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "来る",
+      "reading": "くる",
+      "romaji": "kuru",
+      "meaning": "to come"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "来週",
+      "reading": "らいしゅう",
+      "romaji": "raishuu",
+      "meaning": "next week"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "将来",
+      "reading": "しょうらい",
+      "romaji": "shourai",
+      "meaning": "future (personal/near)"
+    }
+  ],
+  "帰": [
+    {
+      "lesson": 11,
+      "vocabulary": "帰る",
+      "reading": "かえる",
+      "romaji": "kaeru",
+      "meaning": "to return"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "帰る",
+      "reading": "かえる",
+      "romaji": "kaeru",
+      "meaning": "to return"
+    }
+  ],
+  "飯": [
+    {
+      "lesson": 11,
+      "vocabulary": "ご飯",
+      "reading": "ごはん",
+      "romaji": "gohan",
+      "meaning": "cooked rice"
+    }
+  ],
+  "水": [
+    {
+      "lesson": 11,
+      "vocabulary": "水",
+      "reading": "みず",
+      "romaji": "mizu",
+      "meaning": "water (cold)"
+    }
+  ],
+  "茶": [
+    {
+      "lesson": 11,
+      "vocabulary": "お茶",
+      "reading": "おちゃ",
+      "romaji": "ocha",
+      "meaning": "tea"
+    }
+  ],
+  "校": [
+    {
+      "lesson": 11,
+      "vocabulary": "学校",
+      "reading": "がっこう",
+      "romaji": "gakkou",
+      "meaning": "school"
+    }
+  ],
+  "図": [
+    {
+      "lesson": 11,
+      "vocabulary": "図書館",
+      "reading": "としょかん",
+      "romaji": "toshokan",
+      "meaning": "library"
+    }
+  ],
+  "館": [
+    {
+      "lesson": 11,
+      "vocabulary": "図書館",
+      "reading": "としょかん",
+      "romaji": "toshokan",
+      "meaning": "library"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "美術館",
+      "reading": "びじゅつかん",
+      "romaji": "bijutsukan",
+      "meaning": "art museum"
+    }
+  ],
+  "駅": [
+    {
+      "lesson": 11,
+      "vocabulary": "駅",
+      "reading": "えき",
+      "romaji": "eki",
+      "meaning": "railway station"
+    }
+  ],
+  "起": [
+    {
+      "lesson": 12,
+      "vocabulary": "起きる",
+      "reading": "おきる",
+      "romaji": "okiru",
+      "meaning": "to get up"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "起きる",
+      "reading": "おきる",
+      "romaji": "okiru",
+      "meaning": "to get up"
+    }
+  ],
+  "寝": [
+    {
+      "lesson": 12,
+      "vocabulary": "寝る",
+      "reading": "ねる",
+      "romaji": "neru",
+      "meaning": "to sleep"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "寝る",
+      "reading": "ねる",
+      "romaji": "neru",
+      "meaning": "to sleep"
+    }
+  ],
+  "勉": [
+    {
+      "lesson": 12,
+      "vocabulary": "勉強する",
+      "reading": "べんきょうする",
+      "romaji": "benkyousuru",
+      "meaning": "to study"
+    }
+  ],
+  "強": [
+    {
+      "lesson": 12,
+      "vocabulary": "勉強する",
+      "reading": "べんきょうする",
+      "romaji": "benkyousuru",
+      "meaning": "to study"
+    }
+  ],
+  "今": [
+    {
+      "lesson": 12,
+      "vocabulary": "今日",
+      "reading": "きょう",
+      "romaji": "kyou",
+      "meaning": "today"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "今",
+      "reading": "いま",
+      "romaji": "ima",
+      "meaning": "now"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "今朝",
+      "reading": "けさ",
+      "romaji": "kesa",
+      "meaning": "this morning"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "今晩",
+      "reading": "こんばん",
+      "romaji": "konban",
+      "meaning": "this evening"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "今週",
+      "reading": "こんしゅう",
+      "romaji": "konshuu",
+      "meaning": "this week"
+    }
+  ],
+  "明": [
+    {
+      "lesson": 12,
+      "vocabulary": "明日",
+      "reading": "あした",
+      "romaji": "ashita",
+      "meaning": "tomorrow"
+    }
+  ],
+  "昨": [
+    {
+      "lesson": 12,
+      "vocabulary": "昨日",
+      "reading": "きのう",
+      "romaji": "kinou",
+      "meaning": "yesterday"
+    }
+  ],
+  "毎": [
+    {
+      "lesson": 12,
+      "vocabulary": "毎日",
+      "reading": "まいにち",
+      "romaji": "mainichi",
+      "meaning": "every day"
+    }
+  ],
+  "朝": [
+    {
+      "lesson": 12,
+      "vocabulary": "朝",
+      "reading": "あさ",
+      "romaji": "asa",
+      "meaning": "morning"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "今朝",
+      "reading": "けさ",
+      "romaji": "kesa",
+      "meaning": "this morning"
+    }
+  ],
+  "昼": [
+    {
+      "lesson": 12,
+      "vocabulary": "昼",
+      "reading": "ひる",
+      "romaji": "hiru",
+      "meaning": "noon"
+    }
+  ],
+  "夜": [
+    {
+      "lesson": 12,
+      "vocabulary": "夜",
+      "reading": "よる",
+      "romaji": "yoru",
+      "meaning": "night"
+    }
+  ],
+  "分": [
+    {
+      "lesson": 12,
+      "vocabulary": "分",
+      "reading": "ふん",
+      "romaji": "fun",
+      "meaning": "minute (counter)"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "多分",
+      "reading": "たぶん",
+      "romaji": "tabun",
+      "meaning": "probably"
+    },
+    {
+      "lesson": 29,
+      "vocabulary": "十分",
+      "reading": "じゅうぶん",
+      "romaji": "juubun",
+      "meaning": "sufficiently / plenty / enough"
+    }
+  ],
+  "午": [
+    {
+      "lesson": 12,
+      "vocabulary": "午前",
+      "reading": "ごぜん",
+      "romaji": "gozen",
+      "meaning": "morning"
+    },
+    {
+      "lesson": 12,
+      "vocabulary": "午後",
+      "reading": "ごご",
+      "romaji": "gogo",
+      "meaning": "afternoon"
+    }
+  ],
+  "後": [
+    {
+      "lesson": 12,
+      "vocabulary": "午後",
+      "reading": "ごご",
+      "romaji": "gogo",
+      "meaning": "afternoon"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "後ろ",
+      "reading": "うしろ",
+      "romaji": "ushiro",
+      "meaning": "behind"
+    }
+  ],
+  "男": [
+    {
+      "lesson": 13,
+      "vocabulary": "男の人",
+      "reading": "おとこのひと",
+      "romaji": "otokonohito",
+      "meaning": "man"
+    }
+  ],
+  "子": [
+    {
+      "lesson": 13,
+      "vocabulary": "子供",
+      "reading": "こども",
+      "romaji": "kodomo",
+      "meaning": "child"
+    },
+    {
+      "lesson": 13,
+      "vocabulary": "椅子",
+      "reading": "いす",
+      "romaji": "isu",
+      "meaning": "chair"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "お菓子",
+      "reading": "おかし",
+      "romaji": "okashi",
+      "meaning": "confections"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "帽子",
+      "reading": "ぼうし",
+      "romaji": "boushi",
+      "meaning": "hat"
+    }
+  ],
+  "供": [
+    {
+      "lesson": 13,
+      "vocabulary": "子供",
+      "reading": "こども",
+      "romaji": "kodomo",
+      "meaning": "child"
+    }
+  ],
+  "犬": [
+    {
+      "lesson": 13,
+      "vocabulary": "犬",
+      "reading": "いぬ",
+      "romaji": "inu",
+      "meaning": "dog"
+    }
+  ],
+  "猫": [
+    {
+      "lesson": 13,
+      "vocabulary": "猫",
+      "reading": "ねこ",
+      "romaji": "neko",
+      "meaning": "cat"
+    }
+  ],
+  "机": [
+    {
+      "lesson": 13,
+      "vocabulary": "机",
+      "reading": "つくえ",
+      "romaji": "tsukue",
+      "meaning": "desk"
+    }
+  ],
+  "椅": [
+    {
+      "lesson": 13,
+      "vocabulary": "椅子",
+      "reading": "いす",
+      "romaji": "isu",
+      "meaning": "chair"
+    }
+  ],
+  "部": [
+    {
+      "lesson": 13,
+      "vocabulary": "部屋",
+      "reading": "へや",
+      "romaji": "heya",
+      "meaning": "room"
+    }
+  ],
+  "屋": [
+    {
+      "lesson": 13,
+      "vocabulary": "部屋",
+      "reading": "へや",
+      "romaji": "heya",
+      "meaning": "room"
+    }
+  ],
+  "上": [
+    {
+      "lesson": 13,
+      "vocabulary": "上",
+      "reading": "うえ",
+      "romaji": "ue",
+      "meaning": "above"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "上手",
+      "reading": "じょうず",
+      "romaji": "jouzu",
+      "meaning": "skillful / good at"
+    }
+  ],
+  "下": [
+    {
+      "lesson": 13,
+      "vocabulary": "下",
+      "reading": "した",
+      "romaji": "shita",
+      "meaning": "below"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "下手",
+      "reading": "へた",
+      "romaji": "heta",
+      "meaning": "poor at / unskillful"
+    }
+  ],
+  "中": [
+    {
+      "lesson": 13,
+      "vocabulary": "中",
+      "reading": "なか",
+      "romaji": "naka",
+      "meaning": "inside"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "中国語",
+      "reading": "ちゅうごくご",
+      "romaji": "chuugokugo",
+      "meaning": "Chinese language"
+    }
+  ],
+  "話": [
+    {
+      "lesson": 14,
+      "vocabulary": "話す",
+      "reading": "はなす",
+      "romaji": "hanasu",
+      "meaning": "to talk"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "電話する",
+      "reading": "でんわする",
+      "romaji": "denwasuru",
+      "meaning": "to make a phone call"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "話す",
+      "reading": "はなす",
+      "romaji": "hanasu",
+      "meaning": "to speak"
+    },
+    {
+      "lesson": 20,
+      "vocabulary": "電話",
+      "reading": "でんわ",
+      "romaji": "denwa",
+      "meaning": "telephone"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "話",
+      "reading": "はなし",
+      "romaji": "hanashi",
+      "meaning": "talk"
+    }
+  ],
+  "待": [
+    {
+      "lesson": 14,
+      "vocabulary": "待つ",
+      "reading": "まつ",
+      "romaji": "matsu",
+      "meaning": "to wait"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "待つ",
+      "reading": "まつ",
+      "romaji": "matsu",
+      "meaning": "to wait"
+    }
+  ],
+  "買": [
+    {
+      "lesson": 14,
+      "vocabulary": "買う",
+      "reading": "かう",
+      "romaji": "kau",
+      "meaning": "to buy"
+    },
+    {
+      "lesson": 14,
+      "vocabulary": "買い物",
+      "reading": "かいもの",
+      "romaji": "kaimono",
+      "meaning": "shopping"
+    },
+    {
+      "lesson": 18,
+      "vocabulary": "買う",
+      "reading": "かう",
+      "romaji": "kau",
+      "meaning": "to buy"
+    }
+  ],
+  "電": [
+    {
+      "lesson": 14,
+      "vocabulary": "電話する",
+      "reading": "でんわする",
+      "romaji": "denwasuru",
+      "meaning": "to make a phone call"
+    },
+    {
+      "lesson": 20,
+      "vocabulary": "電話",
+      "reading": "でんわ",
+      "romaji": "denwa",
+      "meaning": "telephone"
+    }
+  ],
+  "緒": [
+    {
+      "lesson": 14,
+      "vocabulary": "一緒に",
+      "reading": "いっしょに",
+      "romaji": "isshoni",
+      "meaning": "together"
+    }
+  ],
+  "約": [
+    {
+      "lesson": 14,
+      "vocabulary": "約束",
+      "reading": "やくそく",
+      "romaji": "yakusoku",
+      "meaning": "promise"
+    }
+  ],
+  "束": [
+    {
+      "lesson": 14,
+      "vocabulary": "約束",
+      "reading": "やくそく",
+      "romaji": "yakusoku",
+      "meaning": "promise"
+    }
+  ],
+  "手": [
+    {
+      "lesson": 14,
+      "vocabulary": "手紙",
+      "reading": "てがみ",
+      "romaji": "tegami",
+      "meaning": "letter"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "上手",
+      "reading": "じょうず",
+      "romaji": "jouzu",
+      "meaning": "skillful / good at"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "下手",
+      "reading": "へた",
+      "romaji": "heta",
+      "meaning": "poor at / unskillful"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "苦手",
+      "reading": "にがて",
+      "romaji": "nigate",
+      "meaning": "one's weak point / dislike doing"
+    }
+  ],
+  "紙": [
+    {
+      "lesson": 14,
+      "vocabulary": "手紙",
+      "reading": "てがみ",
+      "romaji": "tegami",
+      "meaning": "letter"
+    }
+  ],
+  "映": [
+    {
+      "lesson": 14,
+      "vocabulary": "映画",
+      "reading": "えいが",
+      "romaji": "eiga",
+      "meaning": "movie"
+    }
+  ],
+  "画": [
+    {
+      "lesson": 14,
+      "vocabulary": "映画",
+      "reading": "えいが",
+      "romaji": "eiga",
+      "meaning": "movie"
+    }
+  ],
+  "店": [
+    {
+      "lesson": 14,
+      "vocabulary": "店",
+      "reading": "みせ",
+      "romaji": "mise",
+      "meaning": "shop"
+    }
+  ],
+  "週": [
+    {
+      "lesson": 14,
+      "vocabulary": "週末",
+      "reading": "しゅうまつ",
+      "romaji": "shuumatsu",
+      "meaning": "weekend"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "今週",
+      "reading": "こんしゅう",
+      "romaji": "konshuu",
+      "meaning": "this week"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "来週",
+      "reading": "らいしゅう",
+      "romaji": "raishuu",
+      "meaning": "next week"
+    },
+    {
+      "lesson": 22,
+      "vocabulary": "先週",
+      "reading": "せんしゅう",
+      "romaji": "senshuu",
+      "meaning": "last week"
+    }
+  ],
+  "末": [
+    {
+      "lesson": 14,
+      "vocabulary": "週末",
+      "reading": "しゅうまつ",
+      "romaji": "shuumatsu",
+      "meaning": "weekend"
+    }
+  ],
+  "物": [
+    {
+      "lesson": 14,
+      "vocabulary": "買い物",
+      "reading": "かいもの",
+      "romaji": "kaimono",
+      "meaning": "shopping"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "荷物",
+      "reading": "にもつ",
+      "romaji": "nimotsu",
+      "meaning": "luggage"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "物",
+      "reading": "もの",
+      "romaji": "mono",
+      "meaning": "thing"
+    }
+  ],
+  "公": [
+    {
+      "lesson": 14,
+      "vocabulary": "公園",
+      "reading": "こうえん",
+      "romaji": "kouen",
+      "meaning": "public park"
+    }
+  ],
+  "園": [
+    {
+      "lesson": 14,
+      "vocabulary": "公園",
+      "reading": "こうえん",
+      "romaji": "kouen",
+      "meaning": "public park"
+    }
+  ],
+  "大": [
+    {
+      "lesson": 15,
+      "vocabulary": "大きい",
+      "reading": "おおきい",
+      "romaji": "ookii",
+      "meaning": "big"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "大好き",
+      "reading": "だいすき",
+      "romaji": "daisuki",
+      "meaning": "very fond of"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "大切",
+      "reading": "たいせつ",
+      "romaji": "taisetsu",
+      "meaning": "important"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "大丈夫",
+      "reading": "だいじょうぶ",
+      "romaji": "daijoubu",
+      "meaning": "all right"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "大変",
+      "reading": "たいへん",
+      "romaji": "taihen",
+      "meaning": "tough"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "大声",
+      "reading": "おおごえ",
+      "romaji": "oogoe",
+      "meaning": "loud voice"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "大人",
+      "reading": "おとな",
+      "romaji": "otona",
+      "meaning": "adult"
+    }
+  ],
+  "小": [
+    {
+      "lesson": 15,
+      "vocabulary": "小さい",
+      "reading": "ちいさい",
+      "romaji": "chiisai",
+      "meaning": "small"
+    }
+  ],
+  "高": [
+    {
+      "lesson": 15,
+      "vocabulary": "高い",
+      "reading": "たかい",
+      "romaji": "takai",
+      "meaning": "high"
+    }
+  ],
+  "安": [
+    {
+      "lesson": 15,
+      "vocabulary": "安い",
+      "reading": "やすい",
+      "romaji": "yasui",
+      "meaning": "cheap"
+    }
+  ],
+  "新": [
+    {
+      "lesson": 15,
+      "vocabulary": "新しい",
+      "reading": "あたらしい",
+      "romaji": "atarashii",
+      "meaning": "new"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "新聞",
+      "reading": "しんぶん",
+      "romaji": "shinbun",
+      "meaning": "newspaper"
+    }
+  ],
+  "古": [
+    {
+      "lesson": 15,
+      "vocabulary": "古い",
+      "reading": "ふるい",
+      "romaji": "furui",
+      "meaning": "old (not of people)"
+    }
+  ],
+  "良": [
+    {
+      "lesson": 15,
+      "vocabulary": "良い",
+      "reading": "いい",
+      "romaji": "ii",
+      "meaning": "good"
+    }
+  ],
+  "悪": [
+    {
+      "lesson": 15,
+      "vocabulary": "悪い",
+      "reading": "わるい",
+      "romaji": "warui",
+      "meaning": "bad"
+    }
+  ],
+  "熱": [
+    {
+      "lesson": 15,
+      "vocabulary": "熱い",
+      "reading": "あつい",
+      "romaji": "atsui",
+      "meaning": "hot (thing, drink)"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "熱",
+      "reading": "ねつ",
+      "romaji": "netsu",
+      "meaning": "fever / body temperature"
+    }
+  ],
+  "寒": [
+    {
+      "lesson": 15,
+      "vocabulary": "寒い",
+      "reading": "さむい",
+      "romaji": "samui",
+      "meaning": "cold (weather)"
+    }
+  ],
+  "冷": [
+    {
+      "lesson": 15,
+      "vocabulary": "冷たい",
+      "reading": "つめたい",
+      "romaji": "tsumetai",
+      "meaning": "cold (to touch)"
+    }
+  ],
+  "美": [
+    {
+      "lesson": 15,
+      "vocabulary": "美味しい",
+      "reading": "おいしい",
+      "romaji": "oishii",
+      "meaning": "delicious"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "美術館",
+      "reading": "びじゅつかん",
+      "romaji": "bijutsukan",
+      "meaning": "art museum"
+    }
+  ],
+  "味": [
+    {
+      "lesson": 15,
+      "vocabulary": "美味しい",
+      "reading": "おいしい",
+      "romaji": "oishii",
+      "meaning": "delicious"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "意味",
+      "reading": "いみ",
+      "romaji": "imi",
+      "meaning": "meaning"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "趣味",
+      "reading": "しゅみ",
+      "romaji": "shumi",
+      "meaning": "hobby / pastime"
+    }
+  ],
+  "楽": [
+    {
+      "lesson": 15,
+      "vocabulary": "楽しい",
+      "reading": "たのしい",
+      "romaji": "tanoshii",
+      "meaning": "enjoyable"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "音楽",
+      "reading": "おんがく",
+      "romaji": "ongaku",
+      "meaning": "music"
+    }
+  ],
+  "面": [
+    {
+      "lesson": 15,
+      "vocabulary": "面白い",
+      "reading": "おもしろい",
+      "romaji": "omoshiroi",
+      "meaning": "interesting"
+    }
+  ],
+  "白": [
+    {
+      "lesson": 15,
+      "vocabulary": "面白い",
+      "reading": "おもしろい",
+      "romaji": "omoshiroi",
+      "meaning": "interesting"
+    }
+  ],
+  "忙": [
+    {
+      "lesson": 15,
+      "vocabulary": "忙しい",
+      "reading": "いそがしい",
+      "romaji": "isogashii",
+      "meaning": "busy"
+    }
+  ],
+  "暑": [
+    {
+      "lesson": 15,
+      "vocabulary": "暑い",
+      "reading": "あつい",
+      "romaji": "atsui",
+      "meaning": "hot (weather)"
+    }
+  ],
+  "静": [
+    {
+      "lesson": 16,
+      "vocabulary": "静か",
+      "reading": "しずか",
+      "romaji": "shizuka",
+      "meaning": "quiet"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "静か",
+      "reading": "しずか",
+      "romaji": "shizuka",
+      "meaning": "quiet"
+    }
+  ],
+  "賑": [
+    {
+      "lesson": 16,
+      "vocabulary": "賑やか",
+      "reading": "にぎやか",
+      "romaji": "nigiyaka",
+      "meaning": "lively"
+    }
+  ],
+  "有": [
+    {
+      "lesson": 16,
+      "vocabulary": "有名",
+      "reading": "ゆうめい",
+      "romaji": "yuumei",
+      "meaning": "famous"
+    }
+  ],
+  "親": [
+    {
+      "lesson": 16,
+      "vocabulary": "親切",
+      "reading": "しんせつ",
+      "romaji": "shinsetsu",
+      "meaning": "kind"
+    }
+  ],
+  "切": [
+    {
+      "lesson": 16,
+      "vocabulary": "親切",
+      "reading": "しんせつ",
+      "romaji": "shinsetsu",
+      "meaning": "kind"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "大切",
+      "reading": "たいせつ",
+      "romaji": "taisetsu",
+      "meaning": "important"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "切符",
+      "reading": "きっぷ",
+      "romaji": "kippu",
+      "meaning": "ticket (train/bus)"
+    }
+  ],
+  "元": [
+    {
+      "lesson": 16,
+      "vocabulary": "元気",
+      "reading": "げんき",
+      "romaji": "genki",
+      "meaning": "healthy"
+    }
+  ],
+  "気": [
+    {
+      "lesson": 16,
+      "vocabulary": "元気",
+      "reading": "げんき",
+      "romaji": "genki",
+      "meaning": "healthy"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "天気予報",
+      "reading": "てんきよほう",
+      "romaji": "tenkiyohou",
+      "meaning": "weather forecast"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "病気",
+      "reading": "びょうき",
+      "romaji": "byouki",
+      "meaning": "illness / disease"
+    },
+    {
+      "lesson": 29,
+      "vocabulary": "気をつける",
+      "reading": "きをつける",
+      "romaji": "ki o tsukeru",
+      "meaning": "to be careful / take care"
+    }
+  ],
+  "暇": [
+    {
+      "lesson": 16,
+      "vocabulary": "暇",
+      "reading": "ひま",
+      "romaji": "hima",
+      "meaning": "free time"
+    }
+  ],
+  "便": [
+    {
+      "lesson": 16,
+      "vocabulary": "便利",
+      "reading": "べんり",
+      "romaji": "benri",
+      "meaning": "convenient"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "不便",
+      "reading": "ふべん",
+      "romaji": "fuben",
+      "meaning": "inconvenient"
+    }
+  ],
+  "利": [
+    {
+      "lesson": 16,
+      "vocabulary": "便利",
+      "reading": "べんり",
+      "romaji": "benri",
+      "meaning": "convenient"
+    }
+  ],
+  "不": [
+    {
+      "lesson": 16,
+      "vocabulary": "不便",
+      "reading": "ふべん",
+      "romaji": "fuben",
+      "meaning": "inconvenient"
+    }
+  ],
+  "綺": [
+    {
+      "lesson": 16,
+      "vocabulary": "綺麗",
+      "reading": "きれい",
+      "romaji": "kirei",
+      "meaning": "pretty"
+    }
+  ],
+  "麗": [
+    {
+      "lesson": 16,
+      "vocabulary": "綺麗",
+      "reading": "きれい",
+      "romaji": "kirei",
+      "meaning": "pretty"
+    }
+  ],
+  "好": [
+    {
+      "lesson": 16,
+      "vocabulary": "好き",
+      "reading": "すき",
+      "romaji": "suki",
+      "meaning": "liked"
+    },
+    {
+      "lesson": 16,
+      "vocabulary": "大好き",
+      "reading": "だいすき",
+      "romaji": "daisuki",
+      "meaning": "very fond of"
+    }
+  ],
+  "嫌": [
+    {
+      "lesson": 16,
+      "vocabulary": "嫌い",
+      "reading": "きらい",
+      "romaji": "kirai",
+      "meaning": "disliked"
+    }
+  ],
+  "丈": [
+    {
+      "lesson": 16,
+      "vocabulary": "大丈夫",
+      "reading": "だいじょうぶ",
+      "romaji": "daijoubu",
+      "meaning": "all right"
+    }
+  ],
+  "夫": [
+    {
+      "lesson": 16,
+      "vocabulary": "大丈夫",
+      "reading": "だいじょうぶ",
+      "romaji": "daijoubu",
+      "meaning": "all right"
+    }
+  ],
+  "簡": [
+    {
+      "lesson": 16,
+      "vocabulary": "簡単",
+      "reading": "かんたん",
+      "romaji": "kantan",
+      "meaning": "simple"
+    }
+  ],
+  "単": [
+    {
+      "lesson": 16,
+      "vocabulary": "簡単",
+      "reading": "かんたん",
+      "romaji": "kantan",
+      "meaning": "simple"
+    }
+  ],
+  "変": [
+    {
+      "lesson": 16,
+      "vocabulary": "大変",
+      "reading": "たいへん",
+      "romaji": "taihen",
+      "meaning": "tough"
+    }
+  ],
+  "番": [
+    {
+      "lesson": 17,
+      "vocabulary": "一番",
+      "reading": "いちばん",
+      "romaji": "ichiban",
+      "meaning": "most"
+    },
+    {
+      "lesson": 20,
+      "vocabulary": "番号",
+      "reading": "ばんごう",
+      "romaji": "bangou",
+      "meaning": "number"
+    }
+  ],
+  "少": [
+    {
+      "lesson": 17,
+      "vocabulary": "少し",
+      "reading": "すこし",
+      "romaji": "sukoshi",
+      "meaning": "a little"
+    }
+  ],
+  "全": [
+    {
+      "lesson": 17,
+      "vocabulary": "全然",
+      "reading": "ぜんぜん",
+      "romaji": "zenzen",
+      "meaning": "not at all (with neg)"
+    }
+  ],
+  "然": [
+    {
+      "lesson": 17,
+      "vocabulary": "全然",
+      "reading": "ぜんぜん",
+      "romaji": "zenzen",
+      "meaning": "not at all (with neg)"
+    }
+  ],
+  "世": [
+    {
+      "lesson": 17,
+      "vocabulary": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "meaning": "world"
+    }
+  ],
+  "界": [
+    {
+      "lesson": 17,
+      "vocabulary": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "meaning": "world"
+    }
+  ],
+  "季": [
+    {
+      "lesson": 17,
+      "vocabulary": "季節",
+      "reading": "きせつ",
+      "romaji": "kisetsu",
+      "meaning": "season"
+    }
+  ],
+  "節": [
+    {
+      "lesson": 17,
+      "vocabulary": "季節",
+      "reading": "きせつ",
+      "romaji": "kisetsu",
+      "meaning": "season"
+    }
+  ],
+  "春": [
+    {
+      "lesson": 17,
+      "vocabulary": "春",
+      "reading": "はる",
+      "romaji": "haru",
+      "meaning": "spring"
+    }
+  ],
+  "夏": [
+    {
+      "lesson": 17,
+      "vocabulary": "夏",
+      "reading": "なつ",
+      "romaji": "natsu",
+      "meaning": "summer"
+    }
+  ],
+  "秋": [
+    {
+      "lesson": 17,
+      "vocabulary": "秋",
+      "reading": "あき",
+      "romaji": "aki",
+      "meaning": "autumn"
+    }
+  ],
+  "冬": [
+    {
+      "lesson": 17,
+      "vocabulary": "冬",
+      "reading": "ふゆ",
+      "romaji": "fuyu",
+      "meaning": "winter"
+    }
+  ],
+  "入": [
+    {
+      "lesson": 18,
+      "vocabulary": "入る",
+      "reading": "はいる",
+      "romaji": "hairu",
+      "meaning": "to enter"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "入口",
+      "reading": "いりぐち",
+      "romaji": "iriguchi",
+      "meaning": "entrance"
+    }
+  ],
+  "洗": [
+    {
+      "lesson": 19,
+      "vocabulary": "洗う",
+      "reading": "あらう",
+      "romaji": "arau",
+      "meaning": "to wash"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "洗濯",
+      "reading": "せんたく",
+      "romaji": "sentaku",
+      "meaning": "laundry"
+    }
+  ],
+  "立": [
+    {
+      "lesson": 19,
+      "vocabulary": "立つ",
+      "reading": "たつ",
+      "romaji": "tatsu",
+      "meaning": "to stand up"
+    }
+  ],
+  "座": [
+    {
+      "lesson": 19,
+      "vocabulary": "座る",
+      "reading": "すわる",
+      "romaji": "suwaru",
+      "meaning": "to sit down"
+    }
+  ],
+  "取": [
+    {
+      "lesson": 19,
+      "vocabulary": "取る",
+      "reading": "とる",
+      "romaji": "toru",
+      "meaning": "to take"
+    }
+  ],
+  "呼": [
+    {
+      "lesson": 19,
+      "vocabulary": "呼ぶ",
+      "reading": "よぶ",
+      "romaji": "yobu",
+      "meaning": "to call out"
+    }
+  ],
+  "遊": [
+    {
+      "lesson": 19,
+      "vocabulary": "遊ぶ",
+      "reading": "あそぶ",
+      "romaji": "asobu",
+      "meaning": "to play"
+    }
+  ],
+  "歩": [
+    {
+      "lesson": 19,
+      "vocabulary": "歩く",
+      "reading": "あるく",
+      "romaji": "aruku",
+      "meaning": "to walk"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "散歩",
+      "reading": "さんぽ",
+      "romaji": "sanpo",
+      "meaning": "walk / stroll"
+    }
+  ],
+  "泳": [
+    {
+      "lesson": 19,
+      "vocabulary": "泳ぐ",
+      "reading": "およぐ",
+      "romaji": "oyogu",
+      "meaning": "to swim"
+    }
+  ],
+  "急": [
+    {
+      "lesson": 19,
+      "vocabulary": "急ぐ",
+      "reading": "いそぐ",
+      "romaji": "isogu",
+      "meaning": "to hurry"
+    }
+  ],
+  "出": [
+    {
+      "lesson": 19,
+      "vocabulary": "出す",
+      "reading": "だす",
+      "romaji": "dasu",
+      "meaning": "to take out"
+    },
+    {
+      "lesson": 21,
+      "vocabulary": "出口",
+      "reading": "でぐち",
+      "romaji": "deguchi",
+      "meaning": "exit"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "提出",
+      "reading": "ていしゅつ",
+      "romaji": "teishutsu",
+      "meaning": "submission / turning in"
+    }
+  ],
+  "借": [
+    {
+      "lesson": 19,
+      "vocabulary": "借りる",
+      "reading": "かりる",
+      "romaji": "kariru",
+      "meaning": "to borrow"
+    }
+  ],
+  "貸": [
+    {
+      "lesson": 19,
+      "vocabulary": "貸す",
+      "reading": "かす",
+      "romaji": "kasu",
+      "meaning": "to lend"
+    }
+  ],
+  "開": [
+    {
+      "lesson": 19,
+      "vocabulary": "開ける",
+      "reading": "あける",
+      "romaji": "akeru",
+      "meaning": "to open (transitive)"
+    }
+  ],
+  "閉": [
+    {
+      "lesson": 19,
+      "vocabulary": "閉める",
+      "reading": "しめる",
+      "romaji": "shimeru",
+      "meaning": "to close (transitive)"
+    }
+  ],
+  "住": [
+    {
+      "lesson": 20,
+      "vocabulary": "住む",
+      "reading": "すむ",
+      "romaji": "sumu",
+      "meaning": "to live"
+    },
+    {
+      "lesson": 20,
+      "vocabulary": "住所",
+      "reading": "じゅうしょ",
+      "romaji": "juusho",
+      "meaning": "address"
+    }
+  ],
+  "知": [
+    {
+      "lesson": 20,
+      "vocabulary": "知る",
+      "reading": "しる",
+      "romaji": "shiru",
+      "meaning": "to know"
+    }
+  ],
+  "持": [
+    {
+      "lesson": 20,
+      "vocabulary": "持つ",
+      "reading": "もつ",
+      "romaji": "motsu",
+      "meaning": "to hold"
+    }
+  ],
+  "働": [
+    {
+      "lesson": 20,
+      "vocabulary": "働く",
+      "reading": "はたらく",
+      "romaji": "hataraku",
+      "meaning": "to work"
+    }
+  ],
+  "覚": [
+    {
+      "lesson": 20,
+      "vocabulary": "覚える",
+      "reading": "おぼえる",
+      "romaji": "oboeru",
+      "meaning": "to memorize"
+    }
+  ],
+  "忘": [
+    {
+      "lesson": 20,
+      "vocabulary": "忘れる",
+      "reading": "わすれる",
+      "romaji": "wasureru",
+      "meaning": "to forget"
+    }
+  ],
+  "着": [
+    {
+      "lesson": 20,
+      "vocabulary": "着る",
+      "reading": "きる",
+      "romaji": "kiru",
+      "meaning": "to wear (upper body)"
+    }
+  ],
+  "履": [
+    {
+      "lesson": 20,
+      "vocabulary": "履く",
+      "reading": "はく",
+      "romaji": "haku",
+      "meaning": "to wear (lower body/shoes)"
+    }
+  ],
+  "結": [
+    {
+      "lesson": 20,
+      "vocabulary": "結婚",
+      "reading": "けっこん",
+      "romaji": "kekkon",
+      "meaning": "marriage"
+    }
+  ],
+  "婚": [
+    {
+      "lesson": 20,
+      "vocabulary": "結婚",
+      "reading": "けっこん",
+      "romaji": "kekkon",
+      "meaning": "marriage"
+    }
+  ],
+  "独": [
+    {
+      "lesson": 20,
+      "vocabulary": "独身",
+      "reading": "どくしん",
+      "romaji": "dokushin",
+      "meaning": "single"
+    }
+  ],
+  "身": [
+    {
+      "lesson": 20,
+      "vocabulary": "独身",
+      "reading": "どくしん",
+      "romaji": "dokushin",
+      "meaning": "single"
+    }
+  ],
+  "所": [
+    {
+      "lesson": 20,
+      "vocabulary": "住所",
+      "reading": "じゅうしょ",
+      "romaji": "juusho",
+      "meaning": "address"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "場所",
+      "reading": "ばしょ",
+      "romaji": "basho",
+      "meaning": "place"
+    }
+  ],
+  "号": [
+    {
+      "lesson": 20,
+      "vocabulary": "番号",
+      "reading": "ばんごう",
+      "romaji": "bangou",
+      "meaning": "number"
+    }
+  ],
+  "写": [
+    {
+      "lesson": 21,
+      "vocabulary": "写真",
+      "reading": "しゃしん",
+      "romaji": "shashin",
+      "meaning": "photograph"
+    }
+  ],
+  "真": [
+    {
+      "lesson": 21,
+      "vocabulary": "写真",
+      "reading": "しゃしん",
+      "romaji": "shashin",
+      "meaning": "photograph"
+    }
+  ],
+  "撮": [
+    {
+      "lesson": 21,
+      "vocabulary": "撮る",
+      "reading": "とる",
+      "romaji": "toru",
+      "meaning": "to take (a photo)"
+    }
+  ],
+  "吸": [
+    {
+      "lesson": 21,
+      "vocabulary": "吸う",
+      "reading": "すう",
+      "romaji": "suu",
+      "meaning": "to smoke"
+    }
+  ],
+  "病": [
+    {
+      "lesson": 21,
+      "vocabulary": "病院",
+      "reading": "びょういん",
+      "romaji": "byouin",
+      "meaning": "hospital"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "病気",
+      "reading": "びょうき",
+      "romaji": "byouki",
+      "meaning": "illness / disease"
+    }
+  ],
+  "院": [
+    {
+      "lesson": 21,
+      "vocabulary": "病院",
+      "reading": "びょういん",
+      "romaji": "byouin",
+      "meaning": "hospital"
+    }
+  ],
+  "術": [
+    {
+      "lesson": 21,
+      "vocabulary": "美術館",
+      "reading": "びじゅつかん",
+      "romaji": "bijutsukan",
+      "meaning": "art museum"
+    }
+  ],
+  "声": [
+    {
+      "lesson": 21,
+      "vocabulary": "大声",
+      "reading": "おおごえ",
+      "romaji": "oogoe",
+      "meaning": "loud voice"
+    }
+  ],
+  "窓": [
+    {
+      "lesson": 21,
+      "vocabulary": "窓",
+      "reading": "まど",
+      "romaji": "mado",
+      "meaning": "window"
+    }
+  ],
+  "席": [
+    {
+      "lesson": 21,
+      "vocabulary": "席",
+      "reading": "せき",
+      "romaji": "seki",
+      "meaning": "seat"
+    }
+  ],
+  "荷": [
+    {
+      "lesson": 21,
+      "vocabulary": "荷物",
+      "reading": "にもつ",
+      "romaji": "nimotsu",
+      "meaning": "luggage"
+    }
+  ],
+  "当": [
+    {
+      "lesson": 22,
+      "vocabulary": "本当",
+      "reading": "ほんとう",
+      "romaji": "hontou",
+      "meaning": "truth"
+    },
+    {
+      "lesson": 24,
+      "vocabulary": "お弁当",
+      "reading": "おべんとう",
+      "romaji": "obentou",
+      "meaning": "boxed lunch"
+    }
+  ],
+  "嘘": [
+    {
+      "lesson": 22,
+      "vocabulary": "嘘",
+      "reading": "うそ",
+      "romaji": "uso",
+      "meaning": "lie"
+    }
+  ],
+  "多": [
+    {
+      "lesson": 22,
+      "vocabulary": "多分",
+      "reading": "たぶん",
+      "romaji": "tabun",
+      "meaning": "probably"
+    }
+  ],
+  "晩": [
+    {
+      "lesson": 22,
+      "vocabulary": "今晩",
+      "reading": "こんばん",
+      "romaji": "konban",
+      "meaning": "this evening"
+    }
+  ],
+  "宿": [
+    {
+      "lesson": 22,
+      "vocabulary": "宿題",
+      "reading": "しゅくだい",
+      "romaji": "shukudai",
+      "meaning": "homework"
+    }
+  ],
+  "題": [
+    {
+      "lesson": 22,
+      "vocabulary": "宿題",
+      "reading": "しゅくだい",
+      "romaji": "shukudai",
+      "meaning": "homework"
+    }
+  ],
+  "授": [
+    {
+      "lesson": 22,
+      "vocabulary": "授業",
+      "reading": "じゅぎょう",
+      "romaji": "jugyou",
+      "meaning": "class"
+    }
+  ],
+  "業": [
+    {
+      "lesson": 22,
+      "vocabulary": "授業",
+      "reading": "じゅぎょう",
+      "romaji": "jugyou",
+      "meaning": "class"
+    }
+  ],
+  "休": [
+    {
+      "lesson": 22,
+      "vocabulary": "休み",
+      "reading": "やすみ",
+      "romaji": "yasumi",
+      "meaning": "rest"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "休む",
+      "reading": "やすむ",
+      "romaji": "yasumu",
+      "meaning": "to take time off / rest"
+    }
+  ],
+  "思": [
+    {
+      "lesson": 23,
+      "vocabulary": "思う",
+      "reading": "おもう",
+      "romaji": "omou",
+      "meaning": "to think"
+    }
+  ],
+  "言": [
+    {
+      "lesson": 23,
+      "vocabulary": "言う",
+      "reading": "いう",
+      "romaji": "iu",
+      "meaning": "to say"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "言葉",
+      "reading": "ことば",
+      "romaji": "kotoba",
+      "meaning": "word"
+    }
+  ],
+  "考": [
+    {
+      "lesson": 23,
+      "vocabulary": "考える",
+      "reading": "かんがえる",
+      "romaji": "kangaeru",
+      "meaning": "to think over"
+    }
+  ],
+  "意": [
+    {
+      "lesson": 23,
+      "vocabulary": "意見",
+      "reading": "いけん",
+      "romaji": "iken",
+      "meaning": "opinion"
+    },
+    {
+      "lesson": 23,
+      "vocabulary": "意味",
+      "reading": "いみ",
+      "romaji": "imi",
+      "meaning": "meaning"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "得意",
+      "reading": "とくい",
+      "romaji": "tokui",
+      "meaning": "one's strength / proud of"
+    }
+  ],
+  "質": [
+    {
+      "lesson": 23,
+      "vocabulary": "質問",
+      "reading": "しつもん",
+      "romaji": "shitsumon",
+      "meaning": "question"
+    }
+  ],
+  "問": [
+    {
+      "lesson": 23,
+      "vocabulary": "質問",
+      "reading": "しつもん",
+      "romaji": "shitsumon",
+      "meaning": "question"
+    }
+  ],
+  "答": [
+    {
+      "lesson": 23,
+      "vocabulary": "答える",
+      "reading": "こたえる",
+      "romaji": "kotaeru",
+      "meaning": "to answer"
+    }
+  ],
+  "雑": [
+    {
+      "lesson": 23,
+      "vocabulary": "雑誌",
+      "reading": "ざっし",
+      "romaji": "zasshi",
+      "meaning": "magazine"
+    }
+  ],
+  "誌": [
+    {
+      "lesson": 23,
+      "vocabulary": "雑誌",
+      "reading": "ざっし",
+      "romaji": "zasshi",
+      "meaning": "magazine"
+    }
+  ],
+  "葉": [
+    {
+      "lesson": 23,
+      "vocabulary": "言葉",
+      "reading": "ことば",
+      "romaji": "kotoba",
+      "meaning": "word"
+    }
+  ],
+  "文": [
+    {
+      "lesson": 23,
+      "vocabulary": "文化",
+      "reading": "ぶんか",
+      "romaji": "bunka",
+      "meaning": "culture"
+    }
+  ],
+  "化": [
+    {
+      "lesson": 23,
+      "vocabulary": "文化",
+      "reading": "ぶんか",
+      "romaji": "bunka",
+      "meaning": "culture"
+    }
+  ],
+  "将": [
+    {
+      "lesson": 23,
+      "vocabulary": "将来",
+      "reading": "しょうらい",
+      "romaji": "shourai",
+      "meaning": "future (personal/near)"
+    }
+  ],
+  "天": [
+    {
+      "lesson": 23,
+      "vocabulary": "天気予報",
+      "reading": "てんきよほう",
+      "romaji": "tenkiyohou",
+      "meaning": "weather forecast"
+    }
+  ],
+  "予": [
+    {
+      "lesson": 23,
+      "vocabulary": "天気予報",
+      "reading": "てんきよほう",
+      "romaji": "tenkiyohou",
+      "meaning": "weather forecast"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "予定",
+      "reading": "よてい",
+      "romaji": "yotei",
+      "meaning": "plan / schedule"
+    }
+  ],
+  "報": [
+    {
+      "lesson": 23,
+      "vocabulary": "天気予報",
+      "reading": "てんきよほう",
+      "romaji": "tenkiyohou",
+      "meaning": "weather forecast"
+    }
+  ],
+  "方": [
+    {
+      "lesson": 24,
+      "vocabulary": "方",
+      "reading": "かた",
+      "romaji": "kata",
+      "meaning": "person (polite)"
+    }
+  ],
+  "料": [
+    {
+      "lesson": 24,
+      "vocabulary": "料理",
+      "reading": "りょうり",
+      "romaji": "ryouri",
+      "meaning": "cooking"
+    }
+  ],
+  "理": [
+    {
+      "lesson": 24,
+      "vocabulary": "料理",
+      "reading": "りょうり",
+      "romaji": "ryouri",
+      "meaning": "cooking"
+    },
+    {
+      "lesson": 28,
+      "vocabulary": "無理",
+      "reading": "むり",
+      "romaji": "muri",
+      "meaning": "impossible / overdoing it"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "理由",
+      "reading": "りゆう",
+      "romaji": "riyuu",
+      "meaning": "reason"
+    }
+  ],
+  "弁": [
+    {
+      "lesson": 24,
+      "vocabulary": "お弁当",
+      "reading": "おべんとう",
+      "romaji": "obentou",
+      "meaning": "boxed lunch"
+    }
+  ],
+  "菓": [
+    {
+      "lesson": 24,
+      "vocabulary": "お菓子",
+      "reading": "おかし",
+      "romaji": "okashi",
+      "meaning": "confections"
+    }
+  ],
+  "服": [
+    {
+      "lesson": 24,
+      "vocabulary": "服",
+      "reading": "ふく",
+      "romaji": "fuku",
+      "meaning": "clothes"
+    }
+  ],
+  "靴": [
+    {
+      "lesson": 24,
+      "vocabulary": "靴",
+      "reading": "くつ",
+      "romaji": "kutsu",
+      "meaning": "shoes"
+    }
+  ],
+  "帽": [
+    {
+      "lesson": 24,
+      "vocabulary": "帽子",
+      "reading": "ぼうし",
+      "romaji": "boushi",
+      "meaning": "hat"
+    }
+  ],
+  "眼": [
+    {
+      "lesson": 24,
+      "vocabulary": "眼鏡",
+      "reading": "めがね",
+      "romaji": "megane",
+      "meaning": "glasses"
+    }
+  ],
+  "鏡": [
+    {
+      "lesson": 24,
+      "vocabulary": "眼鏡",
+      "reading": "めがね",
+      "romaji": "megane",
+      "meaning": "glasses"
+    }
+  ],
+  "場": [
+    {
+      "lesson": 24,
+      "vocabulary": "場所",
+      "reading": "ばしょ",
+      "romaji": "basho",
+      "meaning": "place"
+    }
+  ],
+  "町": [
+    {
+      "lesson": 24,
+      "vocabulary": "町",
+      "reading": "まち",
+      "romaji": "machi",
+      "meaning": "town"
+    }
+  ],
+  "道": [
+    {
+      "lesson": 24,
+      "vocabulary": "道",
+      "reading": "みち",
+      "romaji": "michi",
+      "meaning": "road"
+    }
+  ],
+  "作": [
+    {
+      "lesson": 24,
+      "vocabulary": "作る",
+      "reading": "つくる",
+      "romaji": "tsukuru",
+      "meaning": "to make"
+    }
+  ],
+  "脱": [
+    {
+      "lesson": 24,
+      "vocabulary": "脱ぐ",
+      "reading": "ぬぐ",
+      "romaji": "nugu",
+      "meaning": "to take off (clothes, shoes)"
+    }
+  ],
+  "落": [
+    {
+      "lesson": 24,
+      "vocabulary": "落とす",
+      "reading": "おとす",
+      "romaji": "otosu",
+      "meaning": "to drop"
+    }
+  ],
+  "旅": [
+    {
+      "lesson": 25,
+      "vocabulary": "旅行",
+      "reading": "りょこう",
+      "romaji": "ryokou",
+      "meaning": "travel / trip"
+    }
+  ],
+  "観": [
+    {
+      "lesson": 25,
+      "vocabulary": "観光",
+      "reading": "かんこう",
+      "romaji": "kankou",
+      "meaning": "sightseeing / tourism"
+    }
+  ],
+  "光": [
+    {
+      "lesson": 25,
+      "vocabulary": "観光",
+      "reading": "かんこう",
+      "romaji": "kankou",
+      "meaning": "sightseeing / tourism"
+    }
+  ],
+  "土": [
+    {
+      "lesson": 25,
+      "vocabulary": "お土産",
+      "reading": "おみやげ",
+      "romaji": "omiyage",
+      "meaning": "souvenir / local gift"
+    }
+  ],
+  "産": [
+    {
+      "lesson": 25,
+      "vocabulary": "お土産",
+      "reading": "おみやげ",
+      "romaji": "omiyage",
+      "meaning": "souvenir / local gift"
+    }
+  ],
+  "符": [
+    {
+      "lesson": 25,
+      "vocabulary": "切符",
+      "reading": "きっぷ",
+      "romaji": "kippu",
+      "meaning": "ticket (train/bus)"
+    }
+  ],
+  "飛": [
+    {
+      "lesson": 25,
+      "vocabulary": "飛行機",
+      "reading": "ひこうき",
+      "romaji": "hikouki",
+      "meaning": "airplane"
+    }
+  ],
+  "機": [
+    {
+      "lesson": 25,
+      "vocabulary": "飛行機",
+      "reading": "ひこうき",
+      "romaji": "hikouki",
+      "meaning": "airplane"
+    }
+  ],
+  "空": [
+    {
+      "lesson": 25,
+      "vocabulary": "空港",
+      "reading": "くうこう",
+      "romaji": "kuukou",
+      "meaning": "airport"
+    }
+  ],
+  "港": [
+    {
+      "lesson": 25,
+      "vocabulary": "空港",
+      "reading": "くうこう",
+      "romaji": "kuukou",
+      "meaning": "airport"
+    }
+  ],
+  "趣": [
+    {
+      "lesson": 25,
+      "vocabulary": "趣味",
+      "reading": "しゅみ",
+      "romaji": "shumi",
+      "meaning": "hobby / pastime"
+    }
+  ],
+  "音": [
+    {
+      "lesson": 25,
+      "vocabulary": "音楽",
+      "reading": "おんがく",
+      "romaji": "ongaku",
+      "meaning": "music"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "発音",
+      "reading": "はつおん",
+      "romaji": "hatsuon",
+      "meaning": "pronunciation"
+    }
+  ],
+  "歌": [
+    {
+      "lesson": 25,
+      "vocabulary": "歌",
+      "reading": "うた",
+      "romaji": "uta",
+      "meaning": "song"
+    },
+    {
+      "lesson": 25,
+      "vocabulary": "歌う",
+      "reading": "うたう",
+      "romaji": "utau",
+      "meaning": "to sing"
+    }
+  ],
+  "欲": [
+    {
+      "lesson": 25,
+      "vocabulary": "欲しい",
+      "reading": "ほしい",
+      "romaji": "hoshii",
+      "meaning": "wanted / desirable"
+    }
+  ],
+  "金": [
+    {
+      "lesson": 25,
+      "vocabulary": "お金",
+      "reading": "おかね",
+      "romaji": "okane",
+      "meaning": "money"
+    }
+  ],
+  "自": [
+    {
+      "lesson": 25,
+      "vocabulary": "自転車",
+      "reading": "じてんしゃ",
+      "romaji": "jitensha",
+      "meaning": "bicycle"
+    }
+  ],
+  "転": [
+    {
+      "lesson": 25,
+      "vocabulary": "自転車",
+      "reading": "じてんしゃ",
+      "romaji": "jitensha",
+      "meaning": "bicycle"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "運転",
+      "reading": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving (a car)"
+    }
+  ],
+  "富": [
+    {
+      "lesson": 26,
+      "vocabulary": "富士山",
+      "reading": "ふじさん",
+      "romaji": "Fujisan",
+      "meaning": "Mount Fuji"
+    }
+  ],
+  "士": [
+    {
+      "lesson": 26,
+      "vocabulary": "富士山",
+      "reading": "ふじさん",
+      "romaji": "Fujisan",
+      "meaning": "Mount Fuji"
+    }
+  ],
+  "登": [
+    {
+      "lesson": 26,
+      "vocabulary": "登る",
+      "reading": "のぼる",
+      "romaji": "noboru",
+      "meaning": "to climb / ascend"
+    }
+  ],
+  "温": [
+    {
+      "lesson": 26,
+      "vocabulary": "温泉",
+      "reading": "おんせん",
+      "romaji": "onsen",
+      "meaning": "hot spring"
+    }
+  ],
+  "泉": [
+    {
+      "lesson": 26,
+      "vocabulary": "温泉",
+      "reading": "おんせん",
+      "romaji": "onsen",
+      "meaning": "hot spring"
+    }
+  ],
+  "泊": [
+    {
+      "lesson": 26,
+      "vocabulary": "泊まる",
+      "reading": "とまる",
+      "romaji": "tomaru",
+      "meaning": "to stay overnight"
+    }
+  ],
+  "乗": [
+    {
+      "lesson": 26,
+      "vocabulary": "乗る",
+      "reading": "のる",
+      "romaji": "noru",
+      "meaning": "to ride / board"
+    }
+  ],
+  "度": [
+    {
+      "lesson": 26,
+      "vocabulary": "一度",
+      "reading": "いちど",
+      "romaji": "ichido",
+      "meaning": "once / one time"
+    },
+    {
+      "lesson": 26,
+      "vocabulary": "一度も",
+      "reading": "いちども",
+      "romaji": "ichidomo",
+      "meaning": "not even once (with neg)"
+    }
+  ],
+  "掃": [
+    {
+      "lesson": 26,
+      "vocabulary": "掃除",
+      "reading": "そうじ",
+      "romaji": "souji",
+      "meaning": "cleaning"
+    }
+  ],
+  "除": [
+    {
+      "lesson": 26,
+      "vocabulary": "掃除",
+      "reading": "そうじ",
+      "romaji": "souji",
+      "meaning": "cleaning"
+    }
+  ],
+  "濯": [
+    {
+      "lesson": 26,
+      "vocabulary": "洗濯",
+      "reading": "せんたく",
+      "romaji": "sentaku",
+      "meaning": "laundry"
+    }
+  ],
+  "散": [
+    {
+      "lesson": 26,
+      "vocabulary": "散歩",
+      "reading": "さんぽ",
+      "romaji": "sanpo",
+      "meaning": "walk / stroll"
+    }
+  ],
+  "運": [
+    {
+      "lesson": 26,
+      "vocabulary": "運動",
+      "reading": "うんどう",
+      "romaji": "undou",
+      "meaning": "physical exercise / workout"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "運転",
+      "reading": "うんてん",
+      "romaji": "unten",
+      "meaning": "driving (a car)"
+    }
+  ],
+  "動": [
+    {
+      "lesson": 26,
+      "vocabulary": "運動",
+      "reading": "うんどう",
+      "romaji": "undou",
+      "meaning": "physical exercise / workout"
+    }
+  ],
+  "神": [
+    {
+      "lesson": 26,
+      "vocabulary": "神社",
+      "reading": "じんじゃ",
+      "romaji": "jinja",
+      "meaning": "Shinto shrine"
+    }
+  ],
+  "寺": [
+    {
+      "lesson": 26,
+      "vocabulary": "寺",
+      "reading": "てら",
+      "romaji": "tera",
+      "meaning": "Buddhist temple"
+    }
+  ],
+  "祭": [
+    {
+      "lesson": 26,
+      "vocabulary": "祭り",
+      "reading": "まつり",
+      "romaji": "matsuri",
+      "meaning": "festival"
+    }
+  ],
+  "経": [
+    {
+      "lesson": 26,
+      "vocabulary": "経験",
+      "reading": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience"
+    }
+  ],
+  "験": [
+    {
+      "lesson": 26,
+      "vocabulary": "経験",
+      "reading": "けいけん",
+      "romaji": "keiken",
+      "meaning": "experience"
+    }
+  ],
+  "弾": [
+    {
+      "lesson": 27,
+      "vocabulary": "弾く",
+      "reading": "ひく",
+      "romaji": "hiku",
+      "meaning": "to play (piano, guitar)"
+    }
+  ],
+  "外": [
+    {
+      "lesson": 27,
+      "vocabulary": "外国語",
+      "reading": "がいこくご",
+      "romaji": "gaikokugo",
+      "meaning": "foreign language"
+    }
+  ],
+  "国": [
+    {
+      "lesson": 27,
+      "vocabulary": "外国語",
+      "reading": "がいこくご",
+      "romaji": "gaikokugo",
+      "meaning": "foreign language"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "中国語",
+      "reading": "ちゅうごくご",
+      "romaji": "chuugokugo",
+      "meaning": "Chinese language"
+    }
+  ],
+  "語": [
+    {
+      "lesson": 27,
+      "vocabulary": "外国語",
+      "reading": "がいこくご",
+      "romaji": "gaikokugo",
+      "meaning": "foreign language"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "英語",
+      "reading": "えいご",
+      "romaji": "eigo",
+      "meaning": "English language"
+    },
+    {
+      "lesson": 27,
+      "vocabulary": "中国語",
+      "reading": "ちゅうごくご",
+      "romaji": "chuugokugo",
+      "meaning": "Chinese language"
+    }
+  ],
+  "英": [
+    {
+      "lesson": 27,
+      "vocabulary": "英語",
+      "reading": "えいご",
+      "romaji": "eigo",
+      "meaning": "English language"
+    }
+  ],
+  "通": [
+    {
+      "lesson": 27,
+      "vocabulary": "通じる",
+      "reading": "つうじる",
+      "romaji": "tsuujiru",
+      "meaning": "to be understood / get through"
+    }
+  ],
+  "漢": [
+    {
+      "lesson": 27,
+      "vocabulary": "漢字",
+      "reading": "かんじ",
+      "romaji": "kanji",
+      "meaning": "kanji"
+    }
+  ],
+  "字": [
+    {
+      "lesson": 27,
+      "vocabulary": "漢字",
+      "reading": "かんじ",
+      "romaji": "kanji",
+      "meaning": "kanji"
+    }
+  ],
+  "発": [
+    {
+      "lesson": 27,
+      "vocabulary": "発音",
+      "reading": "はつおん",
+      "romaji": "hatsuon",
+      "meaning": "pronunciation"
+    }
+  ],
+  "得": [
+    {
+      "lesson": 27,
+      "vocabulary": "得意",
+      "reading": "とくい",
+      "romaji": "tokui",
+      "meaning": "one's strength / proud of"
+    }
+  ],
+  "苦": [
+    {
+      "lesson": 27,
+      "vocabulary": "苦手",
+      "reading": "にがて",
+      "romaji": "nigate",
+      "meaning": "one's weak point / dislike doing"
+    }
+  ],
+  "直": [
+    {
+      "lesson": 27,
+      "vocabulary": "直す",
+      "reading": "なおす",
+      "romaji": "naosu",
+      "meaning": "to repair / correct"
+    }
+  ],
+  "練": [
+    {
+      "lesson": 27,
+      "vocabulary": "練習",
+      "reading": "れんしゅう",
+      "romaji": "renshuu",
+      "meaning": "practice / rehearsal"
+    }
+  ],
+  "習": [
+    {
+      "lesson": 27,
+      "vocabulary": "練習",
+      "reading": "れんしゅう",
+      "romaji": "renshuu",
+      "meaning": "practice / rehearsal"
+    }
+  ],
+  "薬": [
+    {
+      "lesson": 28,
+      "vocabulary": "薬",
+      "reading": "くすり",
+      "romaji": "kusuri",
+      "meaning": "medicine"
+    }
+  ],
+  "風": [
+    {
+      "lesson": 28,
+      "vocabulary": "風邪",
+      "reading": "かぜ",
+      "romaji": "kaze",
+      "meaning": "common cold (illness)"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "台風",
+      "reading": "たいふう",
+      "romaji": "taifuu",
+      "meaning": "typhoon"
+    }
+  ],
+  "邪": [
+    {
+      "lesson": 28,
+      "vocabulary": "風邪",
+      "reading": "かぜ",
+      "romaji": "kaze",
+      "meaning": "common cold (illness)"
+    }
+  ],
+  "医": [
+    {
+      "lesson": 28,
+      "vocabulary": "医者",
+      "reading": "いしゃ",
+      "romaji": "isha",
+      "meaning": "doctor / physician"
+    }
+  ],
+  "者": [
+    {
+      "lesson": 28,
+      "vocabulary": "医者",
+      "reading": "いしゃ",
+      "romaji": "isha",
+      "meaning": "doctor / physician"
+    }
+  ],
+  "保": [
+    {
+      "lesson": 28,
+      "vocabulary": "保険証",
+      "reading": "ほけんしょう",
+      "romaji": "hokenshou",
+      "meaning": "health insurance card"
+    }
+  ],
+  "険": [
+    {
+      "lesson": 28,
+      "vocabulary": "保険証",
+      "reading": "ほけんしょう",
+      "romaji": "hokenshou",
+      "meaning": "health insurance card"
+    }
+  ],
+  "証": [
+    {
+      "lesson": 28,
+      "vocabulary": "保険証",
+      "reading": "ほけんしょう",
+      "romaji": "hokenshou",
+      "meaning": "health insurance card"
+    }
+  ],
+  "規": [
+    {
+      "lesson": 28,
+      "vocabulary": "規則",
+      "reading": "きそく",
+      "romaji": "kisoku",
+      "meaning": "rule / regulation"
+    }
+  ],
+  "則": [
+    {
+      "lesson": 28,
+      "vocabulary": "規則",
+      "reading": "きそく",
+      "romaji": "kisoku",
+      "meaning": "rule / regulation"
+    }
+  ],
+  "法": [
+    {
+      "lesson": 28,
+      "vocabulary": "法律",
+      "reading": "ほうりつ",
+      "romaji": "houritsu",
+      "meaning": "law"
+    }
+  ],
+  "律": [
+    {
+      "lesson": 28,
+      "vocabulary": "法律",
+      "reading": "ほうりつ",
+      "romaji": "houritsu",
+      "meaning": "law"
+    }
+  ],
+  "守": [
+    {
+      "lesson": 28,
+      "vocabulary": "守る",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "meaning": "to obey (rules) / protect"
+    }
+  ],
+  "払": [
+    {
+      "lesson": 28,
+      "vocabulary": "払う",
+      "reading": "はらう",
+      "romaji": "harau",
+      "meaning": "to pay"
+    }
+  ],
+  "渡": [
+    {
+      "lesson": 28,
+      "vocabulary": "渡す",
+      "reading": "わたす",
+      "romaji": "watasu",
+      "meaning": "to hand over / give"
+    }
+  ],
+  "提": [
+    {
+      "lesson": 28,
+      "vocabulary": "提出",
+      "reading": "ていしゅつ",
+      "romaji": "teishutsu",
+      "meaning": "submission / turning in"
+    }
+  ],
+  "期": [
+    {
+      "lesson": 28,
+      "vocabulary": "期限",
+      "reading": "きげん",
+      "romaji": "kigen",
+      "meaning": "deadline / time limit"
+    }
+  ],
+  "限": [
+    {
+      "lesson": 28,
+      "vocabulary": "期限",
+      "reading": "きげん",
+      "romaji": "kigen",
+      "meaning": "deadline / time limit"
+    }
+  ],
+  "無": [
+    {
+      "lesson": 28,
+      "vocabulary": "無理",
+      "reading": "むり",
+      "romaji": "muri",
+      "meaning": "impossible / overdoing it"
+    }
+  ],
+  "体": [
+    {
+      "lesson": 29,
+      "vocabulary": "体",
+      "reading": "からだ",
+      "romaji": "karada",
+      "meaning": "body / physical health"
+    }
+  ],
+  "頭": [
+    {
+      "lesson": 29,
+      "vocabulary": "頭",
+      "reading": "あたま",
+      "romaji": "atama",
+      "meaning": "head / mind"
+    }
+  ],
+  "腹": [
+    {
+      "lesson": 29,
+      "vocabulary": "お腹",
+      "reading": "おなか",
+      "romaji": "onaka",
+      "meaning": "stomach / belly"
+    }
+  ],
+  "痛": [
+    {
+      "lesson": 29,
+      "vocabulary": "痛い",
+      "reading": "いたい",
+      "romaji": "itai",
+      "meaning": "painful / sore"
+    }
+  ],
+  "心": [
+    {
+      "lesson": 29,
+      "vocabulary": "心配",
+      "reading": "しんぱい",
+      "romaji": "shinpai",
+      "meaning": "worry / concern"
+    }
+  ],
+  "配": [
+    {
+      "lesson": 29,
+      "vocabulary": "心配",
+      "reading": "しんぱい",
+      "romaji": "shinpai",
+      "meaning": "worry / concern"
+    }
+  ],
+  "健": [
+    {
+      "lesson": 29,
+      "vocabulary": "健康",
+      "reading": "けんこう",
+      "romaji": "kenkou",
+      "meaning": "health / healthy"
+    }
+  ],
+  "康": [
+    {
+      "lesson": 29,
+      "vocabulary": "健康",
+      "reading": "けんこう",
+      "romaji": "kenkou",
+      "meaning": "health / healthy"
+    }
+  ],
+  "野": [
+    {
+      "lesson": 29,
+      "vocabulary": "野菜",
+      "reading": "やさい",
+      "romaji": "yasai",
+      "meaning": "vegetables"
+    }
+  ],
+  "菜": [
+    {
+      "lesson": 29,
+      "vocabulary": "野菜",
+      "reading": "やさい",
+      "romaji": "yasai",
+      "meaning": "vegetables"
+    }
+  ],
+  "早": [
+    {
+      "lesson": 29,
+      "vocabulary": "早く",
+      "reading": "はやく",
+      "romaji": "hayaku",
+      "meaning": "early / quickly"
+    }
+  ],
+  "睡": [
+    {
+      "lesson": 29,
+      "vocabulary": "睡眠",
+      "reading": "すいみん",
+      "romaji": "suimin",
+      "meaning": "sleep"
+    }
+  ],
+  "眠": [
+    {
+      "lesson": 29,
+      "vocabulary": "睡眠",
+      "reading": "すいみん",
+      "romaji": "suimin",
+      "meaning": "sleep"
+    }
+  ],
+  "甘": [
+    {
+      "lesson": 29,
+      "vocabulary": "甘い",
+      "reading": "あまい",
+      "romaji": "amai",
+      "meaning": "sweet"
+    }
+  ],
+  "辛": [
+    {
+      "lesson": 29,
+      "vocabulary": "辛い",
+      "reading": "からい",
+      "romaji": "karai",
+      "meaning": "spicy / hot"
+    }
+  ],
+  "塩": [
+    {
+      "lesson": 29,
+      "vocabulary": "塩",
+      "reading": "しお",
+      "romaji": "shio",
+      "meaning": "salt"
+    }
+  ],
+  "砂": [
+    {
+      "lesson": 29,
+      "vocabulary": "砂糖",
+      "reading": "さとう",
+      "romaji": "satou",
+      "meaning": "sugar"
+    }
+  ],
+  "糖": [
+    {
+      "lesson": 29,
+      "vocabulary": "砂糖",
+      "reading": "さとう",
+      "romaji": "satou",
+      "meaning": "sugar"
+    }
+  ],
+  "都": [
+    {
+      "lesson": 30,
+      "vocabulary": "都合",
+      "reading": "つごう",
+      "romaji": "tsugou",
+      "meaning": "convenience / circumstances"
+    }
+  ],
+  "合": [
+    {
+      "lesson": 30,
+      "vocabulary": "都合",
+      "reading": "つごう",
+      "romaji": "tsugou",
+      "meaning": "convenience / circumstances"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "間に合う",
+      "reading": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be in time (for a train/class)"
+    }
+  ],
+  "用": [
+    {
+      "lesson": 30,
+      "vocabulary": "用事",
+      "reading": "ようじ",
+      "romaji": "youji",
+      "meaning": "errand / business to do"
+    }
+  ],
+  "事": [
+    {
+      "lesson": 30,
+      "vocabulary": "用事",
+      "reading": "ようじ",
+      "romaji": "youji",
+      "meaning": "errand / business to do"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "事故",
+      "reading": "じこ",
+      "romaji": "jiko",
+      "meaning": "accident / incident"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "火事",
+      "reading": "かじ",
+      "romaji": "kaji",
+      "meaning": "fire (incident)"
+    }
+  ],
+  "定": [
+    {
+      "lesson": 30,
+      "vocabulary": "予定",
+      "reading": "よてい",
+      "romaji": "yotei",
+      "meaning": "plan / schedule"
+    }
+  ],
+  "遅": [
+    {
+      "lesson": 30,
+      "vocabulary": "遅れる",
+      "reading": "おくれる",
+      "romaji": "okureru",
+      "meaning": "to be late / delayed"
+    }
+  ],
+  "間": [
+    {
+      "lesson": 30,
+      "vocabulary": "間に合う",
+      "reading": "まにあう",
+      "romaji": "maniau",
+      "meaning": "to be in time (for a train/class)"
+    }
+  ],
+  "故": [
+    {
+      "lesson": 30,
+      "vocabulary": "事故",
+      "reading": "じこ",
+      "romaji": "jiko",
+      "meaning": "accident / incident"
+    },
+    {
+      "lesson": 30,
+      "vocabulary": "故障",
+      "reading": "こしょう",
+      "romaji": "koshou",
+      "meaning": "breakdown / malfunction"
+    }
+  ],
+  "障": [
+    {
+      "lesson": 30,
+      "vocabulary": "故障",
+      "reading": "こしょう",
+      "romaji": "koshou",
+      "meaning": "breakdown / malfunction"
+    }
+  ],
+  "台": [
+    {
+      "lesson": 30,
+      "vocabulary": "台風",
+      "reading": "たいふう",
+      "romaji": "taifuu",
+      "meaning": "typhoon"
+    }
+  ],
+  "地": [
+    {
+      "lesson": 30,
+      "vocabulary": "地震",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "meaning": "earthquake"
+    }
+  ],
+  "震": [
+    {
+      "lesson": 30,
+      "vocabulary": "地震",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "meaning": "earthquake"
+    }
+  ],
+  "火": [
+    {
+      "lesson": 30,
+      "vocabulary": "火事",
+      "reading": "かじ",
+      "romaji": "kaji",
+      "meaning": "fire (incident)"
+    }
+  ],
+  "由": [
+    {
+      "lesson": 30,
+      "vocabulary": "理由",
+      "reading": "りゆう",
+      "romaji": "riyuu",
+      "meaning": "reason"
+    }
+  ],
+  "原": [
+    {
+      "lesson": 30,
+      "vocabulary": "原因",
+      "reading": "げんいん",
+      "romaji": "gen'in",
+      "meaning": "cause / source"
+    }
+  ],
+  "因": [
+    {
+      "lesson": 30,
+      "vocabulary": "原因",
+      "reading": "げんいん",
+      "romaji": "gen'in",
+      "meaning": "cause / source"
+    }
+  ],
+  "確": [
+    {
+      "lesson": 30,
+      "vocabulary": "確か",
+      "reading": "たしか",
+      "romaji": "tashika",
+      "meaning": "certain / if I recall correctly"
+    }
+  ],
+  "残": [
+    {
+      "lesson": 30,
+      "vocabulary": "残念",
+      "reading": "ざんねん",
+      "romaji": "zannen",
+      "meaning": "unfortunate / regrettable"
+    }
+  ],
+  "念": [
+    {
+      "lesson": 30,
+      "vocabulary": "残念",
+      "reading": "ざんねん",
+      "romaji": "zannen",
+      "meaning": "unfortunate / regrettable"
+    }
+  ]
 };
 
-export function getKanjiLessonReading(char) {
-  return KANJI_CONTEXTUAL_READINGS[char] || null;
+/**
+ * Returns all course vocabulary contexts for a given Kanji character.
+ * @param {string} char - The Kanji character (e.g. "冷", "何", "結")
+ * @returns {Array<{ lesson: number, vocabulary: string, reading: string, romaji: string, meaning: string }>}
+ */
+export function getKanjiCourseContexts(char) {
+  return KANJI_COURSE_CONTEXTS[char] || [];
+}
+
+/**
+ * Returns the contextual vocabulary record for a given Kanji character in the context of a specific lesson.
+ * If no context exists for the specific lesson, falls back to the introductory context.
+ * @param {string} char - The Kanji character
+ * @param {number} [lessonOrder] - Optional lesson order number (e.g. 8, 15)
+ * @returns {{ lesson: number, vocabulary: string, reading: string, romaji: string, meaning: string } | null}
+ */
+export function getKanjiContextForLesson(char, lessonOrder = null) {
+  const contexts = KANJI_COURSE_CONTEXTS[char];
+  if (!contexts || contexts.length === 0) return null;
+  if (lessonOrder !== null && lessonOrder !== undefined) {
+    const match = contexts.find((c) => c.lesson === Number(lessonOrder));
+    if (match) return match;
+  }
+  return contexts[0];
+}
+
+/**
+ * Backward-compatible helper returning the primary learner-facing reading and metadata.
+ * @param {string} char
+ * @param {number} [lessonOrder]
+ * @returns {{ reading: string, romaji: string, meaning: string, vocabulary: string, lesson: number } | null}
+ */
+export function getKanjiLessonReading(char, lessonOrder = null) {
+  const ctx = getKanjiContextForLesson(char, lessonOrder);
+  if (!ctx) return null;
+  return {
+    reading: ctx.reading,
+    romaji: ctx.romaji,
+    meaning: ctx.meaning,
+    vocabulary: ctx.vocabulary,
+    lesson: ctx.lesson,
+  };
 }
